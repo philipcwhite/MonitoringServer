@@ -9,10 +9,6 @@
     Public Shared wAgentPollPeriod As Integer = 1
     Public Shared wPath As String = Nothing
 
-    'Cryptography
-    Public Shared Key As Byte() = System.Text.Encoding.ASCII.GetBytes("abcdefghijklmnop")
-    Public Shared IV As Byte() = System.Text.Encoding.ASCII.GetBytes("abcdefghijklmnop")
-
 End Class
 
 Public Class xmlSend

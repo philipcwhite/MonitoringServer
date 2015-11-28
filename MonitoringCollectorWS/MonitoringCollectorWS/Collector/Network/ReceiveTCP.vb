@@ -1,5 +1,5 @@
-﻿Imports MonitoringServerCA.Server.ServerParameters
-Imports MonitoringServerCA.MonitoringDatabase
+﻿Imports MonitoringCollectorWS.Server.ServerParameters
+Imports MonitoringCollectorWS.MonitoringDatabase
 Imports System.Net
 Imports System.Net.Sockets
 Imports System.Threading
@@ -8,6 +8,7 @@ Imports System.IO
 
 
 Public Class ReceiveTCP
+
 
     Public ListenPort As Integer = TCPListenPort
     Public ListenAddress As IPAddress = IPAddress.Any
