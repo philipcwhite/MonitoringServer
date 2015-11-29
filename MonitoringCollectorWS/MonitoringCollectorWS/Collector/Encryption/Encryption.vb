@@ -1,4 +1,4 @@
-﻿Imports MonitoringCollectorWS.Server.ServerParameters
+﻿Imports MonitoringCollectorWS.ServerParameters
 Imports System.Security.Cryptography
 
 
@@ -11,7 +11,7 @@ Public Class Encryption
 
         Dim plaintextBytes() As Byte = System.Text.Encoding.ASCII.GetBytes(plaintext)
         Dim ms As New System.IO.MemoryStream
-        Dim encStream As New CryptoStream(ms, AES.CreateEncryptor(Key, IV), System.Security.Cryptography.CryptoStreamMode.Write)
+        Dim encStream As New CryptoStream(ms, AES.CreateEncryptor(Key, IV), CryptoStreamMode.Write)
         encStream.Write(plaintextBytes, 0, plaintextBytes.Length)
         encStream.FlushFinalBlock()
 
@@ -25,7 +25,7 @@ Public Class Encryption
         Dim encryptedBytes() As Byte = Convert.FromBase64String(encryptedtext)
 
         Dim ms As New System.IO.MemoryStream
-        Dim decStream As New CryptoStream(ms, AES.CreateDecryptor(Key, IV), System.Security.Cryptography.CryptoStreamMode.Write)
+        Dim decStream As New CryptoStream(ms, AES.CreateDecryptor(Key, IV), CryptoStreamMode.Write)
         decStream.Write(encryptedBytes, 0, encryptedBytes.Length)
         decStream.FlushFinalBlock()
 

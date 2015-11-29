@@ -103,8 +103,10 @@
     <Compile Include="Collector\Encryption\Encryption.vb" />
     <Compile Include="Collector\Network\ReceiveTCP.vb" />
     <Compile Include="Collector\Network\SendClass.vb" />
-    <Compile Include="Collector\Parameters\DataClass.vb" />
     <Compile Include="Collector\Parameters\ServerParameters.vb" />
+    <Compile Include="Collector\Parameters\ConfigDB.vb" />
+    <Compile Include="Collector\Processes\ServerListener.vb" />
+    <Compile Include="Collector\Processes\ServerLoad.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
@@ -172,6 +174,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Collector\Logging\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

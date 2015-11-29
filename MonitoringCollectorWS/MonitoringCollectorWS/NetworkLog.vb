@@ -1,4 +1,4 @@
-﻿Imports MonitoringCollectorWS.Server.ServerParameters
+﻿Imports MonitoringCollectorWS.ServerParameters
 Imports System.IO
 
 Public Class NetworkLog

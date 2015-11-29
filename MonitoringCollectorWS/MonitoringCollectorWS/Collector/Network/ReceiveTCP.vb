@@ -1,4 +1,4 @@
-﻿Imports MonitoringCollectorWS.Server.ServerParameters
+﻿Imports MonitoringCollectorWS.ServerParameters
 Imports MonitoringCollectorWS.MonitoringDatabase
 Imports System.Net
 Imports System.Net.Sockets
@@ -46,14 +46,18 @@ Public Class ReceiveTCP
         Dim ResponseBytes As Byte() = Encoding.ASCII.GetBytes(ResponseString)
         Dim ReturnStream As NetworkStream = tcpClient.GetStream
         ReturnStream.Write(ResponseBytes, 0, ResponseBytes.Length)
+
+        TranslateXML(Message)
+
         tcpClient.Close()
         NStream.Close()
-        TranslateXML(Message)
         tcpClientConnected.Set()
     End Sub
 
 
-    Public Shared Sub TranslateXML(ByVal xmlMessage As String)
+    Public Sub TranslateXML(ByVal xmlMessage As String)
+
+
 
         Try
             If xmlMessage.Contains("agent-data") Then
@@ -68,6 +72,8 @@ Public Class ReceiveTCP
                     db.AgentCollector.Add(New AgentCollector With {.AgentName = i.Attribute("name").Value, .AgentCollectDate = i.Attribute("date").Value, .AgentClass = i.Attribute("class").Value, .AgentProperty = i.Attribute("property").Value, .AgentInstance = i.Attribute("instance").Value, .AgentValue = i.Attribute("value")})
                     db.SaveChanges()
                 Next
+
+
 
             End If
 
