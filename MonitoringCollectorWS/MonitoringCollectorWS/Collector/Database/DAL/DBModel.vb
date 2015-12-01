@@ -1,6 +1,4 @@
-Imports System
 Imports System.Data.Entity
-Imports System.Linq
 Imports System.Data.Entity.ModelConfiguration.Conventions
 
 Namespace MonitoringDatabase
@@ -29,7 +27,8 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of Agent).Property(Function(t) t.AgentDomain).HasMaxLength(100)
             modelBuilder.Entity(Of Agent).Property(Function(t) t.AgentIP).HasMaxLength(15)
             modelBuilder.Entity(Of Agent).Property(Function(t) t.AgentOSName).HasMaxLength(150)
-            modelBuilder.Entity(Of Agent).Property(Function(t) t.AgentOSVersion).HasMaxLength(100)
+            modelBuilder.Entity(Of Agent).Property(Function(t) t.AgentOSBuild).HasMaxLength(100)
+            modelBuilder.Entity(Of Agent).Property(Function(t) t.AgentOSArchitechture).HasMaxLength(100)
 
             'AgentData Table
             modelBuilder.Entity(Of AgentData).HasKey(Function(t) t.AgentID)

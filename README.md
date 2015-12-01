@@ -2,9 +2,15 @@
 
 About
 
-This repository contains the code for the Monitoring Collector that the Monitoring Agent sends data to.  This is an extremely early beta so use at your own risk.  As of now it contains two projects.  One is the database installer and the second is a TCP listener that collects data and inserts it into the database.  This component currently runs as a Windows Service.  The reason for releasing this as is, is to support the agent that I have already written.  This gives the agent somewhere to send data to.  This has been tested on SQL Express 2014.  
+This repository contains the code for the Monitoring Collector that the Monitoring Agent sends data to.  This is an extremely early beta so use at your own risk.  As of now it contains three projects.  One is the database installer, the second is a TCP listener that collects data and inserts it into the database, and the third is a data processing app.  The reason for releasing this as is, is to support the agent that I have already written.  This gives the agent somewhere to send data to.  This has been tested on SQL Express 2014.  
 
 
+
+Changes for Version 0.1.3b (2015/12/01):
+
+1. Updated database schema. 
+
+2. Started work on the DataEngine.  This will eventually run as a service.  
 
 Changes for Version 0.1.2b (2015/11/29):
 
@@ -33,6 +39,6 @@ Setup
 
 Future Notes 
 
-Future plans for 2.0 release include a web interface and a statistical processing engine.  If there is support for this project, I will consider building an event manager and notification engine.
+Future plans for 1.0 and 2.0 releases include a web interface and a statistical processing engine.  If there is support for this project, I will consider building an event manager and notification engine.
 
 Phil White 
