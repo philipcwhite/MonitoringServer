@@ -69,7 +69,7 @@ Public Class ReceiveTCP
                 Dim db As New DBModel
 
                 For Each i In wobjects
-                    db.AgentCollector.Add(New AgentCollector With {.AgentName = i.Attribute("name").Value, .AgentCollectDate = i.Attribute("date").Value, .AgentClass = i.Attribute("class").Value, .AgentProperty = i.Attribute("property").Value, .AgentInstance = i.Attribute("instance").Value, .AgentValue = i.Attribute("value")})
+                    db.AgentCollector.Add(New AgentCollector With {.AgentName = i.Attribute("name").Value, .AgentCollectDate = i.Attribute("date").Value, .AgentClass = i.Attribute("class").Value, .AgentProperty = i.Attribute("property").Value, .AgentInstance = i.Attribute("instance").Value, .AgentValue = i.Attribute("value"), .AgentDataMoved = False})
                     db.SaveChanges()
                 Next
 

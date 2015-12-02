@@ -7,5 +7,6 @@
         Public Property AgentInstance As Int32?
         Public Property AgentValue As String
         Public Property AgentCollectDate As Date? = Nothing
+        Public Property AgentDataMoved As Boolean
     End Class
 End Namespace

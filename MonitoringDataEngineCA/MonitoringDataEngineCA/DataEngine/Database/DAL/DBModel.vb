@@ -42,6 +42,18 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentCollector).Property(Function(t) t.AgentClass).HasMaxLength(250)
             modelBuilder.Entity(Of AgentCollector).Property(Function(t) t.AgentProperty).HasMaxLength(100)
 
+            'GroupName Table
+            modelBuilder.Entity(Of GroupNames).HasKey(Function(t) t.GroupID)
+            modelBuilder.Entity(Of GroupNames).Property(Function(t) t.GroupName).HasMaxLength(150)
+            modelBuilder.Entity(Of GroupNames).Property(Function(t) t.GroupType).HasMaxLength(150)
+            modelBuilder.Entity(Of GroupNames).Property(Function(t) t.GroupDescription).HasMaxLength(1000)
+
+            'GroupMembers Table
+            modelBuilder.Entity(Of GroupMembers).HasKey(Function(t) t.MemberID)
+            modelBuilder.Entity(Of GroupMembers).Property(Function(t) t.GroupName).HasMaxLength(150)
+            modelBuilder.Entity(Of GroupMembers).Property(Function(t) t.MemberName).HasMaxLength(150)
+
+
             'Policy Table
             modelBuilder.Entity(Of Policy).HasKey(Function(t) t.PolicyID)
             modelBuilder.Entity(Of Policy).Property(Function(t) t.PolicyName).HasMaxLength(100)
@@ -59,6 +71,8 @@ Namespace MonitoringDatabase
         Public Overridable Property Agent As DbSet(Of Agent)
         Public Overridable Property AgentData As DbSet(Of AgentData)
         Public Overridable Property AgentCollector As DbSet(Of AgentCollector)
+        Public Overridable Property GroupNames As DbSet(Of GroupNames)
+        Public Overridable Property GroupMembers As DbSet(Of GroupMembers)
         Public Overridable Property Policy As DbSet(Of Policy)
 
 

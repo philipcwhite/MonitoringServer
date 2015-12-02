@@ -96,6 +96,8 @@
     <Compile Include="MonitoringDB\Models\Agent.vb" />
     <Compile Include="MonitoringDB\Models\AgentCollecter.vb" />
     <Compile Include="MonitoringDB\Models\AgentData.vb" />
+    <Compile Include="MonitoringDB\Models\GroupMembers.vb" />
+    <Compile Include="MonitoringDB\Models\GroupNames.vb" />
     <Compile Include="MonitoringDB\Models\Policy.vb" />
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
