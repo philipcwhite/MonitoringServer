@@ -1,4 +1,4 @@
-﻿Imports MonitoringDataEngineCA.MonitoringDatabase
+﻿Imports MonitoringDataEngineWS.MonitoringDatabase
 Public Class MoveAgentData
 
 
@@ -14,9 +14,9 @@ Public Class MoveAgentData
 
         For Each i In Q
             AgentCollectorLocal.Add(New AgentCollector With {.AgentID = i.AgentID, .AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentInstance = i.AgentInstance, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
-            db.SaveChanges()
-        Next
 
+        Next
+        db.SaveChanges()
 
 
     End Sub
@@ -39,9 +39,9 @@ Public Class MoveAgentData
                      Select T).FirstOrDefault
 
             Q.AgentDataMoved = True
-            db.SaveChanges()
-        Next
 
+        Next
+        db.SaveChanges()
 
     End Sub
 

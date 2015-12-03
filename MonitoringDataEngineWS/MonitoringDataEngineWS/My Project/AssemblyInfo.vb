@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("MonitoringDataEngineCA")>
+<Assembly: AssemblyTitle("MonitoringDataEngineWS")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("MonitoringDataEngineCA")>
+<Assembly: AssemblyProduct("MonitoringDataEngineWS")>
 <Assembly: AssemblyCopyright("Copyright ©  2015")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("23c29e91-0feb-4ed6-a4ec-ec0433445e6e")>
+<Assembly: Guid("f71d1f30-ed2a-454c-bfa4-82be8d6f7150")>
 
 ' Version information for an assembly consists of the following four values:
 '

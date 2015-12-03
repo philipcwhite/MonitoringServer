@@ -1,9 +1,10 @@
-﻿Imports MonitoringDataEngineCA.MonitoringDatabase
+﻿Imports MonitoringDataEngineWS.MonitoringDatabase
 
-Public Class ManageAgents
+Public Class MoveAgents
 
     Private db As New DBModel
-    Private AgentCollectorLocal As New List(Of AgentCollector)
+    Private AgentCollectorLocalFull As New List(Of AgentCollector)
+    Private AgentCollectorLocalFiltered As New List(Of AgentCollector)
     Private AgentLocal As New List(Of Agent)
     Private AgentList1 As New List(Of String)
     Private AgentList2 As New List(Of String)
@@ -20,23 +21,31 @@ Public Class ManageAgents
 
     Public Sub QueryDatabase()
 
-        Dim Q1 = From s In db.AgentCollector
-                 Where s.AgentClass = "System"
-                 Order By s.AgentName, s.AgentProperty, s.AgentValue
-                 Group By AgentName = s.AgentName, AgentProperty = s.AgentProperty, AgentValue = s.AgentValue
-                Into g = Group
+        Dim Q0 = From T In db.AgentCollector
+                 Where T.AgentClass = "System" And T.AgentDataMoved = False
+                 Select T
+
+        For Each i In Q0
+            AgentCollectorLocalFull.Add(New AgentCollector With {.AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue, .AgentCollectDate = i.AgentCollectDate, .AgentID = i.AgentID, .AgentClass = i.AgentClass, .AgentDataMoved = i.AgentDataMoved})
+        Next
+
+        Dim Q1 = From T In AgentCollectorLocalFull
+                 Where T.AgentClass = "System"
+                 Order By T.AgentName, T.AgentProperty, T.AgentValue
+                 Group By AgentName = T.AgentName, AgentProperty = T.AgentProperty, AgentValue = T.AgentValue
+                Into G = Group
                  Select New With {
                 .AgentName = AgentName,
                 .AgentProperty = AgentProperty,
                 .AgentValue = AgentValue,
-                .AgentMaxDate = g.Max(Function(T1) T1.AgentCollectDate)
+                .AgentMaxDate = G.Max(Function(T1) T1.AgentCollectDate)
                 }
 
         For Each i In Q1
-            AgentCollectorLocal.Add(New AgentCollector With {.AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue, .AgentCollectDate = i.AgentMaxDate})
+            AgentCollectorLocalFiltered.Add(New AgentCollector With {.AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue, .AgentCollectDate = i.AgentMaxDate})
         Next
 
-        Dim Q2 = (From T In AgentCollectorLocal
+        Dim Q2 = (From T In AgentCollectorLocalFiltered
                   Select T.AgentName).Distinct
 
         For Each i In Q2
@@ -50,7 +59,7 @@ Public Class ManageAgents
             AgentList2.Add(i)
         Next
 
-        Dim Q4 = (From T In db.AgentCollector
+        Dim Q4 = (From T In AgentCollectorLocalFull
                   Where Not AgentList2.Contains(T.AgentName)
                   Select T.AgentName).Distinct
 
@@ -60,7 +69,7 @@ Public Class ManageAgents
 
         For Each i In AgentList1
 
-            Dim Q = From T In AgentCollectorLocal
+            Dim Q = From T In AgentCollectorLocalFiltered
                     Where T.AgentName = i
                     Select T
             AgentLocalName = i
@@ -87,6 +96,17 @@ Public Class ManageAgents
             AgentLocal.Add(New Agent With {.AgentName = AgentLocalName, .AgentDate = AgentLocalDate, .AgentDomain = AAgentLocalDomain, .AgentIP = AgentLocalIPAddress, .AgentMemory = AgentLocalMemory, .AgentOSArchitechture = AgentLocalArchitecture, .AgentOSBuild = AgentLocalBuild, .AgentOSName = AgentLocalOSVersion, .AgentProcessors = AgentLocalProcessors})
         Next
 
+
+        For Each i In AgentCollectorLocalFull
+            Dim Q = (From T In db.AgentCollector
+                     Where T.AgentID = i.AgentID
+                     Select T).FirstOrDefault
+
+            Q.AgentDataMoved = True
+
+        Next
+        db.SaveChanges()
+
     End Sub
 
 
@@ -98,8 +118,8 @@ Public Class ManageAgents
 
         For Each i In Q
             db.Agent.Add(New Agent With {.AgentName = i.AgentName, .AgentDate = i.AgentDate, .AgentDomain = i.AgentDomain, .AgentIP = i.AgentIP, .AgentMemory = i.AgentMemory, .AgentOSArchitechture = i.AgentOSArchitechture, .AgentOSBuild = i.AgentOSBuild, .AgentOSName = i.AgentOSName, .AgentProcessors = i.AgentProcessors})
-            db.SaveChanges()
         Next
+        db.SaveChanges()
 
     End Sub
 
@@ -107,20 +127,11 @@ Public Class ManageAgents
     Public Sub UpdateAgents()
 
 
-
-
-
-
         For Each i In AgentLocal
 
-
-            'Console.WriteLine(i.AgentName & " " & i.AgentDate & " " & i.AgentOSName)
-            'Console.ReadLine()
             Dim Q = (From T In db.Agent
                      Where T.AgentName = i.AgentName
                      Select T).FirstOrDefault
-
-
 
             Q.AgentDate = i.AgentDate
             Q.AgentDomain = i.AgentDomain
@@ -131,19 +142,13 @@ Public Class ManageAgents
             Q.AgentMemory = i.AgentMemory
             Q.AgentProcessors = i.AgentProcessors
 
-            db.SaveChanges()
+
         Next
-
-        ' Console.ReadLine()
-
-
-
+        db.SaveChanges()
 
     End Sub
 
 
-    Public Sub PurgeAgents()
 
-    End Sub
 
 End Class

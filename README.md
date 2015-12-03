@@ -1,9 +1,14 @@
-# MonitoringServer 0.1.4b
+# MonitoringServer 0.1.5b
 
 About
 
 This repository contains the code for the Monitoring Collector that the Monitoring Agent sends data to.  This is an extremely early beta so use at your own risk.  As of now it contains three projects.  One is the database installer, the second is a TCP listener that collects data and inserts it into the database, and the third is a data processing app.  The reason for releasing this as is, is to support the agent that I have already written.  This gives the agent somewhere to send data to.  This has been tested on SQL Express 2014.  
 
+Changes for Version 0.1.5b (2015/12/03):
+
+1.  Converted the data engine to a Windows Service.
+
+2.  Added a cleanup cycle to the data engine.  
 
 Changes for Version 0.1.4b (2015/12/02):
 
@@ -34,7 +39,7 @@ Setup
 
 4. Compile the service and installer for the MonitoringCollectorWS project or use the binary release.
 
-5. Run the MonitoringCollectorWS installer.
+5. Run the MonitoringCollectorWS installer.  Run the MonitoringDataEngine installer.
 
 6. The Collector needs access to read and write to the installation folder.  You must grant the "Network Service" account these rights.  
 
