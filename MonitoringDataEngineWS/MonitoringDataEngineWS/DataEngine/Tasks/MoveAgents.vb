@@ -5,7 +5,7 @@ Public Class MoveAgents
     Private db As New DBModel
     Private AgentCollectorLocalFull As New List(Of AgentCollector)
     Private AgentCollectorLocalFiltered As New List(Of AgentCollector)
-    Private AgentLocal As New List(Of Agent)
+    Private AgentLocal As New List(Of AgentSystem)
     Private AgentList1 As New List(Of String)
     Private AgentList2 As New List(Of String)
     Private AgentList3 As New List(Of String)
@@ -93,7 +93,7 @@ Public Class MoveAgents
                 End If
             Next
 
-            AgentLocal.Add(New Agent With {.AgentName = AgentLocalName, .AgentDate = AgentLocalDate, .AgentDomain = AAgentLocalDomain, .AgentIP = AgentLocalIPAddress, .AgentMemory = AgentLocalMemory, .AgentOSArchitechture = AgentLocalArchitecture, .AgentOSBuild = AgentLocalBuild, .AgentOSName = AgentLocalOSVersion, .AgentProcessors = AgentLocalProcessors})
+            AgentLocal.Add(New AgentSystem With {.AgentName = AgentLocalName, .AgentDate = AgentLocalDate, .AgentDomain = AAgentLocalDomain, .AgentIP = AgentLocalIPAddress, .AgentMemory = AgentLocalMemory, .AgentOSArchitechture = AgentLocalArchitecture, .AgentOSBuild = AgentLocalBuild, .AgentOSName = AgentLocalOSVersion, .AgentProcessors = AgentLocalProcessors})
         Next
 
 
@@ -117,7 +117,7 @@ Public Class MoveAgents
                 Select T1
 
         For Each i In Q
-            db.Agent.Add(New Agent With {.AgentName = i.AgentName, .AgentDate = i.AgentDate, .AgentDomain = i.AgentDomain, .AgentIP = i.AgentIP, .AgentMemory = i.AgentMemory, .AgentOSArchitechture = i.AgentOSArchitechture, .AgentOSBuild = i.AgentOSBuild, .AgentOSName = i.AgentOSName, .AgentProcessors = i.AgentProcessors})
+            db.Agent.Add(New AgentSystem With {.AgentName = i.AgentName, .AgentDate = i.AgentDate, .AgentDomain = i.AgentDomain, .AgentIP = i.AgentIP, .AgentMemory = i.AgentMemory, .AgentOSArchitechture = i.AgentOSArchitechture, .AgentOSBuild = i.AgentOSBuild, .AgentOSName = i.AgentOSName, .AgentProcessors = i.AgentProcessors})
         Next
         db.SaveChanges()
 

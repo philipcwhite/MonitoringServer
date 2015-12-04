@@ -32,6 +32,7 @@
         '
         'ServiceInstaller1
         '
+        Me.ServiceInstaller1.Description = "Monitoring Data Engine"
         Me.ServiceInstaller1.ServiceName = "MonitoringDataEngineWS"
         Me.ServiceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic
         '

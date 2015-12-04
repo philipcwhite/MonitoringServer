@@ -96,9 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collector\Database\DAL\DBModel.vb" />
-    <Compile Include="Collector\Database\Models\Agent.vb" />
     <Compile Include="Collector\Database\Models\AgentCollecter.vb" />
-    <Compile Include="Collector\Database\Models\AgentData.vb" />
+    <Compile Include="Collector\Database\Models\AgentLogicalDisk.vb" />
+    <Compile Include="Collector\Database\Models\AgentMemory.vb" />
+    <Compile Include="Collector\Database\Models\AgentProcessor.vb" />
+    <Compile Include="Collector\Database\Models\AgentService.vb" />
+    <Compile Include="Collector\Database\Models\AgentSystem.vb" />
     <Compile Include="Collector\Database\Models\GroupMembers.vb" />
     <Compile Include="Collector\Database\Models\GroupNames.vb" />
     <Compile Include="Collector\Database\Models\Policy.vb" />

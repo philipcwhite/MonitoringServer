@@ -1,8 +1,16 @@
-# MonitoringServer 0.1.5b
+# MonitoringServer 0.1.6b
 
 About
 
 This repository contains the code for the Monitoring Collector that the Monitoring Agent sends data to.  This is an extremely early beta so use at your own risk.  As of now it contains three projects.  One is the database installer, the second is a TCP listener that collects data and inserts it into the database, and the third is a data processing app.  The reason for releasing this as is, is to support the agent that I have already written.  This gives the agent somewhere to send data to.  This has been tested on SQL Express 2014.  
+
+Changes for Version 0.1.6b (2015/12/04):
+
+This update mostly addresses database scaling.  My goal is to be able to handle 1000+ agents at an average poll period of 5 minutes with decent database response time.
+
+1.  Updated the database schema by seperating system components to their own tables.  This was done to improve SQL performance by shrinking large tables.
+
+2.  Set the cleanup period to 7 days.  This will change after archive tables are created.  The main processing table will be set to 24 hours and then the archive will receive data after that.  There may be a third archive table if I decide to scale large.  
 
 Changes for Version 0.1.5b (2015/12/03):
 

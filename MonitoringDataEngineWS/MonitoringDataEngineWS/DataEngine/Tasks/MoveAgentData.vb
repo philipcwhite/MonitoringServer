@@ -23,26 +23,55 @@ Public Class MoveAgentData
 
 
     Public Sub InsertAgentData()
-        'Console.WriteLine("pause")
-        'Console.ReadLine()
 
-        For Each i In AgentCollectorLocal
-            ' Console.WriteLine(i.AgentName & " " & i.AgentCollectDate)
-            db.AgentData.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentInstance = i.AgentInstance, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+        Dim Q1 = From T In AgentCollectorLocal
+                 Where T.AgentClass = "Processor"
+                 Select T
+
+        For Each i In Q1
+            db.AgentProcessor.Add(New AgentProcessor With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
         Next
-        ' Console.ReadLine()
+
+        Dim Q2 = From T In AgentCollectorLocal
+                 Where T.AgentClass = "Memory"
+                 Select T
+
+        For Each i In Q2
+            db.AgentMemory.Add(New AgentMemory With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+        Next
+
+        Dim Q3 = From T In AgentCollectorLocal
+                 Where T.AgentClass.Contains(":)") And T.AgentProperty.Contains("Free Space")
+                 Select T
+
+        For Each i In Q3
+            db.AgentLogicalDisk.Add(New AgentLogicalDisk With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue, .AgentInstance = i.AgentInstance})
+        Next
+
+        Dim Q4 = From T In AgentCollectorLocal
+                 Where T.AgentClass = "Services"
+                 Select T
+
+        For Each i In Q4
+            db.AgentService.Add(New AgentService With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+        Next
+
 
         For Each i In AgentCollectorLocal
 
-            Dim Q = (From T In db.AgentCollector
-                     Where T.AgentID = i.AgentID
-                     Select T).FirstOrDefault
+            Dim Q5 = (From T In db.AgentCollector
+                      Where T.AgentID = i.AgentID
+                      Select T).FirstOrDefault
 
-            Q.AgentDataMoved = True
+            Q5.AgentDataMoved = True
 
         Next
         db.SaveChanges()
 
+
     End Sub
+
+
+
 
 End Class

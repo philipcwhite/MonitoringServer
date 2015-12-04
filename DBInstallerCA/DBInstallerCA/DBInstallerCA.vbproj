@@ -92,14 +92,17 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Module1.vb" />
     <Compile Include="MonitoringDB\DAL\DBModel.vb" />
-    <Compile Include="MonitoringDB\Models\Agent.vb" />
     <Compile Include="MonitoringDB\Models\AgentCollecter.vb" />
-    <Compile Include="MonitoringDB\Models\AgentData.vb" />
+    <Compile Include="MonitoringDB\Models\AgentLogicalDisk.vb" />
+    <Compile Include="MonitoringDB\Models\AgentMemory.vb" />
+    <Compile Include="MonitoringDB\Models\AgentProcessor.vb" />
+    <Compile Include="MonitoringDB\Models\AgentService.vb" />
+    <Compile Include="MonitoringDB\Models\AgentSystem.vb" />
     <Compile Include="MonitoringDB\Models\GroupMembers.vb" />
     <Compile Include="MonitoringDB\Models\GroupNames.vb" />
     <Compile Include="MonitoringDB\Models\Policy.vb" />
-    <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
