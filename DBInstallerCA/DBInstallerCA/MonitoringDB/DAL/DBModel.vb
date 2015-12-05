@@ -23,8 +23,8 @@ Namespace MonitoringDatabase
 
             'AgentSystem Table
             modelBuilder.Entity(Of AgentSystem).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentName).HasMaxLength(100)
-            modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentDomain).HasMaxLength(100)
+            modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentDomain).HasMaxLength(50)
             modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentIP).HasMaxLength(15)
             modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentOSName).HasMaxLength(100)
             modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentOSBuild).HasMaxLength(25)
@@ -32,26 +32,26 @@ Namespace MonitoringDatabase
 
             'AgentProcessor Table
             modelBuilder.Entity(Of AgentProcessor).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentName).HasMaxLength(100)
-            modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentClass).HasMaxLength(100)
-            modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentProperty).HasMaxLength(100)
+            modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentMemory Table
             modelBuilder.Entity(Of AgentMemory).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentName).HasMaxLength(100)
-            modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentClass).HasMaxLength(100)
-            modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentProperty).HasMaxLength(100)
+            modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentLogicalDisk Table
             modelBuilder.Entity(Of AgentLogicalDisk).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentLogicalDisk).Property(Function(t) t.AgentName).HasMaxLength(100)
-            modelBuilder.Entity(Of AgentLogicalDisk).Property(Function(t) t.AgentClass).HasMaxLength(100)
-            modelBuilder.Entity(Of AgentLogicalDisk).Property(Function(t) t.AgentProperty).HasMaxLength(100)
+            modelBuilder.Entity(Of AgentLogicalDisk).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentLogicalDisk).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentLogicalDisk).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentServices Table
             modelBuilder.Entity(Of AgentService).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentName).HasMaxLength(100)
-            modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentClass).HasMaxLength(100)
+            modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentClass).HasMaxLength(25)
             modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentProperty).HasMaxLength(100)
 
             'AgentCollector Table
@@ -71,13 +71,48 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of GroupMembers).Property(Function(t) t.GroupName).HasMaxLength(150)
             modelBuilder.Entity(Of GroupMembers).Property(Function(t) t.MemberName).HasMaxLength(100)
 
-
             'Policy Table
             modelBuilder.Entity(Of Policy).HasKey(Function(t) t.PolicyID)
             modelBuilder.Entity(Of Policy).Property(Function(t) t.PolicyName).HasMaxLength(100)
             modelBuilder.Entity(Of Policy).Property(Function(t) t.PolicyClass).HasMaxLength(50)
             modelBuilder.Entity(Of Policy).Property(Function(t) t.PolicyParameter).HasMaxLength(250)
             modelBuilder.Entity(Of Policy).Property(Function(t) t.PolicyValue).HasMaxLength(100)
+
+            'Archive Tables
+
+            'AgentProcessor Table
+            modelBuilder.Entity(Of AgentProcessorArchive).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentProcessorArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentProcessorArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentProcessorArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+
+            'AgentMemory Table
+            modelBuilder.Entity(Of AgentMemoryArchive).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+
+            'AgentLogicalDisk Table
+            modelBuilder.Entity(Of AgentLogicalDiskArchive).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentLogicalDiskArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentLogicalDiskArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentLogicalDiskArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+
+            'AgentServices Table
+            modelBuilder.Entity(Of AgentServiceArchive).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentServiceArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentServiceArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentServiceArchive).Property(Function(t) t.AgentProperty).HasMaxLength(100)
+
+            'MonitoringEvents Table
+            modelBuilder.Entity(Of AgentEvents).HasKey(Function(t) t.AgentEventID)
+            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentEventSubject).HasMaxLength(100)
+            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentEventMessage).HasMaxLength(5000)
+            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentEventStatus).HasMaxLength(10)
+            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentEventSeverity).HasMaxLength(10)
+
+
 
         End Sub
 
@@ -86,14 +121,19 @@ Namespace MonitoringDatabase
         ' Add a DbSet for each entity type that you want to include in your model. For more information 
         ' on configuring and using a Code First model, see http:'go.microsoft.com/fwlink/?LinkId=390109.
 
-        Public Overridable Property Agent As DbSet(Of AgentSystem)
-        Public Overridable Property AgentProcessor As DbSet(Of AgentProcessor)
-        Public Overridable Property AgentMemory As DbSet(Of AgentMemory)
-        Public Overridable Property AgentLogicalDisk As DbSet(Of AgentLogicalDisk)
-        Public Overridable Property AgentService As DbSet(Of AgentService)
         Public Overridable Property AgentCollector As DbSet(Of AgentCollector)
-        Public Overridable Property GroupNames As DbSet(Of GroupNames)
+        Public Overridable Property AgentEvents As DbSet(Of AgentEvents)
+        Public Overridable Property AgentLogicalDisk As DbSet(Of AgentLogicalDisk)
+        Public Overridable Property AgentLogicalDiskArchive As DbSet(Of AgentLogicalDiskArchive)
+        Public Overridable Property AgentMemory As DbSet(Of AgentMemory)
+        Public Overridable Property AgentMemoryArchive As DbSet(Of AgentMemoryArchive)
+        Public Overridable Property AgentProcessor As DbSet(Of AgentProcessor)
+        Public Overridable Property AgentProcessorArchive As DbSet(Of AgentProcessorArchive)
+        Public Overridable Property AgentSystem As DbSet(Of AgentSystem)
+        Public Overridable Property AgentService As DbSet(Of AgentService)
+        Public Overridable Property AgentServiceArchive As DbSet(Of AgentServiceArchive)
         Public Overridable Property GroupMembers As DbSet(Of GroupMembers)
+        Public Overridable Property GroupNames As DbSet(Of GroupNames)
         Public Overridable Property Policy As DbSet(Of Policy)
 
 

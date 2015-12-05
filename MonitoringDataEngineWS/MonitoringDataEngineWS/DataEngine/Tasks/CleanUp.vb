@@ -17,17 +17,17 @@ Public Class CleanUp
         Next
         db.SaveChanges()
 
-        PurgeDate = Date.Now.AddDays(-7)
+        PurgeDate = Date.Now.AddDays(-30)
 
 
         'Purge Agent Data
 
-        Dim Q2 = From T In db.AgentProcessor
+        Dim Q2 = From T In db.AgentProcessorArchive
                  Where T.AgentCollectDate < PurgeDate
                  Select T
 
         For Each i In Q2
-            db.AgentProcessor.Remove(i)
+            db.AgentProcessorArchive.Remove(i)
         Next
         db.SaveChanges()
 
@@ -40,21 +40,21 @@ Public Class CleanUp
         Next
         db.SaveChanges()
 
-        Dim Q4 = From T In db.AgentLogicalDisk
+        Dim Q4 = From T In db.AgentLogicalDiskArchive
                  Where T.AgentCollectDate < PurgeDate
                  Select T
 
         For Each i In Q4
-            db.AgentLogicalDisk.Remove(i)
+            db.AgentLogicalDiskArchive.Remove(i)
         Next
         db.SaveChanges()
 
-        Dim Q5 = From T In db.AgentService
+        Dim Q5 = From T In db.AgentServiceArchive
                  Where T.AgentCollectDate < PurgeDate
                  Select T
 
         For Each i In Q5
-            db.AgentService.Remove(i)
+            db.AgentServiceArchive.Remove(i)
         Next
         db.SaveChanges()
 
@@ -64,8 +64,5 @@ Public Class CleanUp
 
     End Sub
 
-    Public Sub Archive()
-
-    End Sub
 
 End Class

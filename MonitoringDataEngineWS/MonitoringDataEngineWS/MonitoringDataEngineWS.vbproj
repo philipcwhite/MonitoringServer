@@ -80,15 +80,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataEngine\Database\DAL\DBModel.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentService.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentMemory.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentLogicalDisk.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentSystem.vb" />
     <Compile Include="DataEngine\Database\Models\AgentCollecter.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentEvents.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentLogicalDisk.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentLogicalDiskArchive.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentMemory.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentMemoryArchive.vb" />
     <Compile Include="DataEngine\Database\Models\AgentProcessor.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentProcessorArchive.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentService.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentServiceArchive.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentSystem.vb" />
     <Compile Include="DataEngine\Database\Models\GroupMembers.vb" />
     <Compile Include="DataEngine\Database\Models\GroupNames.vb" />
     <Compile Include="DataEngine\Database\Models\Policy.vb" />
+    <Compile Include="DataEngine\Tasks\ArchiveAgentData.vb" />
     <Compile Include="DataEngine\Tasks\CleanUp.vb" />
     <Compile Include="DataEngine\Tasks\MoveAgentData.vb" />
     <Compile Include="DataEngine\Tasks\MoveAgents.vb" />

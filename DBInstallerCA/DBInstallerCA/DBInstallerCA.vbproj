@@ -95,10 +95,15 @@
     <Compile Include="Module1.vb" />
     <Compile Include="MonitoringDB\DAL\DBModel.vb" />
     <Compile Include="MonitoringDB\Models\AgentCollecter.vb" />
+    <Compile Include="MonitoringDB\Models\AgentLogicalDiskArchive.vb" />
     <Compile Include="MonitoringDB\Models\AgentLogicalDisk.vb" />
+    <Compile Include="MonitoringDB\Models\AgentMemoryArchive.vb" />
     <Compile Include="MonitoringDB\Models\AgentMemory.vb" />
+    <Compile Include="MonitoringDB\Models\AgentProcessorArchive.vb" />
     <Compile Include="MonitoringDB\Models\AgentProcessor.vb" />
+    <Compile Include="MonitoringDB\Models\AgentServiceArchive.vb" />
     <Compile Include="MonitoringDB\Models\AgentService.vb" />
+    <Compile Include="MonitoringDB\Models\AgentEvents.vb" />
     <Compile Include="MonitoringDB\Models\AgentSystem.vb" />
     <Compile Include="MonitoringDB\Models\GroupMembers.vb" />
     <Compile Include="MonitoringDB\Models\GroupNames.vb" />

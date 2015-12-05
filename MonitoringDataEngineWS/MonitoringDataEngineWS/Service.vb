@@ -47,6 +47,9 @@ Public Class Service
             MAgentData.QueryDataBase()
             MAgentData.InsertAgentData()
 
+            Dim Archive As New ArchiveAgentData
+            Archive.Archive()
+
             Dim CleanAgents As New CleanUp
             CleanAgents.PurgeData()
 

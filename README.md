@@ -1,8 +1,14 @@
-# MonitoringServer 0.1.6b
+# MonitoringServer 0.1.7b
 
 About
 
 This repository contains the code for the Monitoring Collector that the Monitoring Agent sends data to.  This is an extremely early beta so use at your own risk.  As of now it contains three projects.  One is the database installer, the second is a TCP listener that collects data and inserts it into the database, and the third is a data processing app.  The reason for releasing this as is, is to support the agent that I have already written.  This gives the agent somewhere to send data to.  This has been tested on SQL Express 2014.  
+
+Changes for Version 0.1.7b (2015/12/04):
+
+1.  I continued to address scalability by creating archive data tables.  The existing Agent data tables will hold 24 hours of data for active event processing and data viewing.  The archive tables will hold data that is over 24 hours old.  I moved the cut off date to 30 days in the archive.  Tables here could still potentially grow to 100 million plus rows depending on collection intervals and number of items collected.  I will eventually add a configuration file for this so that it can be configured manually.
+
+2.  I also updated exisiting tables and reduced their column sizes.  If you are using short host names over 50 characters, then your out of luck. 
 
 Changes for Version 0.1.6b (2015/12/04):
 

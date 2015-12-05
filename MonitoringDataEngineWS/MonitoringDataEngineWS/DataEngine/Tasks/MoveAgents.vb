@@ -52,7 +52,7 @@ Public Class MoveAgents
             AgentList1.Add(i)
         Next
 
-        Dim Q3 = From T In db.Agent
+        Dim Q3 = From T In db.AgentSystem
                  Select T.AgentName
 
         For Each i In Q3
@@ -117,7 +117,7 @@ Public Class MoveAgents
                 Select T1
 
         For Each i In Q
-            db.Agent.Add(New AgentSystem With {.AgentName = i.AgentName, .AgentDate = i.AgentDate, .AgentDomain = i.AgentDomain, .AgentIP = i.AgentIP, .AgentMemory = i.AgentMemory, .AgentOSArchitechture = i.AgentOSArchitechture, .AgentOSBuild = i.AgentOSBuild, .AgentOSName = i.AgentOSName, .AgentProcessors = i.AgentProcessors})
+            db.AgentSystem.Add(New AgentSystem With {.AgentName = i.AgentName, .AgentDate = i.AgentDate, .AgentDomain = i.AgentDomain, .AgentIP = i.AgentIP, .AgentMemory = i.AgentMemory, .AgentOSArchitechture = i.AgentOSArchitechture, .AgentOSBuild = i.AgentOSBuild, .AgentOSName = i.AgentOSName, .AgentProcessors = i.AgentProcessors})
         Next
         db.SaveChanges()
 
@@ -129,7 +129,7 @@ Public Class MoveAgents
 
         For Each i In AgentLocal
 
-            Dim Q = (From T In db.Agent
+            Dim Q = (From T In db.AgentSystem
                      Where T.AgentName = i.AgentName
                      Select T).FirstOrDefault
 
