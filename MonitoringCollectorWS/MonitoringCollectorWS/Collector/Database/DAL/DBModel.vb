@@ -71,12 +71,23 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of GroupMembers).Property(Function(t) t.GroupName).HasMaxLength(150)
             modelBuilder.Entity(Of GroupMembers).Property(Function(t) t.MemberName).HasMaxLength(100)
 
-            'Policy Table
-            modelBuilder.Entity(Of Policy).HasKey(Function(t) t.PolicyID)
-            modelBuilder.Entity(Of Policy).Property(Function(t) t.PolicyName).HasMaxLength(100)
-            modelBuilder.Entity(Of Policy).Property(Function(t) t.PolicyClass).HasMaxLength(50)
-            modelBuilder.Entity(Of Policy).Property(Function(t) t.PolicyParameter).HasMaxLength(250)
-            modelBuilder.Entity(Of Policy).Property(Function(t) t.PolicyValue).HasMaxLength(100)
+            'Policies
+
+            'AgentPolicy Table
+            modelBuilder.Entity(Of AgentPolicy).HasKey(Function(t) t.PolicyID)
+            modelBuilder.Entity(Of AgentPolicy).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentPolicy).Property(Function(t) t.PolicyName).HasMaxLength(100)
+            modelBuilder.Entity(Of AgentPolicy).Property(Function(t) t.PolicyClass).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentPolicy).Property(Function(t) t.PolicyParameter).HasMaxLength(250)
+            modelBuilder.Entity(Of AgentPolicy).Property(Function(t) t.PolicyValue).HasMaxLength(100)
+
+            'GroupPolicy Table
+            modelBuilder.Entity(Of GroupPolicy).HasKey(Function(t) t.PolicyID)
+            modelBuilder.Entity(Of GroupPolicy).Property(Function(t) t.GroupName).HasMaxLength(150)
+            modelBuilder.Entity(Of GroupPolicy).Property(Function(t) t.PolicyName).HasMaxLength(100)
+            modelBuilder.Entity(Of GroupPolicy).Property(Function(t) t.PolicyClass).HasMaxLength(50)
+            modelBuilder.Entity(Of GroupPolicy).Property(Function(t) t.PolicyParameter).HasMaxLength(250)
+            modelBuilder.Entity(Of GroupPolicy).Property(Function(t) t.PolicyValue).HasMaxLength(100)
 
             'Archive Tables
 
@@ -112,7 +123,19 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentEventStatus).HasMaxLength(10)
             modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentEventSeverity).HasMaxLength(10)
 
+            'ThresholdTables
 
+            'AgentThresholds
+            modelBuilder.Entity(Of AgentThresholds).HasKey(Function(t) t.ThresholdID)
+            modelBuilder.Entity(Of AgentThresholds).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentThresholds).Property(Function(t) t.Comparison).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentThresholds).Property(Function(t) t.Severity).HasMaxLength(25)
+
+            'GroupThresholds
+            modelBuilder.Entity(Of GroupThresholds).HasKey(Function(t) t.ThresholdID)
+            modelBuilder.Entity(Of GroupThresholds).Property(Function(t) t.GroupName).HasMaxLength(150)
+            modelBuilder.Entity(Of GroupThresholds).Property(Function(t) t.Comparison).HasMaxLength(25)
+            modelBuilder.Entity(Of GroupThresholds).Property(Function(t) t.Severity).HasMaxLength(25)
 
         End Sub
 
@@ -127,14 +150,18 @@ Namespace MonitoringDatabase
         Public Overridable Property AgentLogicalDiskArchive As DbSet(Of AgentLogicalDiskArchive)
         Public Overridable Property AgentMemory As DbSet(Of AgentMemory)
         Public Overridable Property AgentMemoryArchive As DbSet(Of AgentMemoryArchive)
+        Public Overridable Property AgentPolicy As DbSet(Of AgentPolicy)
         Public Overridable Property AgentProcessor As DbSet(Of AgentProcessor)
         Public Overridable Property AgentProcessorArchive As DbSet(Of AgentProcessorArchive)
         Public Overridable Property AgentSystem As DbSet(Of AgentSystem)
         Public Overridable Property AgentService As DbSet(Of AgentService)
         Public Overridable Property AgentServiceArchive As DbSet(Of AgentServiceArchive)
+        Public Overridable Property AgentThresholds As DbSet(Of AgentThresholds)
         Public Overridable Property GroupMembers As DbSet(Of GroupMembers)
         Public Overridable Property GroupNames As DbSet(Of GroupNames)
-        Public Overridable Property Policy As DbSet(Of Policy)
+        Public Overridable Property GroupPolicy As DbSet(Of GroupPolicy)
+        Public Overridable Property GroupThresholds As DbSet(Of GroupThresholds)
+
 
 
     End Class

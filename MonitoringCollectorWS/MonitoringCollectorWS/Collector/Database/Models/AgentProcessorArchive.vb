@@ -1,6 +1,6 @@
 ﻿Namespace MonitoringDatabase
     Public Class AgentProcessorArchive
-        Public Property AgentID As Int32
+        Public Property AgentID As Int64
         Public Property AgentName As String
         Public Property AgentClass As String
         Public Property AgentProperty As String

@@ -1,6 +1,6 @@
 ﻿Namespace MonitoringDatabase
     Public Class AgentEvents
-        Public Property AgentEventID As Int32
+        Public Property AgentEventID As Int64
         Public Property AgentName As String
         Public Property AgentEventSubject As String
         Public Property AgentEventMessage As String
