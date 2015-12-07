@@ -1,14 +1,22 @@
-# MonitoringServer 0.1.8b
+# MonitoringServer 0.2.0b
 
 About
 
-This repository contains the code for the Monitoring Collector that the Monitoring Agent sends data to.  This is an extremely early beta so use at your own risk.  As of now it contains three projects.  One is the database installer, the second is a TCP listener that collects data and inserts it into the database, and the third is a data processing app.  The reason for releasing this as is, is to support the agent that I have already written.  This gives the agent somewhere to send data to.  This has been tested on SQL Express 2014.  
+This repository contains the code for the Monitoring Collector that the Monitoring Agent sends data to.  This is an extremely early beta so use at your own risk.  As of now it contains four projects.  One is the database installer, the second is a TCP listener that collects data and inserts it into the database, the third is a data processing app, and the fourth is an event engine.  The reason for releasing this as is, is to support the agent that I have already written.  This gives the agent somewhere to send data to.  This has been tested on SQL Express 2014.  
 
-Changes for Version 0.1.8b (2015/12/04):
+I have made a great deal of progress on the main server application and will soon be starting on a web interface.
+
+Changes for Version 0.2.0b (2015/12/07):
+
+1.  Added the Event Engine.  It currently processes Agent Thresholds.  I will be adding in support for groups soon.
+
+2.  Updated Database Schema for thresholds and events.
+
+Changes for Version 0.1.8b (2015/12/06):
 
 1. Updated DB Schema to account for large datasets and added in new tables for event and policy management.
 
-Changes for Version 0.1.7b (2015/12/04):
+Changes for Version 0.1.7b (2015/12/05):
 
 1.  I continued to address scalability by creating archive data tables.  The existing Agent data tables will hold 24 hours of data for active event processing and data viewing.  The archive tables will hold data that is over 24 hours old.  I moved the cut off date to 30 days in the archive.  Tables here could still potentially grow to 100 million plus rows depending on collection intervals and number of items collected.  I will eventually add a configuration file for this so that it can be configured manually.
 
@@ -67,6 +75,6 @@ Setup
 
 Future Notes 
 
-Future plans for 1.0 and 2.0 releases include a web interface and a statistical processing engine.  If there is support for this project, I will consider building an event manager and notification engine.
+Future plans for 1.0 and 2.0 releases include a web interface.
 
 Phil White 

@@ -1,32 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AF657D15-9062-4111-916A-4C298E4E1835}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <StartupObject>DBInstallerCA.Module1</StartupObject>
-    <RootNamespace>DBInstallerCA</RootNamespace>
-    <AssemblyName>DBInstallerCA</AssemblyName>
+    <ProjectGuid>{28133354-4E62-446D-9ACC-05D62AFD186F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>MonitoringEventEngineWS.Service</StartupObject>
+    <RootNamespace>MonitoringEventEngineWS</RootNamespace>
+    <AssemblyName>MonitoringEventEngineWS</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,7 +21,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>DBInstallerCA.xml</DocumentationFile>
+    <DocumentationFile>MonitoringEventEngineWS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -45,7 +31,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>DBInstallerCA.xml</DocumentationFile>
+    <DocumentationFile>MonitoringEventEngineWS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -61,24 +47,25 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer">
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Deployment" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -92,30 +79,42 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Module1.vb" />
-    <Compile Include="MonitoringDB\DAL\DBModel.vb" />
-    <Compile Include="MonitoringDB\Models\AgentCollecter.vb" />
-    <Compile Include="MonitoringDB\Models\AgentEvents.vb" />
-    <Compile Include="MonitoringDB\Models\AgentLogicalDisk.vb" />
-    <Compile Include="MonitoringDB\Models\AgentLogicalDiskArchive.vb" />
-    <Compile Include="MonitoringDB\Models\AgentMemory.vb" />
-    <Compile Include="MonitoringDB\Models\AgentMemoryArchive.vb" />
-    <Compile Include="MonitoringDB\Models\AgentPolicy.vb" />
-    <Compile Include="MonitoringDB\Models\AgentProcessor.vb" />
-    <Compile Include="MonitoringDB\Models\AgentProcessorArchive.vb" />
-    <Compile Include="MonitoringDB\Models\AgentService.vb" />
-    <Compile Include="MonitoringDB\Models\AgentServiceArchive.vb" />
-    <Compile Include="MonitoringDB\Models\AgentSystem.vb" />
-    <Compile Include="MonitoringDB\Models\AgentThresholds.vb" />
-    <Compile Include="MonitoringDB\Models\GroupMembers.vb" />
-    <Compile Include="MonitoringDB\Models\GroupNames.vb" />
-    <Compile Include="MonitoringDB\Models\GroupPolicy.vb" />
-    <Compile Include="MonitoringDB\Models\GroupThresholds.vb" />
-    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="EventEngine\Database\DAL\DBModel.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentCollecter.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentEvents.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentLogicalDisk.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentLogicalDiskArchive.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentMemory.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentMemoryArchive.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentPolicy.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentProcessor.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentProcessorArchive.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentService.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentServiceArchive.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentSystem.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentThresholds.vb" />
+    <Compile Include="EventEngine\Database\Models\GroupMembers.vb" />
+    <Compile Include="EventEngine\Database\Models\GroupNames.vb" />
+    <Compile Include="EventEngine\Database\Models\GroupPolicy.vb" />
+    <Compile Include="EventEngine\Database\Models\GroupThresholds.vb" />
+    <Compile Include="EventEngine\Tasks\ManageEvents.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
+    <Compile Include="ProjectInstaller.Designer.vb">
+      <DependentUpon>ProjectInstaller.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectInstaller.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service1.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service1.Designer.vb">
+      <DependentUpon>Service1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,6 +133,12 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Service1.resx">
+      <DependentUpon>Service1.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">
@@ -145,23 +150,10 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
