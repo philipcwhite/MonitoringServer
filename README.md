@@ -1,10 +1,14 @@
-# MonitoringServer 0.2.0b
+# MonitoringServer 0.2.1b
 
 About
 
-This repository contains the code for the Monitoring Collector that the Monitoring Agent sends data to.  This is an extremely early beta so use at your own risk.  As of now it contains four projects.  One is the database installer, the second is a TCP listener that collects data and inserts it into the database, the third is a data processing app, and the fourth is an event engine.  The reason for releasing this as is, is to support the agent that I have already written.  This gives the agent somewhere to send data to.  This has been tested on SQL Express 2014.  
+This repository contains the code for the Monitoring Collector that the Monitoring Agent sends data to.  This is an extremely early beta so use at your own risk.  As of now it contains four projects.  One is the database installer, the second is a TCP listener that collects data and inserts it into the database, the third is a data processing app, and the fourth is an event engine.  The reason for releasing this as is, is to support the agent that I have already written.  This gives the agent somewhere to send data to.  This has been tested on Windows 8.1 with SQL Express 2014.  
 
-I have made a great deal of progress on the main server application and will soon be starting on a web interface.
+Unless bugs are detected, all future work will now move towards web development until 1.0.0B is released.  
+
+Changes for Version 0.2.1b (2015/12/07):
+
+1. Added in group thresholds.  Agent Thresholds are now set to override group thresholds.  
 
 Changes for Version 0.2.0b (2015/12/07):
 

@@ -27,6 +27,7 @@ Public Class Service
     Private Sub EventEngine()
 
         Dim MEvents As New ManageEvents
+        MEvents.LoadThresholds()
         MEvents.Thresholds("Processor", "Total Util (%)")
         MEvents.Thresholds("Memory", "Total Util (%)")
         MEvents.Thresholds("Logical Disk", "")

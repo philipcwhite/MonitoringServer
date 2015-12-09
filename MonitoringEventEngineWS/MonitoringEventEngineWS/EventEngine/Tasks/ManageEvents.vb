@@ -1,8 +1,41 @@
 ﻿Imports MonitoringEventEngineWS.MonitoringDatabase
 Public Class ManageEvents
 
-
     Private db As New DBModel
+    Private Property AgentThresholdsCombined As New List(Of AgentThresholds)
+    Private Property AgentThresholdsGroup As New List(Of AgentThresholds)
+
+    Public Sub LoadThresholds()
+
+        Dim Q1 = From T In db.AgentThresholds
+                 Select T
+
+        For Each i In Q1
+            AgentThresholdsCombined.Add(New AgentThresholds With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .Comparison = i.Comparison, .Severity = i.Severity, .ThresholdTime = i.ThresholdTime, .ThresholdValue = i.ThresholdValue})
+        Next
+
+        Dim Q2 = From T1 In db.GroupThresholds
+                 Join T2 In db.GroupMembers On T1.GroupName Equals T2.GroupName
+                 Select T2.MemberName, T1.AgentClass, T1.AgentProperty, T1.Comparison, T1.Severity, T1.ThresholdTime, T1.ThresholdValue
+
+        For Each i In Q2
+            AgentThresholdsGroup.Add(New AgentThresholds With {.AgentClass = i.AgentClass, .AgentName = i.MemberName, .AgentProperty = i.AgentProperty, .Comparison = i.Comparison, .Severity = i.Severity, .ThresholdTime = i.ThresholdTime, .ThresholdValue = i.ThresholdValue})
+        Next
+
+        For Each i In AgentThresholdsGroup
+            Dim Q3 = (From T In AgentThresholdsCombined
+                      Where T.AgentName = i.AgentName And T.AgentClass = i.AgentClass And T.AgentProperty = i.AgentProperty
+                      Select T).FirstOrDefault
+
+            If Q3 Is Nothing Then
+                AgentThresholdsCombined.Add(New AgentThresholds With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .Comparison = i.Comparison, .Severity = i.Severity, .ThresholdTime = i.ThresholdTime, .ThresholdValue = i.ThresholdValue})
+            End If
+
+        Next
+
+    End Sub
+
+
 
     Public Sub Thresholds(ByVal AClass As String, ByVal AProperty As String)
 
@@ -10,15 +43,15 @@ Public Class ManageEvents
 
         Dim Q1 = Nothing
         If AClass = "Processor" Or AClass = "Memory" Then
-            Q1 = From T In db.AgentThresholds
+            Q1 = From T In AgentThresholdsCombined
                  Where T.AgentClass = AClass And T.AgentProperty = AProperty
                  Select T
         ElseIf AClass = "Services" Then
-            Q1 = From T In db.AgentThresholds
+            Q1 = From T In AgentThresholdsCombined
                  Where T.AgentClass = AClass
                  Select T
         ElseIf AClass = "Logical Disk" Then
-            Q1 = From T In db.AgentThresholds
+            Q1 = From T In AgentThresholdsCombined
                  Where T.AgentClass.Contains(":)") And T.AgentProperty.Contains("Free")
                  Select T
         End If
@@ -30,9 +63,7 @@ Public Class ManageEvents
         For Each i In AgentThresholdsLocal
             Dim ttime = Date.Now.AddMinutes(-i.ThresholdTime)
 
-
             Dim Q2 = Nothing
-
 
             If AClass = "Processor" Then
                 Q2 = From T1 In AgentThresholdsLocal
@@ -75,7 +106,6 @@ Public Class ManageEvents
             For Each i2 In Q2
 
                 AValue = i2.AgentValue
-
                 If AComparison = ">" Then
 
                     If AValue > AThreshold Then
@@ -136,9 +166,6 @@ Public Class ManageEvents
     End Sub
 
 
-
-
-
     Private Sub CreateEvent(ByVal AName As String, ByVal AClass As String, ByVal AProperty As String, ByVal AThreshold As Integer, ByVal AComparison As String, ByVal AThresholdTime As Integer, ByVal ASeverity As String, ByVal AStatus As Boolean)
 
         Dim Q1 = (From T In db.AgentEvents
@@ -151,9 +178,6 @@ Public Class ManageEvents
             Dim Message As String = "Agent exceeded threshold. " & AProperty & " " & AComparison & " " & AThreshold & " for " & AThresholdTime & " minutes."
             db.AgentEvents.Add(New AgentEvents With {.AgentName = AName, .AgentClass = AClass, .AgentProperty = AProperty, .AgentStatus = True, .AgentSeverity = ASeverity, .AgentSubject = Subject, .AgentMessage = Message, .AgentComparison = AComparison, .AgentThreshold = AThreshold, .AgentTimeRange = AThresholdTime, .AgentEventDate = Date.Now})
             db.SaveChanges()
-
-        Else
-
         End If
 
         If Not Q1 Is Nothing And AStatus = False Then
@@ -167,7 +191,6 @@ Public Class ManageEvents
                 i.AgentStatus = False
             Next
             db.SaveChanges()
-
 
         End If
 

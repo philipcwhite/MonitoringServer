@@ -12,6 +12,7 @@ Module Module1
 
 
         db.AgentThresholds.Add(New AgentThresholds With {.AgentName = "MNWVSDEV", .AgentClass = "Processor", .AgentProperty = "Total Util (%)", .Comparison = ">", .Severity = "Critical", .ThresholdTime = 60, .ThresholdValue = 0})
+
         'Policy1 Agent
         'db.GroupPolicy.Add(New GroupPolicy With {.GroupName = "Infrastructure", .PolicyName = "Agent Version", .PolicyClass = "agent", .PolicyParameter = "version", .PolicyValue = "1.0", .PolicyDate = Date.Now})
         'db.GroupPolicy.Add(New GroupPolicy With {.GroupName = "Infrastructure", .PolicyName = "Agent Server", .PolicyClass = "agent", .PolicyParameter = "server", .PolicyValue = "localhost", .PolicyDate = Date.Now})
