@@ -97,6 +97,7 @@
     <Compile Include="DataEngine\Database\Models\GroupNames.vb" />
     <Compile Include="DataEngine\Database\Models\GroupPolicy.vb" />
     <Compile Include="DataEngine\Database\Models\GroupThresholds.vb" />
+    <Compile Include="DataEngine\Database\Models\Users.vb" />
     <Compile Include="DataEngine\Tasks\ArchiveAgentData.vb" />
     <Compile Include="DataEngine\Tasks\CleanUp.vb" />
     <Compile Include="DataEngine\Tasks\MoveAgentData.vb" />

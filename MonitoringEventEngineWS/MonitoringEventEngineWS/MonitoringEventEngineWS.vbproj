@@ -97,6 +97,8 @@
     <Compile Include="EventEngine\Database\Models\GroupNames.vb" />
     <Compile Include="EventEngine\Database\Models\GroupPolicy.vb" />
     <Compile Include="EventEngine\Database\Models\GroupThresholds.vb" />
+    <Compile Include="EventEngine\Database\Models\Users.vb" />
+    <Compile Include="EventEngine\Tasks\CleanUp.vb" />
     <Compile Include="EventEngine\Tasks\ManageEvents.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

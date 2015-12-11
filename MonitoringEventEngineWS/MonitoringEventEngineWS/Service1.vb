@@ -33,6 +33,8 @@ Public Class Service
         MEvents.Thresholds("Logical Disk", "")
         MEvents.Thresholds("Services", "")
 
+        Dim PEvents As New CleanUp
+        PEvents.PurgeRecords()
 
     End Sub
 

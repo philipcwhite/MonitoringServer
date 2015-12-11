@@ -111,6 +111,7 @@
     <Compile Include="MonitoringDB\Models\GroupNames.vb" />
     <Compile Include="MonitoringDB\Models\GroupPolicy.vb" />
     <Compile Include="MonitoringDB\Models\GroupThresholds.vb" />
+    <Compile Include="MonitoringDB\Models\Users.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
