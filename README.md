@@ -7,7 +7,7 @@ This repository contains the code for the Monitoring Collector that the Monitori
 
 Website coming soon! (2015/12/11)
 
-![WebSite](https://github.com/philipcwhite/MonitoringServer/master/WebSite.png)
+![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/WebSite.png)
 
 
 Changes for Version 0.2.2b (2015/12/11):
