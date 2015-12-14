@@ -153,6 +153,11 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of Users).Property(Function(t) t.UserEmail).HasMaxLength(100)
             modelBuilder.Entity(Of Users).Property(Function(t) t.UserRole).HasMaxLength(50)
 
+            'UserRoles
+            modelBuilder.Entity(Of UserRoles).HasKey(Function(t) t.RoleID)
+            modelBuilder.Entity(Of UserRoles).Property(Function(t) t.UserName).HasMaxLength(50)
+            modelBuilder.Entity(Of UserRoles).Property(Function(t) t.RoleName).HasMaxLength(50)
+
         End Sub
 
 
@@ -177,6 +182,7 @@ Namespace MonitoringDatabase
         Public Overridable Property GroupNames As DbSet(Of GroupNames)
         Public Overridable Property GroupPolicy As DbSet(Of GroupPolicy)
         Public Overridable Property GroupThresholds As DbSet(Of GroupThresholds)
+        Public Overridable Property UserRoles As DbSet(Of UserRoles)
         Public Overridable Property Users As DbSet(Of Users)
 
 

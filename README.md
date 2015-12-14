@@ -1,19 +1,45 @@
-# MonitoringServer 0.2.2b
+# MonitoringServer 0.3.0b
 
 About
 
-This repository contains the code for the Monitoring Collector that the Monitoring Agent sends data to.  This is an extremely early beta so use at your own risk.  As of now it contains four projects.  One is the database installer, the second is a TCP listener that collects data and inserts it into the database, the third is a data processing app, and the fourth is an event engine.  The reason for releasing this as is, is to support the agent that I have already written.  This gives the agent somewhere to send data to.  This has been tested on Windows 8.1 with SQL Express 2014.  
+This repository contains the code for the Monitoring Server.  The Monitoring Server contains 4 parts and a database installer.  MonitoringCollectorWS is a Windows service that collects data from the Monitoring Agent and inserts it into the database.  MonitoringDataEngineWS processes the data and moves it to the correct tables.  MonitoringEventEngineWS creates events when thresholds have been crossed.  Monitoring is the Website component that is used to view and Administer the Monitoring solution.  And lastly DBInstallerCA is a simple console App to install the database.  Please note that this is Beta software and the full functionality has not been coded yet.  
 
-
-Website coming soon! (2015/12/11)
+I am currently working on finishing the base code for the website.  After this is done I will most likely make the install a little friendlier before adding graphs, reports, etc.  
 
 ![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/WebSite.png)
 
+Setup Instructions
+
+You may use the compiled binaries or compile the code yourself.  Security settings on the MonitoringCollectorWS project and MonitoringAgent project should be updated if you plan on eventually using this in production.
+
+1. Install SQL Server (Express is fine).  
+
+2. Compile the DBInstallerCA project and run DBInstallerCA.exe once with a user account that has create rights in SQL.  This will create the Monitoring database.
+
+3. Assign "Network Service" write access to the database.  For testing I am assigning it the role SysAdmin.  It should not need SysAdmin privilages.  
+
+4. Compile the service and installer for the MonitoringCollectorWS, MonitoringDataEngineWS, and MonitoringEventEngineWS project or use the binary releases.
+
+5. Run the MonitoringCollectorWS installer.  Run the MonitoringDataEngineWS installer.  Run the MonitoringEventEngineWS installer.
+
+6. The Collector needs access to read and write to the installation folder.  You must grant the "Network Service" account these rights.  
+
+7. If your firewall is enabled, you need allow the collector access to the network.
+
+8. Copy the Monitoring folder to C:\inetpub\wwwroot.  Set this up as an ASP.Net Projuct and make sure it's App Pool is Running as Network Service.
+
+9.  Users are not currently set up.  When you log into the Website for the first time it will redirect you to the login page.  There is a link to register users.  Follow that and create a User.  You will then need to assign the Role Administrators to the user in the UserRoles Table.  After this, your user will have access.
+ 
+
+Changes for Version 0.3.0b (2015/12/13):
+
+1.  Updated Binaries to x64.  
+2.  Added Monitoring Website.
+3.  Updated code first data models.
 
 Changes for Version 0.2.2b (2015/12/11):
 
-1. Updated tables for website compatibility.  
- 
+1. Updated tables for website compatibility.   
 
 Changes for Version 0.2.1b (2015/12/07):
 
@@ -68,26 +94,4 @@ Changes for Version 0.1.2b (2015/11/29):
 2. Set default listen port to 10001.
 
 
-Setup
-
-1. Install SQL Server (Express is fine).  
-
-2. Compile the DBInstallerCA project and run this once.  This will create the Monitoring database.
-
-3. Assign "Network Service" write access to the database.  I currently have my test set up as SysAdmin.  
-
-4. Compile the service and installer for the MonitoringCollectorWS project or use the binary release.
-
-5. Run the MonitoringCollectorWS installer.  Run the MonitoringDataEngine installer.
-
-6. The Collector needs access to read and write to the installation folder.  You must grant the "Network Service" account these rights.  
-
-7. If your firewall is enabled, you need allow the collector access to the network.
- 
-
-
-Future Notes 
-
-Future plans for 1.0 and 2.0 releases include a web interface.
-
-Phil White 
+-Phil White

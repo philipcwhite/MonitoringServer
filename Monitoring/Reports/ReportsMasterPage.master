@@ -1,0 +1,37 @@
+﻿<%@ Master Language="VB" CodeFile="ReportsMasterPage.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+            <div style="height:100%">
+    <div class="topmenu">
+<ul class="menu">
+<li><a href="/Monitoring/Events"><span>Events</span></a></li>
+<li><a href="/Monitoring/Devices"><span>Devices</span></a></li>
+<li><a href="/Monitoring/Reports" class="active"><span>Reports</span></a></li>
+<li><a href="/Monitoring/Options"><span>Options</span></a></li>
+            <li>
+                <span class="menusearch"><asp:TextBox ID="TextBox1" runat="server" BorderStyle="None" Width="90px" Height="17px"></asp:TextBox> <asp:Button ID="Button1" runat="server" Text="Search" SkinID="SearchButton" /></span>
+            </li>
+</ul>
+    
+</div>
+<br />
+<div class="content">
+          <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+      </div>
+<div class="footer"><div class="footer2">© 2015 wcpSoft</div></div>
+
+    </div>
+    </form>
+</body>
+</html>
