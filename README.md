@@ -6,7 +6,7 @@ This repository contains the code for the Monitoring Server.  The Monitoring Ser
 
 I am currently working on finishing the base code for the website.  After this is done I will most likely make the install a little friendlier before adding graphs, reports, etc.  
 
-![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/WebSite.png)
+![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/WebSiteDevice.png)
 
 Setup Instructions
 
