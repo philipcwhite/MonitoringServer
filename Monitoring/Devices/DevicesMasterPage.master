@@ -18,7 +18,13 @@
 <li><a href="/Monitoring/Reports"><span>Reports</span></a></li>
 <li><a href="/Monitoring/Options"><span>Options</span></a></li>
             <li>
-                <span class="menusearch"><asp:TextBox ID="TextBox1" runat="server" BorderStyle="None" Width="90px" Height="17px"></asp:TextBox> <asp:Button ID="Button1" runat="server" Text="Search" SkinID="SearchButton" /></span>
+                <span class="MenuSearchLeft">
+                    <asp:TextBox ID="TextBox1" runat="server" BorderStyle="None" Width="100px" CssClass="SearchText"></asp:TextBox>
+                    </span>
+                <span class="MenuSearchRight">
+                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/App_Themes/Monitoring/Search.png" CssClass="SearchImage" />
+
+                </span>
             </li>
 </ul>
     

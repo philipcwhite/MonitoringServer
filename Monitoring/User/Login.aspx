@@ -4,10 +4,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
         <div>
-        UserName:<br />
-        <asp:TextBox ID="UserNameTextBox" runat="server"></asp:TextBox><br />
+        User Name:<br />
+        <asp:TextBox ID="UserNameTextBox" runat="server" Width="120px"></asp:TextBox><br />
         Password:<br />
-        <asp:TextBox ID="PasswordTextBox" runat="server" TextMode="Password"></asp:TextBox>
+        <asp:TextBox ID="PasswordTextBox" runat="server" TextMode="Password" Width="120px"></asp:TextBox>
             <br />
             <br />
         <asp:Button ID="LoginButton" runat="server" Text="Login" SkinID="LoginButton" />

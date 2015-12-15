@@ -1,4 +1,4 @@
-# MonitoringServer 0.3.0b
+# MonitoringServer 0.3.1b
 
 About
 
@@ -6,7 +6,7 @@ This repository contains the code for the Monitoring Server.  The Monitoring Ser
 
 I am currently working on finishing the base code for the website.  After this is done I will most likely make the install a little friendlier before adding graphs, reports, etc.  
 
-![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/WebSiteDevice.png)
+![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/WebSite.png)
 
 Setup Instructions
 
@@ -30,6 +30,10 @@ You may use the compiled binaries or compile the code yourself.  Security settin
 
 9.  Users are not currently set up.  When you log into the Website for the first time it will redirect you to the login page.  There is a link to register users.  Follow that and create a User.  You will then need to assign the Role Administrators to the user in the UserRoles Table.  After this, your user will have access.
  
+Changes for Version 0.3.1b (2015/12/15):
+
+1.  Updated graphics.
+2.  Added logout in User Options.
 
 Changes for Version 0.3.0b (2015/12/13):
 

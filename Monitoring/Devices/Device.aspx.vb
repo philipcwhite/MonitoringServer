@@ -72,7 +72,7 @@ Partial Class Devices_Device
         Dim Table1 As New LiteralControl("<table style='width: 100%'><tr><td style='padding:10px;vertical-align:top'>")
         DevicePlaceHolder.Controls.Add(Table1)
 
-        Dim Table2 As New LiteralControl("<table class='DeviceTable' style='width: 100%'><thead><tr><th>Device</th></tr></thead><tr><td>")
+        Dim Table2 As New LiteralControl("<table class='DeviceTable' style='width: 100%'><thead><tr><th>Device<img alt='Windows' src='../App_Themes/Monitoring/Windows.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead><tr><td>")
         DevicePlaceHolder.Controls.Add(Table2)
 
         Dim Table2Item1 As New LiteralControl("Hostname: " & AgentQ.AgentName & "<br />")
@@ -105,17 +105,17 @@ Partial Class Devices_Device
         Dim Table2End As New LiteralControl("</td></tr></table></td><td style='padding: 10px;vertical-align:top'>")
         DevicePlaceHolder.Controls.Add(Table2End)
 
-        Dim Table3 As New LiteralControl("<table class='DeviceTable' style='width: 100%'><thead><tr><th>Monitors</th></tr></thead><tr><td>")
+        Dim Table3 As New LiteralControl("<table class='DeviceTable' style='width: 100%'><thead><tr><th>Monitors<img alt='Monitoring' src='../App_Themes/Monitoring/Graph.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead><tr><td>")
         DevicePlaceHolder.Controls.Add(Table3)
 
-        Dim Table3Item1 As New LiteralControl(ProcessorQ.AgentClass & " " & ProcessorQ.AgentProperty & " " & ProcessorQ.AgentValue & " <img alt='Graph' src='../App_Themes/Monitoring/GraphIcon.png' height='12' width='21' /><br />")
+        Dim Table3Item1 As New LiteralControl(ProcessorQ.AgentClass & " " & ProcessorQ.AgentProperty & " " & ProcessorQ.AgentValue & "<br />")
         DevicePlaceHolder.Controls.Add(Table3Item1)
 
-        Dim Table3Item2 As New LiteralControl(MemoryQ.AgentClass & " " & MemoryQ.AgentProperty & " " & MemoryQ.AgentValue & " <img alt='Graph' src='../App_Themes/Monitoring/GraphIcon.png' height='12' width='21' /><br />")
+        Dim Table3Item2 As New LiteralControl(MemoryQ.AgentClass & " " & MemoryQ.AgentProperty & " " & MemoryQ.AgentValue & "<br />")
         DevicePlaceHolder.Controls.Add(Table3Item2)
 
         For Each i In LogicalDiskQ2
-            Dim Table3ItemX As New LiteralControl(i.AgentClass & " " & i.AgentProperty & " " & i.AgentValue & " <img alt='Graph' src='../App_Themes/Monitoring/GraphIcon.png' height='12' width='21' /><br />")
+            Dim Table3ItemX As New LiteralControl(i.AgentClass & " " & i.AgentProperty & " " & i.AgentValue & "<br />")
             DevicePlaceHolder.Controls.Add(Table3ItemX)
         Next
 
@@ -127,7 +127,7 @@ Partial Class Devices_Device
         DevicePlaceHolder.Controls.Add(Table3End)
 
 
-        Dim Table4 As New LiteralControl("<Table class='EventTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message</th></tr></thead>")
+        Dim Table4 As New LiteralControl("<Table class='EventTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message<img alt='Events' src='../App_Themes/Monitoring/Warning.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead>")
 
         DevicePlaceHolder.Controls.Add(Table4)
 
