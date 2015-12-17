@@ -9,7 +9,7 @@
     <table style='width: 100%'><tr><td style='padding:10px;vertical-align:top'>
    
         <table class='DeviceTable' style='width: 100%'><thead><tr><th>User Options</th></tr></thead><tr><td>
-            Update Profile<br />
+            <asp:HyperLink ID="UpdateProfileHyperLink" runat="server" NavigateUrl="~/Options/UpdateProfile.aspx">Update Profile</asp:HyperLink><br />
             <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="Log Out" /><br />
             
 

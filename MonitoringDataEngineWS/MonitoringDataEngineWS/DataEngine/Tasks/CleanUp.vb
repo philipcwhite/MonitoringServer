@@ -17,19 +17,18 @@ Public Class CleanUp
         Next
         db.SaveChanges()
 
-        PurgeDate = Date.Now.AddDays(-30)
 
 
-        'Purge Agent Data
-
-        Dim Q2 = From T In db.AgentProcessorArchive
+        Dim Q2 = From T In db.AgentProcessor
                  Where T.AgentCollectDate < PurgeDate
                  Select T
 
         For Each i In Q2
-            db.AgentProcessorArchive.Remove(i)
+            db.AgentProcessor.Remove(i)
         Next
         db.SaveChanges()
+
+
 
         Dim Q3 = From T In db.AgentMemory
                  Where T.AgentCollectDate < PurgeDate
@@ -40,23 +39,70 @@ Public Class CleanUp
         Next
         db.SaveChanges()
 
-        Dim Q4 = From T In db.AgentLogicalDiskArchive
+        Dim Q4 = From T In db.AgentLogicalDisk
                  Where T.AgentCollectDate < PurgeDate
                  Select T
 
         For Each i In Q4
-            db.AgentLogicalDiskArchive.Remove(i)
+            db.AgentLogicalDisk.Remove(i)
         Next
         db.SaveChanges()
 
-        Dim Q5 = From T In db.AgentServiceArchive
+        Dim Q5 = From T In db.AgentService
                  Where T.AgentCollectDate < PurgeDate
                  Select T
 
         For Each i In Q5
+            db.AgentService.Remove(i)
+        Next
+        db.SaveChanges()
+
+
+
+
+        PurgeDate = Date.Now.AddDays(-30)
+
+
+
+
+        Dim Q6 = From T In db.AgentProcessorArchive
+                 Where T.AgentCollectDate < PurgeDate
+                 Select T
+
+        For Each i In Q6
+            db.AgentProcessorArchive.Remove(i)
+        Next
+        db.SaveChanges()
+
+
+        Dim Q7 = From T In db.AgentMemoryArchive
+                 Where T.AgentCollectDate < PurgeDate
+                 Select T
+
+        For Each i In Q7
+            db.AgentMemoryArchive.Remove(i)
+        Next
+        db.SaveChanges()
+
+        Dim Q8 = From T In db.AgentLogicalDiskArchive
+                 Where T.AgentCollectDate < PurgeDate
+                 Select T
+
+        For Each i In Q8
+            db.AgentLogicalDiskArchive.Remove(i)
+        Next
+        db.SaveChanges()
+
+        Dim Q9 = From T In db.AgentServiceArchive
+                 Where T.AgentCollectDate < PurgeDate
+                 Select T
+
+        For Each i In Q9
             db.AgentServiceArchive.Remove(i)
         Next
         db.SaveChanges()
+
+
 
 
 

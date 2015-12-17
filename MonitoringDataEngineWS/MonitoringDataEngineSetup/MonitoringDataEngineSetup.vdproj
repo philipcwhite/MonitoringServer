@@ -15,20 +15,20 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0F7735D09EA1DA9672B386649D671064"
-        "OwnerKey" = "8:_5B6EF5C0D0C74408BB340EB4548B99A8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5B6EF5C0D0C74408BB340EB4548B99A8"
+        "MsmKey" = "8:_0CF34199613C4F369573EF04A0A4F9FA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_0F7735D09EA1DA9672B386649D671064"
+        "OwnerKey" = "8:_0CF34199613C4F369573EF04A0A4F9FA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_DD98B85B1B6A727A8FBE6C116270FABB"
-        "OwnerKey" = "8:_5B6EF5C0D0C74408BB340EB4548B99A8"
+        "OwnerKey" = "8:_0CF34199613C4F369573EF04A0A4F9FA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -40,7 +40,7 @@
         "Entry"
         {
         "MsmKey" = "8:_E3B94C928D23FD0831551E729D29DE43"
-        "OwnerKey" = "8:_5B6EF5C0D0C74408BB340EB4548B99A8"
+        "OwnerKey" = "8:_0CF34199613C4F369573EF04A0A4F9FA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -52,7 +52,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5B6EF5C0D0C74408BB340EB4548B99A8"
+        "OwnerKey" = "8:_0CF34199613C4F369573EF04A0A4F9FA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -85,6 +85,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -101,65 +117,81 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
+            }
         }
     }
     "Deployable"
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_0708D1C31E5F48A78412D2ABDEDF668E"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_32D4FF7CD8684EBEA4C6103058CAB48B"
             {
             "Name" = "8:Primary output from MonitoringDataEngineWS (Release Any CPU)"
             "Condition" = "8:"
-            "Object" = "8:_5B6EF5C0D0C74408BB340EB4548B99A8"
+            "Object" = "8:_0CF34199613C4F369573EF04A0A4F9FA"
             "FileType" = "3:2"
             "InstallAction" = "3:4"
             "Arguments" = "8:"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_D8BFEDB5_CB62_4971_A647_DE448381FC19"
+            "Identifier" = "8:_F513405C_F084_4C55_8108_A88289F3EA51"
             "InstallerClass" = "11:TRUE"
             "CustomActionData" = "8:"
             }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_2B0E10B604DB46B4A4564A8DD6FB12D1"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_4E2CED63A1F54842BCCDDCAC015A786F"
             {
             "Name" = "8:Primary output from MonitoringDataEngineWS (Release Any CPU)"
             "Condition" = "8:"
-            "Object" = "8:_5B6EF5C0D0C74408BB340EB4548B99A8"
-            "FileType" = "3:2"
-            "InstallAction" = "3:3"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_393B56DD_DADF_47EB_B6A7_B26F2EF7969C"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_58CD3EF13AA34717A9712BA104FEEA46"
-            {
-            "Name" = "8:Primary output from MonitoringDataEngineWS (Release Any CPU)"
-            "Condition" = "8:"
-            "Object" = "8:_5B6EF5C0D0C74408BB340EB4548B99A8"
+            "Object" = "8:_0CF34199613C4F369573EF04A0A4F9FA"
             "FileType" = "3:2"
             "InstallAction" = "3:1"
             "Arguments" = "8:"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_BEE9C41A_9AE9_4760_8F07_556FA1F10B1B"
+            "Identifier" = "8:_A58A3DF7_47BF_40C1_8960_AAB86479FEA0"
             "InstallerClass" = "11:TRUE"
             "CustomActionData" = "8:"
             }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_85330DF20B7047999145A49EAC1976BA"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_57CAFDD466BA40D19BEC52F86AC24D2D"
             {
             "Name" = "8:Primary output from MonitoringDataEngineWS (Release Any CPU)"
             "Condition" = "8:"
-            "Object" = "8:_5B6EF5C0D0C74408BB340EB4548B99A8"
+            "Object" = "8:_0CF34199613C4F369573EF04A0A4F9FA"
+            "FileType" = "3:2"
+            "InstallAction" = "3:3"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_E8EC48A8_5C48_4A2E_ABFE_2F370CE07F52"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_5EA87638488A465D81D7F72766C3ABBA"
+            {
+            "Name" = "8:Primary output from MonitoringDataEngineWS (Release Any CPU)"
+            "Condition" = "8:"
+            "Object" = "8:_0CF34199613C4F369573EF04A0A4F9FA"
             "FileType" = "3:2"
             "InstallAction" = "3:2"
             "Arguments" = "8:"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_1C712FC1_36A9_44C4_9E28_E4F70EF3A8E1"
+            "Identifier" = "8:_784D009B_3063_4210_B201_F41BA7B5B08C"
             "InstallerClass" = "11:TRUE"
             "CustomActionData" = "8:"
             }
@@ -336,7 +368,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MonitoringDataEngine"
         "ProductCode" = "8:{D3C32534-2E7B-49EB-B96D-CE5904436641}"
-        "PackageCode" = "8:{F82FD955-9A85-4DDE-A65E-293390A78BE4}"
+        "PackageCode" = "8:{133DF72F-2082-44E9-A5DB-12C771B53A76}"
         "UpgradeCode" = "8:{68453F33-8E7C-4FBC-8DF2-AA187A886562}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -855,7 +887,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_5B6EF5C0D0C74408BB340EB4548B99A8"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_0CF34199613C4F369573EF04A0A4F9FA"
             {
             "SourcePath" = "8:..\\MonitoringDataEngineWS\\obj\\Release\\MonitoringDataEngineWS.exe"
             "TargetName" = "8:"

@@ -9,15 +9,15 @@ Public Class MoveAgents
     Private AgentList1 As New List(Of String)
     Private AgentList2 As New List(Of String)
     Private AgentList3 As New List(Of String)
-    Private AgentLocalName = Nothing
-    Private AgentLocalDate = Nothing
-    Private AAgentLocalDomain = Nothing
-    Private AgentLocalOSVersion = Nothing
-    Private AgentLocalBuild = Nothing
-    Private AgentLocalArchitecture = Nothing
-    Private AgentLocalProcessors = Nothing
-    Private AgentLocalMemory = Nothing
-    Private AgentLocalIPAddress = Nothing
+    Private AgentLocalName As String = Nothing
+    Private AgentLocalDate As Date? = Nothing
+    Private AAgentLocalDomain As String = Nothing
+    Private AgentLocalOSVersion As String = Nothing
+    Private AgentLocalBuild As String = Nothing
+    Private AgentLocalArchitecture As String = Nothing
+    Private AgentLocalProcessors As String = Nothing
+    Private AgentLocalMemory As String = Nothing
+    Private AgentLocalIPAddress As String = Nothing
 
     Public Sub QueryDatabase()
 

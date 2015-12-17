@@ -1,4 +1,4 @@
-# MonitoringServer 0.3.1b
+# MonitoringServer 0.3.2b
 
 About
 
@@ -30,15 +30,25 @@ You may use the compiled binaries or compile the code yourself.  Security settin
 
 9.  Users are not currently set up.  When you log into the Website for the first time it will redirect you to the login page.  There is a link to register users.  Follow that and create a User.  You will then need to assign the Role Administrators to the user in the UserRoles Table.  After this, your user will have access.
  
+
+Changes for Version 0.3.2b (2015/12/17):
+
+1.  Fixed a bug in the data engine.  Cleanup was not performing properly.
+
+2.  Added link for updating profile.  
+
 Changes for Version 0.3.1b (2015/12/15):
 
 1.  Updated graphics.
+
 2.  Added logout in User Options.
 
 Changes for Version 0.3.0b (2015/12/13):
 
 1.  Updated Binaries to x64.  
+
 2.  Added Monitoring Website.
+
 3.  Updated code first data models.
 
 Changes for Version 0.2.2b (2015/12/11):
