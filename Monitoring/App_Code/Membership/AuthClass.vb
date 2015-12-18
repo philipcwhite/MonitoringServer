@@ -6,8 +6,7 @@ Public Class AuthClass
 
     Public Shared db As New DBModel
 
-    Public Shared Sub AuthenticateUser(ByVal UserName As String, ByVal Password As String) 'As Boolean
-        'Dim ReturnValue = False
+    Public Shared Sub AuthenticateUser(ByVal UserName As String, ByVal Password As String)
 
         If ValidateUser(UserName, Password) Then
 
@@ -44,13 +43,9 @@ Public Class AuthClass
             ' Redirect back to original URL.
             HttpContext.Current.Response.Redirect(FormsAuthentication.GetRedirectUrl(UserName, isPersistent))
         Else
-            'Msg.Text = "Login failed. Please check your user name and password and try again."
+
         End If
 
-
-
-
-        'Return ReturnValue
     End Sub
 
 
@@ -94,5 +89,29 @@ Public Class AuthClass
 
         Return Message
     End Function
+
+
+    Public Shared Function UpdateUser(ByVal UserName As String, ByVal Password As String, ByVal NewPassword As String, ByVal FirstName As String, ByVal LastName As String, ByVal UserEmail As String) As Boolean
+        Dim Message = False
+
+        If ValidateUser(UserName, Password) Then
+
+            Dim Q = (From T In db.Users
+                     Where T.UserName = UserName
+                     Select T).FirstOrDefault
+
+            Q.Password = GetSHA512HashData(NewPassword)
+            Q.FirstName = FirstName
+            Q.LastName = LastName
+            Q.UserEmail = UserEmail
+            Q.LastModified = Date.Now
+            db.SaveChanges()
+            Message = True
+        End If
+
+
+        Return Message
+    End Function
+
 
 End Class

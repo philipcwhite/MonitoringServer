@@ -39,7 +39,7 @@ table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 .DeviceTable th:only-child{border-radius: 4px 4px 0 0;}
 .DeviceTable tr:last-child td:first-child {border-radius: 0 0 0 4px;}
 .DeviceTable tr:last-child td:last-child {border-radius: 0 0 4px 0;}
-.DeviceTable a:link, a:active, a:hover, a:visited {color:#707070;text-decoration:none}
+.DeviceTable a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
 
 
 

@@ -151,7 +151,6 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of Users).Property(Function(t) t.LastName).HasMaxLength(50)
             modelBuilder.Entity(Of Users).Property(Function(t) t.Password).HasMaxLength(150)
             modelBuilder.Entity(Of Users).Property(Function(t) t.UserEmail).HasMaxLength(100)
-            modelBuilder.Entity(Of Users).Property(Function(t) t.UserRole).HasMaxLength(50)
 
             'UserRoles
             modelBuilder.Entity(Of UserRoles).HasKey(Function(t) t.RoleID)

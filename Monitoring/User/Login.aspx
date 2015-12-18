@@ -10,12 +10,12 @@
         <asp:TextBox ID="PasswordTextBox" runat="server" TextMode="Password" Width="120px"></asp:TextBox>
             <br />
             <br />
-        <asp:Button ID="LoginButton" runat="server" Text="Login" SkinID="LoginButton" />
+        <asp:Button ID="LoginButton" runat="server" Text="Login" SkinID="Button" />
             <br />
             <br />
             Not a User?<br />
             <br />
-            <asp:Button ID="RegisterButton" runat="server" Text="Register" SkinID="LoginButton" PostBackUrl="~/User/Register.aspx" />
+            <asp:Button ID="RegisterButton" runat="server" Text="Register" SkinID="Button" PostBackUrl="~/User/Register.aspx" />
             <br />
     </div>
 </asp:Content>

@@ -1,4 +1,4 @@
-# MonitoringServer 0.3.2b
+# MonitoringServer 0.3.3b
 
 About
 
@@ -30,6 +30,10 @@ You may use the compiled binaries or compile the code yourself.  Security settin
 
 9.  Users are not currently set up.  When you log into the Website for the first time it will redirect you to the login page.  There is a link to register users.  Follow that and create a User.  You will then need to assign the Role Administrators to the user in the UserRoles Table.  After this, your user will have access.
  
+
+Changes for Version 0.3.3b (2015/12/17):
+
+1.  Added in Update User Profile.
 
 Changes for Version 0.3.2b (2015/12/17):
 

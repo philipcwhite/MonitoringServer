@@ -20,7 +20,7 @@
         <asp:TextBox ID="EmailTextBox" runat="server" Width="160px"></asp:TextBox>&nbsp;<asp:RequiredFieldValidator ID="EmailRequiredFieldValidator" runat="server" ControlToValidate="EmailTextBox" ErrorMessage="Please enter an email address." ForeColor="Red"></asp:RequiredFieldValidator>
         <br />
      <br />
-        <asp:Button ID="RegisterButton" runat="server" Text="Register" SkinID="LoginButton" />
+        <asp:Button ID="RegisterButton" runat="server" Text="Register" SkinID="Button" />
         <br />
         <br />
   
