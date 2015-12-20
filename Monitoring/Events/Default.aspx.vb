@@ -20,7 +20,7 @@ Partial Class Events_Default
                  Order By T.AgentEventDate Descending
                  Select T).Take(1000)
 
-        Dim Table As New LiteralControl("<table class='EventTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message</th></tr></thead>")
+        Dim Table As New LiteralControl("<table class='HoverTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message</th></tr></thead>")
         EventPlaceHolder.Controls.Clear()
         EventPlaceHolder.Controls.Add(Table)
 

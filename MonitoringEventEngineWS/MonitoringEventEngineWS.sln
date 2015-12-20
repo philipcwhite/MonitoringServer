@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MonitoringEventEngineWS", "MonitoringEventEngineWS\MonitoringEventEngineWS.vbproj", "{28133354-4E62-446D-9ACC-05D62AFD186F}"
 EndProject
@@ -19,10 +19,10 @@ Global
 		{28133354-4E62-446D-9ACC-05D62AFD186F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28133354-4E62-446D-9ACC-05D62AFD186F}.Debug|x64.ActiveCfg = Debug|x64
 		{28133354-4E62-446D-9ACC-05D62AFD186F}.Debug|x64.Build.0 = Debug|x64
-		{28133354-4E62-446D-9ACC-05D62AFD186F}.Release|Any CPU.ActiveCfg = Release|x64
-		{28133354-4E62-446D-9ACC-05D62AFD186F}.Release|Any CPU.Build.0 = Release|x64
-		{28133354-4E62-446D-9ACC-05D62AFD186F}.Release|x64.ActiveCfg = Release|x64
-		{28133354-4E62-446D-9ACC-05D62AFD186F}.Release|x64.Build.0 = Release|x64
+		{28133354-4E62-446D-9ACC-05D62AFD186F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28133354-4E62-446D-9ACC-05D62AFD186F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28133354-4E62-446D-9ACC-05D62AFD186F}.Release|x64.ActiveCfg = Release|Any CPU
+		{28133354-4E62-446D-9ACC-05D62AFD186F}.Release|x64.Build.0 = Release|Any CPU
 		{1D836F36-3764-4E40-B9E9-81B673FC9348}.Debug|Any CPU.ActiveCfg = Debug
 		{1D836F36-3764-4E40-B9E9-81B673FC9348}.Debug|x64.ActiveCfg = Debug
 		{1D836F36-3764-4E40-B9E9-81B673FC9348}.Debug|x64.Build.0 = Debug

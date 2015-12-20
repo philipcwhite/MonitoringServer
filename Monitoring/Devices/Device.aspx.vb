@@ -69,10 +69,10 @@ Partial Class Devices_Device
 
         Dim Break As New LiteralControl(" ")
 
-        Dim Table1 As New LiteralControl("<table style='width: 100%'><tr><td style='padding:10px;vertical-align:top'>")
+        Dim Table1 As New LiteralControl("<table style='width: 100%'><tr><td style='padding-right:10px;padding-bottom:20px;vertical-align:top'>")
         DevicePlaceHolder.Controls.Add(Table1)
 
-        Dim Table2 As New LiteralControl("<table class='DeviceTable' style='width: 100%'><thead><tr><th>Device<img alt='Windows' src='../App_Themes/Monitoring/Windows.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead><tr><td>")
+        Dim Table2 As New LiteralControl("<table class='StaticTable' style='width: 100%'><thead><tr><th>Device<img alt='Windows' src='../App_Themes/Monitoring/Windows.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead><tr><td>")
         DevicePlaceHolder.Controls.Add(Table2)
 
         Dim Table2Item1 As New LiteralControl("Hostname: " & AgentQ.AgentName & "<br />")
@@ -102,10 +102,10 @@ Partial Class Devices_Device
         Dim Table2Item9 As New LiteralControl("Last Updated: " & AgentQ.AgentDate & "<br />")
         DevicePlaceHolder.Controls.Add(Table2Item9)
 
-        Dim Table2End As New LiteralControl("</td></tr></table></td><td style='padding: 10px;vertical-align:top'>")
+        Dim Table2End As New LiteralControl("</td></tr></table></td><td style='padding-left: 10px;padding-bottom:20px;vertical-align:top'>")
         DevicePlaceHolder.Controls.Add(Table2End)
 
-        Dim Table3 As New LiteralControl("<table class='DeviceTable' style='width: 100%'><thead><tr><th>Monitors<img alt='Monitoring' src='../App_Themes/Monitoring/Graph.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead><tr><td>")
+        Dim Table3 As New LiteralControl("<table class='StaticTable' style='width: 100%'><thead><tr><th>Monitors<img alt='Monitoring' src='../App_Themes/Monitoring/Graph.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead><tr><td>")
         DevicePlaceHolder.Controls.Add(Table3)
 
         Dim Table3Item1 As New LiteralControl(ProcessorQ.AgentClass & " " & ProcessorQ.AgentProperty & " " & ProcessorQ.AgentValue & "<br />")
@@ -123,11 +123,11 @@ Partial Class Devices_Device
         DevicePlaceHolder.Controls.Add(Table3Item3)
 
 
-        Dim Table3End As New LiteralControl("</td></tr></table></td></tr><tr><td style='padding:10px' colspan='2'>")
+        Dim Table3End As New LiteralControl("</td></tr></table></td></tr><tr><td style='padding:0px' colspan='2'>")
         DevicePlaceHolder.Controls.Add(Table3End)
 
 
-        Dim Table4 As New LiteralControl("<Table class='EventTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message<img alt='Events' src='../App_Themes/Monitoring/Warning.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead>")
+        Dim Table4 As New LiteralControl("<Table class='HoverTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message<img alt='Events' src='../App_Themes/Monitoring/Warning.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead>")
 
         DevicePlaceHolder.Controls.Add(Table4)
 

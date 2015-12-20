@@ -1,6 +1,7 @@
 ﻿
 body {margin:0px;padding:0px;height:100%;}
 h2 {font:14px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#485385;}
+h2 a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
 table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 
 
@@ -25,9 +26,10 @@ table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 
 
 
-.button {border-radius: 3.1px;font-family: Arial;color: #ffffff;font-size: 12px;background: #9fb2d6;padding: 3px 3px 3px 3px;text-decoration: none;}
-.button:hover {background: #9e9e9e;text-decoration: none;}
+.Button {border-radius: 3.1px;font-family: Arial;color: #ffffff;font-size: 12px;background:linear-gradient(#c8d9fa,#9fb2d6);padding: 3px 3px 3px 3px;text-decoration: none; border-style:none;text-shadow: 1px 1px #707070;font-weight:bold}
+.Button:hover {background:linear-gradient(#dddddd,#aaaaaa);text-decoration: none; border-style:none;text-shadow: 1px 1px #707070;}
 
+.TextBox {border:solid;border-width:1px;border-spacing:0px;border-radius:2px;border-color:#cccccc;}
 
 .DeviceTable {border-radius: 4px; background-color:#efefef}   
 .DeviceTable tr:hover {background: #efefef;transition:none} 
@@ -61,3 +63,27 @@ table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 .EventStatusMajor {height:10px;width:10px;background:#ffa31a;border-radius:2px;box-shadow: 1px 1px 1px #888888;}
 .EventStatusMinor {height:10px;width:10px;background:#ffff00;border-radius:2px;box-shadow: 1px 1px 1px #888888;}
 .EventStatusOK {height:10px;width:10px;background:#4cff00;border-radius:2px;box-shadow: 1px 1px 1px #888888;}
+
+.HoverTable {border-radius: 4px; background-color:#efefef}
+.HoverTable tr:hover {background: #dddddd;transition: all 0.1s ease-in-out;}    
+.HoverTable td, .HoverTable th {padding: 5px;text-align: left;color:#485385}
+.HoverTable th {background:linear-gradient(#c8d9fa,#9fb2d6);border-top: none;font:12px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;text-shadow: 1px 1px #707070;font-weight:bold}
+.HoverTable td:first-child, .HoverTable th:first-child {border-left: none;}
+.HoverTable th:first-child {border-radius: 4px 0 0 0;}
+.HoverTable th:last-child {border-radius: 0 4px 0 0;}
+.HoverTable th:only-child{border-radius: 4px 4px 0 0;}
+.HoverTable tr:last-child td:first-child {border-radius: 0 0 0 4px;}
+.HoverTable tr:last-child td:last-child {border-radius: 0 0 4px 0;}
+.HoverTable a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
+
+.StaticTable {border-radius: 4px; background-color:#efefef}
+.StaticTable tr:hover {background: #efefef;transition: none;}    
+.StaticTable td, .StaticTable th {padding: 5px;text-align: left;color:#485385}
+.StaticTable th {background:linear-gradient(#c8d9fa,#9fb2d6);border-top: none;font:12px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;text-shadow: 1px 1px #707070;font-weight:bold}
+.StaticTable td:first-child, .StaticTable th:first-child {border-left: none;}
+.StaticTable th:first-child {border-radius: 4px 0 0 0;}
+.StaticTable th:last-child {border-radius: 0 4px 0 0;}
+.StaticTable th:only-child{border-radius: 4px 4px 0 0;}
+.StaticTable tr:last-child td:first-child {border-radius: 0 0 0 4px;}
+.StaticTable tr:last-child td:last-child {border-radius: 0 0 4px 0;}
+.StaticTable a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}

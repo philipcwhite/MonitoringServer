@@ -1,23 +1,27 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Options/OptionsMasterPage.master" AutoEventWireup="false" CodeFile="UpdateProfile.aspx.vb" Inherits="Options_UpdateProfile"  UnobtrusiveValidationMode="None" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/Options/OptionsMasterPage.master" AutoEventWireup="false" CodeFile="UpdateUser.aspx.vb" Inherits="Options_UpdateProfile"  UnobtrusiveValidationMode="None" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <h2>
-        <asp:HyperLink ID="OptionsHyperLink" runat="server" NavigateUrl="~/Options/Default.aspx">Options</asp:HyperLink>&gt;Update Profile</h2>
+        <asp:HyperLink ID="OptionsHyperLink" runat="server" NavigateUrl="~/Options/Default.aspx">Options</asp:HyperLink>&gt;<asp:HyperLink ID="UsersHyperLink" runat="server" NavigateUrl="~/Options/Users.aspx">Users</asp:HyperLink>&gt;Update User</h2>
     
   
-        <table class='StaticTable' style='width: 100%'><thead><tr><th>Update Profile</th></tr></thead><tr><td>
+        <table class='StaticTable' style='width: 100%'><thead><tr><th>Update User</th></tr></thead><tr><td>
           
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
+
+
+
+
 
                         <table style="width:500px">
         <tr>
             <td>User Name:</td>
             <td>
-                <asp:TextBox ID="UserNameTextBox" runat="server" Enabled="False" Width="100px" SkinID="TextBox" BackColor="#EFEFEF"></asp:TextBox></td>
+                <asp:TextBox ID="UserNameTextBox" runat="server" Enabled="False" Width="100px" CssClass="TextBox" BackColor="#EFEFEF"></asp:TextBox></td>
         </tr>
         <tr>
             <td>Reset Password</td>
@@ -35,7 +39,7 @@
                 <tr>
             <td>New Password:</td>
             <td>
- <asp:TextBox ID="NewPasswordTextBox" runat="server" TextMode="Password" Width="100px"  Enabled="False"  CssClass="TextBox" BackColor="#EFEFEF"></asp:TextBox>
+ <asp:TextBox ID="NewPasswordTextBox" runat="server" TextMode="Password" Width="100px"  Enabled="False" CssClass="TextBox" BackColor="#EFEFEF"></asp:TextBox>
                     </td>
         </tr>
                 <tr>
@@ -54,6 +58,16 @@
                     </td>
         
         </tr>
+        <tr>
+            <td>Role:</td>
+            <td>
+                <asp:DropDownList ID="RoleDropDownList" runat="server" CssClass="TextBox">
+                    <asp:ListItem>Administrator</asp:ListItem>
+                    <asp:ListItem>Operator</asp:ListItem>
+                    <asp:ListItem>User</asp:ListItem>
+                    <asp:ListItem>Pending</asp:ListItem>
+                </asp:DropDownList></td>
+        </tr>
                 <tr>
             <td></td>
             <td><asp:Label ID="StatusLabel" runat="server" ForeColor="Red"></asp:Label> </td>
@@ -61,7 +75,7 @@
         </tr>
         <tr>
            <td colspan="2">
-               <asp:Button ID="ReturnButton" runat="server" Text="Return" CssClass="Button"  /> &nbsp;<asp:Button ID="SubmitButton" runat="server" Text="Submit" CssClass="Button" /></td>
+               <asp:Button ID="ReturnButton" runat="server" Text="Return" CssClass="Button"  /> &nbsp;<asp:Button ID="DeleteButton" runat="server" Text="Delete" CssClass="Button"  /> &nbsp;<asp:Button ID="SubmitButton" runat="server" Text="Submit" CssClass="Button" /></td>
 
         
         </tr>

@@ -3,20 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-        <div>
-        User Name:<br />
-        <asp:TextBox ID="UserNameTextBox" runat="server" Width="120px"></asp:TextBox><br />
-        Password:<br />
-        <asp:TextBox ID="PasswordTextBox" runat="server" TextMode="Password" Width="120px"></asp:TextBox>
-            <br />
-            <br />
-        <asp:Button ID="LoginButton" runat="server" Text="Login" SkinID="Button" />
-            <br />
-            <br />
-            Not a User?<br />
-            <br />
-            <asp:Button ID="RegisterButton" runat="server" Text="Register" SkinID="Button" PostBackUrl="~/User/Register.aspx" />
-            <br />
-    </div>
+    <h2>User&gt;Login</h2>
+        <table class='StaticTable' style='width: 100%'><thead><tr><th>Login</th></tr></thead><tr><td>
+          <table style="width:250px">
+              <tr>
+                  <td style="width:125px">Username:</td>
+                  <td style="width:125px"><asp:TextBox ID="UserNameTextBox" runat="server" Width="120px" CssClass="TextBox"></asp:TextBox></td>
+              </tr>
+              <tr>
+                  <td>Password:</td>
+                  <td><asp:TextBox ID="PasswordTextBox" runat="server" TextMode="Password" Width="120px" CssClass="TextBox"></asp:TextBox></td>
+              </tr>
+              <tr>
+                  <td></td>
+                  <td style="text-align:right; padding-right:10px"><asp:Button ID="RegisterButton" runat="server" Text="Register" PostBackUrl="~/User/Register.aspx" CssClass="Button" CausesValidation="False" UseSubmitBehavior="False" /> <asp:Button ID="LoginButton" runat="server" Text="Login" CssClass="Button" /></td>
+              </tr>
+          </table>
+        <br />
+    </td></tr></table>
 </asp:Content>
 

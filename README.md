@@ -1,10 +1,10 @@
-# MonitoringServer 0.3.3b
+# MonitoringServer 0.3.4b
 
 About
 
-This repository contains the code for the Monitoring Server.  The Monitoring Server contains 4 parts and a database installer.  MonitoringCollectorWS is a Windows service that collects data from the Monitoring Agent and inserts it into the database.  MonitoringDataEngineWS processes the data and moves it to the correct tables.  MonitoringEventEngineWS creates events when thresholds have been crossed.  Monitoring is the Website component that is used to view and Administer the Monitoring solution.  And lastly DBInstallerCA is a simple console App to install the database.  Please note that this is Beta software and the full functionality has not been coded yet.  
+This repository contains the code for the Monitoring Server.  The Monitoring Server contains 4 parts.  MonitoringCollectorWS is a Windows service that collects data from the Monitoring Agent and inserts it into the database.  MonitoringDataEngineWS processes the data and moves it to the correct tables.  MonitoringEventEngineWS creates events when thresholds have been crossed.  Monitoring is the Website component that is used to view and Administer the Monitoring solution.  It also creates the database when the site is loaded for the first time.  Please note that this is Beta software and the full functionality has not been coded yet.  
 
-I am currently working on finishing the base code for the website.  After this is done I will most likely make the install a little friendlier before adding graphs, reports, etc.  
+I am currently working on finishing the base code for the website.  After this is done I will most likely make the install a little friendlier before adding graphs, reports, etc.  I also plan on packaging the services as one installer making the server simpler to deploy.
 
 ![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Website.png)
 
@@ -14,22 +14,34 @@ You may use the compiled binaries or compile the code yourself.  Security settin
 
 1. Install SQL Server (Express is fine).  
 
-2. Compile the DBInstallerCA project and run DBInstallerCA.exe once with a user account that has create rights in SQL.  This will create the Monitoring database.
-
-3. Assign "Network Service" write access to the database.  For testing I am assigning it the role SysAdmin.  It should not need SysAdmin privilages.  
+2. Assign "Network Service" write access to the database.  For testing I am assigning it the role SysAdmin.  It should not need SysAdmin privilages.  
 
 4. Compile the service and installer for the MonitoringCollectorWS, MonitoringDataEngineWS, and MonitoringEventEngineWS project or use the binary releases.
 
 5. Run the MonitoringCollectorWS installer.  Run the MonitoringDataEngineWS installer.  Run the MonitoringEventEngineWS installer.
 
-6. The Collector needs access to read and write to the installation folder.  You must grant the "Network Service" account these rights.  
+6. The Collector needs access to read and write to the installation folder.  You must grant the "Network Service" account this folder.  
 
 7. If your firewall is enabled, you need allow the collector access to the network.
 
 8. Copy the Monitoring folder to C:\inetpub\wwwroot.  Set this up as an ASP.Net Projuct and make sure it's App Pool is Running as Network Service.
 
-9.  Users are not currently set up.  When you log into the Website for the first time it will redirect you to the login page.  There is a link to register users.  Follow that and create a User.  You will then need to assign the Role Administrators to the user in the UserRoles Table.  After this, your user will have access.
+9. On first load of the webpage, the database will be created along with the user account "admin", password "password".  You can log in and change or remove this account.  
+
+10. Start the Monitoring Services.
+
+11.  Install the Monitoring Agent.
  
+
+Changes for Version 0.3.4b (2015/12/20):
+
+1.  Website user authentication done.  Default user created (admin/password).
+
+2.  Graphic Update.  Still some legacy code to prune.
+
+3.  All apps correctly updated to 64 bit default.
+
+4.  DBInstaller no longer needed.  Replaced by a first run script on the Website.
 
 Changes for Version 0.3.3b (2015/12/17):
 

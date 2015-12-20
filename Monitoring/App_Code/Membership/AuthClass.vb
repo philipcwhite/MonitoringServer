@@ -10,19 +10,15 @@ Public Class AuthClass
 
         If ValidateUser(UserName, Password) Then
 
-            Dim Q = From T In db.UserRoles
-                    Where T.UserName = UserName
-                    Select T
+            Dim Q = (From T In db.Users
+                     Where T.UserName = UserName
+                     Select T).FirstOrDefault
 
 
 
             Dim userData As String = Nothing
 
-            For Each i In Q
-                userData = userData & i.RoleName & ","
-            Next
-
-            userData = userData.Substring(0, userData.Length - 1)
+            userData = Q.UserRole
 
             Dim isPersistent As Boolean = False
 
@@ -80,9 +76,10 @@ Public Class AuthClass
 
         If Q Is Nothing Then
             Dim EncryptPassword As String = GetSHA512HashData(Password)
-            db.Users.Add(New Users With {.UserName = UserName, .Password = EncryptPassword})
+            db.Users.Add(New Users With {.UserName = UserName, .Password = EncryptPassword, .FirstName = FirstName, .LastName = LastName, .EmailAddress = Email, .UserRole = "Pending"})
             db.SaveChanges()
             Message = "Successfuly created user account!"
+            HttpContext.Current.Response.Redirect("~/User/RegisterStatus.aspx")
         Else
             Message = "User name already exists!"
         End If
@@ -91,27 +88,36 @@ Public Class AuthClass
     End Function
 
 
-    Public Shared Function UpdateUser(ByVal UserName As String, ByVal Password As String, ByVal NewPassword As String, ByVal FirstName As String, ByVal LastName As String, ByVal UserEmail As String) As Boolean
+    Public Shared Function UpdateUser(ByVal UserName As String, ByVal ChangePassword As Boolean, ByVal Password As String, ByVal FirstName As String, ByVal LastName As String, ByVal EmailAddress As String, ByVal UserRole As String) As Boolean
         Dim Message = False
 
-        If ValidateUser(UserName, Password) Then
+        Dim Q = (From T In db.Users
+                 Where T.UserName = UserName
+                 Select T).FirstOrDefault
 
-            Dim Q = (From T In db.Users
-                     Where T.UserName = UserName
-                     Select T).FirstOrDefault
-
-            Q.Password = GetSHA512HashData(NewPassword)
-            Q.FirstName = FirstName
-            Q.LastName = LastName
-            Q.UserEmail = UserEmail
-            Q.LastModified = Date.Now
-            db.SaveChanges()
-            Message = True
+        If ChangePassword = True Then
+            Q.Password = GetSHA512HashData(Password)
         End If
 
+        Q.FirstName = FirstName
+        Q.LastName = LastName
+        Q.EmailAddress = EmailAddress
+        If Not UserRole Is Nothing Then
+            Q.UserRole = UserRole
+        End If
+        Q.LastModified = Date.Now
+        db.SaveChanges()
+        Message = True
 
         Return Message
     End Function
 
+    Public Shared Sub DeleteUser(ByVal UserName As String)
+
+        Dim Q = db.Users.Where(Function(x) x.UserName = UserName).FirstOrDefault
+        db.Users.Remove(Q)
+        db.SaveChanges()
+
+    End Sub
 
 End Class

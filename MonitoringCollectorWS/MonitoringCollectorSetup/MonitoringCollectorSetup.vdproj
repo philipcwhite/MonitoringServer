@@ -15,14 +15,14 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_25BDFF64C7144EE8B5444E59F224BB89"
+        "MsmKey" = "8:_1EEF54A909554310A218958C036CE744"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B2F4AA15BD0F058A38592792D5977C8C"
-        "OwnerKey" = "8:_25BDFF64C7144EE8B5444E59F224BB89"
+        "OwnerKey" = "8:_1EEF54A909554310A218958C036CE744"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -34,19 +34,25 @@
         "Entry"
         {
         "MsmKey" = "8:_C0DC71908E70F745617C17FBC34D134C"
-        "OwnerKey" = "8:_25BDFF64C7144EE8B5444E59F224BB89"
+        "OwnerKey" = "8:_1EEF54A909554310A218958C036CE744"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_D65F0B796FA6232834CB806C0140CED1"
-        "OwnerKey" = "8:_25BDFF64C7144EE8B5444E59F224BB89"
+        "OwnerKey" = "8:_1EEF54A909554310A218958C036CE744"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_25BDFF64C7144EE8B5444E59F224BB89"
+        "OwnerKey" = "8:_C0DC71908E70F745617C17FBC34D134C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1EEF54A909554310A218958C036CE744"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -59,12 +65,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B2F4AA15BD0F058A38592792D5977C8C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C0DC71908E70F745617C17FBC34D134C"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -92,6 +92,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -131,59 +139,59 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_1DADC117244047BA84AC26B0443016C6"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_077A7C398A8440D7B96F77A278AFF9EA"
             {
-            "Name" = "8:Primary output from MonitoringCollectorWS (Release Any CPU)"
+            "Name" = "8:Primary output from MonitoringCollectorWS (Active)"
             "Condition" = "8:"
-            "Object" = "8:_25BDFF64C7144EE8B5444E59F224BB89"
+            "Object" = "8:_1EEF54A909554310A218958C036CE744"
             "FileType" = "3:2"
             "InstallAction" = "3:3"
             "Arguments" = "8:"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_B55FEC15_56DF_43AB_811D_FF8A27E3A97B"
+            "Identifier" = "8:_350E9D45_ECEE_41E5_9E17_D4009451DB31"
             "InstallerClass" = "11:TRUE"
             "CustomActionData" = "8:"
             }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_3A9A6F65CE6C4579B5DED019DE94D229"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_25A7F592637A4492AE2887EC7F9252AD"
             {
-            "Name" = "8:Primary output from MonitoringCollectorWS (Release Any CPU)"
+            "Name" = "8:Primary output from MonitoringCollectorWS (Active)"
             "Condition" = "8:"
-            "Object" = "8:_25BDFF64C7144EE8B5444E59F224BB89"
+            "Object" = "8:_1EEF54A909554310A218958C036CE744"
             "FileType" = "3:2"
             "InstallAction" = "3:4"
             "Arguments" = "8:"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_95A3717F_230A_49B8_9D42_D5A25A433A4B"
+            "Identifier" = "8:_CF294AE7_ED82_4764_B0DF_FB476C3600FE"
             "InstallerClass" = "11:TRUE"
             "CustomActionData" = "8:"
             }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_CCCDCE1314194BDD9F3954C066D51D37"
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_7F70B50F504E4C979D50BD4EB8E5BE5C"
             {
-            "Name" = "8:Primary output from MonitoringCollectorWS (Release Any CPU)"
+            "Name" = "8:Primary output from MonitoringCollectorWS (Active)"
             "Condition" = "8:"
-            "Object" = "8:_25BDFF64C7144EE8B5444E59F224BB89"
-            "FileType" = "3:2"
-            "InstallAction" = "3:2"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_78F1CED8_DAE9_4350_B6C2_72D9941C9078"
-            "InstallerClass" = "11:TRUE"
-            "CustomActionData" = "8:"
-            }
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_DE5E29B5223F457CA2E2A2E16A2C1F7C"
-            {
-            "Name" = "8:Primary output from MonitoringCollectorWS (Release Any CPU)"
-            "Condition" = "8:"
-            "Object" = "8:_25BDFF64C7144EE8B5444E59F224BB89"
+            "Object" = "8:_1EEF54A909554310A218958C036CE744"
             "FileType" = "3:2"
             "InstallAction" = "3:1"
             "Arguments" = "8:"
             "EntryPoint" = "8:"
             "Sequence" = "3:1"
-            "Identifier" = "8:_D183C46D_8449_44D3_BAEC_DE6E02CCF430"
+            "Identifier" = "8:_CE495E20_6187_4C7F_AE31_7546FEC8AAB0"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_A605E14945914CE786C2968DA7136D24"
+            {
+            "Name" = "8:Primary output from MonitoringCollectorWS (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_1EEF54A909554310A218958C036CE744"
+            "FileType" = "3:2"
+            "InstallAction" = "3:2"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_BD9B20AA_2B08_4396_AE54_62DAA9E1A4B5"
             "InstallerClass" = "11:TRUE"
             "CustomActionData" = "8:"
             }
@@ -358,7 +366,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:MonitoringCollectorWS"
+        "ProductName" = "8:MonitoringCollector"
         "ProductCode" = "8:{EF8676FB-6C14-41B4-A86F-0D135FA39301}"
         "PackageCode" = "8:{3B9A5A06-104A-4644-81FA-C7C3F24596AC}"
         "UpgradeCode" = "8:{E9705BA2-270A-4F68-BB93-C8046AD0AB8C}"
@@ -879,7 +887,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_25BDFF64C7144EE8B5444E59F224BB89"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_1EEF54A909554310A218958C036CE744"
             {
             "SourcePath" = "8:..\\MonitoringCollectorWS\\obj\\Release\\MonitoringCollectorWS.exe"
             "TargetName" = "8:"
@@ -899,7 +907,7 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:Release|Any CPU"
+            "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:Built"
             "OutputProjectGuid" = "8:{C4FD9642-1390-4364-A698-523550F5FF5A}"
             "ShowKeyOutput" = "11:TRUE"

@@ -11,7 +11,7 @@
 <body>
     <form id="form1" runat="server">
             <div style="height:100%">
-    <div class="topmenu" style="background-color:#485385;height:30px;"></div>
+    <div class="topmenu" style="background:linear-gradient(#6a75a7,#485385);height:30px;"></div>
 <br />
 <div class="content">
           <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">

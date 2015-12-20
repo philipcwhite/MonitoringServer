@@ -18,7 +18,7 @@ Partial Class Devices_Default
 
 
 
-        Dim Table As New LiteralControl("<table class='EventTable'><thead><tr><th></th><th>Hostname</th><th>Domain</th><th>IP Address</th><th>Operating System</th></tr></thead>")
+        Dim Table As New LiteralControl("<table class='HoverTable'><thead><tr><th></th><th>Hostname</th><th>Domain</th><th>IP Address</th><th>Operating System</th></tr></thead>")
         DevicesPlaceHolder.Controls.Clear()
         DevicesPlaceHolder.Controls.Add(Table)
 
