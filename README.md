@@ -1,4 +1,4 @@
-# MonitoringServer 0.3.4b
+# MonitoringServer 0.3.5b
 
 About
 
@@ -32,6 +32,14 @@ You may use the compiled binaries or compile the code yourself.  Security settin
 
 11.  Install the Monitoring Agent.
  
+
+Changes for Version 0.3.5b (2015/12/21):
+
+1.  Updated Event Engine.  Corrected several issues.  
+
+2.  Added default global thresholds to website.  Edit functions will be added.  Agent override thresholds do work (via database insert) as well but have not been added to the website yet.  Processor/Memory are working. I may need to do more testing on disk and services. 
+
+3.  Updated database schema.  Removed some group tables.
 
 Changes for Version 0.3.4b (2015/12/20):
 

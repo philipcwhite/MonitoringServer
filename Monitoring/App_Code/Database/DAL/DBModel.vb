@@ -61,17 +61,6 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentCollector).Property(Function(t) t.AgentProperty).HasMaxLength(100)
 
 
-            'GroupName Table
-            modelBuilder.Entity(Of GroupNames).HasKey(Function(t) t.GroupID)
-            modelBuilder.Entity(Of GroupNames).Property(Function(t) t.GroupName).HasMaxLength(150)
-            modelBuilder.Entity(Of GroupNames).Property(Function(t) t.GroupType).HasMaxLength(150)
-            modelBuilder.Entity(Of GroupNames).Property(Function(t) t.GroupDescription).HasMaxLength(1000)
-
-            'GroupMembers Table
-            modelBuilder.Entity(Of GroupMembers).HasKey(Function(t) t.MemberID)
-            modelBuilder.Entity(Of GroupMembers).Property(Function(t) t.GroupName).HasMaxLength(150)
-            modelBuilder.Entity(Of GroupMembers).Property(Function(t) t.MemberName).HasMaxLength(100)
-
             'Policies
 
             'AgentPolicy Table
@@ -81,14 +70,6 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentPolicy).Property(Function(t) t.PolicyClass).HasMaxLength(50)
             modelBuilder.Entity(Of AgentPolicy).Property(Function(t) t.PolicyParameter).HasMaxLength(250)
             modelBuilder.Entity(Of AgentPolicy).Property(Function(t) t.PolicyValue).HasMaxLength(100)
-
-            'GroupPolicy Table
-            modelBuilder.Entity(Of GroupPolicy).HasKey(Function(t) t.PolicyID)
-            modelBuilder.Entity(Of GroupPolicy).Property(Function(t) t.GroupName).HasMaxLength(150)
-            modelBuilder.Entity(Of GroupPolicy).Property(Function(t) t.PolicyName).HasMaxLength(100)
-            modelBuilder.Entity(Of GroupPolicy).Property(Function(t) t.PolicyClass).HasMaxLength(50)
-            modelBuilder.Entity(Of GroupPolicy).Property(Function(t) t.PolicyParameter).HasMaxLength(250)
-            modelBuilder.Entity(Of GroupPolicy).Property(Function(t) t.PolicyValue).HasMaxLength(100)
 
             'Archive Tables
 
@@ -119,12 +100,10 @@ Namespace MonitoringDatabase
             'AgentEvents Table
             modelBuilder.Entity(Of AgentEvents).HasKey(Function(t) t.AgentEventID)
             modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentSubject).HasMaxLength(100)
             modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentMessage).HasMaxLength(5000)
             modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentClass).HasMaxLength(100)
             modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentProperty).HasMaxLength(100)
             modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentComparison).HasMaxLength(2)
-            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentSeverity).HasMaxLength(10)
 
             'ThresholdTables
 
@@ -134,15 +113,12 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentThresholds).Property(Function(t) t.AgentClass).HasMaxLength(25)
             modelBuilder.Entity(Of AgentThresholds).Property(Function(t) t.AgentProperty).HasMaxLength(50)
             modelBuilder.Entity(Of AgentThresholds).Property(Function(t) t.Comparison).HasMaxLength(2)
-            modelBuilder.Entity(Of AgentThresholds).Property(Function(t) t.Severity).HasMaxLength(25)
 
             'GroupThresholds
-            modelBuilder.Entity(Of GroupThresholds).HasKey(Function(t) t.ThresholdID)
-            modelBuilder.Entity(Of GroupThresholds).Property(Function(t) t.GroupName).HasMaxLength(150)
-            modelBuilder.Entity(Of GroupThresholds).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of GroupThresholds).Property(Function(t) t.AgentProperty).HasMaxLength(50)
-            modelBuilder.Entity(Of GroupThresholds).Property(Function(t) t.Comparison).HasMaxLength(2)
-            modelBuilder.Entity(Of GroupThresholds).Property(Function(t) t.Severity).HasMaxLength(25)
+            modelBuilder.Entity(Of GlobalThresholds).HasKey(Function(t) t.ThresholdID)
+            modelBuilder.Entity(Of GlobalThresholds).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of GlobalThresholds).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+            modelBuilder.Entity(Of GlobalThresholds).Property(Function(t) t.Comparison).HasMaxLength(2)
 
             'Users
             modelBuilder.Entity(Of Users).HasKey(Function(t) t.UserID)
@@ -151,8 +127,7 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of Users).Property(Function(t) t.LastName).HasMaxLength(50)
             modelBuilder.Entity(Of Users).Property(Function(t) t.Password).HasMaxLength(150)
             modelBuilder.Entity(Of Users).Property(Function(t) t.EmailAddress).HasMaxLength(100)
-            modelBuilder.Entity(Of Users).Property(Function(t) t.UserRole).HasMaxLength(25)
-
+            modelBuilder.Entity(Of Users).Property(Function(t) t.UserRole).HasMaxLength(50)
 
         End Sub
 
@@ -174,10 +149,7 @@ Namespace MonitoringDatabase
         Public Overridable Property AgentService As DbSet(Of AgentService)
         Public Overridable Property AgentServiceArchive As DbSet(Of AgentServiceArchive)
         Public Overridable Property AgentThresholds As DbSet(Of AgentThresholds)
-        Public Overridable Property GroupMembers As DbSet(Of GroupMembers)
-        Public Overridable Property GroupNames As DbSet(Of GroupNames)
-        Public Overridable Property GroupPolicy As DbSet(Of GroupPolicy)
-        Public Overridable Property GroupThresholds As DbSet(Of GroupThresholds)
+        Public Overridable Property GlobalThresholds As DbSet(Of GlobalThresholds)
         Public Overridable Property Users As DbSet(Of Users)
 
 

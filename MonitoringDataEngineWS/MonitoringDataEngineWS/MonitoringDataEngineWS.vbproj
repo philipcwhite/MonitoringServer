@@ -102,10 +102,7 @@
     <Compile Include="DataEngine\Database\Models\AgentServiceArchive.vb" />
     <Compile Include="DataEngine\Database\Models\AgentSystem.vb" />
     <Compile Include="DataEngine\Database\Models\AgentThresholds.vb" />
-    <Compile Include="DataEngine\Database\Models\GroupMembers.vb" />
-    <Compile Include="DataEngine\Database\Models\GroupNames.vb" />
-    <Compile Include="DataEngine\Database\Models\GroupPolicy.vb" />
-    <Compile Include="DataEngine\Database\Models\GroupThresholds.vb" />
+    <Compile Include="DataEngine\Database\Models\GlobalThresholds.vb" />
     <Compile Include="DataEngine\Database\Models\Users.vb" />
     <Compile Include="DataEngine\Tasks\ArchiveAgentData.vb" />
     <Compile Include="DataEngine\Tasks\CleanUp.vb" />

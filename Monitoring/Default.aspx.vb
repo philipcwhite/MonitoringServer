@@ -27,8 +27,9 @@ Partial Class _Default
                 db.Users.Add(New Users With {.UserName = "admin", .FirstName = "Admin", .LastName = "User", .Password = GetSHA512HashData("password"), .UserRole = "Administrator", .LastModified = Date.Now})
                 db.SaveChanges()
                 'Set defaults
-                db.AgentThresholds.Add(New AgentThresholds With {.AgentName = "MNWVSDEV", .AgentClass = "Processor", .AgentProperty = "Total Util (%)", .Comparison = ">", .Severity = "Critical", .ThresholdTime = 60, .ThresholdValue = 0})
-                db.SaveChanges()
+                Dim GTH As New GlobalThresholdData
+                GTH.AddThresholds()
+
                 Response.Redirect("~/Options/")
             Catch ex As Exception
 

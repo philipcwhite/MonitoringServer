@@ -4,7 +4,8 @@ Partial Class Options_Default
 
     Private Sub Options_Default_Load(sender As Object, e As EventArgs) Handles Me.Load
         If User.IsInRole("Administrator") Then
-            AdminPanel.Visible = True
+            AdminPanel1.Visible = True
+            AdminPanel2.Visible = True
         End If
     End Sub
 

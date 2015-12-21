@@ -31,12 +31,19 @@ Public Class Service
 
     Private Sub EventEngine()
 
-        Dim MEvents As New ManageEvents
-        MEvents.LoadThresholds()
-        MEvents.Thresholds("Processor", "Total Util (%)")
-        MEvents.Thresholds("Memory", "Total Util (%)")
-        MEvents.Thresholds("Logical Disk", "")
-        MEvents.Thresholds("Services", "")
+
+
+        Dim TH As New Thresholds
+
+        TH.Load()
+
+        TH.RunThresholds("Processor", "Total Util (%)")
+        TH.RunThresholds("Memory", "Total Util (%)")
+        TH.RunThresholds("Logical Disk", "")
+        TH.RunThresholds("Services", "")
+        TH.SendEvents()
+
+
 
         Dim PEvents As New CleanUp
         PEvents.PurgeRecords()

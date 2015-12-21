@@ -14,6 +14,7 @@ Partial Class Devices_Device
             Try
                 QS = Request.QueryString("hostname")
                 BuildTables(QS)
+                HostNameLabel.Text = QS
             Catch ex As Exception
 
             End Try
@@ -130,16 +131,19 @@ Partial Class Devices_Device
         Dim Table4 As New LiteralControl("<Table class='HoverTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message<img alt='Events' src='../App_Themes/Monitoring/Warning.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead>")
 
         DevicePlaceHolder.Controls.Add(Table4)
-
+        Dim Severity As String = Nothing
         For Each i In EventQ
-            If i.AgentSeverity = "Critical" Then
-                Dim Row As New LiteralControl("<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & i.AgentSeverity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
+            If i.AgentSeverity = 3 Then
+                Severity = "Critical"
+                Dim Row As New LiteralControl("<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
                 DevicePlaceHolder.Controls.Add(Row)
-            ElseIf i.AgentSeverity = "Major"
-                Dim Row As New LiteralControl("<tr><td><div class='EventStatusMajor'></div></td><td>" & i.AgentEventDate & "</td><td>" & i.AgentSeverity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
+            ElseIf i.AgentSeverity = 2 Then
+                Severity = "Major"
+                Dim Row As New LiteralControl("<tr><td><div class='EventStatusMajor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
                 DevicePlaceHolder.Controls.Add(Row)
-            ElseIf i.AgentSeverity = "Minor"
-                Dim Row As New LiteralControl("<tr><td><div class='EventStatusMinor'></div></td><td>" & i.AgentEventDate & "</td><td>" & i.AgentSeverity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
+            ElseIf i.AgentSeverity = 1 Then
+                Severity = "Minor"
+                Dim Row As New LiteralControl("<tr><td><div class='EventStatusMinor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
                 DevicePlaceHolder.Controls.Add(Row)
             End If
         Next

@@ -13,7 +13,7 @@ table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 .SearchText{border:none;border-width:0px;border-spacing:0px;border-top-left-radius:2px;border-bottom-left-radius:2px;height:18px;}
 .content{left:0px;top:0px;margin-top:25px;font:12px Verdana, Arial, Helvetica, sans-serif;padding-bottom:30px;margin-left:20px;margin-right:20px;}
 .footer{position:fixed;left:0px; bottom:0px; width:100%; height:30px; background:linear-gradient(#dddddd,#aaaaaa)}
-.footer2{font:10px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;text-align:right; padding-top:10px; padding-right:10px;text-shadow: 1px 1px #000000;}
+.footer2{font:10px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;text-align:right; padding-top:10px; padding-right:10px;text-shadow: 1px 1px #000000; font-weight:bold;}
 
 .menu{margin:0 auto; padding:0; height:30px; width:100%; display:block; background:linear-gradient(#6a75a7,#485385);}
 .menu li{padding:0; margin:0; list-style:none; display:inline;}

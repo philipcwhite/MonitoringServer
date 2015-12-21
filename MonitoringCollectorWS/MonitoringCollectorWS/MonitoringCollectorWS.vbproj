@@ -133,10 +133,7 @@
     <Compile Include="Collector\Database\Models\AgentServiceArchive.vb" />
     <Compile Include="Collector\Database\Models\AgentSystem.vb" />
     <Compile Include="Collector\Database\Models\AgentThresholds.vb" />
-    <Compile Include="Collector\Database\Models\GroupMembers.vb" />
-    <Compile Include="Collector\Database\Models\GroupNames.vb" />
-    <Compile Include="Collector\Database\Models\GroupPolicy.vb" />
-    <Compile Include="Collector\Database\Models\GroupThresholds.vb" />
+    <Compile Include="Collector\Database\Models\GlobalThresholds.vb" />
     <Compile Include="Collector\Database\Models\Users.vb" />
     <Compile Include="Collector\Encryption\Encryption.vb" />
     <Compile Include="Collector\Network\ReceiveTCP.vb" />
