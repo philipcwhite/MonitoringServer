@@ -13,7 +13,7 @@ Public Class MoveAgentData
                 Select T
 
         For Each i In Q
-            AgentCollectorLocal.Add(New AgentCollector With {.AgentID = i.AgentID, .AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentInstance = i.AgentInstance, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+            AgentCollectorLocal.Add(New AgentCollector With {.AgentID = i.AgentID, .AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
 
         Next
         db.SaveChanges()
@@ -45,7 +45,7 @@ Public Class MoveAgentData
                  Select T
 
         For Each i In Q3
-            db.AgentLogicalDisk.Add(New AgentLogicalDisk With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue, .AgentInstance = i.AgentInstance})
+            db.AgentLogicalDisk.Add(New AgentLogicalDisk With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
         Next
 
         Dim Q4 = From T In AgentCollectorLocal

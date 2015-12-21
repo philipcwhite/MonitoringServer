@@ -1,4 +1,4 @@
-# MonitoringServer 0.3.5b
+# MonitoringServer 0.3.6b
 
 About
 
@@ -32,6 +32,10 @@ You may use the compiled binaries or compile the code yourself.  Security settin
 
 11.  Install the Monitoring Agent.
  
+
+Changes for Version 0.3.6b (2015/12/21):
+
+1.  Updates to support agent changes
 
 Changes for Version 0.3.5b (2015/12/21):
 
