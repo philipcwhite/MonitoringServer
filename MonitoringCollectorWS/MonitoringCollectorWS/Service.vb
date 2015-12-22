@@ -2,7 +2,7 @@
 
 Public Class Service
 
-
+    'Private Property ListenThread As Thread
 
     Protected Overrides Sub OnStart(ByVal args() As String)
         ' Add code here to start your service. This method should set things
@@ -13,16 +13,12 @@ Public Class Service
         Dim SLoad As New ServerLoad
         SLoad.LoadParameters()
 
-
-
         Dim SListener As New ServerListener
         SListener.Listen()
 
-
-
         'Dim ReceiveTCP As New ReceiveTCP
-        'Dim t As New Thread(AddressOf ReceiveTCP.StartListener)
-        't.Start()
+        'ListenThread = New Thread(AddressOf ReceiveTCP.StartListener)
+        'ListenThread.Start()
 
         'Dim LaunchTimer As New Timers.Timer
         'AddHandler LaunchTimer.Elapsed, AddressOf Tick
@@ -35,10 +31,19 @@ Public Class Service
 
     'Private Sub Tick(sender As System.Object, e As System.EventArgs)
 
+    '    If ListenThread.IsAlive = False Then
+    '        Dim ReceiveTCP As New ReceiveTCP
+    '        ListenThread = New Thread(AddressOf ReceiveTCP.StartListener)
+    '        ListenThread.Start()
+    '    End If
+
     'End Sub
 
     Protected Overrides Sub OnStop()
         ' Add code here to perform any tear-down necessary to stop your service.
+        'If ListenThread.IsAlive = True Then
+        '    ListenThread.Abort()
+        'End If
     End Sub
 
 End Class

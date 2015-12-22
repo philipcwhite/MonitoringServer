@@ -9,7 +9,6 @@ Imports System.IO
 
 Public Class ReceiveTCP
 
-
     Public ListenPort As Integer = TCPListenPort
     Public ListenAddress As IPAddress = IPAddress.Any
     Public tcpListener As TcpListener = New TcpListener(ListenAddress, ListenPort)
@@ -32,27 +31,28 @@ Public Class ReceiveTCP
 
     Public Sub DoAcceptTcpClientCallback(ar As IAsyncResult)
         ' Get the listener that handles the client request.
+
         Dim tcpListener As TcpListener = CType(ar.AsyncState, TcpListener)
-        Dim tcpClient As TcpClient = tcpListener.EndAcceptTcpClient(ar)
-        Dim NStream As NetworkStream = tcpClient.GetStream
-        Dim Message As String = Nothing
+            Dim tcpClient As TcpClient = tcpListener.EndAcceptTcpClient(ar)
+
+            Dim NStream As NetworkStream = tcpClient.GetStream
+            Dim Message As String = Nothing
         Dim Reader As New StreamReader(NStream)
         While Reader.Peek > -1
-            Message = Message + Convert.ToChar(Reader.Read)
-        End While
+                Message = Message + Convert.ToChar(Reader.Read)
+            End While
+
         Dim Encryption As New Encryption
-        Message = Encryption.DecryptData(Message)
-        Dim ResponseString As String = "Data received by server"
+            Message = Encryption.DecryptData(Message)
+            Dim ResponseString As String = "Data received by server"
         Dim ResponseBytes As Byte() = Encoding.ASCII.GetBytes(ResponseString)
         Dim ReturnStream As NetworkStream = tcpClient.GetStream
         ReturnStream.Write(ResponseBytes, 0, ResponseBytes.Length)
 
         TranslateXML(Message)
 
-        NStream.Close()
-        tcpClient.Close()
-
         tcpClientConnected.Set()
+
     End Sub
 
 
