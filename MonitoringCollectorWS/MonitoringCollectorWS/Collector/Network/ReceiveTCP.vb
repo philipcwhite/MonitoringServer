@@ -35,21 +35,24 @@ Public Class ReceiveTCP
         Dim tcpListener As TcpListener = CType(ar.AsyncState, TcpListener)
             Dim tcpClient As TcpClient = tcpListener.EndAcceptTcpClient(ar)
 
-            Dim NStream As NetworkStream = tcpClient.GetStream
-            Dim Message As String = Nothing
+        Dim NStream As NetworkStream = tcpClient.GetStream
+        Dim Message As String = Nothing
         Dim Reader As New StreamReader(NStream)
         While Reader.Peek > -1
                 Message = Message + Convert.ToChar(Reader.Read)
             End While
 
         Dim Encryption As New Encryption
-            Message = Encryption.DecryptData(Message)
-            Dim ResponseString As String = "Data received by server"
+        Message = Encryption.DecryptData(Message)
+        Dim ResponseString As String = "Data received by server"
         Dim ResponseBytes As Byte() = Encoding.ASCII.GetBytes(ResponseString)
-        Dim ReturnStream As NetworkStream = tcpClient.GetStream
-        ReturnStream.Write(ResponseBytes, 0, ResponseBytes.Length)
-
+        'Dim ReturnStream As NetworkStream = tcpClient.GetStream
+        'ReturnStream.Write(ResponseBytes, 0, ResponseBytes.Length)
+        NStream.Write(ResponseBytes, 0, ResponseBytes.Length)
         TranslateXML(Message)
+
+        'ReturnStream.Close()
+        NStream.Close()
 
         tcpClientConnected.Set()
 
