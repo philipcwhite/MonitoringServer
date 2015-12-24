@@ -4,33 +4,14 @@ About
 
 This repository contains the code for the Monitoring Server.  The Monitoring Server contains 4 parts.  MonitoringCollectorWS is a Windows service that collects data from the Monitoring Agent and inserts it into the database.  MonitoringDataEngineWS processes the data and moves it to the correct tables.  MonitoringEventEngineWS creates events when thresholds have been crossed.  Monitoring is the Website component that is used to view and Administer the Monitoring solution.  It also creates the database when the site is loaded for the first time.  Please note that this is Beta software and the full functionality has not been coded yet.  
 
+
 I am currently working on finishing the base code for the website.  After this is done I will most likely make the install a little friendlier before adding graphs, reports, etc.  I also plan on packaging the services as one installer making the server simpler to deploy.
 
+
+For setup and configuration please see the new Wiki
+
+
 ![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Website.png)
-
-Setup Instructions
-
-You may use the compiled binaries or compile the code yourself.  Security settings on the MonitoringCollectorWS project and MonitoringAgent project should be updated if you plan on eventually using this in production.
-
-1. Install SQL Server (Express is fine).  
-
-2. Assign "Network Service" write access to the database.  For testing I am assigning it the role SysAdmin.  It should not need SysAdmin privilages.  
-
-4. Compile the service and installer for the MonitoringCollectorWS, MonitoringDataEngineWS, and MonitoringEventEngineWS project or use the binary releases.
-
-5. Run the MonitoringCollectorWS installer.  Run the MonitoringDataEngineWS installer.  Run the MonitoringEventEngineWS installer.
-
-6. The Collector needs access to read and write to the installation folder.  You must grant the "Network Service" account this folder.  
-
-7. If your firewall is enabled, you need allow the collector access to the network.
-
-8. Copy the Monitoring folder to C:\inetpub\wwwroot.  Set this up as an ASP.Net Projuct and make sure it's App Pool is Running as Network Service.
-
-9. On first load of the webpage, the database will be created along with the user account "admin", password "password".  You can log in and change or remove this account.  
-
-10. Start the Monitoring Services.
-
-11.  Install the Monitoring Agent.
  
 
 Changes for Version 0.3.7b (2015/12/21):
