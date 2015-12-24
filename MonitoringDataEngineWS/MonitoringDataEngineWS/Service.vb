@@ -8,6 +8,9 @@ Public Class Service
         ' Add code here to start your service. This method should set things
         ' in motion so your service can do its work.
 
+        DataEngineThread = New Thread(AddressOf DataEngine)
+        DataEngineThread.Start()
+
         Dim LaunchTimer As New Timers.Timer
         AddHandler LaunchTimer.Elapsed, AddressOf Tick
         LaunchTimer.Interval = 60000
@@ -27,16 +30,15 @@ Public Class Service
 
 
     Private Sub Tick(sender As System.Object, e As System.EventArgs)
-
-        DataEngineThread = New Thread(AddressOf DataEngine)
-        DataEngineThread.Start()
-
+        If DataEngineThread.IsAlive = False Then
+            DataEngineThread = New Thread(AddressOf DataEngine)
+            DataEngineThread.Start()
+        End If
 
     End Sub
 
     Private Sub DataEngine()
         Try
-
 
             Dim MAgents As New MoveAgents
             MAgents.QueryDatabase()
@@ -56,6 +58,9 @@ Public Class Service
         Catch ex As Exception
 
         End Try
+
+        DataEngineThread.Abort()
+
     End Sub
 
 

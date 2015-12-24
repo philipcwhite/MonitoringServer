@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <h2>
-        <asp:HyperLink ID="OptionsHyperLink" runat="server" NavigateUrl="~/Options/Default.aspx">Options</asp:HyperLink>&gt;<asp:HyperLink ID="UsersHyperLink" runat="server" NavigateUrl="~/Options/Users.aspx">Users</asp:HyperLink>&gt;Update User</h2>
+        <asp:HyperLink ID="OptionsHyperLink" runat="server" NavigateUrl="~/Options/Default.aspx">Options</asp:HyperLink>&gt;<asp:HyperLink ID="UsersHyperLink" runat="server" NavigateUrl="~/Options/Users/">Users</asp:HyperLink>&gt;Update User</h2>
     
   
         <table class='StaticTable' style='width: 100%'><thead><tr><th>Update User</th></tr></thead><tr><td>

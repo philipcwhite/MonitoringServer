@@ -17,7 +17,7 @@
         <tr>
             <td>User Name:</td>
             <td>
-                <asp:TextBox ID="UserNameTextBox" runat="server" Enabled="False" Width="100px" SkinID="TextBox" BackColor="#EFEFEF"></asp:TextBox></td>
+                <asp:TextBox ID="UserNameTextBox" runat="server" Enabled="False" Width="100px" CssClass="TextBox" BackColor="#EFEFEF"></asp:TextBox></td>
         </tr>
         <tr>
             <td>Reset Password</td>

@@ -1,4 +1,4 @@
-# MonitoringServer 0.3.6b
+# MonitoringServer 0.3.7b
 
 About
 
@@ -32,6 +32,12 @@ You may use the compiled binaries or compile the code yourself.  Security settin
 
 11.  Install the Monitoring Agent.
  
+
+Changes for Version 0.3.7b (2015/12/21):
+
+1.  Significantly improved performance on the services.  Changed Delete clauses to not fetch.  
+
+2.  Added the ability to edit, delete, and restore, Global Thresholds via the website.  I will be adding an add Page soon.  Also Local thresholds do work as overrides but can only be entered directly into the database as of now.
 
 Changes for Version 0.3.6b (2015/12/21):
 

@@ -164,9 +164,9 @@ Public Class Thresholds
 
             Next
 
-            If atotal = btotal Then
+            If atotal = btotal And btotal IsNot Nothing Then
                 ThresholdEvent(AName, AClass, AProperty, AThreshold, AComparison, AThresholdTime, ASeverity, True)
-            Else
+            ElseIf atotal <> btotal And btotal IsNot Nothing Then
                 ThresholdEvent(AName, AClass, AProperty, AThreshold, AComparison, AThresholdTime, ASeverity, False)
             End If
 

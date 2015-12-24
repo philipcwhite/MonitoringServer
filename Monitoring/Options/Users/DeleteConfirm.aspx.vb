@@ -11,7 +11,7 @@ Partial Class Options_DeleleConfirm
 
     Protected Sub ConfirmButton_Click(sender As Object, e As EventArgs) Handles ConfirmButton.Click
         DeleteUser(UserLabel.Text)
-        Response.Redirect("~/Options/Users.aspx")
+        Response.Redirect("~/Options/Default.aspx")
     End Sub
 
     Private Sub Options_DeleleConfirm_Load(sender As Object, e As EventArgs) Handles Me.Load

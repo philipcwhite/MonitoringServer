@@ -61,7 +61,7 @@ Partial Class Options_UpdateProfile
     End Sub
 
     Protected Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
-        Response.Redirect("~/Options/Users.aspx")
+        Response.Redirect("~/Options/")
     End Sub
 
 

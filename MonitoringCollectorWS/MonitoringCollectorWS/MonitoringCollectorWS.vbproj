@@ -140,7 +140,6 @@
     <Compile Include="Collector\Network\SendClass.vb" />
     <Compile Include="Collector\Parameters\ServerParameters.vb" />
     <Compile Include="Collector\Parameters\ConfigDB.vb" />
-    <Compile Include="Collector\Processes\ServerListener.vb" />
     <Compile Include="Collector\Processes\ServerLoad.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

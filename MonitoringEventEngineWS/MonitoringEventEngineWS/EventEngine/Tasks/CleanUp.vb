@@ -4,13 +4,8 @@ Public Class CleanUp
 
     Public Sub PurgeRecords()
         Dim PurgeDate = Date.Now.AddDays(-7)
-        Dim Q = From T In db.AgentEvents
-                Where T.AgentStatus = False And T.AgentEventDate < PurgeDate
-                Select T
 
-        For Each i In Q
-            db.AgentEvents.Remove(i)
-        Next
+        db.AgentEvents.RemoveRange(db.AgentEvents.Where(Function(o) o.AgentStatus = False And o.AgentEventDate < PurgeDate))
         db.SaveChanges()
 
     End Sub

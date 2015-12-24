@@ -23,30 +23,28 @@ Public Class Service
 
     Private Sub Tick(sender As System.Object, e As System.EventArgs)
 
-        EventEngineThread = New Thread(AddressOf EventEngine)
-        EventEngineThread.Start()
-
+        If EventEngineThread.IsAlive = False Then
+            EventEngineThread = New Thread(AddressOf EventEngine)
+            EventEngineThread.Start()
+        End If
 
     End Sub
 
     Private Sub EventEngine()
 
-
-
         Dim TH As New Thresholds
 
         TH.Load()
-
         TH.RunThresholds("Processor", "Total Util (%)")
         TH.RunThresholds("Memory", "Total Util (%)")
         TH.RunThresholds("Logical Disk", "")
         TH.RunThresholds("Services", "")
         TH.SendEvents()
 
-
-
         Dim PEvents As New CleanUp
         PEvents.PurgeRecords()
+
+        EventEngineThread.Abort()
 
     End Sub
 

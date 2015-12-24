@@ -31,34 +31,6 @@ table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 
 .TextBox {border:solid;border-width:1px;border-spacing:0px;border-radius:2px;border-color:#cccccc;}
 
-.DeviceTable {border-radius: 4px; background-color:#efefef}   
-.DeviceTable tr:hover {background: #efefef;transition:none} 
-.DeviceTable td, .DeviceTable th {padding: 5px;text-align: left;color:#485385;}
-.DeviceTable th {background:linear-gradient(#c8d9fa,#9fb2d6);border-top: none;font:12px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;text-shadow: 1px 1px #707070;}
-.DeviceTable td:first-child, .DeviceTable th:first-child {border-left: none;}
-.DeviceTable th:first-child {border-radius: 4px 0 0 0;}
-.DeviceTable th:last-child {border-radius: 0 4px 0 0;}
-.DeviceTable th:only-child{border-radius: 4px 4px 0 0;}
-.DeviceTable tr:last-child td:first-child {border-radius: 0 0 0 4px;}
-.DeviceTable tr:last-child td:last-child {border-radius: 0 0 4px 0;}
-.DeviceTable a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
-
-
-
-
-.EventTable {border-radius: 4px; background-color:#efefef}
-.EventTable tr:hover {background: #dddddd;transition: all 0.1s ease-in-out;}    
-.EventTable td, .EventTable th {padding: 5px;text-align: left;color:#485385}
-.EventTable th {background:linear-gradient(#c8d9fa,#9fb2d6);border-top: none;font:12px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;text-shadow: 1px 1px #707070;}
-.EventTable td:first-child, .EventTable th:first-child {border-left: none;}
-.EventTable th:first-child {border-radius: 4px 0 0 0;}
-.EventTable th:last-child {border-radius: 0 4px 0 0;}
-.EventTable th:only-child{border-radius: 4px 4px 0 0;}
-.EventTable tr:last-child td:first-child {border-radius: 0 0 0 4px;}
-.EventTable tr:last-child td:last-child {border-radius: 0 0 4px 0;}
-.EventTable a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
-
-
 .EventStatusCritical {height:10px;width:10px;background:#ff0000;border-radius:2px;box-shadow: 1px 1px 1px #888888;}
 .EventStatusMajor {height:10px;width:10px;background:#ffa31a;border-radius:2px;box-shadow: 1px 1px 1px #888888;}
 .EventStatusMinor {height:10px;width:10px;background:#ffff00;border-radius:2px;box-shadow: 1px 1px 1px #888888;}

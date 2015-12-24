@@ -28,12 +28,22 @@ Partial Class Options_GlobalThresholds
             EditButton.Text = "Edit"
             EditButton.CssClass = "Button"
             EditButton.ID = i.ThresholdID
-            EditButton.PostBackUrl = "~/Options/UpdateThreshold.aspx?ThresholdID=" & i.ThresholdID
+            EditButton.PostBackUrl = "~/Options/Thresholds/UpdateThreshold.aspx?ThresholdID=" & i.ThresholdID
+
+            Dim DeleteButton As New Button
+            DeleteButton.Text = "Delete"
+            DeleteButton.CssClass = "Button"
+            DeleteButton.ID = i.ThresholdID
+            DeleteButton.PostBackUrl = "~/Options/Thresholds/Confirmation.aspx?ThresholdID=" & i.ThresholdID
+
+            Dim Blank As New LiteralControl(" ")
 
             Dim Row As New LiteralControl("<tr><td>" & i.AgentClass & "</td><td>" & i.AgentProperty & "</td><td>" & i.Comparison & "</td><td>" & i.ThresholdValue & "</td><td>" & i.ThresholdTime & "</td><td>" & i.Severity & "</td><td>" & i.Enabled & "</td><td style='text-align:center'>")
 
             ThresholdPlaceHolder.Controls.Add(Row)
             ThresholdPlaceHolder.Controls.Add(EditButton)
+            ThresholdPlaceHolder.Controls.Add(Blank)
+            ThresholdPlaceHolder.Controls.Add(DeleteButton)
             Dim Row2 As New LiteralControl("</td></tr>")
             ThresholdPlaceHolder.Controls.Add(Row2)
         Next
@@ -53,10 +63,7 @@ Partial Class Options_GlobalThresholds
 
     Protected Sub RestoreButton_Click(sender As Object, e As EventArgs) Handles RestoreButton.Click
 
-        Dim GTH As New GlobalThresholdData
-
-        GTH.AddThresholds()
-        Response.Redirect("GlobalThresholds.aspx")
+        Response.Redirect("~/Options/Thresholds/Confirmation.aspx?ResetThresholds=True")
 
     End Sub
 

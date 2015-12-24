@@ -25,13 +25,13 @@ Partial Class Options_Users
             EditButton.Text = "Edit"
             EditButton.CssClass = "Button"
             EditButton.ID = i.UserID
-            EditButton.PostBackUrl = "~/Options/UpdateUser.aspx?UserName=" & i.UserName
+            EditButton.PostBackUrl = "~/Options/Users/UpdateUser.aspx?UserName=" & i.UserName
 
             Dim DeleteButton As New Button
             DeleteButton.Text = "Delete"
             DeleteButton.CssClass = "Button"
             DeleteButton.ID = i.UserID
-            DeleteButton.PostBackUrl = "~/Options/DeleteConfirm.aspx?UserName=" & i.UserName
+            DeleteButton.PostBackUrl = "~/Options/Users/DeleteConfirm.aspx?UserName=" & i.UserName
 
             Dim Blank As New LiteralControl(" ")
 
