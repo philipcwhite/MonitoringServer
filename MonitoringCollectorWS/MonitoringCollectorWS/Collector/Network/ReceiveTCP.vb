@@ -36,6 +36,10 @@ Public Class ReceiveTCP
             Dim tcpClient As TcpClient = tcpListener.EndAcceptTcpClient(ar)
 
         Dim NStream As NetworkStream = tcpClient.GetStream
+
+        NStream.ReadTimeout = 1000
+        NStream.WriteTimeout = 1000
+
         Dim Message As String = Nothing
         Dim Reader As New StreamReader(NStream)
         While Reader.Peek > -1
@@ -46,13 +50,16 @@ Public Class ReceiveTCP
         Message = Encryption.DecryptData(Message)
         Dim ResponseString As String = "Data received by server"
         Dim ResponseBytes As Byte() = Encoding.ASCII.GetBytes(ResponseString)
-        'Dim ReturnStream As NetworkStream = tcpClient.GetStream
-        'ReturnStream.Write(ResponseBytes, 0, ResponseBytes.Length)
+
         NStream.Write(ResponseBytes, 0, ResponseBytes.Length)
+
+
         TranslateXML(Message)
 
-        'ReturnStream.Close()
         NStream.Close()
+
+
+
 
         tcpClientConnected.Set()
 
