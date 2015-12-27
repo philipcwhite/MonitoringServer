@@ -4,7 +4,6 @@ h2 {font:14px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#4853
 h2 a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
 table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 
-
 .topmenu {position:fixed;left:0;top:0;width:100%;}
 .MenuSearchLeft{position:fixed;right:38px;top:5px;border-top-left-radius:2px;border-bottom-left-radius:2px;background-color:#ffffff;height:20px;}
 .MenuSearchRight{position:fixed;right:20px;top:5px;border-top-right-radius:2px;border-bottom-right-radius:2px;background:linear-gradient(#c8d9fa,#9fb2d6);height:20px;width:18px;padding-left:2px;}
@@ -59,3 +58,4 @@ table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 .StaticTable tr:last-child td:first-child {border-radius: 0 0 0 4px;}
 .StaticTable tr:last-child td:last-child {border-radius: 0 0 4px 0;}
 .StaticTable a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
+

@@ -19,11 +19,10 @@
 <li><a href="/Monitoring/Options" class="active"><span>Options</span></a></li>
             <li>
                 <span class="MenuSearchLeft">
-                    <asp:TextBox ID="TextBox1" runat="server" BorderStyle="None" Width="100px" CssClass="SearchText"></asp:TextBox>
+                    <asp:TextBox ID="SearchTextBox" runat="server" BorderStyle="None" Width="100px" CssClass="SearchText"></asp:TextBox>
                     </span>
                 <span class="MenuSearchRight">
-                    <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/App_Themes/Monitoring/Search.png" CssClass="SearchImage" />
-
+                    <asp:ImageButton ID="SearchImageButton" runat="server" ImageUrl="~/App_Themes/Monitoring/Search.png" CssClass="SearchImage" />
                 </span>
             </li>
 </ul>

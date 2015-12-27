@@ -54,6 +54,15 @@
                           <asp:ListItem Value="1">Minor</asp:ListItem>
                       </asp:DropDownList></td>
               </tr>
+                 <tr>
+                              <td>Enabled:</td>
+                              <td>
+                                  <asp:RadioButtonList ID="EnabledRadioButtonList" runat="server" RepeatDirection="Horizontal" Width="100px">
+                                      <asp:ListItem Value="True">Yes</asp:ListItem>
+                                      <asp:ListItem Value="False">No</asp:ListItem>
+                                  </asp:RadioButtonList></td>
+
+                          </tr>
               <tr>
                   <td colspan="2">
 

@@ -20,6 +20,7 @@ Partial Class Options_EditThreshold
             ThresholdTextBox.Text = Q.ThresholdValue
             DurationTextBox.Text = Q.ThresholdTime
             SeverityDropDownList.SelectedValue = Q.Severity
+            EnabledRadioButtonList.SelectedValue = Q.Enabled
 
         End If
 
@@ -50,7 +51,7 @@ Partial Class Options_EditThreshold
             Q.ThresholdValue = ThresholdTextBox.Text
             Q.ThresholdTime = DurationTextBox.Text
             Q.Severity = SeverityDropDownList.SelectedValue
-
+            Q.Enabled = EnabledRadioButtonList.SelectedValue
             db.SaveChanges()
             ValidatorLabel.Text = "Updated Successfully"
         Else
