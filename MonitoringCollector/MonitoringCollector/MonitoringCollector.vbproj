@@ -143,7 +143,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
-    <Compile Include="NetworkLog.vb" />
+    <Compile Include="Collector\Logging\NetworkLog.vb" />
     <Compile Include="ProjectInstaller.Designer.vb">
       <DependentUpon>ProjectInstaller.vb</DependentUpon>
     </Compile>
@@ -207,9 +207,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Collector\Logging\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

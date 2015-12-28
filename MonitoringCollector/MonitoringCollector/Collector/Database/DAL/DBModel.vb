@@ -120,8 +120,8 @@ Namespace MonitoringDatabase
 
 
         Public Overridable Property AgentEvents As DbSet(Of AgentEvents)
-        Public Overridable Property AgentLogicalDisk As DbSet(Of AgentLocalDisk)
-        Public Overridable Property AgentLogicalDiskArchive As DbSet(Of AgentLocalDiskArchive)
+        Public Overridable Property AgentLocalDisk As DbSet(Of AgentLocalDisk)
+        Public Overridable Property AgentLocalDiskArchive As DbSet(Of AgentLocalDiskArchive)
         Public Overridable Property AgentMemory As DbSet(Of AgentMemory)
         Public Overridable Property AgentMemoryArchive As DbSet(Of AgentMemoryArchive)
         Public Overridable Property AgentProcessor As DbSet(Of AgentProcessor)

@@ -6,22 +6,17 @@ Partial Class Devices_Device
 
     Private Sub Devices_Device_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-
-
-
         If Not IsPostBack Then
 
-            Try
-                QS = Request.QueryString("hostname")
+            'Try
+            QS = Request.QueryString("hostname")
                 BuildTables(QS)
                 HostNameLabel.Text = QS
-            Catch ex As Exception
+            'Catch ex As Exception
 
-            End Try
-
+            'End Try
 
         End If
-
 
     End Sub
 
@@ -42,16 +37,18 @@ Partial Class Devices_Device
                        Order By T.AgentCollectDate Descending
                        Select T).FirstOrDefault
 
-        Dim LogicalDiskQ1 = (From T In db.AgentLogicalDisk
-                             Where T.AgentName = AgentName
-                             Order By T.AgentCollectDate Descending
-                             Select T.AgentCollectDate).FirstOrDefault
+        'Dim LocalDiskQ1 = (From T In db.AgentLocalDisk
+        '                   Where T.AgentName = AgentName
+        '                   Order By T.AgentCollectDate Descending
+        '                   Select T.AgentCollectDate).FirstOrDefault
 
-        Dim LogicalDiskTime As String = LogicalDiskQ1
+        Dim LocalDiskTime As String = Nothing
+        'LocalDiskQ1
+        LocalDiskTime = AgentQ.AgentDate
 
-        Dim LogicalDiskQ2 = From T In db.AgentLogicalDisk
-                            Where T.AgentName = AgentName And T.AgentCollectDate = LogicalDiskTime
-                            Select T
+        Dim LocalDiskQ2 = From T In db.AgentLocalDisk
+                          Where T.AgentName = AgentName And T.AgentCollectDate = LocalDiskTime
+                          Select T
 
         Dim EventQ = (From T In db.AgentEvents
                       Where T.AgentStatus = True And T.AgentName = AgentName
@@ -62,9 +59,6 @@ Partial Class Devices_Device
 
 
         DevicePlaceHolder.Controls.Clear()
-
-
-
 
 
 
@@ -115,7 +109,7 @@ Partial Class Devices_Device
         Dim Table3Item2 As New LiteralControl(MemoryQ.AgentClass & " " & MemoryQ.AgentProperty & " " & MemoryQ.AgentValue & "<br />")
         DevicePlaceHolder.Controls.Add(Table3Item2)
 
-        For Each i In LogicalDiskQ2
+        For Each i In LocalDiskQ2
             Dim Table3ItemX As New LiteralControl(i.AgentClass & " " & i.AgentProperty & " " & i.AgentValue & "<br />")
             DevicePlaceHolder.Controls.Add(Table3ItemX)
         Next

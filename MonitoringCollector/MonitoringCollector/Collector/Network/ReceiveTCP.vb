@@ -133,17 +133,17 @@ Public Class ReceiveTCP
             AgentValue = node.SelectSingleNode("AgentValue").InnerText
 
 
-            Select Case AgentClass
-                Case "Processor"
+            Select Case True
+                Case AgentClass.Contains("Processor")
                     db.AgentProcessor.Add(New AgentProcessor With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
                     db.SaveChanges()
-                Case "Memory"
+                Case AgentClass.Contains("Memory")
                     db.AgentMemory.Add(New AgentMemory With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
                     db.SaveChanges()
-                Case "Local Disk"
-                    db.AgentLogicalDisk.Add(New AgentLocalDisk With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
+                Case AgentClass.Contains("Local Disk")
+                    db.AgentLocalDisk.Add(New AgentLocalDisk With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
                     db.SaveChanges()
-                Case "Services"
+                Case AgentClass.Contains("Services")
                     db.AgentService.Add(New AgentService With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
                     db.SaveChanges()
             End Select

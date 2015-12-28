@@ -1,7 +1,7 @@
 ﻿Imports MonitoringEventEngine.MonitoringDatabase
 Public Class Thresholds
 
-    Public db As New DBModel
+    Public Property db As New DBModel
     Public Property AThresholds As New List(Of AgentThresholds)
     Public Property GThresholds As New List(Of AgentThresholds)
     Public Property AList As New List(Of String)
@@ -11,11 +11,21 @@ Public Class Thresholds
 
     Public Sub Load()
 
+        AThresholds.Clear()
+        GThresholds.Clear()
+        AList.Clear()
+        ThresholdEvents.Clear()
+        FilteredEvents.Clear()
+
+
         Dim Q0 = From T In db.AgentSystem
                  Select T.AgentName
         For Each i In Q0
             AList.Add(i)
         Next
+
+
+
 
         'Add Agent Thresholds
         Dim Q1 = From T In db.AgentThresholds
@@ -46,6 +56,7 @@ Public Class Thresholds
 
         Next
 
+
     End Sub
 
 
@@ -62,7 +73,7 @@ Public Class Thresholds
             Q1 = From T In AThresholds
                  Where T.AgentClass = AClass
                  Select T
-        ElseIf AClass = "Logical Disk" Then
+        ElseIf AClass = "Local Disk" Then
             Q1 = From T In AThresholds
                  Where T.AgentClass.Contains(":)") And T.AgentProperty.Contains("Free")
                  Select T
@@ -89,9 +100,9 @@ Public Class Thresholds
                    On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
                      Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName
                      Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue
-            ElseIf AClass = "Logical Disk" Then
+            ElseIf AClass = "Local Disk" Then
                 Q2 = From T1 In AThresholdsLocal
-                     Join T2 In db.AgentLogicalDisk
+                     Join T2 In db.AgentLocalDisk
                    On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
                      Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName
                      Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue

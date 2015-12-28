@@ -13,6 +13,10 @@ Public Class Service
         ' Add code here to start your service. This method should set things
         ' in motion so your service can do its work.
 
+
+        EventEngineThread = New Thread(AddressOf EventEngine)
+        EventEngineThread.Start()
+
         Dim LaunchTimer As New Timers.Timer
         AddHandler LaunchTimer.Elapsed, AddressOf Tick
         LaunchTimer.Interval = 60000
@@ -32,17 +36,20 @@ Public Class Service
 
     Private Sub EventEngine()
 
-        Dim TH As New Thresholds
 
-        TH.Load()
+
+        Dim TH As New Thresholds
+            TH.Load()
         TH.RunThresholds("Processor", "Total Util (%)")
         TH.RunThresholds("Memory", "Total Util (%)")
-        TH.RunThresholds("Logical Disk", "")
+        TH.RunThresholds("Local Disk", "")
         TH.RunThresholds("Services", "")
         TH.SendEvents()
 
         Dim PEvents As New CleanUp
         PEvents.PurgeRecords()
+
+
 
         EventEngineThread.Abort()
 

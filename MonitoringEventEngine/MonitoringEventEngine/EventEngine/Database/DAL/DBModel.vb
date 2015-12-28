@@ -55,8 +55,6 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentProperty).HasMaxLength(100)
 
 
-            'Archive Tables
-
             'AgentProcessor Table
             modelBuilder.Entity(Of AgentProcessorArchive).HasKey(Function(t) t.AgentID)
             modelBuilder.Entity(Of AgentProcessorArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
@@ -122,8 +120,8 @@ Namespace MonitoringDatabase
 
 
         Public Overridable Property AgentEvents As DbSet(Of AgentEvents)
-        Public Overridable Property AgentLogicalDisk As DbSet(Of AgentLocalDisk)
-        Public Overridable Property AgentLogicalDiskArchive As DbSet(Of AgentLocalDiskArchive)
+        Public Overridable Property AgentLocalDisk As DbSet(Of AgentLocalDisk)
+        Public Overridable Property AgentLocalDiskArchive As DbSet(Of AgentLocalDiskArchive)
         Public Overridable Property AgentMemory As DbSet(Of AgentMemory)
         Public Overridable Property AgentMemoryArchive As DbSet(Of AgentMemoryArchive)
         Public Overridable Property AgentProcessor As DbSet(Of AgentProcessor)
