@@ -38,17 +38,17 @@ Public Class Service
     End Sub
 
     Private Sub DataEngine()
-        Try
+        ' Try
 
-            Dim Archive As New ArchiveAgentData
+        Dim Archive As New ArchiveAgentData
             Archive.Archive()
 
             Dim CleanAgents As New CleanUp
             CleanAgents.PurgeData()
 
-        Catch ex As Exception
+        'Catch ex As Exception
 
-        End Try
+        'End Try
 
         DataEngineThread.Abort()
 

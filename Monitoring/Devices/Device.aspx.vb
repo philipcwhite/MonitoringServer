@@ -37,13 +37,8 @@ Partial Class Devices_Device
                        Order By T.AgentCollectDate Descending
                        Select T).FirstOrDefault
 
-        'Dim LocalDiskQ1 = (From T In db.AgentLocalDisk
-        '                   Where T.AgentName = AgentName
-        '                   Order By T.AgentCollectDate Descending
-        '                   Select T.AgentCollectDate).FirstOrDefault
-
         Dim LocalDiskTime As String = Nothing
-        'LocalDiskQ1
+
         LocalDiskTime = AgentQ.AgentDate
 
         Dim LocalDiskQ2 = From T In db.AgentLocalDisk

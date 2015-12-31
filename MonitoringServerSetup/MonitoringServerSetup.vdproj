@@ -152,6 +152,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -532,7 +540,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MonitoringServer"
         "ProductCode" = "8:{622EA825-5DCE-4246-A805-5BAD34E19E1D}"
-        "PackageCode" = "8:{BB18C935-41C7-4C4B-BEE6-85F8EBD1135F}"
+        "PackageCode" = "8:{72C1C5B1-C3E2-4FA1-A0C0-9A6BB4EE2951}"
         "UpgradeCode" = "8:{AF0E133F-8FCC-45AE-BFD2-AD3F3E81429B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1077,7 +1085,6 @@
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {
-                "ExcludeFilter" = "8:*.config"
                 }
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_51CE34EC3A814D9189F9D95C0860A7C5"

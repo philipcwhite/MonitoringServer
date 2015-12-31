@@ -59,3 +59,12 @@ table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 .StaticTable tr:last-child td:last-child {border-radius: 0 0 4px 0;}
 .StaticTable a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
 
+
+.Chart{width:800px;height:250px;display: inline-block;}
+.Chart #Legend1{stroke:#485385;border:#485385;visibility:hidden!important;}
+.Chart #ContentPlaceHolder1_LineChart1__ParentDiv{border-color:#ffffff;}
+.Chart #ContentPlaceHolder1_LineChart1_tooltipDiv{border-width:2px!important;border-radius:4px}
+.Chart #ValueAxis{font-size:9px;}
+.Chart #SeriesAxis{font-size:9px;}
+.Chart #Dot1{stroke-width:0px}
+.Chart #LegendArea{visibility:hidden!important}

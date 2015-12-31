@@ -6,7 +6,7 @@ Public Class CleanUp
 
     Public Sub PurgeData()
 
-        'Purge Collector Data
+
         Dim PurgeDate = Date.Now.AddDays(-1)
 
         db.AgentProcessor.RemoveRange(db.AgentProcessor.Where(Function(o) o.AgentCollectDate < PurgeDate))

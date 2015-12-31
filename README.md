@@ -14,6 +14,13 @@ For setup and configuration please see the new Wiki
 ![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Website.png)
  
 
+##Changes for Version 0.4.0b (2015/12/31):
+
+1.  Several changes have been made to data processing and lots of bug fixes.  I am currently having some issues with performance on the event manager.  It could be my 1 CPU VM I'm developing this on is just a bit weak but I'm trying to stay lightweight so that when people start expanding they don't have to mortgage their business to buy server resources.  
+
+2.  I am currently working on graphing and hope to have something released early January.  I am developing graphs using HTML5 SVG so they look pretty good.  The Monitoring agent has been set to collect every 5 minutes.  This will be a firm poll period going forward.  I will probably put in a ping or availability metric that hits servers sooner than that but for CPU, etc. 5 minutes is a good time.  This will also keep database sizes smaller.
+
+
 ##Changes for Version 0.4.0b (2015/12/27):
 
 1.  Completely retooled the dataflow between the agent and the collector.  

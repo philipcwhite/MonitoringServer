@@ -93,25 +93,25 @@ Public Class Thresholds
                      Join T2 In db.AgentProcessor
                    On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
                      Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName
-                     Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue
+                     Select T2.AgentName, T2.AgentProperty, T2.AgentValue
             ElseIf AClass = "Memory" Then
                 Q2 = From T1 In AThresholdsLocal
                      Join T2 In db.AgentMemory
                    On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
                      Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName
-                     Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue
+                     Select T2.AgentName, T2.AgentProperty, T2.AgentValue
             ElseIf AClass = "Local Disk" Then
                 Q2 = From T1 In AThresholdsLocal
                      Join T2 In db.AgentLocalDisk
                    On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
                      Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName
-                     Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue
+                     Select T2.AgentName, T2.AgentProperty, T2.AgentValue
             ElseIf AClass = "Services" Then
                 Q2 = From T1 In AThresholdsLocal
                      Join T2 In db.AgentService
                    On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
                      Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName
-                     Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue
+                     Select T2.AgentName, T2.AgentProperty, T2.AgentValue
             End If
 
             Dim atotal = Nothing
