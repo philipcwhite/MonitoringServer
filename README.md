@@ -10,13 +10,13 @@ For setup and configuration please see the new Wiki
 
 ##Screenshots
 
-Device View
+###Device View
 
 ![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Device.png)
  
-Graphing
+###Graphing View
 
-![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Device.png)
+![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Graph.png)
  
 
 ##Change Log
