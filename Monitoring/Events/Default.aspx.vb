@@ -25,21 +25,26 @@ Partial Class Events_Default
         EventPlaceHolder.Controls.Clear()
         EventPlaceHolder.Controls.Add(Table)
 
-        For Each i In Q
-            If i.AgentSeverity = 3 Then
-                Severity = "Critical"
-                Dim Row As New LiteralControl("<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
-                EventPlaceHolder.Controls.Add(Row)
-            ElseIf i.AgentSeverity = 2 Then
-                Severity = "Major"
-                Dim Row As New LiteralControl("<tr><td><div class='EventStatusMajor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
-                EventPlaceHolder.Controls.Add(Row)
-            ElseIf i.AgentSeverity = 1 Then
-                Severity = "Minor"
-                Dim Row As New LiteralControl("<tr><td><div class='EventStatusMinor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
-                EventPlaceHolder.Controls.Add(Row)
-            End If
-        Next
+        If Q IsNot Nothing Then
+            For Each i In Q
+                If i.AgentSeverity = 3 Then
+                    Severity = "Critical"
+                    Dim Row As New LiteralControl("<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
+                    EventPlaceHolder.Controls.Add(Row)
+                ElseIf i.AgentSeverity = 2 Then
+                    Severity = "Major"
+                    Dim Row As New LiteralControl("<tr><td><div class='EventStatusMajor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
+                    EventPlaceHolder.Controls.Add(Row)
+                ElseIf i.AgentSeverity = 1 Then
+                    Severity = "Minor"
+                    Dim Row As New LiteralControl("<tr><td><div class='EventStatusMinor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
+                    EventPlaceHolder.Controls.Add(Row)
+                End If
+            Next
+        Else
+            Dim Row As New LiteralControl("<tr><td colspan='6' style='text-align:center'>No Events</td></tr>")
+            EventPlaceHolder.Controls.Add(Row)
+        End If
         Dim EndTable As New LiteralControl("</Table>")
         EventPlaceHolder.Controls.Add(EndTable)
     End Sub

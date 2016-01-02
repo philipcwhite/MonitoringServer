@@ -30,10 +30,14 @@ table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 
 .TextBox {border:solid;border-width:1px;border-spacing:0px;border-radius:2px;border-color:#cccccc;}
 
-.EventStatusCritical {height:10px;width:10px;background:#ff0000;border-radius:2px;box-shadow: 1px 1px 1px #888888;}
-.EventStatusMajor {height:10px;width:10px;background:#ffa31a;border-radius:2px;box-shadow: 1px 1px 1px #888888;}
-.EventStatusMinor {height:10px;width:10px;background:#ffff00;border-radius:2px;box-shadow: 1px 1px 1px #888888;}
-.EventStatusOK {height:10px;width:10px;background:#4cff00;border-radius:2px;box-shadow: 1px 1px 1px #888888;}
+.EventStatusCritical {height:10px;width:10px;background:linear-gradient(#ff9494,#ff0000);border-radius:2px;box-shadow: 1px 1px 1px #888888;}
+.EventStatusMajor {height:10px;width:10px;background:linear-gradient(#ffd89e,#ffa31a);border-radius:2px;box-shadow: 1px 1px 1px #888888;}
+.EventStatusMinor {height:10px;width:10px;background:linear-gradient(#ffffa1,#ffff00);border-radius:2px;box-shadow: 1px 1px 1px #888888;}
+.EventStatusOK {height:10px;width:10px;background:linear-gradient(#bbff9e,#4cff00);border-radius:2px;box-shadow: 1px 1px 1px #888888;}
+
+
+.DivBullet {height:10px;width:10px;background:linear-gradient(#c8d9fa,#9fb2d6);border-radius:1px;box-shadow: 1px 1px 1px #888888;}
+
 
 .HoverTable {border-radius: 4px; background-color:#efefef}
 .HoverTable tr:hover {background: #dddddd;transition: all 0.1s ease-in-out;}    
@@ -60,11 +64,3 @@ table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 .StaticTable a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
 
 
-.Chart{width:800px;height:250px;display: inline-block;}
-.Chart #Legend1{stroke:#485385;border:#485385;visibility:hidden!important;}
-.Chart #ContentPlaceHolder1_LineChart1__ParentDiv{border-color:#ffffff;}
-.Chart #ContentPlaceHolder1_LineChart1_tooltipDiv{border-width:2px!important;border-radius:4px}
-.Chart #ValueAxis{font-size:9px;}
-.Chart #SeriesAxis{font-size:9px;}
-.Chart #Dot1{stroke-width:0px}
-.Chart #LegendArea{visibility:hidden!important}
