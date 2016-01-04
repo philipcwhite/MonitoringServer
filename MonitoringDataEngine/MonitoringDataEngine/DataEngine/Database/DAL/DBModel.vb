@@ -124,6 +124,12 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of Users).Property(Function(t) t.EmailAddress).HasMaxLength(100)
             modelBuilder.Entity(Of Users).Property(Function(t) t.UserRole).HasMaxLength(50)
 
+            'Subscriptions
+            modelBuilder.Entity(Of Subscriptions).HasKey(Function(t) t.SubscriptionID)
+            modelBuilder.Entity(Of Subscriptions).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of Subscriptions).Property(Function(t) t.UserName).HasMaxLength(50)
+
+
         End Sub
 
 
@@ -145,6 +151,7 @@ Namespace MonitoringDatabase
         Public Overridable Property AgentServiceArchive As DbSet(Of AgentServiceArchive)
         Public Overridable Property AgentThresholds As DbSet(Of AgentThresholds)
         Public Overridable Property GlobalThresholds As DbSet(Of GlobalThresholds)
+        Public Overridable Property Subscriptions As DbSet(Of Subscriptions)
         Public Overridable Property Users As DbSet(Of Users)
 
     End Class

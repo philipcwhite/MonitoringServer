@@ -243,6 +243,7 @@ Public Class Thresholds
 
 
                 If ASeverity > Q.AgentSeverity Then
+                    Q.AgentMessage = AMessage
                     Q.AgentSeverity = ASeverity
                 End If
 

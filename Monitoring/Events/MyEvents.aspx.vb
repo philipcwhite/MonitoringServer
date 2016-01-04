@@ -1,5 +1,5 @@
 ﻿Imports MonitoringDatabase
-Partial Class Events_Default
+Partial Class Events_MyEvents
     Inherits System.Web.UI.Page
 
     Private Property db As New DBModel
@@ -15,10 +15,12 @@ Partial Class Events_Default
 
         'Add Paging for past 1000 Events
 
-        Dim Q = (From T In db.AgentEvents
-                 Where T.AgentStatus = True
-                 Order By T.AgentEventDate Descending
-                 Select T).Take(1000)
+        Dim Q = (From T1 In db.AgentEvents
+                 Join T2 In db.Subscriptions On T1.AgentName Equals T2.AgentName
+                 Where T2.UserName = User.Identity.Name And T1.AgentStatus = True
+                 Order By T1.AgentEventDate Descending
+                 Select T1).Take(1000)
+
 
         Dim Table As New LiteralControl("<table class='HoverTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message</th></tr></thead>")
         Dim Severity As String = Nothing

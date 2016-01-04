@@ -134,6 +134,7 @@
     <Compile Include="Collector\Database\Models\AgentSystem.vb" />
     <Compile Include="Collector\Database\Models\AgentThresholds.vb" />
     <Compile Include="Collector\Database\Models\GlobalThresholds.vb" />
+    <Compile Include="Collector\Database\Models\Subscriptions.vb" />
     <Compile Include="Collector\Database\Models\Users.vb" />
     <Compile Include="Collector\Encryption\Encryption.vb" />
     <Compile Include="Collector\Network\ReceiveTCP.vb" />

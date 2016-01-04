@@ -100,6 +100,7 @@ Partial Class Devices_Device
         Next
 
         Dim Severity As String = Nothing
+
         If EventQ IsNot Nothing Then
             For Each i In EventQ
                 If i.AgentSeverity = 3 Then
@@ -111,9 +112,15 @@ Partial Class Devices_Device
                 ElseIf i.AgentSeverity = 1 Then
                     Severity = "Minor"
                     LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusMinor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+
+                ElseIf EventQ Is Nothing Then
+                    LayoutPanelBottom = "<tr><td colspan='6' style='text-align:center'>No Events</td></tr>"
+
                 End If
             Next
-        Else
+        End If
+
+        If LayoutPanelBottom = "" Then
             LayoutPanelBottom = "<tr><td colspan='6' style='text-align:center'>No Events</td></tr>"
         End If
 

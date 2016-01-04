@@ -4,8 +4,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <h2><asp:HyperLink ID="OptionsHyperLink" runat="server">Options</asp:HyperLink>&gt;<asp:HyperLink ID="ThresholdsHyperLink" runat="server" NavigateUrl="~/Options/Thresholds/Default.aspx">Thresholds</asp:HyperLink>&gt;Add Threshold</h2>
-
+       <table style="width:100%;padding-bottom:10px;padding-right:0px">
+        <tr>
+        <td style="text-align:left;vertical-align:top;color:#485385;font-size:10pt;font-weight:bold"><asp:HyperLink ID="OptionsHyperLink" runat="server">Options</asp:HyperLink>&gt;<asp:HyperLink ID="ThresholdsHyperLink" runat="server" NavigateUrl="~/Options/Thresholds/Default.aspx">Thresholds</asp:HyperLink>&gt;Add Threshold</td>
+        <td style="text-align:right"><asp:Button ID="OptionsButton" runat="server" Text="Options" CssClass="Button" PostBackUrl="~/Options/Default.aspx" /></td>
+        </tr>
+    </table>
          <table class='StaticTable' style='width: 100%'><thead><tr><th>Add Threshold</th></tr></thead><tr><td>
          
              <asp:UpdatePanel ID="UpdatePanel1" runat="server">

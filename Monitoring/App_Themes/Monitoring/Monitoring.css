@@ -3,6 +3,7 @@ body {margin:0px;padding:0px;height:100%;}
 h2 {font:14px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#485385;}
 h2 a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
 table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
+a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
 
 .topmenu {position:fixed;left:0;top:0;width:100%;}
 .MenuSearchLeft{position:fixed;right:38px;top:5px;border-top-left-radius:2px;border-bottom-left-radius:2px;background-color:#ffffff;height:20px;}

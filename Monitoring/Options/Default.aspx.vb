@@ -9,4 +9,9 @@ Partial Class Options_Default
         End If
     End Sub
 
+    Protected Sub LogoutButton_Click(sender As Object, e As EventArgs) Handles LogoutButton.Click
+        FormsAuthentication.SignOut()
+        Response.Redirect("~/")
+    End Sub
+
 End Class

@@ -1,4 +1,4 @@
-# MonitoringServer 0.4.2b
+# MonitoringServer 0.4.3b
 
 ##About
 
@@ -20,6 +20,12 @@ For setup and configuration please see the new Wiki
  
 
 ##Change Log
+
+###Changes for Version 0.4.3b (2016/01/04):
+
+1.  Added basic user customization to the website.  Users can now build their own device/event view by selecting what assets they want to see.
+
+2.  General bug fixes.  Corrected an issue when no events are shown, the event and device tables display correctly.
 
 
 ###Changes for Version 0.4.2b (2016/01/04):

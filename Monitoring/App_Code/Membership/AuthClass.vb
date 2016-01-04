@@ -114,8 +114,11 @@ Public Class AuthClass
 
     Public Shared Sub DeleteUser(ByVal UserName As String)
 
-        Dim Q = db.Users.Where(Function(x) x.UserName = UserName).FirstOrDefault
-        db.Users.Remove(Q)
+        Dim Q1 = db.Subscriptions.RemoveRange(db.Subscriptions.Where(Function(x) x.UserName = UserName))
+        db.SaveChanges()
+
+        Dim Q2 = db.Users.Where(Function(x) x.UserName = UserName).FirstOrDefault
+        db.Users.Remove(Q2)
         db.SaveChanges()
 
     End Sub

@@ -5,9 +5,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-     <h2>
-        <asp:HyperLink ID="DevicesHyperLink" runat="server" NavigateUrl="~/Devices/Default.aspx">Devices</asp:HyperLink>&gt;<asp:HyperLink ID="DeviceHyperLink" runat="server"><asp:Label ID="HostNameLabel" runat="server" Text="Device"></asp:Label></asp:HyperLink>&gt;<asp:Label ID="GraphLabel" runat="server" Text="Graph"></asp:Label></h2>
-
+       <table style="width:100%;padding-bottom:10px;padding-right:0px">
+        <tr>
+        <td style="text-align:left;vertical-align:top;color:#485385;font-size:10pt;font-weight:bold"><asp:HyperLink ID="DevicesHyperLink" runat="server" NavigateUrl="~/Devices/Default.aspx">Devices</asp:HyperLink>&gt;<asp:HyperLink ID="DeviceHyperLink" runat="server"><asp:Label ID="HostNameLabel" runat="server" Text="Device"></asp:Label></asp:HyperLink>&gt;<asp:Label ID="GraphLabel" runat="server" Text="Graph"></asp:Label></td>
+        <td style="text-align:right"><asp:Button ID="DevicesButton" runat="server" Text="Devices" CssClass="Button" PostBackUrl="~/Devices/Default.aspx" /></td>
+        </tr>
+        </table>
        <table class='StaticTable' style='width: 100%'><thead><tr><th>Graphing</th></tr></thead><tr><td style="width:100%;padding-right:40px;padding-left:40px;">
            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                <ContentTemplate>

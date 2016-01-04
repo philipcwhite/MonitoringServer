@@ -23,17 +23,23 @@ Partial Class Devices_Default
         DevicesPlaceHolder.Controls.Add(Table)
 
         Dim StatusDate As Date = Date.Now.AddDays(-1)
+
+        Dim DeviceRows As String = Nothing
         For Each i In Q
 
             If i.AgentDate < StatusDate Then
-                Dim Row As New LiteralControl("<tr><td><div class='EventStatusCritical'></div></td><td><a href='Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>")
-                DevicesPlaceHolder.Controls.Add(Row)
+                DeviceRows = DeviceRows & "<tr><td><div class='EventStatusCritical'></div></td><td><a href='Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>"
             Else
-                Dim Row As New LiteralControl("<tr><td><div class='EventStatusOK'></div></td><td><a href='Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>")
-                DevicesPlaceHolder.Controls.Add(Row)
+                DeviceRows = DeviceRows & "<tr><td><div class='EventStatusOK'></div></td><td><a href='Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>"
             End If
-
         Next
+        If DeviceRows = "" Then
+            DeviceRows = "<tr><td colspan='5' style='text-align:center'>No Events</td></tr>"
+        End If
+
+        Dim Row As New LiteralControl(DeviceRows)
+        DevicesPlaceHolder.Controls.Add(Row)
+
         Dim EndTable As New LiteralControl("</Table>")
         DevicesPlaceHolder.Controls.Add(EndTable)
 

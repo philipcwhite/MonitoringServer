@@ -3,9 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-  <h2>Options</h2>
-
-
+    <table style="width:100%;padding-bottom:10px;padding-right:0px">
+        <tr>
+        <td style="text-align:left;vertical-align:top;color:#485385;font-size:10pt;font-weight:bold">Options</td>
+        <td style="text-align:right"><asp:Button ID="LogoutButton" runat="server" Text="Logout" CssClass="Button" /></td>
+        </tr>
+    </table>
     <table style='width: 100%'><tr><td style='vertical-align:top;padding-right:10px'>
    
         <table class='StaticTable' style='width: 100%'><thead><tr><th>User Options</th></tr></thead><tr><td style="height:80px;vertical-align:top">
@@ -29,6 +32,10 @@
  </td>
         <td style='padding-left:10px;vertical-align:top'>
         <table class='StaticTable' style='width: 100%'><thead><tr><th>Application Options</th></tr></thead><tr><td style="height:80px;vertical-align:top">
+      
+            
+            
+            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Options/Subscriptions/Default.aspx">Subscriptions</asp:HyperLink>
       
             
             
