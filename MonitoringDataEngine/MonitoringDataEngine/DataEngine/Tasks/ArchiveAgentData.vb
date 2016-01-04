@@ -12,7 +12,6 @@ Public Class ArchiveAgentData
                  Select T.AgentName, T.AgentClass, T.AgentProperty, T.AgentValue, T.AgentCollectDate
 
 
-
         For Each i In Q1
             db.AgentProcessorArchive.Add(New AgentProcessorArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
         Next
@@ -28,28 +27,36 @@ Public Class ArchiveAgentData
 
         db.SaveChanges()
 
-        Dim Q3 = From T In db.AgentLogicalDisk
+        Dim Q3 = From T In db.AgentPageFile
                  Where T.AgentCollectDate < PurgeDate
                  Select T
 
-
         For Each i In Q3
-            db.AgentLogicalDiskArchive.Add(New AgentLocalDiskArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue, .AgentInstance = i.AgentInstance})
+            db.AgentPageFileArchive.Add(New AgentPageFileArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
         Next
 
         db.SaveChanges()
 
-        Dim Q4 = From T In db.AgentService
+        Dim Q4 = From T In db.AgentLocalDisk
                  Where T.AgentCollectDate < PurgeDate
                  Select T
 
+
         For Each i In Q4
+            db.AgentLocalDiskArchive.Add(New AgentLocalDiskArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+        Next
+
+        db.SaveChanges()
+
+        Dim Q5 = From T In db.AgentService
+                 Where T.AgentCollectDate < PurgeDate
+                 Select T
+
+        For Each i In Q5
             db.AgentServiceArchive.Add(New AgentServiceArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = i.AgentCollectDate, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
         Next
 
         db.SaveChanges()
-
-
 
 
 

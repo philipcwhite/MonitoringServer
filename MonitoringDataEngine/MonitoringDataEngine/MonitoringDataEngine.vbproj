@@ -94,6 +94,8 @@
     <Compile Include="DataEngine\Database\Models\AgentLocalDiskArchive.vb" />
     <Compile Include="DataEngine\Database\Models\AgentMemory.vb" />
     <Compile Include="DataEngine\Database\Models\AgentMemoryArchive.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentPageFile.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentPageFileArchive.vb" />
     <Compile Include="DataEngine\Database\Models\AgentProcessor.vb" />
     <Compile Include="DataEngine\Database\Models\AgentProcessorArchive.vb" />
     <Compile Include="DataEngine\Database\Models\AgentService.vb" />

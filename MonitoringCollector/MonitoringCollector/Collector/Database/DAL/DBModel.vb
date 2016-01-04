@@ -42,7 +42,13 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentClass).HasMaxLength(25)
             modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
-            'AgentLogicalDisk Table
+            'AgentPageFile Table
+            modelBuilder.Entity(Of AgentPageFile).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+
+            'AgentLocalDisk Table
             modelBuilder.Entity(Of AgentLocalDisk).HasKey(Function(t) t.AgentID)
             modelBuilder.Entity(Of AgentLocalDisk).Property(Function(t) t.AgentName).HasMaxLength(50)
             modelBuilder.Entity(Of AgentLocalDisk).Property(Function(t) t.AgentClass).HasMaxLength(25)
@@ -54,6 +60,7 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentClass).HasMaxLength(25)
             modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentProperty).HasMaxLength(100)
 
+            'Archive Tables
 
             'AgentProcessor Table
             modelBuilder.Entity(Of AgentProcessorArchive).HasKey(Function(t) t.AgentID)
@@ -66,6 +73,12 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
             modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
             modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+
+            'AgentPageFile Table
+            modelBuilder.Entity(Of AgentPageFileArchive).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentLogicalDisk Table
             modelBuilder.Entity(Of AgentLocalDiskArchive).HasKey(Function(t) t.AgentID)
@@ -108,7 +121,7 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of Users).Property(Function(t) t.FirstName).HasMaxLength(50)
             modelBuilder.Entity(Of Users).Property(Function(t) t.LastName).HasMaxLength(50)
             modelBuilder.Entity(Of Users).Property(Function(t) t.Password).HasMaxLength(150)
-            modelBuilder.Entity(Of Users).Property(Function(t) t.UserEmail).HasMaxLength(100)
+            modelBuilder.Entity(Of Users).Property(Function(t) t.EmailAddress).HasMaxLength(100)
             modelBuilder.Entity(Of Users).Property(Function(t) t.UserRole).HasMaxLength(50)
 
         End Sub
@@ -118,12 +131,13 @@ Namespace MonitoringDatabase
         ' Add a DbSet for each entity type that you want to include in your model. For more information 
         ' on configuring and using a Code First model, see http:'go.microsoft.com/fwlink/?LinkId=390109.
 
-
         Public Overridable Property AgentEvents As DbSet(Of AgentEvents)
         Public Overridable Property AgentLocalDisk As DbSet(Of AgentLocalDisk)
         Public Overridable Property AgentLocalDiskArchive As DbSet(Of AgentLocalDiskArchive)
         Public Overridable Property AgentMemory As DbSet(Of AgentMemory)
         Public Overridable Property AgentMemoryArchive As DbSet(Of AgentMemoryArchive)
+        Public Overridable Property AgentPageFile As DbSet(Of AgentPageFile)
+        Public Overridable Property AgentPageFileArchive As DbSet(Of AgentPageFileArchive)
         Public Overridable Property AgentProcessor As DbSet(Of AgentProcessor)
         Public Overridable Property AgentProcessorArchive As DbSet(Of AgentProcessorArchive)
         Public Overridable Property AgentSystem As DbSet(Of AgentSystem)
@@ -132,7 +146,6 @@ Namespace MonitoringDatabase
         Public Overridable Property AgentThresholds As DbSet(Of AgentThresholds)
         Public Overridable Property GlobalThresholds As DbSet(Of GlobalThresholds)
         Public Overridable Property Users As DbSet(Of Users)
-
 
     End Class
 End Namespace

@@ -37,113 +37,89 @@ Partial Class Devices_Device
                        Order By T.AgentCollectDate Descending
                        Select T).FirstOrDefault
 
+        Dim PageFileQ = (From T In db.AgentPageFile
+                         Where T.AgentName = AgentName
+                         Order By T.AgentCollectDate Descending
+                         Select T).FirstOrDefault
+
         Dim LocalDiskTime As String = Nothing
 
         LocalDiskTime = AgentQ.AgentDate
 
         Dim LocalDiskQ = From T In db.AgentLocalDisk
-                         Where T.AgentName = AgentName And T.AgentCollectDate = LocalDiskTime And T.AgentProperty = "Free Space (%)"
+                         Where T.AgentName = AgentName And T.AgentCollectDate = LocalDiskTime
+                         Order By T.AgentClass, T.AgentProperty Ascending
                          Select T
+
+        Dim LocalDiskList As New List(Of AgentLocalDisk)
+        For Each i In LocalDiskQ
+            LocalDiskList.Add(New AgentLocalDisk With {.AgentClass = i.AgentClass, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+        Next
 
         Dim EventQ = (From T In db.AgentEvents
                       Where T.AgentStatus = True And T.AgentName = AgentName
                       Order By T.AgentEventDate Descending
                       Select T).Take(50)
 
-
-
-
         DevicePlaceHolder.Controls.Clear()
 
+        Dim Layout1 As String = "<table style='width: 100%'>" &
+                                "<tr><td style='padding-right:10px;padding-bottom:20px;vertical-align:top;width:50%;'>" &
+                                "<table class='StaticTable' style='width: 100%'>" &
+                                "<thead><tr><th>Device<img alt='Windows' src='../App_Themes/Monitoring/Windows.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead>" &
+                                "<tr><td style='height:180px;vertical-align:top'><table>"
+        Dim LayoutPanelLeft As String = Nothing
+        Dim Layout2 As String = "</table></td><td style='padding-left: 10px;padding-bottom:20px;vertical-align:top;width:50%;'>" &
+                                "<table class='StaticTable' style='width: 100%'>" &
+                                "<thead><tr><th>Monitors<img alt='Monitoring' src='../App_Themes/Monitoring/Graph.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;'/></th></tr></thead>" &
+                                "<tr><td style='height:180px;vertical-align:top'><table>"
+        Dim LayoutPanelRight As String = Nothing
+        Dim Layout3 As String = "</table><br/></td></tr></table></td></tr>" &
+                                "<tr><td style='padding:0px' colspan='2'>" &
+                                "<table class='HoverTable'>" &
+                                "<thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message<img alt='Events' src='../App_Themes/Monitoring/Warning.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;'/></th></tr></thead>"
+        Dim LayoutPanelBottom As String = Nothing
+        Dim Layout4 As String = "</table></td><td></td></tr></table>"
 
 
-        Dim Break As New LiteralControl(" ")
+        LayoutPanelLeft = "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Hostname:</td><td>" & AgentQ.AgentName & "</td></tr>" &
+                          "<tr><td><div class='DivBullet'/></td><td>Domain:</td><td>" & AgentQ.AgentDomain & "</td></tr>" &
+                          "<tr><td><div class='DivBullet'/></td><td>IP Address:</td><td>" & AgentQ.AgentIP & "</td></tr>" &
+                          "<tr><td><div class='DivBullet'/></td><td>Operating System:</td><td>" & AgentQ.AgentOSName & " (" & AgentQ.AgentOSArchitechture & ")</td></tr>" &
+                          "<tr><td><div class='DivBullet'/></td><td>Processors:</td><td>" & AgentQ.AgentProcessors & "</td></tr>" &
+                          "<tr><td><div class='DivBullet'/></td><td>Memory:</td><td>" & AgentQ.AgentMemory & " MB </td></tr>" &
+                          "<tr><td><div class='DivBullet'/></td><td>Last Updated:</td><td>" & AgentQ.AgentDate & "</td></tr></table>"
 
-        Dim Table1 As New LiteralControl("<table style='width: 100%'><tr><td style='padding-right:10px;padding-bottom:20px;vertical-align:top;width:50%;'>")
-        DevicePlaceHolder.Controls.Add(Table1)
 
-        Dim Table2 As New LiteralControl("<table class='StaticTable' style='width: 100%'><thead><tr><th>Device<img alt='Windows' src='../App_Themes/Monitoring/Windows.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead><tr><td style='height:180px;vertical-align:top'><table>")
-        DevicePlaceHolder.Controls.Add(Table2)
+        LayoutPanelRight = "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Processor</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & ProcessorQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & ProcessorQ.AgentValue & "%</td></tr>" &
+                           "<tr><td><div class='DivBullet'/></td><td>Memory</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & MemoryQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & MemoryQ.AgentValue & "%</td></tr>" &
+                           "<tr><td><div class='DivBullet'/></td><td>Pagefile</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & PageFileQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & PageFileQ.AgentValue & "%</td></tr>"
 
-        Dim Table2Item1 As New LiteralControl("<tr><td style='width:10px'><div class='DivBullet' /></td><td>Hostname: " & AgentQ.AgentName & "</td></tr>")
-        DevicePlaceHolder.Controls.Add(Table2Item1)
-
-        Dim Table2Item2 As New LiteralControl("<tr><td><div class='DivBullet' /></td><td>Domain: " & AgentQ.AgentDomain & "</td></tr>")
-        DevicePlaceHolder.Controls.Add(Table2Item2)
-
-        Dim Table2Item3 As New LiteralControl("<tr><td><div class='DivBullet' /></td><td>IP Address: " & AgentQ.AgentIP & "</td></tr>")
-        DevicePlaceHolder.Controls.Add(Table2Item3)
-
-        Dim Table2Item4 As New LiteralControl("<tr><td><div class='DivBullet' /></td><td>OS: " & AgentQ.AgentOSName & " (" & AgentQ.AgentOSArchitechture & ")</td></tr>")
-        DevicePlaceHolder.Controls.Add(Table2Item4)
-
-        'Dim Table2Item5 As New LiteralControl("Build: " & AgentQ.AgentOSBuild & "<br />")
-        'DevicePlaceHolder.Controls.Add(Table2Item5)
-
-        'Dim Table2Item6 As New LiteralControl("<tr><td><div class='DivBullet' /></td><td>Architecture: " & AgentQ.AgentOSArchitechture & "</td></tr>")
-        'DevicePlaceHolder.Controls.Add(Table2Item6)
-
-        Dim Table2Item7 As New LiteralControl("<tr><td><div class='DivBullet' /></td><td>Processors: " & AgentQ.AgentProcessors & "</td></tr>")
-        DevicePlaceHolder.Controls.Add(Table2Item7)
-
-        Dim Table2Item8 As New LiteralControl("<tr><td><div class='DivBullet' /></td><td>Memory: " & AgentQ.AgentMemory & " MB </td></tr>")
-        DevicePlaceHolder.Controls.Add(Table2Item8)
-
-        Dim Table2Item9 As New LiteralControl("<tr><td><div class='DivBullet' /></td><td>Last Updated: " & AgentQ.AgentDate & "</td></tr></table>")
-        DevicePlaceHolder.Controls.Add(Table2Item9)
-
-        Dim Table2End As New LiteralControl("</td></tr></table></td><td style='padding-left: 10px;padding-bottom:20px;vertical-align:top;width:50%;'>")
-        DevicePlaceHolder.Controls.Add(Table2End)
-
-        Dim Table3 As New LiteralControl("<table class='StaticTable' style='width: 100%'><thead><tr><th>Monitors<img alt='Monitoring' src='../App_Themes/Monitoring/Graph.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead><tr><td style='height:180px;vertical-align:top'>")
-        DevicePlaceHolder.Controls.Add(Table3)
-
-        Dim Table3Item1 As New LiteralControl("<table><tr><td style='width:10px'><div class='DivBullet' /></td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & ProcessorQ.AgentClass & "'>Processor Total Utilization:  " & ProcessorQ.AgentValue & "%</a></td></tr>")
-        DevicePlaceHolder.Controls.Add(Table3Item1)
-
-        Dim Table3Item2 As New LiteralControl("<tr><td><div class='DivBullet' /></td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & MemoryQ.AgentClass & "'>Memory Total Utilization: " & MemoryQ.AgentValue & "%</a></td></tr>")
-        DevicePlaceHolder.Controls.Add(Table3Item2)
-
-        For Each i In LocalDiskQ
-            Dim Table3ItemX As New LiteralControl("<tr><td><div class='DivBullet' /></td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & i.AgentClass & "'>" & i.AgentClass & " Free Space: " & i.AgentValue & "%</a></td></tr>")
-            DevicePlaceHolder.Controls.Add(Table3ItemX)
+        For i = 0 To LocalDiskList.Count - 1 Step 2
+            LayoutPanelRight = LayoutPanelRight & "<tr><td><div class='DivBullet'/></td><td>" & LocalDiskList.Item(i).AgentClass & "</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & LocalDiskList.Item(i).AgentClass & ";" & LocalDiskList.Item(i).AgentProperty & "'>Active Time</a> | <a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & LocalDiskList.Item(i).AgentClass & ";" & LocalDiskList.Item(i + 1).AgentProperty & "'>Free Space</a></td><td style='text-align:center'>" & LocalDiskList.Item(i).AgentValue & "% | " & LocalDiskList.Item(i + 1).AgentValue & "%</td></tr>"
         Next
 
-        Dim Table3Item3 As New LiteralControl("<tr><td><div class='DivBullet' /></td><td>Windows Service Status</td></tr></table><br />")
-        DevicePlaceHolder.Controls.Add(Table3Item3)
-
-
-        Dim Table3End As New LiteralControl("</td></tr></table></td></tr><tr><td style='padding:0px' colspan='2'>")
-        DevicePlaceHolder.Controls.Add(Table3End)
-
-
-        Dim Table4 As New LiteralControl("<Table class='HoverTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message<img alt='Events' src='../App_Themes/Monitoring/Warning.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead>")
-
-        DevicePlaceHolder.Controls.Add(Table4)
         Dim Severity As String = Nothing
         If EventQ IsNot Nothing Then
             For Each i In EventQ
                 If i.AgentSeverity = 3 Then
                     Severity = "Critical"
-                    Dim Row As New LiteralControl("<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
-                    DevicePlaceHolder.Controls.Add(Row)
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
                 ElseIf i.AgentSeverity = 2 Then
                     Severity = "Major"
-                    Dim Row As New LiteralControl("<tr><td><div class='EventStatusMajor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
-                    DevicePlaceHolder.Controls.Add(Row)
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusMajor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
                 ElseIf i.AgentSeverity = 1 Then
                     Severity = "Minor"
-                    Dim Row As New LiteralControl("<tr><td><div class='EventStatusMinor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>")
-                    DevicePlaceHolder.Controls.Add(Row)
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusMinor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
                 End If
             Next
         Else
-            Dim Row As New LiteralControl("<tr><td colspan='6' style='text-align:center'>No Events</td></tr>")
-            DevicePlaceHolder.Controls.Add(Row)
+            LayoutPanelBottom = "<tr><td colspan='6' style='text-align:center'>No Events</td></tr>"
         End If
 
-        Dim EndTable As New LiteralControl("</table></td><td></td></tr></table>")
-        DevicePlaceHolder.Controls.Add(EndTable)
+        Dim LC As New LiteralControl(Layout1 & LayoutPanelLeft & Layout2 & LayoutPanelRight & Layout3 & LayoutPanelBottom & Layout4)
+        DevicePlaceHolder.Controls.Add(LC)
+
     End Sub
 
     Protected Sub DeviceTimer_Tick(sender As Object, e As EventArgs) Handles DeviceTimer.Tick

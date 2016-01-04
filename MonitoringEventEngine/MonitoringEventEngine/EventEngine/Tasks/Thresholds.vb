@@ -77,6 +77,10 @@ Public Class Thresholds
             Q1 = From T In AThresholds
                  Where T.AgentClass.Contains(":)") And T.AgentProperty.Contains("Free")
                  Select T
+        ElseIf AClass = "PageFile" Then
+            Q1 = From T In AThresholds
+                 Where T.AgentClass = AClass
+                 Select T
         End If
 
         For Each i In Q1
@@ -109,6 +113,12 @@ Public Class Thresholds
             ElseIf AClass = "Services" Then
                 Q2 = From T1 In AThresholdsLocal
                      Join T2 In db.AgentService
+                   On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
+                     Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName
+                     Select T2.AgentName, T2.AgentProperty, T2.AgentValue
+            ElseIf AClass = "PageFile" Then
+                Q2 = From T1 In AThresholdsLocal
+                     Join T2 In db.AgentPageFile
                    On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
                      Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName
                      Select T2.AgentName, T2.AgentProperty, T2.AgentValue

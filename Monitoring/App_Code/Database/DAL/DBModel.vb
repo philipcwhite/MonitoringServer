@@ -42,7 +42,13 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentClass).HasMaxLength(25)
             modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
-            'AgentLogicalDisk Table
+            'AgentPageFile Table
+            modelBuilder.Entity(Of AgentPageFile).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+
+            'AgentLocalDisk Table
             modelBuilder.Entity(Of AgentLocalDisk).HasKey(Function(t) t.AgentID)
             modelBuilder.Entity(Of AgentLocalDisk).Property(Function(t) t.AgentName).HasMaxLength(50)
             modelBuilder.Entity(Of AgentLocalDisk).Property(Function(t) t.AgentClass).HasMaxLength(25)
@@ -67,6 +73,12 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
             modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
             modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+
+            'AgentPageFile Table
+            modelBuilder.Entity(Of AgentPageFileArchive).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentLogicalDisk Table
             modelBuilder.Entity(Of AgentLocalDiskArchive).HasKey(Function(t) t.AgentID)
@@ -124,6 +136,8 @@ Namespace MonitoringDatabase
         Public Overridable Property AgentLocalDiskArchive As DbSet(Of AgentLocalDiskArchive)
         Public Overridable Property AgentMemory As DbSet(Of AgentMemory)
         Public Overridable Property AgentMemoryArchive As DbSet(Of AgentMemoryArchive)
+        Public Overridable Property AgentPageFile As DbSet(Of AgentPageFile)
+        Public Overridable Property AgentPageFileArchive As DbSet(Of AgentPageFileArchive)
         Public Overridable Property AgentProcessor As DbSet(Of AgentProcessor)
         Public Overridable Property AgentProcessorArchive As DbSet(Of AgentProcessorArchive)
         Public Overridable Property AgentSystem As DbSet(Of AgentSystem)
@@ -132,7 +146,6 @@ Namespace MonitoringDatabase
         Public Overridable Property AgentThresholds As DbSet(Of AgentThresholds)
         Public Overridable Property GlobalThresholds As DbSet(Of GlobalThresholds)
         Public Overridable Property Users As DbSet(Of Users)
-
 
     End Class
 End Namespace

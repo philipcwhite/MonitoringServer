@@ -1,4 +1,4 @@
-# MonitoringServer 0.4.1b
+# MonitoringServer 0.4.2b
 
 ##About
 
@@ -22,7 +22,12 @@ For setup and configuration please see the new Wiki
 ##Change Log
 
 
-###Changes for Version 0.4.1b (2016/1/2):
+###Changes for Version 0.4.2b (2016/01/04):
+
+1.  Added Monitors for Local Disk performance and pagefile.  Redesigned Device page to fit these.  Mostly a spacing issue.  So yes the screenshots are out of date again.  I will be adding services to this page eventually in some format. I also plan on adding a Ping availabiity that will probably run at 1 minute intervals.  I also fixed an Entity Framework issue that affected changing tables.  
+
+
+###Changes for Version 0.4.1b (2016/01/02):
 
 1.  Added Basic Graphing.  Clicking on one of the performance monitors in the Device view will now bring you to a graphing page.  This is still early and only supports the past hour of data.  I plan on adding new ranges up to 24 hours as time permits.  For older performance I will add features in the Reporting section.  
 

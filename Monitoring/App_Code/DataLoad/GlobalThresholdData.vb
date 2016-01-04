@@ -26,13 +26,25 @@ Public Class GlobalThresholdData
         db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Memory", .AgentProperty = "Total Util (%)", .Comparison = ">=", .ThresholdValue = "80", .ThresholdTime = "30", .Severity = 2, .Enabled = True})
         db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Memory", .AgentProperty = "Total Util (%)", .Comparison = ">=", .ThresholdValue = "90", .ThresholdTime = "30", .Severity = 3, .Enabled = True})
 
+        db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "PageFile", .AgentProperty = "Total Util (%)", .Comparison = ">=", .ThresholdValue = "70", .ThresholdTime = "30", .Severity = 1, .Enabled = True})
+        db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "PageFile", .AgentProperty = "Total Util (%)", .Comparison = ">=", .ThresholdValue = "80", .ThresholdTime = "30", .Severity = 2, .Enabled = True})
+        db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "PageFile", .AgentProperty = "Total Util (%)", .Comparison = ">=", .ThresholdValue = "90", .ThresholdTime = "30", .Severity = 3, .Enabled = True})
+
         db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (C:)", .AgentProperty = "Free Space (%)", .Comparison = "<=", .ThresholdValue = "30", .ThresholdTime = "30", .Severity = 1, .Enabled = True})
         db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (C:)", .AgentProperty = "Free Space (%)", .Comparison = "<=", .ThresholdValue = "20", .ThresholdTime = "30", .Severity = 2, .Enabled = True})
         db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (C:)", .AgentProperty = "Free Space (%)", .Comparison = "<=", .ThresholdValue = "10", .ThresholdTime = "30", .Severity = 3, .Enabled = True})
 
+        db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (C:)", .AgentProperty = "Active Time (%)", .Comparison = "<=", .ThresholdValue = "70", .ThresholdTime = "30", .Severity = 1, .Enabled = True})
+        db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (C:)", .AgentProperty = "Active Time (%)", .Comparison = "<=", .ThresholdValue = "80", .ThresholdTime = "30", .Severity = 2, .Enabled = True})
+        db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (C:)", .AgentProperty = "Active Time (%)", .Comparison = "<=", .ThresholdValue = "90", .ThresholdTime = "30", .Severity = 3, .Enabled = True})
+
         db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (D:)", .AgentProperty = "Free Space (%)", .Comparison = "<=", .ThresholdValue = "30", .ThresholdTime = "30", .Severity = 1, .Enabled = True})
         db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (D:)", .AgentProperty = "Free Space (%)", .Comparison = "<=", .ThresholdValue = "20", .ThresholdTime = "30", .Severity = 2, .Enabled = True})
         db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (D:)", .AgentProperty = "Free Space (%)", .Comparison = "<=", .ThresholdValue = "10", .ThresholdTime = "30", .Severity = 3, .Enabled = True})
+
+        db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (D:)", .AgentProperty = "Active Time (%)", .Comparison = "<=", .ThresholdValue = "70", .ThresholdTime = "30", .Severity = 1, .Enabled = True})
+        db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (D:)", .AgentProperty = "Active Time (%)", .Comparison = "<=", .ThresholdValue = "80", .ThresholdTime = "30", .Severity = 2, .Enabled = True})
+        db.GlobalThresholds.Add(New GlobalThresholds With {.AgentClass = "Logical Disk (D:)", .AgentProperty = "Active Time (%)", .Comparison = "<=", .ThresholdValue = "90", .ThresholdTime = "30", .Severity = 3, .Enabled = True})
 
         Dim ServiceList As New List(Of String)
         ServiceList.Add("Application Host Helper Service")

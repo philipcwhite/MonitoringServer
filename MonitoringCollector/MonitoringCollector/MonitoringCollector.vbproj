@@ -125,6 +125,8 @@
     <Compile Include="Collector\Database\Models\AgentLocalDiskArchive.vb" />
     <Compile Include="Collector\Database\Models\AgentMemory.vb" />
     <Compile Include="Collector\Database\Models\AgentMemoryArchive.vb" />
+    <Compile Include="Collector\Database\Models\AgentPageFile.vb" />
+    <Compile Include="Collector\Database\Models\AgentPageFileArchive.vb" />
     <Compile Include="Collector\Database\Models\AgentProcessor.vb" />
     <Compile Include="Collector\Database\Models\AgentProcessorArchive.vb" />
     <Compile Include="Collector\Database\Models\AgentService.vb" />

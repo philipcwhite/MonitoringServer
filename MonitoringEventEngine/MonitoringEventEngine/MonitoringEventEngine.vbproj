@@ -95,6 +95,8 @@
     <Compile Include="EventEngine\Database\Models\AgentLocalDiskArchive.vb" />
     <Compile Include="EventEngine\Database\Models\AgentMemory.vb" />
     <Compile Include="EventEngine\Database\Models\AgentMemoryArchive.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentPageFile.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentPageFileArchive.vb" />
     <Compile Include="EventEngine\Database\Models\AgentProcessor.vb" />
     <Compile Include="EventEngine\Database\Models\AgentProcessorArchive.vb" />
     <Compile Include="EventEngine\Database\Models\AgentService.vb" />

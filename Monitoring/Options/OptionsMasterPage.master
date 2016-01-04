@@ -13,10 +13,10 @@
             <div style="height:100%">
     <div class="topmenu">
 <ul class="menu">
-<li><a href="/Monitoring/Events"><span>Events</span></a></li>
-<li><a href="/Monitoring/Devices"><span>Devices</span></a></li>
-<li><a href="/Monitoring/Reports"><span>Reports</span></a></li>
-<li><a href="/Monitoring/Options" class="active"><span>Options</span></a></li>
+<li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Events"><span>Events</span></asp:HyperLink></li>
+<li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Devices"><span>Devices</span></asp:HyperLink></li>
+<li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Reports"><span>Reports</span></asp:HyperLink></li>
+<li><asp:HyperLink ID="HyperLink4" runat="server" CssClass="active" NavigateUrl="~/Options"><span>Options</span></asp:HyperLink></li>
             <li>
                 <span class="MenuSearchLeft">
                     <asp:TextBox ID="SearchTextBox" runat="server" BorderStyle="None" Width="100px" CssClass="SearchText"></asp:TextBox>

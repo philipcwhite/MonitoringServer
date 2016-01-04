@@ -16,7 +16,14 @@ Partial Class Devices_Graph
 
             HostNameLabel.Text = QString1
             DeviceHyperLink.NavigateUrl = "~/Devices/Device.aspx?hostname=" & QString1
-            GraphLabel.Text = QString2
+
+
+            If QString2.Contains("Local Disk") Then
+                GraphLabel.Text = QString2.Replace(";", " ")
+            Else
+                GraphLabel.Text = QString2
+            End If
+
 
 
             LoadGraph(QString1, QString2, Date.Now, 60)
@@ -81,10 +88,10 @@ Partial Class Devices_Graph
             GraphTitle = "<text x = '300' y='40' fill='#485385' font-size='16' font-family='arial' font-weight='bold'>Memory Total Utilization (%)</text>"
         End If
 
-        If AgentClass.Contains("Local Disk") Then
+        If AgentClass = "PageFile" Then
             For Each i In DataList
-                Dim Q = (From T In db.AgentLocalDisk
-                         Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName And T.AgentClass = AgentClass
+                Dim Q = (From T In db.AgentPageFile
+                         Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName
                          Select T).FirstOrDefault
                 If Q IsNot Nothing Then
                     i.AgentValue1 = Q.AgentValue
@@ -93,7 +100,24 @@ Partial Class Devices_Graph
             For i = 0 To DataList.Count - 2
                 DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
             Next
-            GraphTitle = "<text x = '300' y='40' fill='#485385' font-size='16' font-family='arial' font-weight='bold'>" & AgentClass & " Free Space (%)</text>"
+            GraphTitle = "<text x = '300' y='40' fill='#485385' font-size='16' font-family='arial' font-weight='bold'>Pagefile Total Utilization (%)</text>"
+        End If
+
+        If AgentClass.Contains("Local Disk") Then
+            Dim LDClass As String = AgentClass.Split(";")(0)
+            Dim LDProperty = AgentClass.Split(";")(1)
+            For Each i In DataList
+                Dim Q = (From T In db.AgentLocalDisk
+                         Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName And T.AgentClass = LDClass And T.AgentProperty = LDProperty
+                         Select T).FirstOrDefault
+                If Q IsNot Nothing Then
+                    i.AgentValue1 = Q.AgentValue
+                End If
+            Next
+            For i = 0 To DataList.Count - 2
+                DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
+            Next
+            GraphTitle = "<text x = '300' y='40' fill='#485385' font-size='16' font-family='arial' font-weight='bold'>" & AgentClass.Replace(";", " ") & "</text>"
         End If
 
         For i = 0 To DataList.Count - 2

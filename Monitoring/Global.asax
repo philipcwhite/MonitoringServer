@@ -4,6 +4,7 @@
 
     Sub Application_Start(ByVal sender As Object, ByVal e As EventArgs)
         ' Code that runs on application startup
+        System.Data.Entity.Database.SetInitializer(Of MonitoringDatabase.DBModel)(Nothing)
     End Sub
 
     Sub Application_End(ByVal sender As Object, ByVal e As EventArgs)

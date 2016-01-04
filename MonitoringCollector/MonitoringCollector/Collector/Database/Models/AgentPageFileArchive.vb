@@ -1,5 +1,5 @@
 ﻿Namespace MonitoringDatabase
-    Public Class AgentLocalDiskArchive
+    Public Class AgentPageFileArchive
         Public Property AgentID As Int64
         Public Property AgentName As String
         Public Property AgentClass As String

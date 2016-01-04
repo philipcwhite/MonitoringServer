@@ -93,7 +93,7 @@ Partial Class Options_AddThreshold
         If ClassDropDownList.SelectedValue = "Local Disk" Then
             LDDropDownList.Visible = True
             PropertyDropDownList.Items.Add("Free Space (%)")
-            PropertyDropDownList.Items.Add("Free Space (MB)")
+            PropertyDropDownList.Items.Add("Active Time (%)")
             ServicesTextBox.Visible = False
         Else
             LDDropDownList.Visible = False
@@ -105,6 +105,11 @@ Partial Class Options_AddThreshold
         End If
 
         If ClassDropDownList.SelectedValue = "Processor" Then
+            PropertyDropDownList.Items.Add("Total Util (%)")
+            ServicesTextBox.Visible = False
+        End If
+
+        If ClassDropDownList.SelectedValue = "PageFile" Then
             PropertyDropDownList.Items.Add("Total Util (%)")
             ServicesTextBox.Visible = False
         End If

@@ -15,7 +15,10 @@ Public Class CleanUp
         db.AgentMemory.RemoveRange(db.AgentMemory.Where(Function(o) o.AgentCollectDate < PurgeDate))
         db.SaveChanges()
 
-        db.AgentLogicalDisk.RemoveRange(db.AgentLogicalDisk.Where(Function(o) o.AgentCollectDate < PurgeDate))
+        db.AgentPageFile.RemoveRange(db.AgentPageFile.Where(Function(o) o.AgentCollectDate < PurgeDate))
+        db.SaveChanges()
+
+        db.AgentLocalDisk.RemoveRange(db.AgentLocalDisk.Where(Function(o) o.AgentCollectDate < PurgeDate))
         db.SaveChanges()
 
         db.AgentService.RemoveRange(db.AgentService.Where(Function(o) o.AgentCollectDate < PurgeDate))
@@ -31,7 +34,10 @@ Public Class CleanUp
         db.AgentMemoryArchive.RemoveRange(db.AgentMemoryArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
         db.SaveChanges()
 
-        db.AgentLogicalDiskArchive.RemoveRange(db.AgentLogicalDiskArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
+        db.AgentPageFile.RemoveRange(db.AgentPageFile.Where(Function(o) o.AgentCollectDate < PurgeDate))
+        db.SaveChanges()
+
+        db.AgentLocalDiskArchive.RemoveRange(db.AgentLocalDiskArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
         db.SaveChanges()
 
         db.AgentServiceArchive.RemoveRange(db.AgentServiceArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
