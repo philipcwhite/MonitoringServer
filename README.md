@@ -21,11 +21,13 @@ For setup and configuration please see the new Wiki
 
 ##Change Log
 
-###Changes for Version 0.4.3b (2016/01/04):
+###Changes for Version 0.4.3b (2016/01/05):
 
 1.  Added basic user customization to the website.  Users can now build their own device/event view by selecting what assets they want to see.
 
-2.  General bug fixes.  Corrected an issue when no events are shown, the event and device tables display correctly.
+2.  Updated graphing to include 1 Hr, 6 Hr, 12 Hr, and 24 Hr ranges.  The ranges above 1 Hr are just points from on the hour, not averaged.  
+
+3.  General bug fixes.  Corrected an issue when no events are shown, the event and device tables display correctly.
 
 
 ###Changes for Version 0.4.2b (2016/01/04):

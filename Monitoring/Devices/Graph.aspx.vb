@@ -4,7 +4,7 @@ Partial Class Devices_Graph
 
     Private Property db As New DBModel
 
-    Private Sub Devices_Default4_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub Devices_Graph_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         If Not IsPostBack Then
 
@@ -17,6 +17,8 @@ Partial Class Devices_Graph
             HostNameLabel.Text = QString1
             DeviceHyperLink.NavigateUrl = "~/Devices/Device.aspx?hostname=" & QString1
 
+            ClassLabel.Text = QString1
+            PropertyLabel.Text = QString2
 
             If QString2.Contains("Local Disk") Then
                 GraphLabel.Text = QString2.Replace(";", " ")
@@ -24,13 +26,26 @@ Partial Class Devices_Graph
                 GraphLabel.Text = QString2
             End If
 
-
-
             LoadGraph(QString1, QString2, Date.Now, 60)
 
         End If
 
     End Sub
+
+
+    Protected Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
+
+        If TimeRangeDropDownList.SelectedValue = 1 Then
+            LoadGraph(ClassLabel.Text, PropertyLabel.Text, Date.Now, 60)
+        ElseIf TimeRangeDropDownList.SelectedValue = 6 Then
+            LoadGraph(ClassLabel.Text, PropertyLabel.Text, Date.Now, 360)
+        ElseIf TimeRangeDropDownList.SelectedValue = 12 Then
+            LoadGraph(ClassLabel.Text, PropertyLabel.Text, Date.Now, 720)
+        ElseIf TimeRangeDropDownList.SelectedValue = 24 Then
+            LoadGraph(ClassLabel.Text, PropertyLabel.Text, Date.Now, 1440)
+        End If
+    End Sub
+
 
     Private Sub LoadGraph(ByVal AgentName As String, ByVal AgentClass As String, ByVal StartTime As Date, ByVal Duration As Integer)
 
@@ -44,17 +59,33 @@ Partial Class Devices_Graph
         Dim xCircle As String = Nothing
         Dim xLine As String = Nothing
         Dim xTime As Integer = 85
-        Dim xTimeStart = RoundTime(StartTime.AddMinutes(-Duration))
+        Dim xTimeStart As Date = Nothing
+        Dim xTimeIncrement As Integer = Nothing
         Dim xTimeValue As Date = Nothing
         Dim xTimeText As String = Nothing
         Dim xValue1 As Integer = 100
         Dim xValue2 As Integer = 150
         Dim DataList As New List(Of AgentData)
 
+        If Duration = 60 Then
+            xTimeStart = RoundTime5Min(StartTime.AddMinutes(-Duration))
+            xTimeIncrement = 5
+        ElseIf Duration = 360 Then
+            xTimeStart = RoundTime30Min(StartTime.AddMinutes(-Duration))
+            xTimeIncrement = 30
+        ElseIf Duration = 720 Then
+            xTimeStart = RoundTime60Min(StartTime.AddMinutes(-Duration))
+            xTimeIncrement = 60
+        ElseIf Duration = 1440 Then
+            xTimeStart = RoundTime120Min(StartTime.AddMinutes(-Duration))
+            xTimeIncrement = 120
+        End If
+
+
         For i = 0 To 12
             xTimeText = xTimeText & "<text x=" & xTime & " y='320' fill='black' font-size='9' font-family='arial'>" & xTimeStart.ToString("h:mmtt") & "</text>"
             DataList.Add(New AgentData With {.AgentName = AgentName, .AgentTime = xTimeStart, .AgentValue1 = 0, .AgentValue2 = 0})
-            xTimeStart = xTimeStart.AddMinutes(5)
+            xTimeStart = xTimeStart.AddMinutes(xTimeIncrement)
             xTime = xTime + 50
         Next
 
@@ -135,16 +166,10 @@ Partial Class Devices_Graph
             xValue1 = xValue1 + 50
         Next
 
-
         Dim SVGxCircle As New LiteralControl(xCircle)
         Dim SVGxLine As New LiteralControl(xLine)
-
-
-
         Dim SVGStart As New LiteralControl("<svg height='350' width='850'>")
-
         Dim SVGTitle As New LiteralControl(GraphTitle)
-
         Dim SVGyAxis As New LiteralControl("<line x1='100' y1='100' x2='100' y2='305' style='stroke:#444444;stroke-width:1' />" &
             "<line x1 ='95' y1='100' x2='100' y2='100' style='stroke:#444444;stroke-width:1' />" &
             "<line x1='95' y1='150' x2='100' y2='150' style='stroke:#444444;stroke-width:1'/>" &
@@ -186,7 +211,6 @@ Partial Class Devices_Graph
             "<line x1 = '650' y1='300' x2='650' y2='100' style='stroke:#eeeeee;stroke-width:1' />" &
             "<line x1 = '700' y1='300' x2='700' y2='100' style='stroke:#eeeeee;stroke-width:1' />")
 
-
         Dim SVGxTimeText As New LiteralControl(xTimeText)
         Dim SVGEnd As New LiteralControl("</svg>")
 
@@ -202,21 +226,46 @@ Partial Class Devices_Graph
 
     End Sub
 
-    Private Function RoundTime(ByVal StartTime As Date) As Date
 
+
+
+
+    Private Function RoundTime5Min(ByVal StartTime As Date) As Date
         Dim MyDateTime = StartTime
         Dim DatePart = MyDateTime.Date
         Dim TimePart = MyDateTime.TimeOfDay
         TimePart = TimeSpan.FromMinutes(Math.Floor((TimePart.TotalMinutes + 2.5) / 5.0) * 5.0)
         Dim NewTime = DatePart.Add(TimePart)
-
         Return NewTime
     End Function
 
 
-    Protected Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
+    Private Function RoundTime30Min(ByVal StartTime As Date) As Date
+        Dim MyDateTime = StartTime
+        Dim DatePart = MyDateTime.Date
+        Dim TimePart = MyDateTime.TimeOfDay
+        TimePart = TimeSpan.FromMinutes(Math.Floor((TimePart.TotalMinutes + 15.0) / 30.0) * 30.0)
+        Dim NewTime = DatePart.Add(TimePart)
+        Return NewTime
+    End Function
 
-    End Sub
+    Private Function RoundTime60Min(ByVal StartTime As Date) As Date
+        Dim MyDateTime = StartTime
+        Dim DatePart = MyDateTime.Date
+        Dim TimePart = MyDateTime.TimeOfDay
+        TimePart = TimeSpan.FromMinutes(Math.Floor((TimePart.TotalMinutes + 30.0) / 60.0) * 60.0)
+        Dim NewTime = DatePart.Add(TimePart)
+        Return NewTime
+    End Function
+
+    Private Function RoundTime120Min(ByVal StartTime As Date) As Date
+        Dim MyDateTime = StartTime
+        Dim DatePart = MyDateTime.Date
+        Dim TimePart = MyDateTime.TimeOfDay
+        TimePart = TimeSpan.FromMinutes(Math.Floor((TimePart.TotalMinutes + 60.0) / 120.0) * 120.0)
+        Dim NewTime = DatePart.Add(TimePart)
+        Return NewTime
+    End Function
 
 End Class
 

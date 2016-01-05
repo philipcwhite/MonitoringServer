@@ -26,6 +26,8 @@
                        </asp:DropDownList>
                        <asp:Button ID="SubmitButton" runat="server" Text="Graph" CssClass="Button" />
                        <br />
+                       <asp:Label ID="ClassLabel" runat="server" Visible="False"></asp:Label>
+                       <asp:Label ID="PropertyLabel" runat="server" Visible="False"></asp:Label>
                        <br />
                     </div>
                </ContentTemplate>
