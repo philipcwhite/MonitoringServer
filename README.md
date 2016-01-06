@@ -10,6 +10,10 @@ For setup and configuration please see the new Wiki
 
 ##Screenshots
 
+###New Flat Design
+
+![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/FlatDesign.png)
+
 ###Device View
 
 ![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Device.png)
@@ -19,7 +23,14 @@ For setup and configuration please see the new Wiki
 ![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Graph.png)
  
 
+
 ##Change Log
+
+
+###Changes for Version 0.4.3b (2016/01/06):
+
+I posted an image of something I've been working on for a possible new design.  I am trying to remove as many of the layout tables as I can and replace them with a more fluid design that fits with more display resolutions.  
+
 
 ###Changes for Version 0.4.3b (2016/01/05):
 
