@@ -12,7 +12,7 @@ For setup and configuration please see the new Wiki
 
 ###New Flat Design
 
-![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/FlatDesign.png)
+![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Flat.png)
 
 ###Device View
 
