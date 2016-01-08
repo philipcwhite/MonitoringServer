@@ -1,4 +1,4 @@
-# MonitoringServer 0.4.3b
+# MonitoringServer 0.4.4b
 
 ##About
 
@@ -10,9 +10,9 @@ For setup and configuration please see the new Wiki
 
 ##Screenshots
 
-###New Flat Design
+###Home
 
-![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Flat.png)
+![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Home.png)
 
 ###Device View
 
@@ -25,6 +25,11 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.4.4b (2016/01/08):
+
+1.  Updated theme to new flat design.  There may be a few bugs due to dead links that I still have to troubleshoot.  The new theme is not 100% complete but the master page is done and most of the css has been updated.  I have tested in IE11 and Safari and both work fine.  I'll probably add a few more icon and spice things up a bit.  The home page is not complete.  Right now it displays devices that a user has subscribed too.  I plan on making some overview stat boxes and perhaps an event list as well.
 
 
 ###Changes for Version 0.4.3b (2016/01/06):

@@ -33,11 +33,11 @@ Partial Class Events_Default
                     Severity = "Critical"
                     EventRows = EventRows & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
                 ElseIf i.AgentSeverity = 2 Then
-                    Severity = "Major"
-                    EventRows = EventRows & "<tr><td><div class='EventStatusMajor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
+                    Severity = "Warning"
+                    EventRows = EventRows & "<tr><td><div class='EventStatusWarning'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
                 ElseIf i.AgentSeverity = 1 Then
-                    Severity = "Minor"
-                    EventRows = EventRows & "<tr><td><div class='EventStatusMinor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
+                    Severity = "Informational"
+                    EventRows = EventRows & "<tr><td><div class='EventStatusInfo'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
                 End If
             Next
         End If

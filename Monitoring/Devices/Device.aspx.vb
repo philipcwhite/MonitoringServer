@@ -66,18 +66,18 @@ Partial Class Devices_Device
         Dim Layout1 As String = "<table style='width: 100%'>" &
                                 "<tr><td style='padding-right:10px;padding-bottom:20px;vertical-align:top;width:50%;'>" &
                                 "<table class='StaticTable' style='width: 100%'>" &
-                                "<thead><tr><th>Device<img alt='Windows' src='../App_Themes/Monitoring/Windows.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;' /></th></tr></thead>" &
+                                "<thead><tr><th>Device</th></tr></thead>" &
                                 "<tr><td style='height:180px;vertical-align:top'><table>"
         Dim LayoutPanelLeft As String = Nothing
         Dim Layout2 As String = "</table></td><td style='padding-left: 10px;padding-bottom:20px;vertical-align:top;width:50%;'>" &
                                 "<table class='StaticTable' style='width: 100%'>" &
-                                "<thead><tr><th>Monitors<img alt='Monitoring' src='../App_Themes/Monitoring/Graph.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;'/></th></tr></thead>" &
+                                "<thead><tr><th>Monitors</th></tr></thead>" &
                                 "<tr><td style='height:180px;vertical-align:top'><table>"
         Dim LayoutPanelRight As String = Nothing
         Dim Layout3 As String = "</table><br/></td></tr></table></td></tr>" &
                                 "<tr><td style='padding:0px' colspan='2'>" &
                                 "<table class='HoverTable'>" &
-                                "<thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message<img alt='Events' src='../App_Themes/Monitoring/Warning.png' height='12' width='12' style='float:right;box-shadow: 1px 1px 1px #888888;'/></th></tr></thead>"
+                                "<thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message</th></tr></thead>"
         Dim LayoutPanelBottom As String = Nothing
         Dim Layout4 As String = "</table></td><td></td></tr></table>"
 
@@ -107,11 +107,11 @@ Partial Class Devices_Device
                     Severity = "Critical"
                     LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
                 ElseIf i.AgentSeverity = 2 Then
-                    Severity = "Major"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusMajor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                    Severity = "Warning"
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusWarning'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
                 ElseIf i.AgentSeverity = 1 Then
-                    Severity = "Minor"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusMinor'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                    Severity = "Informational"
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusInfo'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
 
                 ElseIf EventQ Is Nothing Then
                     LayoutPanelBottom = "<tr><td colspan='6' style='text-align:center'>No Events</td></tr>"

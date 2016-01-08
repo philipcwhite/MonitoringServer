@@ -10,16 +10,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-            <div style="height:100%">
-    <div class="topmenu" style="background:linear-gradient(#6a75a7,#485385);height:30px;"></div>
-<br />
-<div class="content">
-          <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
+    <div>
+        <div class="NavMenu">
+        </div>
+        <div class="Main">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
-      </div>
-<div class="footer"><div class="footer2">© 2016 wcpSoft</div></div>
-
+        </div>
+        <div class="Footer">© 2016 Phil White</div>
     </div>
     </form>
 </body>

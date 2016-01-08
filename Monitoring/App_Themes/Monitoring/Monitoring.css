@@ -1,67 +1,61 @@
 ﻿
 body {margin:0px;padding:0px;height:100%;}
-h2 {font:14px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#485385;}
-h2 a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
+h2 {font:14px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#7992BF;}
+h2 a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
-a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
-
-.topmenu {position:fixed;left:0;top:0;width:100%;}
-.MenuSearchLeft{position:fixed;right:38px;top:5px;border-top-left-radius:2px;border-bottom-left-radius:2px;background-color:#ffffff;height:20px;}
-.MenuSearchRight{position:fixed;right:20px;top:5px;border-top-right-radius:2px;border-bottom-right-radius:2px;background:linear-gradient(#c8d9fa,#9fb2d6);height:20px;width:18px;padding-left:2px;}
-
-.SearchImage{height:15px;width:15px;vertical-align:middle;}
-.SearchText{border:none;border-width:0px;border-spacing:0px;border-top-left-radius:2px;border-bottom-left-radius:2px;height:18px;}
-.content{left:0px;top:0px;margin-top:25px;font:12px Verdana, Arial, Helvetica, sans-serif;padding-bottom:30px;margin-left:20px;margin-right:20px;}
-.footer{position:fixed;left:0px; bottom:0px; width:100%; height:30px; background:linear-gradient(#dddddd,#aaaaaa)}
-.footer2{font:10px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;text-align:right; padding-top:10px; padding-right:10px;text-shadow: 1px 1px #000000; font-weight:bold;}
-
-.menu{margin:0 auto; padding:0; height:30px; width:100%; display:block; background:linear-gradient(#6a75a7,#485385);}
-.menu li{padding:0; margin:0; list-style:none; display:inline;}
-.menu li a{float:left; padding-left:15px; display:block; color:rgb(255,255,255); text-decoration:none; font:12px Verdana, Arial, Helvetica, sans-serif; cursor:pointer; background:linear-gradient(#6a75a7,#485385);font-weight:bold;text-shadow: 1px 1px #000000;}
-.menu li a span{line-height:30px; float:left; display:block; padding-right:15px; background:linear-gradient(#6a75a7,#485385)}
-.menu li a:hover{background-position:0px -60px; color:rgb(255,255,255);background:linear-gradient(#dddddd,#aaaaaa)}
-.menu li a:hover span{background-position:100% -60px;background:linear-gradient(#dddddd,#aaaaaa)}
-.menu li a.active, .menu li a.active:hover{line-height:30px; font:12px Verdana, Arial, Helvetica, sans-serif; background:linear-gradient(#c8d9fa,#9fb2d6); color:rgb(255,255,255);font-weight:bold;text-shadow: 1px 1px #707070;}
-.menu li a.active span, .menu li a.active:hover span{background:linear-gradient(#c8d9fa,#9fb2d6)}active span, .menu li a.active:hover span{background:linear-gradient(#c8d9fa,#9fb2d6)}
+a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 
 
 
-.Button {border-radius: 3.1px;font-family: Arial;color: #ffffff;font-size: 12px;background:linear-gradient(#c8d9fa,#9fb2d6);padding: 3px 3px 3px 3px;text-decoration: none; border-style:none;text-shadow: 1px 1px #707070;font-weight:bold}
-.Button:hover {background:linear-gradient(#dddddd,#aaaaaa);text-decoration: none; border-style:none;text-shadow: 1px 1px #707070;}
 
-.TextBox {border:solid;border-width:1px;border-spacing:0px;border-radius:2px;border-color:#cccccc;}
+.Button {border-radius: 1px;font-family: Arial;color: #ffffff;font-size: 12px;background:#ED848F;padding: 3px 3px 3px 3px;text-decoration: none;font-weight:bold;border-style:none }
+.Button:hover {background:#cccccc;text-decoration: none; border-style:none}
 
-.EventStatusCritical {height:10px;width:10px;background:linear-gradient(#ff9494,#ff0000);border-radius:2px;box-shadow: 1px 1px 1px #888888;}
-.EventStatusMajor {height:10px;width:10px;background:linear-gradient(#ffd89e,#ffa31a);border-radius:2px;box-shadow: 1px 1px 1px #888888;}
-.EventStatusMinor {height:10px;width:10px;background:linear-gradient(#ffffa1,#ffff00);border-radius:2px;box-shadow: 1px 1px 1px #888888;}
-.EventStatusOK {height:10px;width:10px;background:linear-gradient(#bbff9e,#4cff00);border-radius:2px;box-shadow: 1px 1px 1px #888888;}
+.TextBox {border:solid;border-width:1px;border-spacing:0px;border-radius:2px;border-color:#eeeeee;color:#7992BF;}
 
-
-.DivBullet {height:10px;width:10px;background:linear-gradient(#c8d9fa,#9fb2d6);border-radius:1px;box-shadow: 1px 1px 1px #888888;}
+.EventStatusCritical {height:10px;width:10px;background:#ED848F;}
+.EventStatusWarning {height:10px;width:10px;background:#ECD48B;}
+.EventStatusInfo {height:10px;width:10px;background:#7992BF;}
+.EventStatusOK {height:10px;width:10px;background:#A9DC8E;}
 
 
-.HoverTable {border-radius: 4px; background-color:#efefef}
-.HoverTable tr:hover {background: #dddddd;transition: all 0.1s ease-in-out;}    
-.HoverTable td, .HoverTable th {padding: 5px;text-align: left;color:#485385}
-.HoverTable th {background:linear-gradient(#c8d9fa,#9fb2d6);border-top: none;font:12px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;text-shadow: 1px 1px #707070;font-weight:bold}
-.HoverTable td:first-child, .HoverTable th:first-child {border-left: none;}
-.HoverTable th:first-child {border-radius: 4px 0 0 0;}
-.HoverTable th:last-child {border-radius: 0 4px 0 0;}
-.HoverTable th:only-child{border-radius: 4px 4px 0 0;}
-.HoverTable tr:last-child td:first-child {border-radius: 0 0 0 4px;}
-.HoverTable tr:last-child td:last-child {border-radius: 0 0 4px 0;}
-.HoverTable a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
-
-.StaticTable {border-radius: 4px; background-color:#efefef}
-.StaticTable tr:hover {background: #efefef;transition: none;}    
-.StaticTable td, .StaticTable th {padding: 5px;text-align: left;color:#485385}
-.StaticTable th {background:linear-gradient(#c8d9fa,#9fb2d6);border-top: none;font:12px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;text-shadow: 1px 1px #707070;font-weight:bold}
-.StaticTable td:first-child, .StaticTable th:first-child {border-left: none;}
-.StaticTable th:first-child {border-radius: 4px 0 0 0;}
-.StaticTable th:last-child {border-radius: 0 4px 0 0;}
-.StaticTable th:only-child{border-radius: 4px 4px 0 0;}
-.StaticTable tr:last-child td:first-child {border-radius: 0 0 0 4px;}
-.StaticTable tr:last-child td:last-child {border-radius: 0 0 4px 0;}
-.StaticTable a:link, a:active, a:hover, a:visited {color:#485385;text-decoration:none}
+.DivBullet {height:10px;width:10px;background:#7992BF;}
 
 
+.HoverTable {border-radius: 4px; background-color:#ffffff;border-style:solid;border-color:#eeeeee;border-width:1px}
+.HoverTable tr:hover {background: #eeeeee;transition: all 0.1s ease-in-out;}    
+.HoverTable td, .HoverTable th {padding: 5px;text-align: left;color:#7992BF;}
+.HoverTable th {background:#7992BF;font:10px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;font-weight:bold}
+.HoverTable th:first-child {border-radius: 0 0 0 0;}
+.HoverTable th:last-child {border-radius: 0 0 0 0;}
+.HoverTable tr:last-child td:first-child {border-radius: 0 0 0 3px;}
+.HoverTable tr:last-child td:last-child {border-radius: 0 0 3px 0;}
+.HoverTable a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
+
+.StaticTable {border-radius: 4px; background-color:#ffffff;border-style:solid;border-color:#eeeeee;border-width:1px}  
+.StaticTable td, .StaticTable th {padding: 5px;text-align: left;color:#7992BF;}
+.StaticTable th {background:#7992BF;border-top: none;font:10px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;font-weight:bold}
+.StaticTable th:first-child {border-radius: 0 0 0 0;}
+.StaticTable th:last-child {border-radius: 0 0 0 0;}
+.StaticTable tr:last-child td:first-child {border-radius: 0 0 0 3px;}
+.StaticTable tr:last-child td:last-child {border-radius: 0 0 3px 0;}
+.StaticTable a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none;}
+
+
+.NavMenu{position:fixed;left:0px;background:#62676A;width:28px;height:100%;}
+a.NavLinkHome:link, .NavLinkHome{ width:28px;height:28px;display:block;background-size:28px;background-image: url('Home.png');}
+a.NavLinkHome:hover{width:28px;height:28px;display:block;background-size:28px;background-image: url('Home_Hover.png');}
+a.NavLinkDevices:link, .NavLinkDevices{ width:28px;height:28px;display:block;background-size:28px;background-image: url('Devices.png');}
+a.NavLinkDevices:hover{width:28px;height:28px;display:block;background-size:28px;background-image: url('Devices_Hover.png');}
+a.NavLinkReports:link, .NavLinkReports{ width:28px;height:28px;display:block;background-size:28px;background-image: url('Reports.png');}
+a.NavLinkReports:hover{width:28px;height:28px;display:block;background-size:28px;background-image: url('Reports_Hover.png');}
+a.NavLinkEvents:link, .NavLinkEvents{ width:28px;height:28px;display:block;background-size:28px;background-image: url('Events.png');}
+a.NavLinkEvents:hover{width:28px;height:28px;display:block;background-size:28px;background-image: url('Events_Hover.png');}
+a.NavLinkOptions:link, .NavLinkOptions{ width:28px;height:28px;display:block;background-size:28px;background-image: url('Config.png');}
+a.NavLinkOptions:hover{width:28px;height:28px;display:block;background-size:28px;background-image: url('Config_Hover.png');}
+
+.Search{width:150px;height:20px;background-color:#ffffff;z-index:10;position:absolute;right:0;top:10px;font:10px Verdana, Arial, Helvetica, sans-serif;color:#7992BF;}
+.SearchIcon{height:20px;width:20px;}
+.SearchTextBox{vertical-align:top;margin-top:1px;border-style:solid;border-width:1px;border-color:#eeeeee;width:100px;color:#7992BF;}
+.Main{position:absolute;left:28px;background:#ffffff;width:calc(100% - 67px);padding-left:17px;padding-right:17px;font:10px Verdana, Arial, Helvetica, sans-serif;color:#7992BF;}
+.Footer{position:fixed;left:28px; bottom:0px; width:calc(100% - 67px); height:28px; background:#FFFFFF;font:9px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#bbbbbb;text-align:right;}

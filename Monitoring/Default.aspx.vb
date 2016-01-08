@@ -30,13 +30,13 @@ Partial Class _Default
                 Dim GTH As New GlobalThresholdData
                 GTH.AddThresholds()
 
-                Response.Redirect("~/Options/")
+                Response.Redirect("~/Config/")
             Catch ex As Exception
 
             End Try
         End If
 
-        Response.Redirect("~/Events/")
+        Response.Redirect("~/Home/")
 
     End Sub
 End Class

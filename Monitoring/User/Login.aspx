@@ -4,7 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h2>User&gt;Login</h2>
-        <table class='StaticTable' style='width: 100%'><thead><tr><th>Login</th></tr></thead><tr><td>
+    <br />
+        <table class='StaticTable' style='width: 300px'><thead><tr><th>Login</th></tr></thead><tr><td>
           <table style="width:250px">
               <tr>
                   <td style="width:125px">Username:</td>

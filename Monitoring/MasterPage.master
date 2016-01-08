@@ -1,0 +1,33 @@
+﻿<%@ Master Language="VB" CodeFile="MasterPage.master.vb" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div class="NavMenu">
+            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="NavLinkHome" NavigateUrl="~/Home/Default.aspx"></asp:HyperLink>
+            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="NavLinkDevices" NavigateUrl="~/Devices/Default.aspx"></asp:HyperLink>
+            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="NavLinkReports" NavigateUrl="~/Reports/Default.aspx"></asp:HyperLink>
+            <asp:HyperLink ID="HyperLink4" runat="server" CssClass="NavLinkEvents" NavigateUrl="~/Events/Default.aspx"></asp:HyperLink>
+            <asp:HyperLink ID="HyperLink5" runat="server" CssClass="NavLinkOptions" NavigateUrl="~/Config/Default.aspx"></asp:HyperLink>
+        </div>
+        <div class="Search">
+            <asp:TextBox ID="SearchTextBox" runat="server" CssClass="SearchTextBox"></asp:TextBox>
+            <asp:ImageButton ID="SearchImageButton" runat="server" ImageUrl="~/App_Themes/Monitoring/Search.png" CssClass="SearchIcon"/>
+        </div>
+        <div class="Main">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        </div>
+        <div class="Footer">© 2016 Phil White</div>
+    </div>
+    </form>
+</body>
+</html>

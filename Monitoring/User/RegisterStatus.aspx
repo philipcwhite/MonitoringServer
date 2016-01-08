@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h2><asp:HyperLink ID="UserHyperLink" runat="server" NavigateUrl="~/User/Login.aspx">User</asp:HyperLink>&gt;Register Status</h2>
+    <br />
     <table class='StaticTable' style='width: 100%'><thead><tr><th>Update User</th></tr></thead><tr><td style="text-align:center">
           
     Success!  Please wait for an administrator to approve your account.
