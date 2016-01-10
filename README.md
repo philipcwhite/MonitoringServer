@@ -1,4 +1,4 @@
-# MonitoringServer 0.4.4b
+# MonitoringServer 0.4.5b
 
 ##About
 
@@ -25,6 +25,11 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.4.5b (2016/01/09):
+
+1.  Updated Home page to include new summary donut graphs for device and events.
 
 
 ###Changes for Version 0.4.4b (2016/01/08):

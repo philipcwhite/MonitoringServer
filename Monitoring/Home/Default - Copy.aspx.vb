@@ -21,6 +21,8 @@ Partial Class Main_Default
                 Order By T1.AgentName Ascending
                 Select T1
 
+
+
         Dim Rows As String = Nothing
 
         Dim StatusDate As Date = Date.Now.AddHours(-1)
@@ -77,50 +79,48 @@ Partial Class Main_Default
 
     Public Sub LeftChart()
 
+
+
         Dim Q = From T1 In db.AgentEvents
                 Join T2 In db.Subscriptions On T1.AgentName Equals T2.AgentName
-                Where T2.UserName = User.Identity.Name And T1.AgentStatus = True
+                Where T2.UserName = User.Identity.Name
                 Order By T1.AgentName Ascending
                 Select T1.AgentSeverity
 
-        Dim InfoAlert As Integer = 0
-        Dim WarnAlert As Integer = 0
-        Dim CritAlert As Integer = 0
+        Dim Info As Integer = 0
+        Dim Warning As Integer = 0
+        Dim Critical As Integer = 0
         Dim TotalAlerts As Integer = 0
-
 
         For Each i In Q
             If i = 0 Then
-                InfoAlert = InfoAlert + 1
+                Info = Info + 1
             ElseIf i = 1 Then
-                WarnAlert = WarnAlert + 1
+                Warning = Warning + 1
             ElseIf i = 2 Then
-                CritAlert = CritAlert + 1
+                Critical = Critical + 1
             End If
         Next
 
-        TotalAlerts = InfoAlert + WarnAlert + CritAlert
+        TotalAlerts = Info + Warning + Critical
 
-        Dim StatusList As New List(Of Status)
-        If InfoAlert > 0 Then
-            StatusList.Add(New Status With {.Category = "Info", .Count = InfoAlert})
-        End If
-        If WarnAlert > 0 Then
-            StatusList.Add(New Status With {.Category = "Warn", .Count = WarnAlert})
-        End If
-        If CritAlert > 0 Then
-            StatusList.Add(New Status With {.Category = "Crit", .Count = CritAlert})
-        End If
+        Dim DataList As New List(Of Double)
+
+
+        DataList.Add(Info)
+        DataList.Add(Warning)
+        DataList.Add(Critical)
 
         Dim StartAngle As Double = 0
         Dim radius As Double = 50
         Dim SVGPath As String = Nothing
+        Dim colorInt As Integer = 0
         Dim Color As String = Nothing
         Dim PercentTotal As Double = Nothing
 
-        For Each i In StatusList
+        For Each i In DataList
 
-            PercentTotal = PercentTotal + i.Count
+            PercentTotal = PercentTotal + i
 
             Dim percentage As Double = (PercentTotal / TotalAlerts) * 100
 
@@ -132,11 +132,15 @@ Partial Class Main_Default
             Dim unit = (Math.PI * 2) / 100
             Dim EndAngle = percentage * unit - 0.001
 
+
+
             EndAngle = percentage * unit - 0.001
             Dim x1 = (size / 2) + (size / 2) * Math.Sin(StartAngle)
             Dim y1 = (size / 2) - (size / 2) * Math.Cos(StartAngle)
             Dim x2 = (size / 2) + (size / 2) * Math.Sin(EndAngle)
             Dim y2 = (size / 2) - (size / 2) * Math.Cos(EndAngle)
+
+
 
             Dim big = 0
             If EndAngle - StartAngle > Math.PI Then
@@ -150,19 +154,19 @@ Partial Class Main_Default
         x2 & "," & y2 &
         " Z"
 
-
-            If i.Category = "Info" Then
+            If colorInt = 0 Then
                 Color = "#6BD5C3"
-            ElseIf i.Category = "Warn" Then
+            ElseIf colorInt = 1 Then
                 Color = "#ECD48B"
-            ElseIf i.Category = "Crit" Then
+            ElseIf colorInt = 2 Then
                 Color = "#ED848F"
             End If
+
 
             SVGPath = SVGPath & "<g><path fill = '" & Color & "' stroke-width='0' ' d='" & d & " ' /></g>"
 
             StartAngle = EndAngle
-
+            colorInt = colorInt + 1
 
         Next
 
@@ -177,16 +181,16 @@ Partial Class Main_Default
         Dim SVGLiteral As New LiteralControl(SVGStart & SVGItems & SVGEnd)
 
 
-        Dim TableStart As New LiteralControl("<table class='StaticTable'><thead><tr><th style='text-align:left'>Event Summary</th></tr></thead><tr><td><table><tr><td>")
+        Dim TableStart As New LiteralControl("<table class='StaticTable'><thead><tr><th style='text-align:left'>Event Summary</th></tr></thead><tr><td><table><tr><td  rowspan=3>")
 
 
 
-        Dim ContentInfoBox As String = "</td><td><table><tr><td style='width:15px'><div class='EventStatusCritical' /></td><td>" & CritAlert & " Critical Events</td></tr>" &
-            "<tr><td><div class='EventStatusWarning' /></td><td>" & WarnAlert & " Warning Events</td></tr>" &
-            "<tr><td><div class='EventStatusInfo' /></td><td>" & InfoAlert & " Info Events</td></tr></table></td></tr></table>"
+        Dim ContentInfoBox As String = "</td><td style='width:15px'><div class='EventStatusCritical' /></td><td>" & Critical & " Critical Events</td></tr>" &
+            "<tr><td><div class='EventStatusWarning' /></td><td>" & Warning & " Warning Events</td></tr>" &
+            "<tr><td><div class='EventStatusInfo' /></td><td>" & Info & " Info Events</td></tr></table>"
         Dim InfoBoxControl As New LiteralControl(ContentInfoBox)
 
-        Dim TableEnd As New LiteralControl("</td></tr></table>")
+        Dim TableEnd As New LiteralControl("<br /></td></tr></Table>")
 
         HomePlaceHolder.Controls.Add(TableStart)
         HomePlaceHolder.Controls.Add(SVGLiteral)
@@ -303,15 +307,15 @@ Partial Class Main_Default
         Dim SVGLiteral As New LiteralControl(SVGStart & SVGItems & SVGEnd)
 
 
-        Dim TableStart As New LiteralControl("<table class='StaticTable'><thead><tr><th style='text-align:left'>Device Summary</th></tr></thead><tr><td><table><tr><td>")
+        Dim TableStart As New LiteralControl("<table class='StaticTable'><thead><tr><th style='text-align:left'>Device Summary</th></tr></thead><tr><td><table><tr><td  rowspan=3>")
 
 
-        Dim ContentInfoBox As String = "</td><td><table><tr><td style='width:15px'><div class='EventStatusOK' /></td><td>" & Ok & " Devices Ok</td></tr>" &
+        Dim ContentInfoBox As String = "</td><td style='width:15px'><div class='EventStatusOK' /></td><td>" & Ok & " Devices Ok</td></tr>" &
             "<tr><td><div class='EventStatusCritical' /></td><td>" & Down & " Devices Down</td></tr>" &
-            "<tr><td></td><td></td></tr></table></td></tr></table>"
+            "<tr><td></td><td></td></tr></table>"
         Dim InfoBoxControl As New LiteralControl(ContentInfoBox)
 
-        Dim TableEnd As New LiteralControl("</td></tr></Table>")
+        Dim TableEnd As New LiteralControl("<br /></td></tr></Table>")
 
         HomePlaceHolder.Controls.Add(TableStart)
         HomePlaceHolder.Controls.Add(SVGLiteral)
@@ -328,9 +332,4 @@ Partial Class Main_Default
         BuildTable()
     End Sub
 
-End Class
-
-Public Class Status
-    Public Property Category As String
-    Public Property Count As Integer
 End Class

@@ -22,7 +22,7 @@ Partial Class Devices_Default
         DevicesPlaceHolder.Controls.Clear()
         DevicesPlaceHolder.Controls.Add(Table)
 
-        Dim StatusDate As Date = Date.Now.AddDays(-1)
+        Dim StatusDate As Date = Date.Now.AddHours(-1)
 
         Dim DeviceRows As String = Nothing
         For Each i In Q
