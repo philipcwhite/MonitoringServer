@@ -80,7 +80,7 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
             modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
-            'AgentLogicalDisk Table
+            'AgentLocalDisk Table
             modelBuilder.Entity(Of AgentLocalDiskArchive).HasKey(Function(t) t.AgentID)
             modelBuilder.Entity(Of AgentLocalDiskArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
             modelBuilder.Entity(Of AgentLocalDiskArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)

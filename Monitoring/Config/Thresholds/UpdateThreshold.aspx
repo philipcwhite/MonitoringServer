@@ -51,9 +51,9 @@
                   <td>Severity:</td>
                   <td>
                       <asp:DropDownList ID="SeverityDropDownList" runat="server" CssClass="TextBox" Width="110px">
-                          <asp:ListItem Value="3">Critical</asp:ListItem>
-                          <asp:ListItem Value="2">Warning</asp:ListItem>
-                          <asp:ListItem Value="1">Informational</asp:ListItem>
+                          <asp:ListItem Value="2">Critical</asp:ListItem>
+                          <asp:ListItem Value="1">Warning</asp:ListItem>
+                          <asp:ListItem Value="0">Informational</asp:ListItem>
                       </asp:DropDownList></td>
               </tr>
                  <tr>

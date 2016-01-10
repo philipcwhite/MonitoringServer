@@ -7,7 +7,6 @@
         Public Property AgentSeverity As Int32
         Public Property AgentClass As String
         Public Property AgentProperty As String
-        Public Property AgentInstance As Int32
         Public Property AgentThreshold As Int32
         Public Property AgentComparison As String
         Public Property AgentTimeRange As Int32

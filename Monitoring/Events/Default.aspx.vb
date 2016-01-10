@@ -29,13 +29,13 @@ Partial Class Events_Default
 
         If Q IsNot Nothing Then
             For Each i In Q
-                If i.AgentSeverity = 3 Then
+                If i.AgentSeverity = 2 Then
                     Severity = "Critical"
                     EventRows = EventRows & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
-                ElseIf i.AgentSeverity = 2 Then
+                ElseIf i.AgentSeverity = 1 Then
                     Severity = "Warning"
                     EventRows = EventRows & "<tr><td><div class='EventStatusWarning'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
-                ElseIf i.AgentSeverity = 1 Then
+                ElseIf i.AgentSeverity = 0 Then
                     Severity = "Informational"
                     EventRows = EventRows & "<tr><td><div class='EventStatusInfo'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
                 End If
