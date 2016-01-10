@@ -42,7 +42,7 @@
                     <asp:Panel ID="AdminPanel2" runat="server" Visible="false">
             <br />
             <table  class='StaticTable' style='width: 100%'><thead><tr><th>Application Administration</th></tr></thead><tr><td>
-                <asp:HyperLink ID="ThresholdsHyperLink" runat="server" NavigateUrl="~/Config/Thresholds/Default.aspx">Global Thresholds</asp:HyperLink>
+                <asp:HyperLink ID="ThresholdsHyperLink" runat="server" NavigateUrl="~/Config/Thresholds/GlobalThresholds.aspx">Global Thresholds</asp:HyperLink>
    </td></tr></table>
 
         </asp:Panel>

@@ -31,6 +31,8 @@ For setup and configuration please see the new Wiki
 
 1.  Updated Home page to include new summary donut graphs for device and events.
 
+2.  Added pages for setting Agent thresholds.  This has not been tested.  
+
 
 ###Changes for Version 0.4.4b (2016/01/08):
 

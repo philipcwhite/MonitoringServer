@@ -28,7 +28,7 @@ Partial Class Options_EditThreshold
 
     Private Sub Options_EditThreshold_PreLoad(sender As Object, e As EventArgs) Handles Me.PreLoad
         If Not User.IsInRole("Administrator") Then
-            Response.Redirect("~/Options")
+            Response.Redirect("~/Config")
         End If
     End Sub
 

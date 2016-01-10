@@ -1,21 +1,23 @@
 ﻿Imports MonitoringDatabase
-
-Partial Class Options_GlobalThresholds
+Partial Class Config_Thresholds_AgentThreshold
     Inherits System.Web.UI.Page
 
     Private Property db As New DBModel
 
-    Private Sub Options_GlobalThresholds_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub Config_Thresholds_AgentThreshold_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
             BuildTable()
         End If
-
-
     End Sub
 
     Private Sub BuildTable()
 
-        Dim Q = From T In db.GlobalThresholds
+        Dim AgentName As String = Nothing
+
+        AgentName = Request.QueryString("hostname")
+
+        Dim Q = From T In db.AgentThresholds
+                Where T.AgentName = AgentName
                 Order By T.AgentClass, T.AgentProperty, T.Severity Ascending
                 Select T
 
@@ -28,13 +30,13 @@ Partial Class Options_GlobalThresholds
             EditButton.Text = "Edit"
             EditButton.CssClass = "Button"
             EditButton.ID = i.ThresholdID
-            EditButton.PostBackUrl = "~/Config/Thresholds/UpdateThreshold.aspx?ThresholdID=" & i.ThresholdID
+            EditButton.PostBackUrl = "~/Config/Thresholds/AgentThresholdUpdate.aspx?ThresholdID=" & i.ThresholdID
 
             Dim DeleteButton As New Button
             DeleteButton.Text = "Delete"
             DeleteButton.CssClass = "Button"
             DeleteButton.ID = i.ThresholdID
-            DeleteButton.PostBackUrl = "~/Config/Thresholds/Confirmation.aspx?ThresholdID=" & i.ThresholdID
+            DeleteButton.PostBackUrl = "~/Config/Thresholds/AgentConfimation.aspx?ThresholdID=" & i.ThresholdID
 
             Dim Blank As New LiteralControl(" ")
 
@@ -53,18 +55,20 @@ Partial Class Options_GlobalThresholds
 
     End Sub
 
-
-    Private Sub Options_GlobalThresholds_PreLoad(sender As Object, e As EventArgs) Handles Me.PreLoad
+    Private Sub Config_Thresholds_AgentThreshold_PreLoad(sender As Object, e As EventArgs) Handles Me.PreLoad
         If Not User.IsInRole("Administrator") Then
             Response.Redirect("~/Config")
         End If
     End Sub
 
 
-    Protected Sub RestoreButton_Click(sender As Object, e As EventArgs) Handles RestoreButton.Click
+    Protected Sub AddThresholdButton_Click(sender As Object, e As EventArgs) Handles AddThresholdButton.Click
 
-        Response.Redirect("~/Config/Thresholds/Confirmation.aspx?ResetThresholds=True")
+        Dim AgentName As String = Nothing
+
+        AgentName = Request.QueryString("hostname")
+
+        Response.Redirect("~/Config/Thresholds/AgentThresholdAdd.aspx?hostname=" & AgentName)
 
     End Sub
-
 End Class

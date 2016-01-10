@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="UpdateThreshold.aspx.vb" Inherits="Options_EditThreshold" %>
+﻿<%@ Page Title="" Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false" CodeFile="GlobalThresholdsUpdate.aspx.vb" Inherits="Options_EditThreshold" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-        <h2><asp:HyperLink ID="ConfigHyperLink" runat="server" NavigateUrl="~/Config/Default.aspx">Configuration</asp:HyperLink>&gt;<asp:HyperLink ID="ThresholdsHyperLink" runat="server" NavigateUrl="~/Config/Thresholds/Default.aspx">Thresholds</asp:HyperLink>&gt;Update Threshold</h2>
+        <h2><asp:HyperLink ID="ConfigHyperLink" runat="server" NavigateUrl="~/Config/Default.aspx">Configuration</asp:HyperLink>&gt;<asp:HyperLink ID="ThresholdsHyperLink" runat="server" NavigateUrl="~/Config/Thresholds/GlobalThresholds.aspx">Thresholds</asp:HyperLink>&gt;Update Threshold</h2>
 <br />
 
          <table class='StaticTable' style='width: 450px'><thead><tr><th>Update Threshold</th></tr></thead><tr><td>
@@ -78,7 +78,7 @@
                       <asp:Label ID="IDLabel" runat="server" Visible="False"></asp:Label>
                                 </td>
                   <td>
-                      <asp:Button ID="ReturnButton" runat="server" CssClass="Button" PostBackUrl="~/Config/Thresholds/Default.aspx" Text="Return" UseSubmitBehavior="False" />&nbsp;<asp:Button ID="EditButton" runat="server" CssClass="Button" Text="Edit" />
+                      <asp:Button ID="ReturnButton" runat="server" CssClass="Button" PostBackUrl="~/Config/Thresholds/GlobalThresholds.aspx" Text="Return" UseSubmitBehavior="False" />&nbsp;<asp:Button ID="EditButton" runat="server" CssClass="Button" Text="Edit" />
                                 </td>
               </tr>
 

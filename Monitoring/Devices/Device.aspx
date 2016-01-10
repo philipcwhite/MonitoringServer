@@ -11,7 +11,7 @@
             <asp:PlaceHolder ID="DevicePlaceHolder" runat="server"></asp:PlaceHolder>
             <asp:Timer ID="DeviceTimer" runat="server"></asp:Timer>
         </ContentTemplate>
-       
-    </asp:UpdatePanel>
+           </asp:UpdatePanel>
+<div style="float:right;padding-right:5px"><br /><asp:Button ID="ThresholdButton" runat="server" Text="Manage Thresholds" CssClass="Button" Visible="False" /></div>
 </asp:Content>
 

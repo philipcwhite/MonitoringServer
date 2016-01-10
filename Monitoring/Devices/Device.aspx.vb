@@ -16,6 +16,11 @@ Partial Class Devices_Device
 
             End Try
 
+
+            If User.IsInRole("Administrator") Then
+                ThresholdButton.Visible = True
+            End If
+
         End If
 
     End Sub
@@ -137,4 +142,9 @@ Partial Class Devices_Device
 
         End Try
     End Sub
+
+    Protected Sub ThresholdButton_Click(sender As Object, e As EventArgs) Handles ThresholdButton.Click
+        Response.Redirect("~/Config/Thresholds/AgentThreshold.aspx?hostname=" & QS)
+    End Sub
+
 End Class

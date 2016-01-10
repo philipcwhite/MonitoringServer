@@ -9,7 +9,7 @@ Partial Class Options_Thresholds_Confirmation
         If MessageLabel.Text = "Are you sure you want to reset thresholds?" And ValueLabel.Text = "True" Then
             Dim GTH As New GlobalThresholdData
             GTH.AddThresholds()
-            Response.Redirect("~/Config/Thresholds/")
+            Response.Redirect("~/Config/Thresholds/GlobalThresholds.aspx")
         ElseIf MessageLabel.Text = "Are you sure you want to delete this threshold?" Then
             Dim ThresholdID As Integer = Nothing
             ThresholdID = CInt(ValueLabel.Text)
@@ -20,7 +20,7 @@ Partial Class Options_Thresholds_Confirmation
 
             db.SaveChanges()
 
-            Response.Redirect("~/Config/Thresholds/")
+            Response.Redirect("~/Config/Thresholds/GlobalThresholds.aspx")
 
         End If
 
