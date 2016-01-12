@@ -18,12 +18,25 @@ Partial Class Options_Subscriptions_Default
         DevicesListBox.Items.Clear()
         MyDevicesListBox.Items.Clear()
 
+
+        Dim DeviceList As New List(Of String)
+
+
         Dim Q1 = From T In db.AgentSystem
                  Order By T.AgentName Ascending
                  Select T.AgentName
 
         For Each i In Q1
-            DevicesListBox.Items.Add(i)
+            DeviceList.Add(i)
+        Next
+
+        For Each i In DeviceList
+            Dim Q = (From T In db.Subscriptions
+                     Where T.AgentName = i
+                     Select T).FirstOrDefault
+            If Q Is Nothing Then
+                DevicesListBox.Items.Add(i)
+            End If
         Next
 
         Dim Q2 = From T In db.Subscriptions
@@ -34,6 +47,7 @@ Partial Class Options_Subscriptions_Default
         For Each i In Q2
             MyDevicesListBox.Items.Add(i)
         Next
+
 
 
     End Sub
@@ -52,7 +66,7 @@ Partial Class Options_Subscriptions_Default
                          Select T).FirstOrDefault
 
                 If Q Is Nothing Then
-                    db.Subscriptions.Add(New Subscriptions With {.AgentName = AgentName, .UserName = UserName})
+                    db.Subscriptions.Add(New Subscriptions With {.AgentName = AgentName, .UserName = UserName, .Notify = False})
                     db.SaveChanges()
                 End If
 

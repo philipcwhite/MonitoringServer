@@ -31,7 +31,8 @@
       
             
             
-            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Config/Subscriptions/Default.aspx">Subscriptions</asp:HyperLink>
+            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Config/Subscriptions/MyDevices.aspx">My Devices</asp:HyperLink><br />
+       <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Config/Subscriptions/Notifications.aspx">Notifications</asp:HyperLink>
       
             
             

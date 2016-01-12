@@ -39,7 +39,7 @@ Partial Class Main_Default
         Dim AltButton As New Button
         AltButton.CssClass = "Button"
         AltButton.Text = "Click Here"
-        AltButton.PostBackUrl = "~/Config/Subscriptions/"
+        AltButton.PostBackUrl = "~/Config/Subscriptions/MyDevices.aspx"
         Dim AltEnd As String = "</td></tr></table><br />"
 
         Dim LayoutStart As New LiteralControl("<table style='width:100%'><tr><td style='padding-right:7px;width:50%'>")

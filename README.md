@@ -1,4 +1,4 @@
-# MonitoringServer 0.4.5b
+# MonitoringServer 0.4.6b
 
 ##About
 
@@ -25,6 +25,11 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.4.6b (2016/01/12):
+
+1. Added a column to the subscriptions table for notifications and implemented buttons to toggle this.  This will eventually be for email notifications but that portion is not yet implemented.  I will be setting this to forward email to a SMTP server
 
 
 ###Changes for Version 0.4.5b (2016/01/09):
