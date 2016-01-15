@@ -103,6 +103,7 @@
     <Compile Include="DataEngine\Database\Models\AgentSystem.vb" />
     <Compile Include="DataEngine\Database\Models\AgentThresholds.vb" />
     <Compile Include="DataEngine\Database\Models\GlobalThresholds.vb" />
+    <Compile Include="DataEngine\Database\Models\ServerConfiguration.vb" />
     <Compile Include="DataEngine\Database\Models\Subscriptions.vb" />
     <Compile Include="DataEngine\Database\Models\Users.vb" />
     <Compile Include="DataEngine\Tasks\ArchiveAgentData.vb" />

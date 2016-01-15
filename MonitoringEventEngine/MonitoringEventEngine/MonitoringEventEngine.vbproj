@@ -104,6 +104,7 @@
     <Compile Include="EventEngine\Database\Models\AgentSystem.vb" />
     <Compile Include="EventEngine\Database\Models\AgentThresholds.vb" />
     <Compile Include="EventEngine\Database\Models\GlobalThresholds.vb" />
+    <Compile Include="EventEngine\Database\Models\ServerConfiguration.vb" />
     <Compile Include="EventEngine\Database\Models\Subscriptions.vb" />
     <Compile Include="EventEngine\Database\Models\Users.vb" />
     <Compile Include="EventEngine\Tasks\CleanUp.vb" />

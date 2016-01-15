@@ -134,9 +134,10 @@
     <Compile Include="Collector\Database\Models\AgentSystem.vb" />
     <Compile Include="Collector\Database\Models\AgentThresholds.vb" />
     <Compile Include="Collector\Database\Models\GlobalThresholds.vb" />
+    <Compile Include="Collector\Database\Models\ServerConfiguration.vb" />
     <Compile Include="Collector\Database\Models\Subscriptions.vb" />
     <Compile Include="Collector\Database\Models\Users.vb" />
-    <Compile Include="Collector\Encryption\Encryption.vb" />
+    <Compile Include="Collector\Network\ReceiveSSL.vb" />
     <Compile Include="Collector\Network\ReceiveTCP.vb" />
     <Compile Include="Collector\Network\SendClass.vb" />
     <Compile Include="Collector\Parameters\ServerParameters.vb" />
@@ -186,6 +187,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="certificate.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

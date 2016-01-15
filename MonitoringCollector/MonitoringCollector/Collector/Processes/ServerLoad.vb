@@ -31,12 +31,6 @@ Public Class ServerLoad
                     writer.WriteStartDocument()
                     writer.WriteStartElement("server-config")
 
-                    writer.WriteStartElement("object")
-                    writer.WriteAttributeString("class", "server")
-                    writer.WriteAttributeString("parameter", "version")
-                    writer.WriteAttributeString("value", "2.0.1")
-                    writer.WriteEndElement()
-
                     'For testing we are sending to the localhost
                     writer.WriteStartElement("object")
                     writer.WriteAttributeString("class", "server")
@@ -48,6 +42,18 @@ Public Class ServerLoad
                     writer.WriteAttributeString("class", "server")
                     writer.WriteAttributeString("parameter", "tcp_listen")
                     writer.WriteAttributeString("value", "10000")
+                    writer.WriteEndElement()
+
+                    writer.WriteStartElement("object")
+                    writer.WriteAttributeString("class", "server")
+                    writer.WriteAttributeString("parameter", "ssl_enabled")
+                    writer.WriteAttributeString("value", "false")
+                    writer.WriteEndElement()
+
+                    writer.WriteStartElement("object")
+                    writer.WriteAttributeString("class", "server")
+                    writer.WriteAttributeString("parameter", "cert_pass")
+                    writer.WriteAttributeString("value", "password")
                     writer.WriteEndElement()
 
                     writer.WriteEndElement()
@@ -80,8 +86,10 @@ Public Class ServerLoad
                 Select Case i.ServerParameter
                     Case "tcp_listen"
                         TCPListenPort = i.ServerValue
-                    Case "encryption_key"
-                        Key = System.Text.Encoding.ASCII.GetBytes(i.ServerValue)
+                    Case "ssl_enabled"
+                        SSLEnabled = i.ServerValue
+                    Case "cert_pass"
+                        CertificatePassword = i.ServerValue
                 End Select
             Next
 

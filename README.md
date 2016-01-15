@@ -1,4 +1,4 @@
-# MonitoringServer 0.4.6b
+# MonitoringServer 0.4.7b
 
 ##About
 
@@ -25,6 +25,17 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.4.7b (2016/01/15):
+
+1.  Huge Update!!!  I changed the underlying network infrastructure.  Instead of using AES packets, I switched TLS 1.2.  By default SSL is turned off.  It can be enabled through the ServerConfiguration.xml file that is created when the Collector starts.  Just change property="ssl_enabled" value="False" to True and do so on the agents in the AgentConfiguration.xml file as well.  Right now it is set up to use a self signed pfx certificate with the password "password".  I suggest you set up your own certificate.  The application requires it to be named certificate.pfx and have both a public and private key in the cert.  You can set the password in the ServerConfiguration.xml file.  As far as security the Agents do not care if the cert is valid.  I will add an option for cert checking at a later time.   
+
+2.  The Event engine is having some stability issues right now.  It may be my testing system.  I added some try catch blocks to prevent some of the crashes.  I haven't had time to check this.
+
+3.  If you read the change log you may notice a lot of messages that point out untested code.  This will all be tested before we hit 1.0 and we will hopefully have a pretty stable product.  Also I appoligize if you have been using the beta builds because I have been re-architecting a lot of code and causing a lot of breakage.  Once we hit 1.0 this repository will be locked except bug fixes and any new betas will be in a new branch or a new project folder.
+
+4.  The agent build number will be brought inline with the server before the 1.0 release.  I started working on it prior to the server which is why the numbers do not line up.  
 
 
 ###Changes for Version 0.4.6b (2016/01/12):

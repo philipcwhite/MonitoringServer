@@ -4,14 +4,13 @@
     Public Shared ServerName As String = Net.Dns.GetHostName
     Public Shared ServerPath As String = Reflection.Assembly.GetEntryAssembly.Location.Replace("MonitoringCollector.exe", "")
     Public Shared TCPListenPort As String = 10000
-    'Public Shared TCPSendPort As String = 10001
+    Public Shared SSLEnabled As Boolean = False
+    Public Shared CertificatePassword As String = Nothing
 
     'Logging
     Public Shared ServerNetLog As String = Nothing
 
-    'Cryptography
-    Public Shared Key As Byte() = Text.Encoding.ASCII.GetBytes("abcdefghijklmnop")
-    Public Shared IV As Byte() = Text.Encoding.ASCII.GetBytes("abcdefghijklmnop")
+
 
 End Class
 

@@ -4,6 +4,7 @@
 'Maintained at http://github.com/philipcwhite
 
 Imports System.Threading
+Imports MonitoringCollector.ServerParameters
 
 Public Class Service
 
@@ -18,9 +19,19 @@ Public Class Service
         Dim SLoad As New ServerLoad
         SLoad.LoadParameters()
 
-        Dim ReceiveTCP As New ReceiveTCP
-        ListenThread = New Thread(AddressOf ReceiveTCP.StartListener)
-        ListenThread.Start()
+
+
+        If SSLEnabled = True Then
+            Dim ReceiveSSL As New ReceiveSSL
+            ListenThread = New Thread(AddressOf ReceiveSSL.StartListener)
+            ListenThread.Start()
+        Else
+            Dim ReceiveTCP As New ReceiveTCP
+            ListenThread = New Thread(AddressOf ReceiveTCP.StartListener)
+            ListenThread.Start()
+        End If
+
+
 
         Dim LaunchTimer As New Timers.Timer
         AddHandler LaunchTimer.Elapsed, AddressOf Tick

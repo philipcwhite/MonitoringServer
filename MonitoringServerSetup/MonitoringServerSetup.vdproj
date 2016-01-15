@@ -39,6 +39,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4049341F6A4C4252A7F1E8411D984BFC"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_4B4B38A881ED4403ADE7313EB29FCDEE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -421,6 +427,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4049341F6A4C4252A7F1E8411D984BFC"
+            {
+            "SourcePath" = "8:..\\MonitoringCollector\\MonitoringCollector\\certificate.pfx"
+            "TargetName" = "8:certificate.pfx"
+            "Tag" = "8:"
+            "Folder" = "8:_FE1D8D4B4AE344BAB3F38ABDFE00B795"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_877A17291234AF917915D2BF704EA3E2"
             {
             "AssemblyRegister" = "3:1"
@@ -540,7 +566,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MonitoringServer"
         "ProductCode" = "8:{622EA825-5DCE-4246-A805-5BAD34E19E1D}"
-        "PackageCode" = "8:{72C1C5B1-C3E2-4FA1-A0C0-9A6BB4EE2951}"
+        "PackageCode" = "8:{17A6E270-5922-4655-811F-997935190B77}"
         "UpgradeCode" = "8:{AF0E133F-8FCC-45AE-BFD2-AD3F3E81429B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

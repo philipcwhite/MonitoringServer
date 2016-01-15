@@ -48,8 +48,7 @@ Public Class ReceiveTCP
                 Message = Message + Convert.ToChar(Reader.Read)
             End While
 
-            Dim Encryption As New Encryption
-            Message = Encryption.DecryptData(Message)
+
             Dim ResponseString As String = "Data received by server"
             Dim ResponseBytes As Byte() = Encoding.ASCII.GetBytes(ResponseString)
 
@@ -61,11 +60,15 @@ Public Class ReceiveTCP
         End Try
         NStream.Close()
 
+        'If Message.Contains("Agent") Then
         TranslateXML(Message)
+            'Else
+            '    'Dim Encryption As New Encryption
+            '    'Message = Encryption.DecryptData(Message)
+            '    TranslateXML(Message)
+            'End If
 
-
-
-        tcpClientConnected.Set()
+            tcpClientConnected.Set()
 
     End Sub
 
@@ -155,36 +158,6 @@ Public Class ReceiveTCP
         Next
 
 
-
-
-
-
-
-
-
-
-
-        'Try
-        '    If xmlMessage.Contains("agent-data") Then
-
-
-        '        Dim xelement As XElement = XElement.Parse(xmlMessage)
-        '        Dim wobjects As IEnumerable(Of XElement) = xelement.Elements("object")
-
-        '        Dim db As New DBModel
-
-        '        For Each i In wobjects
-        '            db.AgentCollector.Add(New AgentCollector With {.AgentName = i.Attribute("name").Value, .AgentCollectDate = i.Attribute("date").Value, .AgentClass = i.Attribute("class").Value, .AgentProperty = i.Attribute("property").Value, .AgentValue = i.Attribute("value"), .AgentDataMoved = False})
-        '            db.SaveChanges()
-        '        Next
-
-
-
-        '    End If
-
-        'Catch ex As Exception
-
-        'End Try
 
     End Sub
 
