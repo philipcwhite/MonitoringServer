@@ -17,7 +17,7 @@
 
         <asp:Panel ID="AdminPanel1" runat="server" Visible="false">
             <br />
-            <table  class='StaticTable' style='width: 100%'><thead><tr><th>User Administration</th></tr></thead><tr><td>
+            <table  class='StaticTable' style='width: 100%'><thead><tr><th>User Administration</th></tr></thead><tr><td style="height:80px;vertical-align:top">
                 <asp:HyperLink ID="ManageUsersHyperLink" runat="server" NavigateUrl="~/Config/Users/Default.aspx">Manage Users</asp:HyperLink>
    </td></tr></table>
 
@@ -42,8 +42,10 @@
 
                     <asp:Panel ID="AdminPanel2" runat="server" Visible="false">
             <br />
-            <table  class='StaticTable' style='width: 100%'><thead><tr><th>Application Administration</th></tr></thead><tr><td>
+            <table  class='StaticTable' style='width: 100%'><thead><tr><th>Application Administration</th></tr></thead><tr><td style="height:80px;vertical-align:top">
                 <asp:HyperLink ID="ThresholdsHyperLink" runat="server" NavigateUrl="~/Config/Thresholds/GlobalThresholds.aspx">Global Thresholds</asp:HyperLink>
+                <br />
+                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Config/Subscriptions/MailServer.aspx">Mail Server</asp:HyperLink>
    </td></tr></table>
 
         </asp:Panel>

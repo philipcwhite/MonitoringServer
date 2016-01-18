@@ -124,7 +124,7 @@
                       <asp:Label ID="IDLabel" runat="server" Visible="False"></asp:Label>
                                 </td>
                   <td>
-                      <asp:Button ID="ReturnButton" runat="server" CssClass="Button" PostBackUrl="~/Config" Text="Return" UseSubmitBehavior="False" />&nbsp;<asp:Button ID="AddButton" runat="server" CssClass="Button" Text="Add Threshold" />
+                      <asp:Button ID="ReturnButton" runat="server" CssClass="Button" PostBackUrl="~/Config/" Text="Return" UseSubmitBehavior="False" />&nbsp;<asp:Button ID="AddButton" runat="server" CssClass="Button" Text="Add Threshold" />
                                 </td>
               </tr>
 

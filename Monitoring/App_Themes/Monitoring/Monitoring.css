@@ -11,7 +11,7 @@ a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 .Button {border-radius: 1px;font-family: Arial;color: #ffffff;font-size: 12px;background:#ED848F;padding: 3px 3px 3px 3px;text-decoration: none;font-weight:bold;border-style:none }
 .Button:hover {background:#cccccc;text-decoration: none; border-style:none}
 
-.TextBox {border:solid;border-width:1px;border-spacing:0px;border-radius:2px;border-color:#eeeeee;color:#7992BF;}
+.TextBox {border:solid;border-width:1px;border-spacing:0px;border-radius:2px;border-color:#eeeeee;color:#7992BF;font:10px Verdana, Arial, Helvetica, sans-serif;}
 
 .EventStatusCritical {height:10px;width:10px;background:#ED848F;}
 .EventStatusWarning {height:10px;width:10px;background:#ECD48B;}

@@ -36,7 +36,7 @@ Partial Class Config_Thresholds_AgentThreshold
             DeleteButton.Text = "Delete"
             DeleteButton.CssClass = "Button"
             DeleteButton.ID = i.ThresholdID
-            DeleteButton.PostBackUrl = "~/Config/Thresholds/AgentConfimation.aspx?ThresholdID=" & i.ThresholdID
+            DeleteButton.PostBackUrl = "~/Config/Thresholds/AgentConfirmation.aspx?ThresholdID=" & i.ThresholdID
 
             Dim Blank As New LiteralControl(" ")
 
