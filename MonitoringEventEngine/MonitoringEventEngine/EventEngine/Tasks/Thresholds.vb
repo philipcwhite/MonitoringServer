@@ -249,13 +249,22 @@ Public Class Thresholds
                     If ASeverity > Q.AgentSeverity Then
                         Q.AgentMessage = AMessage
                         Q.AgentSeverity = ASeverity
+                        Q.AgentComparison = AComparison
+                        Q.AgentClass = AClass
+                        Q.AgentProperty = AProperty
                     End If
                     db.SaveChanges()
 
                 Else
                     db.AgentEvents.Add(New AgentEvents With {.AgentName = AName, .AgentClass = AClass, .AgentProperty = AProperty, .AgentStatus = AStatus, .AgentSeverity = ASeverity, .AgentMessage = AMessage, .AgentComparison = AComparison, .AgentThreshold = AThreshold, .AgentTimeRange = AThresholdTime, .AgentEventDate = AEventDate})
+                    db.SaveChanges()
+                    Try
+                        Dim Notify As New Notifications
+                        Notify.Send(AName, AMessage, ASeverity, AClass, AProperty, AComparison)
+                    Catch
+                    End Try
                 End If
-                db.SaveChanges()
+
             End If
         Catch ex As Exception
 

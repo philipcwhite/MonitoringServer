@@ -119,6 +119,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Collector\Compression\Compression.vb" />
     <Compile Include="Collector\Database\DAL\DBModel.vb" />
     <Compile Include="Collector\Database\Models\AgentEvents.vb" />
     <Compile Include="Collector\Database\Models\AgentLocalDisk.vb" />

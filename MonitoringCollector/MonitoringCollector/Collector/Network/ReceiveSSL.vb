@@ -57,7 +57,9 @@ Public Class ReceiveSSL
 
             sslStream.Write(ResponseBytes, 0, ResponseBytes.Length)
             sslStream.Close()
-            TranslateXML(Message)
+            Dim Compression As New Compression
+            TranslateXML(Compression.DecompressData(Message))
+
         Catch ex As Exception
 
         Finally

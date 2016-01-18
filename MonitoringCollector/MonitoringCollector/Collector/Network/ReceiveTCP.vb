@@ -48,7 +48,6 @@ Public Class ReceiveTCP
                 Message = Message + Convert.ToChar(Reader.Read)
             End While
 
-
             Dim ResponseString As String = "Data received by server"
             Dim ResponseBytes As Byte() = Encoding.ASCII.GetBytes(ResponseString)
 
@@ -60,15 +59,10 @@ Public Class ReceiveTCP
         End Try
         NStream.Close()
 
-        'If Message.Contains("Agent") Then
-        TranslateXML(Message)
-            'Else
-            '    'Dim Encryption As New Encryption
-            '    'Message = Encryption.DecryptData(Message)
-            '    TranslateXML(Message)
-            'End If
+        Dim Compression As New Compression
+        TranslateXML(Compression.DecompressData(Message))
 
-            tcpClientConnected.Set()
+        tcpClientConnected.Set()
 
     End Sub
 

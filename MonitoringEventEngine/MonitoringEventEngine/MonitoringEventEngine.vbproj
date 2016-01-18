@@ -108,6 +108,7 @@
     <Compile Include="EventEngine\Database\Models\Subscriptions.vb" />
     <Compile Include="EventEngine\Database\Models\Users.vb" />
     <Compile Include="EventEngine\Tasks\CleanUp.vb" />
+    <Compile Include="EventEngine\Tasks\Notifications.vb" />
     <Compile Include="EventEngine\Tasks\Thresholds.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

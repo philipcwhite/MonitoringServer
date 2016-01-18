@@ -1,4 +1,4 @@
-# MonitoringServer 0.4.7b
+# MonitoringServer 0.4.8b
 
 ##About
 
@@ -26,6 +26,13 @@ For setup and configuration please see the new Wiki
 
 ##Change Log
 
+
+###Changes for Version 0.4.8b (2016/01/18):
+
+1.  Added GZip compression to the Agent Collector.  Network packets are approximately 1/10th the size.  You must update to the latest agent for compatibility.  All  Windows services set to automatic are now monitored by default.
+
+2.  I plan on updating the Data engine next to average data over an hourly period to reduce storage capacity.
+  
 
 ###Changes for Version 0.4.7b (2016/01/15):
 
