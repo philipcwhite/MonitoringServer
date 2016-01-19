@@ -3,6 +3,7 @@
 'This software is released under the Apache 2.0 License
 'Maintained at http://github.com/philipcwhite
 
+Imports MonitoringDataEngine.ServerParameters
 Imports System.Threading
 
 Public Class Service
@@ -13,12 +14,11 @@ Public Class Service
         ' Add code here to start your service. This method should set things
         ' in motion so your service can do its work.
 
-        DataEngineThread = New Thread(AddressOf DataEngine)
-        DataEngineThread.Start()
+
 
         Dim LaunchTimer As New Timers.Timer
         AddHandler LaunchTimer.Elapsed, AddressOf Tick
-        LaunchTimer.Interval = 60000
+        LaunchTimer.Interval = 1000
         LaunchTimer.Enabled = True
         LaunchTimer.Start()
 
@@ -36,8 +36,15 @@ Public Class Service
 
     Private Sub Tick(sender As System.Object, e As System.EventArgs)
         If DataEngineThread.IsAlive = False Then
-            DataEngineThread = New Thread(AddressOf DataEngine)
-            DataEngineThread.Start()
+
+            Dim SystemTime As Date = Date.Now
+            If SystemTime.ToString("mm:ss").Substring(0, 4) = "00:00" Then
+                ServerTime = SystemTime
+                DataEngineThread = New Thread(AddressOf DataEngine)
+                DataEngineThread.IsBackground = True
+                DataEngineThread.Start()
+            End If
+
         End If
 
     End Sub

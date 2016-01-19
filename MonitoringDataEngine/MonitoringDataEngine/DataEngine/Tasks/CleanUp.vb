@@ -1,4 +1,5 @@
 ﻿Imports MonitoringDataEngine.MonitoringDatabase
+Imports MonitoringDataEngine.ServerParameters
 Public Class CleanUp
 
     Private db As New DBModel
@@ -7,7 +8,7 @@ Public Class CleanUp
     Public Sub PurgeData()
 
 
-        Dim PurgeDate = Date.Now.AddDays(-1)
+        Dim PurgeDate = ServerTime.AddDays(-1)
 
         db.AgentProcessor.RemoveRange(db.AgentProcessor.Where(Function(o) o.AgentCollectDate < PurgeDate))
         db.SaveChanges()
@@ -25,8 +26,8 @@ Public Class CleanUp
         db.SaveChanges()
 
 
+        'Cleanup Archive
         PurgeDate = Date.Now.AddDays(-30)
-
 
         db.AgentProcessorArchive.RemoveRange(db.AgentProcessorArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
         db.SaveChanges()
@@ -43,6 +44,19 @@ Public Class CleanUp
         db.AgentServiceArchive.RemoveRange(db.AgentServiceArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
         db.SaveChanges()
 
+        db.AgentSystem.RemoveRange(db.AgentServiceArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
+        db.SaveChanges()
+
+
+        'Cleanup Broken links
+
+        Dim excludeList = db.AgentSystem.Cast(Of AgentSystem).Select(Function(x) x.AgentName).ToArray()
+        Dim results = db.Subscriptions.Where(Function(x) Not excludeList.Contains(x.AgentName))
+
+        For Each i In results
+            db.Subscriptions.Remove(i)
+        Next
+        db.SaveChanges()
 
     End Sub
 

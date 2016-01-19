@@ -106,6 +106,7 @@
     <Compile Include="DataEngine\Database\Models\ServerConfiguration.vb" />
     <Compile Include="DataEngine\Database\Models\Subscriptions.vb" />
     <Compile Include="DataEngine\Database\Models\Users.vb" />
+    <Compile Include="DataEngine\Parameters\ServerParameters.vb" />
     <Compile Include="DataEngine\Tasks\ArchiveAgentData.vb" />
     <Compile Include="DataEngine\Tasks\CleanUp.vb" />
     <Compile Include="My Project\Application.Designer.vb">

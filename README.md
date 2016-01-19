@@ -1,4 +1,4 @@
-# MonitoringServer 0.4.8b
+# MonitoringServer 0.4.9b
 
 ##About
 
@@ -25,6 +25,11 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.4.9b (2016/01/19):
+
+1.  Updated the data engine to sumarize old data.  Once hour 25 hits the last hour of data will be averaged and archived for 30 days.  This will help keep the database a manageable size.  This will reduce storage by 12 fold.  It's not a big deal for someone with less than 100 agents but at the higher end tables like the services table will grow to millions of records.  
 
 
 ###Changes for Version 0.4.8b (2016/01/18):
