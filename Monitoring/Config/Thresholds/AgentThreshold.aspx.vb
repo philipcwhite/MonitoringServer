@@ -71,4 +71,11 @@ Partial Class Config_Thresholds_AgentThreshold
         Response.Redirect("~/Config/Thresholds/AgentThresholdAdd.aspx?hostname=" & AgentName)
 
     End Sub
+
+
+    Protected Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
+        Dim AgentName As String = Nothing
+        AgentName = Request.QueryString("hostname")
+        Response.Redirect("~/Devices/Device.aspx?hostname=" & AgentName)
+    End Sub
 End Class

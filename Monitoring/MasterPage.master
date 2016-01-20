@@ -26,7 +26,7 @@
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         </div>
-        <div class="Footer">© 2016 Phil White</div>
+        <div class="Footer">© 2016 Phil White &nbsp;</div>
     </div>
     </form>
 </body>

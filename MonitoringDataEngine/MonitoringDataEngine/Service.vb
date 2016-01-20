@@ -38,7 +38,7 @@ Public Class Service
         If DataEngineThread.IsAlive = False Then
 
             Dim SystemTime As Date = Date.Now
-            If SystemTime.ToString("mm:ss").Substring(0, 4) = "00:00" Then
+            If SystemTime.ToString("mm:ss").Substring(0, 5) = "00:00" Then
                 ServerTime = SystemTime
                 DataEngineThread = New Thread(AddressOf DataEngine)
                 DataEngineThread.IsBackground = True
@@ -50,18 +50,11 @@ Public Class Service
     End Sub
 
     Private Sub DataEngine()
-        ' Try
 
         Dim Archive As New ArchiveAgentData
-            Archive.Archive()
-
-            Dim CleanAgents As New CleanUp
-            CleanAgents.PurgeData()
-
-        'Catch ex As Exception
-
-        'End Try
-
+        Archive.Archive()
+        Dim CleanAgents As New CleanUp
+        CleanAgents.PurgeData()
         DataEngineThread.Abort()
 
     End Sub

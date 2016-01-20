@@ -7,7 +7,7 @@
       <br />
     <asp:PlaceHolder ID="ThresholdPlaceHolder" runat="server"></asp:PlaceHolder>
     <br />
-    <asp:Button ID="AddThresholdButton" runat="server" Text="Add Threshold" CssClass="Button" />&nbsp;<asp:Button ID="ReturnButton" runat="server" Text="Return" CssClass="Button" PostBackUrl="~/Config/Default.aspx" />
+    <asp:Button ID="AddThresholdButton" runat="server" Text="Add" CssClass="Button" Width="100px" />&nbsp;<asp:Button ID="ReturnButton" runat="server" Text="Return" CssClass="Button" Width="100px" />
 <br />
     <br />
     <br />

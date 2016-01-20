@@ -144,7 +144,13 @@ Partial Class Devices_Device
     End Sub
 
     Protected Sub ThresholdButton_Click(sender As Object, e As EventArgs) Handles ThresholdButton.Click
+        QS = Request.QueryString("hostname")
         Response.Redirect("~/Config/Thresholds/AgentThreshold.aspx?hostname=" & QS)
+    End Sub
+
+    Protected Sub ServicesButton_Click(sender As Object, e As EventArgs) Handles ServicesButton.Click
+        QS = Request.QueryString("hostname")
+        Response.Redirect("~/Devices/Services.aspx?hostname=" & QS)
     End Sub
 
 End Class

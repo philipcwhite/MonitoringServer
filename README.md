@@ -1,4 +1,4 @@
-# MonitoringServer 0.4.9b
+# MonitoringServer 0.5.0b
 
 ##About
 
@@ -25,6 +25,13 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.5.0b (2016/01/20):
+
+1.  Added a page to view service status.  Fixed return link on Agent threshold page.
+
+2.  Fixed an issue with the Data Engine not recognizing the time to execute.
 
 
 ###Changes for Version 0.4.9b (2016/01/19):

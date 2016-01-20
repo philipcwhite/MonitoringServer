@@ -12,6 +12,8 @@
             <asp:Timer ID="DeviceTimer" runat="server"></asp:Timer>
         </ContentTemplate>
            </asp:UpdatePanel>
-<div style="float:right;padding-right:5px"><br /><asp:Button ID="ThresholdButton" runat="server" Text="Manage Thresholds" CssClass="Button" Visible="False" /></div>
+<div style="float:right;padding-right:5px"><br />
+    <asp:Button ID="ServicesButton" runat="server" Text="Services" Width="100" CssClass="Button" />&nbsp;<asp:Button ID="ThresholdButton" runat="server" Text="Thresholds" CssClass="Button" Visible="False" Width="100px" />
+</div>
 </asp:Content>
 

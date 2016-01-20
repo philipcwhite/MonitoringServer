@@ -17,7 +17,7 @@ Public Class ArchiveAgentData
 
 
         For Each i In Q1
-            db.AgentProcessorArchive.Add(New AgentProcessorArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+            db.AgentProcessorArchive.Add(New AgentProcessorArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
         db.SaveChanges()
@@ -30,7 +30,7 @@ Public Class ArchiveAgentData
 
 
         For Each i In Q2
-            db.AgentMemoryArchive.Add(New AgentMemoryArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+            db.AgentMemoryArchive.Add(New AgentMemoryArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
         db.SaveChanges()
@@ -43,7 +43,7 @@ Public Class ArchiveAgentData
 
 
         For Each i In Q3
-            db.AgentPageFileArchive.Add(New AgentPageFileArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+            db.AgentPageFileArchive.Add(New AgentPageFileArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
         db.SaveChanges()
@@ -57,7 +57,7 @@ Public Class ArchiveAgentData
 
 
         For Each i In Q4
-            db.AgentLocalDiskArchive.Add(New AgentLocalDiskArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+            db.AgentLocalDiskArchive.Add(New AgentLocalDiskArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
         db.SaveChanges()
@@ -70,7 +70,7 @@ Public Class ArchiveAgentData
 
 
         For Each i In Q5
-            db.AgentServiceArchive.Add(New AgentServiceArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = i.AgentValue})
+            db.AgentServiceArchive.Add(New AgentServiceArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 2)})
         Next
 
         db.SaveChanges()
