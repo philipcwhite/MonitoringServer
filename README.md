@@ -1,4 +1,4 @@
-# MonitoringServer 0.5.0b
+# MonitoringServer 0.5.1b
 
 ##About
 
@@ -25,6 +25,13 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.5.1b (2016/01/21):
+
+1.  Updated the Line graphs to reflect the new theme.
+ 
+2.  Updated the AgentServiceArchive table value to be a float so that decimals can be entered.
 
 
 ###Changes for Version 0.5.0b (2016/01/20):
