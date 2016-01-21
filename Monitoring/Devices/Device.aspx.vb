@@ -108,13 +108,13 @@ Partial Class Devices_Device
 
         If EventQ IsNot Nothing Then
             For Each i In EventQ
-                If i.AgentSeverity = 3 Then
+                If i.AgentSeverity = 2 Then
                     Severity = "Critical"
                     LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
-                ElseIf i.AgentSeverity = 2 Then
+                ElseIf i.AgentSeverity = 1 Then
                     Severity = "Warning"
                     LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusWarning'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
-                ElseIf i.AgentSeverity = 1 Then
+                ElseIf i.AgentSeverity = 0 Then
                     Severity = "Informational"
                     LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusInfo'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
 

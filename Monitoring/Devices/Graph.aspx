@@ -14,15 +14,15 @@
                    <div style="background-color:#ffffff; border-radius:4px;width:100%;text-align:center;font-size:10px">
                   <asp:PlaceHolder ID="GraphPlaceHolder" runat="server"></asp:PlaceHolder>
                        <br />
-                       Time Range: 
-                       <asp:DropDownList ID="TimeRangeDropDownList" runat="server">
+                       <span style="font-weight:bold">Time Range:  &nbsp;</span>
+                       <asp:DropDownList ID="TimeRangeDropDownList" runat="server" CssClass="DropDownList">
                            <asp:ListItem Value="1">1 Hour</asp:ListItem>
                            <asp:ListItem Value="6">6 Hours</asp:ListItem>
                            <asp:ListItem Value="12">12 Hours</asp:ListItem>
                            <asp:ListItem Value="24">24 Hours</asp:ListItem>
-                       </asp:DropDownList>
-                       <asp:Button ID="SubmitButton" runat="server" Text="Graph" CssClass="Button" />
-                       <br />
+                       </asp:DropDownList>&nbsp;
+                       <asp:Button ID="SubmitButton" runat="server" Text="Graph" CssClass="Button" Width="60px" />
+                                            <br />
                        <asp:Label ID="ClassLabel" runat="server" Visible="False"></asp:Label>
                        <asp:Label ID="PropertyLabel" runat="server" Visible="False"></asp:Label>
                        <br />

@@ -18,7 +18,7 @@ Public Class Service
 
         Dim LaunchTimer As New Timers.Timer
         AddHandler LaunchTimer.Elapsed, AddressOf Tick
-        LaunchTimer.Interval = 1000
+        LaunchTimer.Interval = 60000
         LaunchTimer.Enabled = True
         LaunchTimer.Start()
 
@@ -35,15 +35,12 @@ Public Class Service
 
 
     Private Sub Tick(sender As System.Object, e As System.EventArgs)
-
-        Dim SystemTime As Date = Date.Now
-        If SystemTime.ToString("mm:ss").Substring(0, 5) = "00:00" Then
-            ServerTime = SystemTime
+        Dim ServerTime = Date.Now
+        Dim TimeString As String = ServerTime.ToString("mm").Substring(0, 2)
+        If TimeString = "00" Then
             DataEngineThread = New Thread(AddressOf DataEngine)
-            DataEngineThread.IsBackground = True
             DataEngineThread.Start()
         End If
-
     End Sub
 
     Private Sub DataEngine()

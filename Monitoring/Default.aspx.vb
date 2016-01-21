@@ -8,6 +8,10 @@ Partial Class _Default
 
     Private db As New DBModel
 
+    Private Sub _Default_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Response.Redirect("~/Home/")
+    End Sub
+
     Private Sub _Default_PreLoad(sender As Object, e As EventArgs) Handles Me.PreLoad
 
         Try
@@ -15,28 +19,32 @@ Partial Class _Default
                       Select T.UserName).FirstOrDefault
 
         Catch ex As Exception
-
+            db.ServerConfiguration.Add(New ServerConfiguration With {.Name = "", .Value = ""})
+            db.SaveChanges()
         End Try
 
-        Dim Q2 = (From T In db.Users
-                  Select T.UserName).FirstOrDefault
+        Try
+            Dim Q2 = (From T In db.Users
+                      Select T.UserName).FirstOrDefault
 
-        If Q2 Is Nothing Then
-            Try
-                'Add Admin User
-                db.Users.Add(New Users With {.UserName = "admin", .FirstName = "Admin", .LastName = "User", .Password = GetSHA512HashData("password"), .UserRole = "Administrator", .LastModified = Date.Now})
-                db.SaveChanges()
-                'Set defaults
-                Dim GTH As New GlobalThresholdData
-                GTH.AddThresholds()
+            If Q2 Is Nothing Then
+                Try
+                    'Add Admin User
+                    db.Users.Add(New Users With {.UserName = "admin", .FirstName = "Admin", .LastName = "User", .Password = GetSHA512HashData("password"), .UserRole = "Administrator", .EmailAddress = "admin@localhost", .LastModified = Date.Now})
+                    db.SaveChanges()
+                    'Set defaults
+                    Dim GTH As New GlobalThresholdData
+                    GTH.AddThresholds()
 
-                Response.Redirect("~/Config/")
-            Catch ex As Exception
+                    Response.Redirect("~/Home/")
+                Catch ex As Exception
 
-            End Try
-        End If
+                End Try
+            End If
+        Catch
 
-        Response.Redirect("~/Home/")
+            Response.Redirect("~/Home/")
+        End Try
 
     End Sub
 End Class
