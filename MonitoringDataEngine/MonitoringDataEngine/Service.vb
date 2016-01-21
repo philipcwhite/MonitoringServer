@@ -35,11 +35,13 @@ Public Class Service
 
 
     Private Sub Tick(sender As System.Object, e As System.EventArgs)
-        Dim ServerTime = Date.Now
-        Dim TimeString As String = ServerTime.ToString("mm").Substring(0, 2)
-        If TimeString = "00" Then
-            DataEngineThread = New Thread(AddressOf DataEngine)
-            DataEngineThread.Start()
+        If DataEngineThread.IsAlive = False Then
+            Dim ServerTime = Date.Now
+            Dim TimeString As String = ServerTime.ToString("mm").Substring(0, 2)
+            If TimeString = "00" Then
+                DataEngineThread = New Thread(AddressOf DataEngine)
+                DataEngineThread.Start()
+            End If
         End If
     End Sub
 

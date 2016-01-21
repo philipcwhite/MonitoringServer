@@ -5,8 +5,9 @@ Public Class ArchiveAgentData
     Private db As New DBModel
 
     Public Sub Archive()
+        Try
 
-        Dim CurrentTime = ServerTime
+            Dim CurrentTime = ServerTime
         Dim ArchiveTime = ServerTime.AddDays(-1)
 
         Dim Q1 = From T In db.AgentProcessor
@@ -76,6 +77,9 @@ Public Class ArchiveAgentData
         db.SaveChanges()
 
 
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 

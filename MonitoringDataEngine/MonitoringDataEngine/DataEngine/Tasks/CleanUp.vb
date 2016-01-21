@@ -7,8 +7,9 @@ Public Class CleanUp
 
     Public Sub PurgeData()
 
+        Try
 
-        Dim PurgeDate = ServerTime.AddDays(-1)
+            Dim PurgeDate = ServerTime.AddDays(-1)
 
         db.AgentProcessor.RemoveRange(db.AgentProcessor.Where(Function(o) o.AgentCollectDate < PurgeDate))
         db.SaveChanges()
@@ -57,6 +58,12 @@ Public Class CleanUp
             db.Subscriptions.Remove(i)
         Next
         db.SaveChanges()
+
+
+
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 

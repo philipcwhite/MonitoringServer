@@ -32,7 +32,7 @@ Partial Class Options_Subscriptions_Default
 
         For Each i In DeviceList
             Dim Q = (From T In db.Subscriptions
-                     Where T.AgentName = i
+                     Where T.AgentName = i And T.UserName = UserName
                      Select T).FirstOrDefault
             If Q Is Nothing Then
                 DevicesListBox.Items.Add(i)
