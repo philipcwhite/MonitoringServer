@@ -1,4 +1,4 @@
-# MonitoringServer 0.5.1b
+# MonitoringServer 0.5.2b
 
 ##About
 
@@ -25,6 +25,13 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.5.2b (2016/01/22):
+
+1.  Fixed a bug with the data engine.  Old data should now be averaged and archived on the hour.
+
+2.  Updated graphing screenshot.
 
 
 ###Changes for Version 0.5.1b (2016/01/21):

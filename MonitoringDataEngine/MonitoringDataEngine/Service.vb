@@ -18,7 +18,7 @@ Public Class Service
 
         Dim LaunchTimer As New Timers.Timer
         AddHandler LaunchTimer.Elapsed, AddressOf Tick
-        LaunchTimer.Interval = 60000
+        LaunchTimer.Interval = 1000
         LaunchTimer.Enabled = True
         LaunchTimer.Start()
 
@@ -26,23 +26,26 @@ Public Class Service
 
     Protected Overrides Sub OnStop()
         ' Add code here to perform any tear-down necessary to stop your service.
+        Try
+            If DataEngineThread.IsAlive = True Then
+                DataEngineThread.Abort()
+            End If
+        Catch ex As Exception
 
-        If DataEngineThread.IsAlive = True Then
-            DataEngineThread.Abort()
-        End If
-
+        End Try
     End Sub
 
 
     Private Sub Tick(sender As System.Object, e As System.EventArgs)
-        If DataEngineThread.IsAlive = False Then
-            Dim ServerTime = Date.Now
-            Dim TimeString As String = ServerTime.ToString("mm").Substring(0, 2)
-            If TimeString = "00" Then
-                DataEngineThread = New Thread(AddressOf DataEngine)
-                DataEngineThread.Start()
-            End If
+
+        ServerTime = Date.Now
+        Dim TimeString As String = ServerTime.ToString("mm:ss").Substring(0, 5)
+        If TimeString = "00:00" Then
+            DataEngineThread = New Thread(AddressOf DataEngine)
+            DataEngineThread.IsBackground = True
+            DataEngineThread.Start()
         End If
+
     End Sub
 
     Private Sub DataEngine()
