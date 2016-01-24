@@ -58,13 +58,13 @@ Partial Class Devices_Graph
         Dim xSpace As Integer = 50
         Dim xCircle As String = Nothing
         Dim xLine As String = Nothing
-        Dim xTime As Integer = 85
+        Dim xTime As Integer = 35
         Dim xTimeStart As Date = Nothing
         Dim xTimeIncrement As Integer = Nothing
         Dim xTimeValue As Date = Nothing
         Dim xTimeText As String = Nothing
-        Dim xValue1 As Integer = 100
-        Dim xValue2 As Integer = 150
+        Dim xValue1 As Integer = 50
+        Dim xValue2 As Integer = 100
         Dim DataList As New List(Of AgentData)
 
         If Duration = 60 Then
@@ -101,7 +101,7 @@ Partial Class Devices_Graph
             For i = 0 To DataList.Count - 2
                 DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
             Next
-            GraphTitle = "<text x = '300' y='40' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Processor Total Utilization (%)</text>"
+            GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Processor Total Utilization (%)</text>"
         End If
 
         If AgentClass = "Memory" Then
@@ -116,7 +116,7 @@ Partial Class Devices_Graph
             For i = 0 To DataList.Count - 2
                 DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
             Next
-            GraphTitle = "<text x = '300' y='40' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Memory Total Utilization (%)</text>"
+            GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Memory Total Utilization (%)</text>"
         End If
 
         If AgentClass = "PageFile" Then
@@ -131,7 +131,7 @@ Partial Class Devices_Graph
             For i = 0 To DataList.Count - 2
                 DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
             Next
-            GraphTitle = "<text x = '300' y='40' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Pagefile Total Utilization (%)</text>"
+            GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Pagefile Total Utilization (%)</text>"
         End If
 
         If AgentClass.Contains("Local Disk") Then
@@ -148,7 +148,7 @@ Partial Class Devices_Graph
             For i = 0 To DataList.Count - 2
                 DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
             Next
-            GraphTitle = "<text x = '300' y='40' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>" & AgentClass.Replace(";", " ") & "</text>"
+            GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>" & AgentClass.Replace(";", " ") & "</text>"
         End If
 
         For i = 0 To DataList.Count - 2
@@ -159,7 +159,7 @@ Partial Class Devices_Graph
             xValue2 = xValue2 + 50
         Next
 
-        xValue1 = 100
+        xValue1 = 50
         For i = 0 To DataList.Count - 1
             yValue1 = 250 - DataList.Item(i).AgentValue1 * 2
             xCircle = xCircle & "<circle cx=" & xValue1 & " cy=" & yValue1 & " r='3' stroke='#6BD5C3' stroke-width='1' fill='#6BD5C3' onmouseover=""evt.target.setAttribute('stroke-width','4');"" onmouseout=""evt.target.setAttribute('stroke-width', '1');"" />"
@@ -168,20 +168,20 @@ Partial Class Devices_Graph
 
         Dim SVGxCircle As New LiteralControl(xCircle)
         Dim SVGxLine As New LiteralControl(xLine)
-        Dim SVGStart As New LiteralControl("<svg height='300' width='850'>")
+        Dim SVGStart As New LiteralControl("<svg height='300' width='700'>")
         Dim SVGTitle As New LiteralControl(GraphTitle)
-        Dim SVGyAxis As New LiteralControl("<line x1='100' y1='50' x2='100' y2='255' style='stroke:#aaaaaa;stroke-width:1' />" &
-            "<line x1 ='95' y1='50' x2='100' y2='50' style='stroke:#aaaaaa;stroke-width:1' />" &
-            "<line x1='95' y1='100' x2='100' y2='100' style='stroke:#aaaaaa;stroke-width:1'/>" &
-            "<line x1='95' y1='150' x2='100' y2='150' style='stroke:#aaaaaa;stroke-width:1'/>" &
-            "<line x1='95' y1='200' x2='100' y2='200' style='stroke:#aaaaaa;stroke-width:1'/>" &
-            "<line x1 ='95' y1='250' x2='100' y2='250' style='stroke:#aaaaaa;stroke-width:1' />" &
-            "<text x = '70' y='55' fill='#aaaaaa' font-size='9' font-family='arial'>100</text>" &
-            "<text x='75' y='105' fill='#aaaaaa' font-size='9' font-family='arial'>75</text>" &
-            "<text x = '75' y='155' fill='#aaaaaa' font-size='9' font-family='arial'>50</text>" &
-            "<text x='75' y='205' fill='#aaaaaa' font-size='9' font-family='arial'>25</text>" &
-            "<text x = '80' y='255' fill='#aaaaaa' font-size='9' font-family='arial'>0</text>")
-        Dim SVGxAxis As New LiteralControl("<line x1 = '95' y1='250' x2='700' y2='250' style='stroke:#aaaaaa;stroke-width:1' />" &
+        Dim SVGyAxis As New LiteralControl("<line x1='50' y1='50' x2='50' y2='255' style='stroke:#aaaaaa;stroke-width:1' />" &
+            "<line x1 ='45' y1='50' x2='50' y2='50' style='stroke:#aaaaaa;stroke-width:1' />" &
+            "<line x1='45' y1='100' x2='50' y2='100' style='stroke:#aaaaaa;stroke-width:1'/>" &
+            "<line x1='45' y1='150' x2='50' y2='150' style='stroke:#aaaaaa;stroke-width:1'/>" &
+            "<line x1='45' y1='200' x2='50' y2='200' style='stroke:#aaaaaa;stroke-width:1'/>" &
+            "<text x='20' y='55' fill='#aaaaaa' font-size='9' font-family='arial'>100</text>" &
+            "<text x='25' y='105' fill='#aaaaaa' font-size='9' font-family='arial'>75</text>" &
+            "<text x='25' y='155' fill='#aaaaaa' font-size='9' font-family='arial'>50</text>" &
+            "<text x='25' y='205' fill='#aaaaaa' font-size='9' font-family='arial'>25</text>" &
+            "<text x='30' y='255' fill='#aaaaaa' font-size='9' font-family='arial'>0</text>")
+        Dim SVGxAxis As New LiteralControl("<line x1 = '45' y1='250' x2='650' y2='250' style='stroke:#aaaaaa;stroke-width:1' />" &
+            "<line x1 = '100' y1='250' x2='100' y2='255' style='stroke:#aaaaaa;stroke-width:1'/>" &
             "<line x1 = '150' y1='250' x2='150' y2='255' style='stroke:#aaaaaa;stroke-width:1'/>" &
             "<line x1 = '200' y1='250' x2='200' y2='255' style='stroke:#aaaaaa;stroke-width:1' />" &
             "<line x1 = '250' y1='250' x2='250' y2='255' style='stroke:#aaaaaa;stroke-width:1'/>" &
@@ -192,12 +192,12 @@ Partial Class Devices_Graph
             "<line x1 = '500' y1='250' x2='500' y2='255' style='stroke:#aaaaaa;stroke-width:1' />" &
             "<line x1 = '550' y1='250' x2='550' y2='255' style='stroke:#aaaaaa;stroke-width:1'/>" &
             "<line x1 = '600' y1='250' x2='600' y2='255' style='stroke:#aaaaaa;stroke-width:1' />" &
-            "<line x1 = '650' y1='250' x2='650' y2='255' style='stroke:#aaaaaa;stroke-width:1' />" &
-            "<line x1 = '700' y1='250' x2='700' y2='255' style='stroke:#aaaaaa;stroke-width:1' />")
-        Dim SVGGrid As New LiteralControl("<line x1 = '100' y1='200' x2='700' y2='200' style='stroke: #eeeeee;stroke-width:1' />" &
-            "<line x1 = '100' y1='150' x2='700' y2='150' style='stroke:#eeeeee;stroke-width:1' />" &
-            "<line x1 = '100' y1='100' x2='700' y2='100' style='stroke:#eeeeee;stroke-width:1' />" &
-            "<line x1 = '100' y1='50' x2='700' y2='50' style='stroke:#eeeeee;stroke-width:1' />" &
+            "<line x1 = '650' y1='250' x2='650' y2='255' style='stroke:#aaaaaa;stroke-width:1' />")
+        Dim SVGGrid As New LiteralControl("<line x1 = '50' y1='200' x2='650' y2='200' style='stroke: #eeeeee;stroke-width:1' />" &
+            "<line x1 = '50' y1='150' x2='650' y2='150' style='stroke:#eeeeee;stroke-width:1' />" &
+            "<line x1 = '50' y1='100' x2='650' y2='100' style='stroke:#eeeeee;stroke-width:1' />" &
+            "<line x1 = '50' y1='50' x2='650' y2='50' style='stroke:#eeeeee;stroke-width:1' />" &
+            "<line x1 = '100' y1='250' x2='100' y2='50' style='stroke:#eeeeee;stroke-width:1' />" &
             "<line x1 = '150' y1='250' x2='150' y2='50' style='stroke:#eeeeee;stroke-width:1' />" &
             "<line x1 = '200' y1='250' x2='200' y2='50' style='stroke:#eeeeee;stroke-width:1' />" &
             "<line x1 = '250' y1='250' x2='250' y2='50' style='stroke:#eeeeee;stroke-width:1'/>" &
@@ -208,8 +208,7 @@ Partial Class Devices_Graph
             "<line x1 = '500' y1='250' x2='500' y2='50' style='stroke:#eeeeee;stroke-width:1' />" &
             "<line x1 = '550' y1='250' x2='550' y2='50' style='stroke:#eeeeee;stroke-width:1'/>" &
             "<line x1 = '600' y1='250' x2='600' y2='50' style='stroke:#eeeeee;stroke-width:1' />" &
-            "<line x1 = '650' y1='250' x2='650' y2='50' style='stroke:#eeeeee;stroke-width:1' />" &
-            "<line x1 = '700' y1='250' x2='700' y2='50' style='stroke:#eeeeee;stroke-width:1' />")
+            "<line x1 = '650' y1='250' x2='650' y2='50' style='stroke:#eeeeee;stroke-width:1' />")
 
         Dim SVGxTimeText As New LiteralControl(xTimeText)
         Dim SVGEnd As New LiteralControl("</svg>")
