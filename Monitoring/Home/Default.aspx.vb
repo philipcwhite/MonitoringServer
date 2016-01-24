@@ -23,7 +23,7 @@ Partial Class Main_Default
 
         Dim Rows As String = Nothing
 
-        Dim StatusDate As Date = Date.Now.AddHours(-1)
+        Dim StatusDate As Date = Date.Now.AddMinutes(-15)
         For Each i In Q
 
             If i.AgentDate < StatusDate Then
@@ -207,7 +207,7 @@ Partial Class Main_Default
         Dim Ok As Integer = 0
         Dim Down As Integer = 0
         Dim TotalAlerts As Integer = 0
-        Dim StatusDate As Date = Date.Now.AddHours(-1)
+        Dim StatusDate As Date = Date.Now.AddMinutes(-15)
 
         For Each i In Q
             If i.AgentDate < StatusDate Then
