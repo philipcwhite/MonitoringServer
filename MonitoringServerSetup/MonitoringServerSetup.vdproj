@@ -592,7 +592,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MonitoringServer"
         "ProductCode" = "8:{622EA825-5DCE-4246-A805-5BAD34E19E1D}"
-        "PackageCode" = "8:{FC18715E-8792-4C10-8503-A8268D9A1911}"
+        "PackageCode" = "8:{133293B1-0461-4849-8655-C2C9B0901428}"
         "UpgradeCode" = "8:{AF0E133F-8FCC-45AE-BFD2-AD3F3E81429B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

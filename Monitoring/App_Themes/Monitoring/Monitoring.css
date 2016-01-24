@@ -59,8 +59,9 @@ a.NavLinkOptions:hover{width:28px;height:28px;display:block;background-size:28px
 .SearchIcon{height:20px;width:20px;}
 .SearchTextBox{vertical-align:top;margin-top:1px;border-style:solid;border-width:1px;border-color:#eeeeee;width:100px;color:#7992BF;}
 .Main{position:absolute;left:28px;background:#ffffff;width:calc(100% - 67px);padding-left:17px;padding-right:17px;font:10px Verdana, Arial, Helvetica, sans-serif;color:#7992BF;}
-.Footer{position:fixed;left:28px; bottom:0px; width:calc(100% - 50px); height:28px; background:#FFFFFF;font:9px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#bbbbbb;text-align:right;}
-
+.Footer{position:fixed;left:28px; bottom:0px; width:calc(100% - 50px); height:28px; background:#FFFFFF;font:9px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#bbbbbb;}
+.FooterLeft{position:fixed;left:40px; bottom:0px; width:150px; height:28px; font:9px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#bbbbbb;}
+.FooterRight{position:fixed;right:28px; bottom:0px; width:150px; height:28px; font:9px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#bbbbbb;text-align:right}
 
 
 

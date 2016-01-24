@@ -14,14 +14,12 @@ Partial Class _Default
 
     Private Sub _Default_PreLoad(sender As Object, e As EventArgs) Handles Me.PreLoad
 
-        Try
-            Dim Q1 = (From T In db.Users
-                      Select T.UserName).FirstOrDefault
+        'Please comment out this sub after installation
 
-        Catch ex As Exception
-            db.ServerConfiguration.Add(New ServerConfiguration With {.Name = "", .Value = ""})
+        If db.Database.Exists = False Then
+            db.Database.Create()
             db.SaveChanges()
-        End Try
+        End If
 
         Try
             Dim Q2 = (From T In db.Users

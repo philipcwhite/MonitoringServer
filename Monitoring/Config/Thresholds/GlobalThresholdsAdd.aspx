@@ -19,6 +19,7 @@
                   <td>Class:</td>
                   <td>
                       <asp:DropDownList ID="ClassDropDownList" runat="server" Width="150px" AutoPostBack="True" CssClass="TextBox">
+                          <asp:ListItem Value="Agent">Agent</asp:ListItem>
                           <asp:ListItem Value="Processor">Processor</asp:ListItem>
                           <asp:ListItem Value="Memory">Memory</asp:ListItem>
                           <asp:ListItem Value="PageFile">Pagefile</asp:ListItem>

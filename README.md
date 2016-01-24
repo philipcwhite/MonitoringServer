@@ -1,4 +1,4 @@
-# MonitoringServer 0.5.2b
+# MonitoringServer 0.5.3b
 
 ##About
 
@@ -25,6 +25,17 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.5.3b (2016/01/22):
+
+1.  Fixed a number of issues with the Event engine.
+
+2.  Fixed the database installer.
+
+3.  Added a log out button to the master page.
+
+4.  Added alerts for agent status.  If the agent hasn't responded in x number of minutes, alerts will be generated.
 
 
 ###Changes for Version 0.5.2b (2016/01/22):

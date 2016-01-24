@@ -7,8 +7,10 @@ Partial Class Options_AddThreshold
     Private Sub Options_EditThreshold_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
 
-            If ClassDropDownList.SelectedValue = "Processor" Then
-                PropertyDropDownList.Items.Add("Total Util (%)")
+            If ClassDropDownList.SelectedValue = "Agent" Then
+                PropertyDropDownList.Items.Add("Status")
+                OperatorDropDownList.SelectedValue = "="
+                ThresholdTextBox.Text = 0
                 ServicesTextBox.Visible = False
             End If
 
@@ -35,6 +37,15 @@ Partial Class Options_AddThreshold
         ThresholdDuration = CInt(Ceiling(CDbl(DurationTextBox.Text)))
 
         If ThresholdDuration <= 1440 Then
+
+            If ClassDropDownList.SelectedValue = "Agent" Then
+                AgentClass = "Agent"
+                AgentProperty = PropertyDropDownList.SelectedValue
+                Compare = OperatorDropDownList.SelectedValue
+                ThresholdValue = ThresholdTextBox.Text
+                ThresholdDuration = DurationTextBox.Text
+                Severity = SeverityDropDownList.SelectedValue
+            End If
 
             If ClassDropDownList.SelectedValue = "Processor" Then
                 AgentClass = "Processor"
@@ -117,6 +128,11 @@ Partial Class Options_AddThreshold
         If ClassDropDownList.SelectedValue = "Services" Then
             PropertyDropDownList.Visible = False
             ServicesTextBox.Visible = True
+        End If
+
+        If ClassDropDownList.SelectedValue = "Agent" Then
+            PropertyDropDownList.Items.Add("Status")
+            ServicesTextBox.Visible = False
         End If
 
     End Sub
