@@ -62,8 +62,8 @@ Partial Class Devices_Device
         Next
 
         Dim EventQ = (From T In db.AgentEvents
-                      Where T.AgentStatus = True And T.AgentName = AgentName
-                      Order By T.AgentEventDate Descending
+                      Where T.EventHostname = AgentName And T.EventStatus = True
+                      Order By T.EventDate Descending
                       Select T).Take(50)
 
         DevicePlaceHolder.Controls.Clear()
@@ -72,12 +72,12 @@ Partial Class Devices_Device
                                 "<tr><td style='padding-right:10px;padding-bottom:20px;vertical-align:top;width:50%;'>" &
                                 "<table class='StaticTable' style='width: 100%'>" &
                                 "<thead><tr><th>Device</th></tr></thead>" &
-                                "<tr><td style='height:180px;vertical-align:top'><table>"
+                                "<tr><td style='height:160px;vertical-align:top'><table>"
         Dim LayoutPanelLeft As String = Nothing
         Dim Layout2 As String = "</table></td><td style='padding-left: 10px;padding-bottom:20px;vertical-align:top;width:50%;'>" &
                                 "<table class='StaticTable' style='width: 100%'>" &
                                 "<thead><tr><th>Monitors</th></tr></thead>" &
-                                "<tr><td style='height:180px;vertical-align:top'><table>"
+                                "<tr><td style='height:160px;vertical-align:top'><table>"
         Dim LayoutPanelRight As String = Nothing
         Dim Layout3 As String = "</table><br/></td></tr></table></td></tr>" &
                                 "<tr><td style='padding:0px' colspan='2'>" &
@@ -108,15 +108,15 @@ Partial Class Devices_Device
 
         If EventQ IsNot Nothing Then
             For Each i In EventQ
-                If i.AgentSeverity = 2 Then
+                If i.EventSeverity = 2 Then
                     Severity = "Critical"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
-                ElseIf i.AgentSeverity = 1 Then
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td>" & i.EventHostName & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                ElseIf i.EventSeverity = 1 Then
                     Severity = "Warning"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusWarning'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
-                ElseIf i.AgentSeverity = 0 Then
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusWarning'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td>" & i.EventHostName & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                ElseIf i.EventSeverity = 0 Then
                     Severity = "Informational"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusInfo'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td>" & i.AgentName & "</td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusInfo'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td>" & i.EventHostName & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
 
                 ElseIf EventQ Is Nothing Then
                     LayoutPanelBottom = "<tr><td colspan='6' style='text-align:center'>No Events</td></tr>"

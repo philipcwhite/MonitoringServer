@@ -16,8 +16,8 @@ Partial Class Events_Default
         'Add Paging for past 1000 Events
 
         Dim Q = (From T In db.AgentEvents
-                 Where T.AgentStatus = True
-                 Order By T.AgentEventDate Descending
+                 Where T.EventStatus = True
+                 Order By T.EventDate Descending
                  Select T).Take(1000)
 
         Dim Table As New LiteralControl("<table class='HoverTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message</th></tr></thead>")
@@ -29,15 +29,15 @@ Partial Class Events_Default
 
         If Q IsNot Nothing Then
             For Each i In Q
-                If i.AgentSeverity = 2 Then
+                If i.EventSeverity = 2 Then
                     Severity = "Critical"
-                    EventRows = EventRows & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
-                ElseIf i.AgentSeverity = 1 Then
+                    EventRows = EventRows & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostName & "'>" & i.EventHostName & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
+                ElseIf i.EventSeverity = 1 Then
                     Severity = "Warning"
-                    EventRows = EventRows & "<tr><td><div class='EventStatusWarning'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
-                ElseIf i.AgentSeverity = 0 Then
+                    EventRows = EventRows & "<tr><td><div class='EventStatusWarning'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostName & "'>" & i.EventHostName & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
+                ElseIf i.EventSeverity = 0 Then
                     Severity = "Informational"
-                    EventRows = EventRows & "<tr><td><div class='EventStatusInfo'></div></td><td>" & i.AgentEventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentClass & "</td><td>" & i.AgentMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
+                    EventRows = EventRows & "<tr><td><div class='EventStatusInfo'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostName & "'>" & i.EventHostName & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
                 End If
             Next
         End If

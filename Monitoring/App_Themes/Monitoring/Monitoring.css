@@ -5,11 +5,10 @@ h2 a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 table {*border-collapse: collapse; border-spacing: 0;width: 100%;}
 a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 
-
-
-
 .Button {border-radius: 1px;font-family: Arial;color: #ffffff;font-size: 10px;background:#ED848F;padding: 3px 3px 3px 3px;text-decoration: none;font-weight:bold;border-style:none }
 .Button:hover {background:#cccccc;text-decoration: none; border-style:none}
+.ReportButton {border-radius: 1px;font-family: Arial;color: #ffffff;font-size: 8px;background:#A9DC8E;padding: 3px;text-decoration: none;font-weight:bold;border-style:none }
+.ReportButton:hover {background:#cccccc;text-decoration: none; border-style:none}
 
 .TextBox {border:solid;border-width:1px;border-spacing:0px;border-radius:2px;border-color:#eeeeee;color:#7992BF;font:10px Verdana, Arial, Helvetica, sans-serif;}
 .DropDownList {border:solid;border-width:1px;border-spacing:0px;border-color:#eeeeee;color:#7992BF;font:10px Verdana, Arial, Helvetica, sans-serif;}
@@ -19,9 +18,7 @@ a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 .EventStatusInfo {height:10px;width:10px;background:#6BD5C3;}
 .EventStatusOK {height:10px;width:10px;background:#A9DC8E;}
 
-
 .DivBullet {height:10px;width:10px;background:#7992BF;}
-
 
 .HoverTable {border-radius: 4px; background-color:#ffffff;border-style:solid;border-color:#eeeeee;border-width:1px}
 .HoverTable tr:hover {background: #eeeeee;transition: all 0.1s ease-in-out;}    
@@ -41,7 +38,6 @@ a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 .StaticTable tr:last-child td:first-child {border-radius: 0 0 0 3px;}
 .StaticTable tr:last-child td:last-child {border-radius: 0 0 3px 0;}
 .StaticTable a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none;}
-
 
 .NavMenu{position:fixed;left:0px;background:#62676A;width:28px;height:100%;}
 a.NavLinkHome:link, .NavLinkHome{ width:28px;height:28px;display:block;background-size:28px;background-image: url('Home.png');}

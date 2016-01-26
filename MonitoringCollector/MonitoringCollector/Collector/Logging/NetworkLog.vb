@@ -7,7 +7,7 @@ Public Class NetworkLog
     Public Sub InitializeLog()
         ServerNetLog = "Initializing Log..." & vbCrLf
         SyncLock (Lock)
-            File.WriteAllText(ServerPath & "ServerNetLog.log", ServerNetLog)
+            File.WriteAllText(ServerPath & "MonitoringCollector.log", ServerNetLog)
         End SyncLock
     End Sub
 
@@ -19,7 +19,7 @@ Public Class NetworkLog
         End If
         ServerNetLog = ServerNetLog & Date.Now & " [SERVER] " & Message & vbCrLf
         SyncLock (Lock)
-            File.WriteAllText(ServerPath & "ServerNetLog.log", ServerNetLog)
+            File.WriteAllText(ServerPath & "MonitoringCollector.log", ServerNetLog)
         End SyncLock
     End Sub
 

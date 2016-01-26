@@ -9,7 +9,6 @@
         Public Property AgentOSArchitechture As String
         Public Property AgentProcessors As Int16
         Public Property AgentMemory As Int32
-        Public Property AgentStatus As Boolean = True
         Public Property AgentDate As Date? = Nothing
     End Class
 End Namespace

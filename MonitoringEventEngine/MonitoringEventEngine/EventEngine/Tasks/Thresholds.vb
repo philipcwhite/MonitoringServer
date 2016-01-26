@@ -49,8 +49,8 @@ Public Class Thresholds
                       Where T.AgentName = i.AgentName And T.AgentClass = i.AgentClass And T.AgentProperty = i.AgentProperty And T.Severity = i.Severity
                       Select T).FirstOrDefault
             If Q3 Is Nothing Then
-                AThresholds.Add(New AgentThresholds With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .Comparison = i.Comparison, .Severity = i.Severity, .ThresholdTime = i.ThresholdTime, .ThresholdValue = i.ThresholdValue})
-            End If
+                    AThresholds.Add(New AgentThresholds With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .Comparison = i.Comparison, .Severity = i.Severity, .ThresholdTime = i.ThresholdTime, .ThresholdValue = i.ThresholdValue, .Enabled = True})
+                End If
         Next
         Catch ex As Exception
 
@@ -196,11 +196,11 @@ Public Class Thresholds
             If AClass <> "Agent" Then
                 Dim Subject As String = AName & " " & AClass & " is " & ASeverity
                 Dim Message As String = "Server exceeded threshold. " & AProperty & " " & AComparison & " " & AThreshold & " for " & AThresholdTime & " minutes."
-                ThresholdEvents.Add(New AgentEvents With {.AgentName = AName, .AgentClass = AClass, .AgentProperty = AProperty, .AgentStatus = AStatus, .AgentSeverity = ASeverity, .AgentMessage = Message, .AgentComparison = AComparison, .AgentThreshold = AThreshold, .AgentTimeRange = AThresholdTime, .AgentEventDate = Date.Now})
+                ThresholdEvents.Add(New AgentEvents With {.EventHostname = AName, .EventClass = AClass, .EventProperty = AProperty, .EventStatus = AStatus, .EventSeverity = ASeverity, .EventMessage = Message, .EventComparison = AComparison, .EventThreshold = AThreshold, .EventTimeRange = AThresholdTime, .EventDate = Date.Now})
             Else
                 Dim Subject As String = AName & " " & AClass & " is " & ASeverity
                 Dim Message As String = "Agent has not reported for over " & AThresholdTime & " minutes."
-                ThresholdEvents.Add(New AgentEvents With {.AgentName = AName, .AgentClass = AClass, .AgentProperty = AProperty, .AgentStatus = AStatus, .AgentSeverity = ASeverity, .AgentMessage = Message, .AgentComparison = AComparison, .AgentThreshold = AThreshold, .AgentTimeRange = AThresholdTime, .AgentEventDate = Date.Now})
+                ThresholdEvents.Add(New AgentEvents With {.EventHostname = AName, .EventClass = AClass, .EventProperty = AProperty, .EventStatus = AStatus, .EventSeverity = ASeverity, .EventMessage = Message, .EventComparison = AComparison, .EventThreshold = AThreshold, .EventTimeRange = AThresholdTime, .EventDate = Date.Now})
             End If
 
         Catch ex As Exception
@@ -212,7 +212,7 @@ Public Class Thresholds
     Public Sub SendEvents()
         Try
             For Each i In ThresholdEvents
-                HandleEvents(i.AgentName, i.AgentMessage, i.AgentClass, i.AgentProperty, i.AgentThreshold, i.AgentComparison, i.AgentTimeRange, i.AgentSeverity, i.AgentStatus, i.AgentEventDate)
+                HandleEvents(i.EventHostname, i.EventMessage, i.EventClass, i.EventProperty, i.EventThreshold, i.EventComparison, i.EventTimeRange, i.EventSeverity, i.EventStatus, i.EventDate)
             Next
         Catch ex As Exception
 
@@ -224,11 +224,11 @@ Public Class Thresholds
         Try
             If AStatus = False Then
                 Dim Q = (From T In db.AgentEvents
-                         Where T.AgentName = AName And T.AgentClass = AClass And T.AgentProperty = AProperty And T.AgentStatus = True And T.AgentSeverity = ASeverity
+                         Where T.EventHostname = AName And T.EventClass = AClass And T.EventProperty = AProperty And T.EventStatus = True And T.EventSeverity = ASeverity
                          Select T).FirstOrDefault
 
                 If Not Q Is Nothing Then
-                    Q.AgentStatus = False
+                    Q.EventStatus = False
                 End If
                 db.SaveChanges()
             End If
@@ -239,23 +239,23 @@ Public Class Thresholds
         Try
             If AStatus = True Then
                 Dim Q = (From T In db.AgentEvents
-                         Where T.AgentName = AName And T.AgentClass = AClass And T.AgentProperty = AProperty And T.AgentStatus = True
+                         Where T.EventHostname = AName And T.EventClass = AClass And T.EventProperty = AProperty And T.EventStatus = True
                          Select T).FirstOrDefault
 
                 If Not Q Is Nothing Then
-                    If ASeverity > Q.AgentSeverity Then
-                        Q.AgentMessage = AMessage
-                        Q.AgentSeverity = ASeverity
-                        Q.AgentComparison = AComparison
-                        Q.AgentClass = AClass
-                        Q.AgentProperty = AProperty
-                        Q.AgentThreshold = AThreshold
-                        Q.AgentTimeRange = AThresholdTime
+                    If ASeverity > Q.EventSeverity Then
+                        Q.EventMessage = AMessage
+                        Q.EventSeverity = ASeverity
+                        Q.EventComparison = AComparison
+                        Q.EventClass = AClass
+                        Q.EventProperty = AProperty
+                        Q.EventThreshold = AThreshold
+                        Q.EventTimeRange = AThresholdTime
                     End If
                     db.SaveChanges()
 
                 Else
-                    db.AgentEvents.Add(New AgentEvents With {.AgentName = AName, .AgentClass = AClass, .AgentProperty = AProperty, .AgentStatus = AStatus, .AgentSeverity = ASeverity, .AgentMessage = AMessage, .AgentComparison = AComparison, .AgentThreshold = AThreshold, .AgentTimeRange = AThresholdTime, .AgentEventDate = AEventDate})
+                    db.AgentEvents.Add(New AgentEvents With {.EventHostname = AName, .EventClass = AClass, .EventProperty = AProperty, .EventStatus = AStatus, .EventSeverity = ASeverity, .EventMessage = AMessage, .EventComparison = AComparison, .EventThreshold = AThreshold, .EventTimeRange = AThresholdTime, .EventDate = AEventDate})
                     db.SaveChanges()
                     Try
                         Dim Notify As New Notifications

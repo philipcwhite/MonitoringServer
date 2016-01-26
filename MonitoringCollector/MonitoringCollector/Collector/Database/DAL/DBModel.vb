@@ -93,12 +93,12 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentServiceArchive).Property(Function(t) t.AgentProperty).HasMaxLength(100)
 
             'AgentEvents Table
-            modelBuilder.Entity(Of AgentEvents).HasKey(Function(t) t.AgentEventID)
-            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentMessage).HasMaxLength(5000)
-            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentClass).HasMaxLength(100)
-            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentProperty).HasMaxLength(100)
-            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.AgentComparison).HasMaxLength(2)
+            modelBuilder.Entity(Of AgentEvents).HasKey(Function(t) t.EventID)
+            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.EventHostname).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.EventMessage).HasMaxLength(5000)
+            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.EventClass).HasMaxLength(100)
+            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.EventProperty).HasMaxLength(100)
+            modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.EventComparison).HasMaxLength(2)
 
             'ThresholdTables
 

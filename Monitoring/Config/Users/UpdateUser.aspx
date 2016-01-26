@@ -62,7 +62,6 @@
             <td>
                 <asp:DropDownList ID="RoleDropDownList" runat="server" CssClass="TextBox">
                     <asp:ListItem>Administrator</asp:ListItem>
-                    <asp:ListItem>Operator</asp:ListItem>
                     <asp:ListItem>User</asp:ListItem>
                     <asp:ListItem>Pending</asp:ListItem>
                 </asp:DropDownList></td>

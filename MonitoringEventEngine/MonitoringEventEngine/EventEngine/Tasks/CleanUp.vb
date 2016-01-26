@@ -5,7 +5,7 @@ Public Class CleanUp
     Public Sub PurgeRecords()
         Dim PurgeDate = Date.Now.AddDays(-7)
         Try
-            db.AgentEvents.RemoveRange(db.AgentEvents.Where(Function(o) o.AgentStatus = False And o.AgentEventDate < PurgeDate))
+            db.AgentEvents.RemoveRange(db.AgentEvents.Where(Function(o) o.EventStatus = False And o.EventDate < PurgeDate))
             db.SaveChanges()
         Catch ex As Exception
 

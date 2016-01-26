@@ -23,7 +23,7 @@ Partial Class Main_Default
 
         Dim Rows As String = Nothing
 
-        Dim StatusDate As Date = Date.Now.AddMinutes(-15)
+        Dim StatusDate As Date = Date.Now.AddMinutes(-10)
         For Each i In Q
 
             If i.AgentDate < StatusDate Then
@@ -78,10 +78,10 @@ Partial Class Main_Default
     Public Sub LeftChart()
 
         Dim Q = From T1 In db.AgentEvents
-                Join T2 In db.Subscriptions On T1.AgentName Equals T2.AgentName
-                Where T2.UserName = User.Identity.Name And T1.AgentStatus = True
-                Order By T1.AgentName Ascending
-                Select T1.AgentSeverity
+                Join T2 In db.Subscriptions On T1.EventHostname Equals T2.AgentName
+                Where T2.UserName = User.Identity.Name And T1.EventStatus = True
+                Order By T1.EventHostname Ascending
+                Select T1.EventSeverity
 
         Dim InfoAlert As Integer = 0
         Dim WarnAlert As Integer = 0

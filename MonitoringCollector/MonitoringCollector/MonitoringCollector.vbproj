@@ -140,7 +140,6 @@
     <Compile Include="Collector\Database\Models\Users.vb" />
     <Compile Include="Collector\Network\ReceiveSSL.vb" />
     <Compile Include="Collector\Network\ReceiveTCP.vb" />
-    <Compile Include="Collector\Network\SendClass.vb" />
     <Compile Include="Collector\Parameters\ServerParameters.vb" />
     <Compile Include="Collector\Parameters\ConfigDB.vb" />
     <Compile Include="Collector\Processes\ServerLoad.vb" />
