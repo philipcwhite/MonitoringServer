@@ -1,4 +1,4 @@
-# Monitoring Server 0.5.5b 
+# Monitoring Server 0.5.6b 
 
 ##About
 
@@ -28,6 +28,9 @@ For setup and configuration please see the new Wiki
 
 ##Change Log
 
+###Changes for Version 0.5.6b (2016/01/26):
+
+1.  Minor style changes.  Updated agent naming for consistancy.
 
 ###Changes for Version 0.5.5b (2016/01/26):
 

@@ -13,12 +13,12 @@ a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 .TextBox {border:solid;border-width:1px;border-spacing:0px;border-radius:2px;border-color:#eeeeee;color:#7992BF;font:10px Verdana, Arial, Helvetica, sans-serif;}
 .DropDownList {border:solid;border-width:1px;border-spacing:0px;border-color:#eeeeee;color:#7992BF;font:10px Verdana, Arial, Helvetica, sans-serif;}
 
-.EventStatusCritical {height:10px;width:10px;background:#ED848F;}
-.EventStatusWarning {height:10px;width:10px;background:#ECD48B;}
-.EventStatusInfo {height:10px;width:10px;background:#6BD5C3;}
-.EventStatusOK {height:10px;width:10px;background:#A9DC8E;}
+.EventStatusCritical {height:8px;width:8px;background:#ED848F;}
+.EventStatusWarning {height:8px;width:8px;background:#ECD48B;}
+.EventStatusInfo {height:8px;width:8px;background:#6BD5C3;}
+.EventStatusOK {height:8px;width:8px;background:#A9DC8E;}
 
-.DivBullet {height:10px;width:10px;background:#7992BF;}
+.DivBullet {height:8px;width:8px;background:#cccccc;}
 
 .HoverTable {border-radius: 4px; background-color:#ffffff;border-style:solid;border-color:#eeeeee;border-width:1px}
 .HoverTable tr:hover {background: #eeeeee;transition: all 0.1s ease-in-out;}    
