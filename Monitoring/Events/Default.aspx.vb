@@ -29,15 +29,16 @@ Partial Class Events_Default
 
         If Q IsNot Nothing Then
             For Each i In Q
+                Dim FormattedDate As Date = i.EventDate
                 If i.EventSeverity = 2 Then
                     Severity = "Critical"
-                    EventRows = EventRows & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostName & "'>" & i.EventHostName & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
+                    EventRows = EventRows & "<tr><td><div class='EventStatusCritical'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostname & "'>" & i.EventHostname & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
                 ElseIf i.EventSeverity = 1 Then
                     Severity = "Warning"
-                    EventRows = EventRows & "<tr><td><div class='EventStatusWarning'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostName & "'>" & i.EventHostName & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
+                    EventRows = EventRows & "<tr><td><div class='EventStatusWarning'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostname & "'>" & i.EventHostname & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
                 ElseIf i.EventSeverity = 0 Then
                     Severity = "Informational"
-                    EventRows = EventRows & "<tr><td><div class='EventStatusInfo'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostName & "'>" & i.EventHostName & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
+                    EventRows = EventRows & "<tr><td><div class='EventStatusInfo'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostname & "'>" & i.EventHostname & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td></tr>"
                 End If
             Next
         End If

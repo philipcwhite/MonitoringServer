@@ -34,7 +34,8 @@ Partial Class Reports_Reports
             Dim TableStart As String = "<table class='HoverTable'><thead><tr><th>Hostname</th><th>Domain</th><th>IP Address</th><th>Operating System</th><th>Architechture</th><th>Processors</th><th>Memory (MB)</th><th>Last Updated</th></tr></thead>"
             Dim Rows As String = Nothing
             For Each i In Q
-                Rows = Rows & "<tr style='font-size:9px'><td>" & i.AgentName & "</td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td><td>" & i.AgentOSArchitechture & "</td><td>" & i.AgentProcessors & "</td><td>" & i.AgentMemory & "</td><td>" & i.AgentDate & "</td></tr>"
+                Dim FormattedDate As Date = i.AgentDate
+                Rows = Rows & "<tr style='font-size:9px'><td>" & i.AgentName & "</td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td><td>" & i.AgentOSArchitechture & "</td><td>" & i.AgentProcessors & "</td><td>" & i.AgentMemory & "</td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td></tr>"
             Next
             Dim TableEnd As String = "</table>"
 
@@ -51,7 +52,8 @@ Partial Class Reports_Reports
             Dim CSVString As String = """Hostname"",""Domain"",""IP Address"",""Operating System"",""Architechture"",""Processors"",""Memory (MB)"",""Last Updated"""
 
             For Each i In Q
-                CSVString = CSVString & vbCrLf & """" & i.AgentName & """,""" & i.AgentDomain & """,""" & i.AgentIP & """,""" & i.AgentOSName & """,""" & i.AgentOSArchitechture & """,""" & i.AgentProcessors & """,""" & i.AgentMemory & """,""" & i.AgentDate & """"
+                Dim FormattedDate As Date = i.AgentDate
+                CSVString = CSVString & vbCrLf & """" & i.AgentName & """,""" & i.AgentDomain & """,""" & i.AgentIP & """,""" & i.AgentOSName & """,""" & i.AgentOSArchitechture & """,""" & i.AgentProcessors & """,""" & i.AgentMemory & """,""" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & """"
             Next
 
             Response.Clear()
@@ -85,7 +87,8 @@ Partial Class Reports_Reports
                 ElseIf i.EventSeverity = 2 Then
                     Severity = "Critical"
                 End If
-                Rows = Rows & "<tr style='font-size:9px'><td>" & i.EventDate & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage & "</td></tr>"
+                Dim FormattedDate As Date = i.EventDate
+                Rows = Rows & "<tr style='font-size:9px'><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage & "</td></tr>"
             Next
             Dim TableEnd As String = "</table>"
 
@@ -110,7 +113,8 @@ Partial Class Reports_Reports
                 ElseIf i.EventSeverity = 2 Then
                     Severity = "Critical"
                 End If
-                CSVString = CSVString & vbCrLf & """" & i.EventDate & """,""" & Severity & """,""" & i.EventHostname & """,""" & i.EventClass & """,""" & i.EventMessage & """"
+                Dim FormattedDate As Date = i.EventDate
+                CSVString = CSVString & vbCrLf & """" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & """,""" & Severity & """,""" & i.EventHostname & """,""" & i.EventClass & """,""" & i.EventMessage & """"
             Next
 
             Response.Clear()

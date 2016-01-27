@@ -50,6 +50,8 @@ Partial Class Devices_Device
         Dim LocalDiskTime As String = Nothing
 
         LocalDiskTime = AgentQ.AgentDate
+        Dim CurrentDate As Date = AgentQ.AgentDate
+
 
         Dim LocalDiskQ = From T In db.AgentLocalDisk
                          Where T.AgentName = AgentName And T.AgentCollectDate = LocalDiskTime
@@ -93,7 +95,7 @@ Partial Class Devices_Device
                           "<tr><td><div class='DivBullet'/></td><td>Operating System:</td><td>" & AgentQ.AgentOSName & " (" & AgentQ.AgentOSArchitechture & ")</td></tr>" &
                           "<tr><td><div class='DivBullet'/></td><td>Processors:</td><td>" & AgentQ.AgentProcessors & "</td></tr>" &
                           "<tr><td><div class='DivBullet'/></td><td>Memory:</td><td>" & AgentQ.AgentMemory & " MB </td></tr>" &
-                          "<tr><td><div class='DivBullet'/></td><td>Last Updated:</td><td>" & AgentQ.AgentDate & "</td></tr></table>"
+                          "<tr><td><div class='DivBullet'/></td><td>Last Updated:</td><td>" & CurrentDate.ToString("M/dd/yyyy h:mm tt") & "</td></tr></table>"
 
 
         LayoutPanelRight = "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Processor</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & ProcessorQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & ProcessorQ.AgentValue & "%</td></tr>" &
@@ -108,15 +110,16 @@ Partial Class Devices_Device
 
         If EventQ IsNot Nothing Then
             For Each i In EventQ
+                Dim FormattedDate As Date = i.EventDate
                 If i.EventSeverity = 2 Then
                     Severity = "Critical"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td>" & i.EventHostName & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusCritical'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
                 ElseIf i.EventSeverity = 1 Then
                     Severity = "Warning"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusWarning'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td>" & i.EventHostName & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusWarning'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
                 ElseIf i.EventSeverity = 0 Then
                     Severity = "Informational"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusInfo'></div></td><td>" & i.EventDate & "</td><td>" & Severity & "</td><td>" & i.EventHostName & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusInfo'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
 
                 ElseIf EventQ Is Nothing Then
                     LayoutPanelBottom = "<tr><td colspan='6' style='text-align:center'>No Events</td></tr>"

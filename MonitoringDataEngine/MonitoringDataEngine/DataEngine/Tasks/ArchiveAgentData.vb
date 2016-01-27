@@ -7,8 +7,8 @@ Public Class ArchiveAgentData
     Public Sub Archive()
 
 
-        Dim CurrentTime = ServerTime
-        Dim ArchiveTime = ServerTime.AddDays(-1)
+        Dim CurrentTime As Date = ServerTime.ToString("MM/dd/yyyy HH:mm")
+        Dim ArchiveTime As Date = CurrentTime.AddDays(-1)
 
         Try
             Dim Q1 = From T In db.AgentProcessor

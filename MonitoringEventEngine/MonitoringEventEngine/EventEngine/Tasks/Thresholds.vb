@@ -196,11 +196,11 @@ Public Class Thresholds
             If AClass <> "Agent" Then
                 Dim Subject As String = AName & " " & AClass & " is " & ASeverity
                 Dim Message As String = "Server exceeded threshold. " & AProperty & " " & AComparison & " " & AThreshold & " for " & AThresholdTime & " minutes."
-                ThresholdEvents.Add(New AgentEvents With {.EventHostname = AName, .EventClass = AClass, .EventProperty = AProperty, .EventStatus = AStatus, .EventSeverity = ASeverity, .EventMessage = Message, .EventComparison = AComparison, .EventThreshold = AThreshold, .EventTimeRange = AThresholdTime, .EventDate = Date.Now})
+                ThresholdEvents.Add(New AgentEvents With {.EventHostname = AName, .EventClass = AClass, .EventProperty = AProperty, .EventStatus = AStatus, .EventSeverity = ASeverity, .EventMessage = Message, .EventComparison = AComparison, .EventThreshold = AThreshold, .EventTimeRange = AThresholdTime, .EventDate = Date.Now.ToString("MM/dd/yyyy HH:mm")})
             Else
                 Dim Subject As String = AName & " " & AClass & " is " & ASeverity
                 Dim Message As String = "Agent has not reported for over " & AThresholdTime & " minutes."
-                ThresholdEvents.Add(New AgentEvents With {.EventHostname = AName, .EventClass = AClass, .EventProperty = AProperty, .EventStatus = AStatus, .EventSeverity = ASeverity, .EventMessage = Message, .EventComparison = AComparison, .EventThreshold = AThreshold, .EventTimeRange = AThresholdTime, .EventDate = Date.Now})
+                ThresholdEvents.Add(New AgentEvents With {.EventHostname = AName, .EventClass = AClass, .EventProperty = AProperty, .EventStatus = AStatus, .EventSeverity = ASeverity, .EventMessage = Message, .EventComparison = AComparison, .EventThreshold = AThreshold, .EventTimeRange = AThresholdTime, .EventDate = Date.Now.ToString("MM/dd/yyyy HH:mm")})
             End If
 
         Catch ex As Exception
