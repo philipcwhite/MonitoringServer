@@ -28,7 +28,7 @@ For setup and configuration please see the new Wiki
 
 ##Change Log
 
-###Changes for Version 0.5.6b (2016/01/26):
+###Changes for Version 0.5.6b (2016/01/27):
 
 1.  Minor style changes.  Updated agent naming for consistancy.
 
