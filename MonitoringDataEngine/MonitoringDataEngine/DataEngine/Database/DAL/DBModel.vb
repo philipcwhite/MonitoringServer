@@ -28,7 +28,7 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentIP).HasMaxLength(15)
             modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentOSName).HasMaxLength(100)
             modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentOSBuild).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentOSArchitechture).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentOSArchitecture).HasMaxLength(25)
 
             'AgentProcessor Table
             modelBuilder.Entity(Of AgentProcessor).HasKey(Function(t) t.AgentID)

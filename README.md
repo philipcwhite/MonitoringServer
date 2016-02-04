@@ -1,4 +1,4 @@
-# Monitoring Server 0.5.7b 
+# Monitoring Server 0.5.8b 
 
 ##About
 
@@ -27,6 +27,15 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.5.8b (2016/01/27):
+
+1.  Corrected spelling of Architecture.  This does effect the database.  
+
+2.  Started working on a Mac OSX Agent written in Swift.  I hope to have a new project page for this soon.  Preliminary TCP tests are working.  
+
+3.  The monitoring agent will probably receive an update soon to update a few WMI queries.
 
 
 ###Changes for Version 0.5.7b (2016/01/27):

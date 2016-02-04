@@ -92,7 +92,7 @@ Partial Class Devices_Device
         LayoutPanelLeft = "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Hostname:</td><td>" & AgentQ.AgentName & "</td></tr>" &
                           "<tr><td><div class='DivBullet'/></td><td>Domain:</td><td>" & AgentQ.AgentDomain & "</td></tr>" &
                           "<tr><td><div class='DivBullet'/></td><td>IP Address:</td><td>" & AgentQ.AgentIP & "</td></tr>" &
-                          "<tr><td><div class='DivBullet'/></td><td>Operating System:</td><td>" & AgentQ.AgentOSName & " (" & AgentQ.AgentOSArchitechture & ")</td></tr>" &
+                          "<tr><td><div class='DivBullet'/></td><td>Operating System:</td><td>" & AgentQ.AgentOSName & " (" & AgentQ.AgentOSArchitecture & ")</td></tr>" &
                           "<tr><td><div class='DivBullet'/></td><td>Processors:</td><td>" & AgentQ.AgentProcessors & "</td></tr>" &
                           "<tr><td><div class='DivBullet'/></td><td>Memory:</td><td>" & AgentQ.AgentMemory & " MB </td></tr>" &
                           "<tr><td><div class='DivBullet'/></td><td>Last Updated:</td><td>" & CurrentDate.ToString("M/dd/yyyy h:mm tt") & "</td></tr></table>"

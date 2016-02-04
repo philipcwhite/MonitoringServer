@@ -35,7 +35,7 @@ Partial Class Reports_Reports
             Dim Rows As String = Nothing
             For Each i In Q
                 Dim FormattedDate As Date = i.AgentDate
-                Rows = Rows & "<tr style='font-size:9px'><td>" & i.AgentName & "</td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td><td>" & i.AgentOSArchitechture & "</td><td>" & i.AgentProcessors & "</td><td>" & i.AgentMemory & "</td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td></tr>"
+                Rows = Rows & "<tr style='font-size:9px'><td>" & i.AgentName & "</td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td><td>" & i.AgentOSArchitecture & "</td><td>" & i.AgentProcessors & "</td><td>" & i.AgentMemory & "</td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td></tr>"
             Next
             Dim TableEnd As String = "</table>"
 
@@ -53,7 +53,7 @@ Partial Class Reports_Reports
 
             For Each i In Q
                 Dim FormattedDate As Date = i.AgentDate
-                CSVString = CSVString & vbCrLf & """" & i.AgentName & """,""" & i.AgentDomain & """,""" & i.AgentIP & """,""" & i.AgentOSName & """,""" & i.AgentOSArchitechture & """,""" & i.AgentProcessors & """,""" & i.AgentMemory & """,""" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & """"
+                CSVString = CSVString & vbCrLf & """" & i.AgentName & """,""" & i.AgentDomain & """,""" & i.AgentIP & """,""" & i.AgentOSName & """,""" & i.AgentOSArchitecture & """,""" & i.AgentProcessors & """,""" & i.AgentMemory & """,""" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & """"
             Next
 
             Response.Clear()

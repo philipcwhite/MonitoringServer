@@ -112,13 +112,13 @@ Public Class ReceiveSSL
                     Q.AgentIP = AgentIP
                     Q.AgentOSName = AgentOSName
                     Q.AgentOSBuild = AgentOSBuild
-                    Q.AgentOSArchitechture = AgentOSArchitecture
+                    Q.AgentOSArchitecture = AgentOSArchitecture
                     Q.AgentProcessors = AgentProcessors
                     Q.AgentMemory = AgentMemory
                     Q.AgentDate = AgentDate
                     db.SaveChanges()
                 Else
-                    db.AgentSystem.Add(New AgentSystem With {.AgentName = AgentName, .AgentDomain = AgentDomain, .AgentIP = AgentIP, .AgentOSName = AgentOSName, .AgentOSBuild = AgentOSBuild, .AgentOSArchitechture = AgentOSArchitecture, .AgentProcessors = .AgentProcessors, .AgentMemory = .AgentMemory, .AgentDate = AgentDate})
+                    db.AgentSystem.Add(New AgentSystem With {.AgentName = AgentName, .AgentDomain = AgentDomain, .AgentIP = AgentIP, .AgentOSName = AgentOSName, .AgentOSBuild = AgentOSBuild, .AgentOSArchitecture = AgentOSArchitecture, .AgentProcessors = .AgentProcessors, .AgentMemory = .AgentMemory, .AgentDate = AgentDate})
                 End If
 
             Next
