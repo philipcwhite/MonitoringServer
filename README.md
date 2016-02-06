@@ -1,4 +1,4 @@
-# Monitoring Server 0.5.8b 
+# Monitoring Server 0.5.9b 
 
 ##About
 
@@ -29,7 +29,16 @@ For setup and configuration please see the new Wiki
 ##Change Log
 
 
-###Changes for Version 0.5.8b (2016/01/27):
+###Changes for Version 0.5.9b (2016/02/06):
+
+1.  Updated installation to pcwsoft instead of wcpsoft.  
+
+2.  Added About page and bullets to the config page.
+
+3.  Added NOTICE file.  Rebadged agent as 1.0.0.  
+
+
+###Changes for Version 0.5.8b (2016/02/04):
 
 1.  Corrected spelling of Architecture.  This does effect the database.  
 

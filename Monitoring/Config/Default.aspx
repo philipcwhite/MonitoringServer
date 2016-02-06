@@ -8,18 +8,24 @@
     <table style='width: 100%'><tr><td style='vertical-align:top;padding-right:10px'>
    
         <table class='StaticTable' style='width: 100%'><thead><tr><th>User Options</th></tr></thead><tr><td style="height:80px;vertical-align:top">
-            <asp:HyperLink ID="UpdateProfileHyperLink" runat="server" NavigateUrl="~/Config/Users/UpdateProfile.aspx">Update Profile</asp:HyperLink>
-            <br />
-            <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="Log Out" /><br />
-            
-            
+            <table>
+                <tr><td style="width:10px"><div class='DivBullet'/></td>
+                 <td><asp:HyperLink ID="UpdateProfileHyperLink" runat="server" NavigateUrl="~/Config/Users/UpdateProfile.aspx">Update Profile</asp:HyperLink></td></tr>
+           <tr><td><div class='DivBullet'/></td><td><asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="Log Out" /></td></tr>
+           </table>
+                        
             </td></tr></table>
 
         <asp:Panel ID="AdminPanel1" runat="server" Visible="false">
             <br />
             <table  class='StaticTable' style='width: 100%'><thead><tr><th>User Administration</th></tr></thead><tr><td style="height:80px;vertical-align:top">
-                <asp:HyperLink ID="ManageUsersHyperLink" runat="server" NavigateUrl="~/Config/Users/Default.aspx">Manage Users</asp:HyperLink>
-   </td></tr></table>
+                <table>
+                    <tr><td style="width:10px"><div class='DivBullet'/></td>
+                        <td><asp:HyperLink ID="ManageUsersHyperLink" runat="server" NavigateUrl="~/Config/Users/Default.aspx">Manage Users</asp:HyperLink>
+                         </td>   
+                        </tr>
+                </table>
+     </td></tr></table>
 
         </asp:Panel>
 
@@ -29,11 +35,14 @@
         <td style='padding-left:10px;vertical-align:top'>
         <table class='StaticTable' style='width: 100%'><thead><tr><th>Application Options</th></tr></thead><tr><td style="height:80px;vertical-align:top">
       
+            <table>
+                <tr><td style="width:10px"><div class='DivBullet'/></td><td><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Config/Subscriptions/MyDevices.aspx">My Devices</asp:HyperLink>
+                    </td></tr>
+        <tr><td><div class='DivBullet'/></td><td><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Config/Subscriptions/Notifications.aspx">Notifications</asp:HyperLink>
+    </td></tr>
+     <tr><td><div class='DivBullet'/></td><td><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Config/About.aspx">About</asp:HyperLink></td></tr>
+                       </table>
             
-            
-            <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Config/Subscriptions/MyDevices.aspx">My Devices</asp:HyperLink><br />
-       <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Config/Subscriptions/Notifications.aspx">Notifications</asp:HyperLink>
-      
             
             
             </td></tr></table>
@@ -43,10 +52,15 @@
                     <asp:Panel ID="AdminPanel2" runat="server" Visible="false">
             <br />
             <table  class='StaticTable' style='width: 100%'><thead><tr><th>Application Administration</th></tr></thead><tr><td style="height:80px;vertical-align:top">
-                <asp:HyperLink ID="ThresholdsHyperLink" runat="server" NavigateUrl="~/Config/Thresholds/GlobalThresholds.aspx">Global Thresholds</asp:HyperLink>
-                <br />
-                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Config/Subscriptions/MailServer.aspx">Mail Server</asp:HyperLink>
-   </td></tr></table>
+                <table>
+                    <tr><td style="width:10px"><div class='DivBullet'/></td><td><asp:HyperLink ID="ThresholdsHyperLink" runat="server" NavigateUrl="~/Config/Thresholds/GlobalThresholds.aspx">Global Thresholds</asp:HyperLink>
+                        </td></tr>
+<tr><td><div class='DivBullet'/></td><td><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Config/Subscriptions/MailServer.aspx">Mail Server</asp:HyperLink>
+    </td></tr>
+
+                </table>
+  
+    </td></tr></table>
 
         </asp:Panel>
 

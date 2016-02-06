@@ -1,5 +1,5 @@
 ﻿'MonitoringEventEngine  
-'Copyright 2016 Phil White, wcpSoft
+'Copyright 2016 Phil White, pcwSoft
 'This software is released under the Apache 2.0 License
 'Maintained at http://github.com/philipcwhite
 
