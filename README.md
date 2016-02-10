@@ -1,4 +1,4 @@
-# Monitoring Server 0.5.9b 
+# Monitoring Server 0.6.0b 
 
 ##About
 
@@ -27,6 +27,11 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.6.0b (2016/02/09):
+
+1.  Fixed a bug where Agent system data did not display if the agent hadn't reported in 24 hours.
 
 
 ###Changes for Version 0.5.9b (2016/02/06):

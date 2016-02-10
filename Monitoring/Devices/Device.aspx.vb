@@ -97,14 +97,30 @@ Partial Class Devices_Device
                           "<tr><td><div class='DivBullet'/></td><td>Memory:</td><td>" & AgentQ.AgentMemory & " MB </td></tr>" &
                           "<tr><td><div class='DivBullet'/></td><td>Last Updated:</td><td>" & CurrentDate.ToString("M/dd/yyyy h:mm tt") & "</td></tr></table>"
 
+        Try
+            LayoutPanelRight = "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Processor</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & ProcessorQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & ProcessorQ.AgentValue & "%</td></tr>"
+        Catch
+            LayoutPanelRight = "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Processor</td><td colspan=2>No Data</td></tr>"
+        End Try
 
-        LayoutPanelRight = "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Processor</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & ProcessorQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & ProcessorQ.AgentValue & "%</td></tr>" &
-                           "<tr><td><div class='DivBullet'/></td><td>Memory</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & MemoryQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & MemoryQ.AgentValue & "%</td></tr>" &
-                           "<tr><td><div class='DivBullet'/></td><td>Pagefile</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & PageFileQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & PageFileQ.AgentValue & "%</td></tr>"
+        Try
+            LayoutPanelRight = LayoutPanelRight & "<tr><td><div class='DivBullet'/></td><td>Memory</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & MemoryQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & MemoryQ.AgentValue & "%</td></tr>"
+        Catch
+            LayoutPanelRight = LayoutPanelRight & "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Memory</td><td colspan=2>No Data</td></tr>"
+        End Try
 
-        For i = 0 To LocalDiskList.Count - 1 Step 2
-            LayoutPanelRight = LayoutPanelRight & "<tr><td><div class='DivBullet'/></td><td>" & LocalDiskList.Item(i).AgentClass & "</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & LocalDiskList.Item(i).AgentClass & ";" & LocalDiskList.Item(i).AgentProperty & "'>Active Time</a> | <a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & LocalDiskList.Item(i).AgentClass & ";" & LocalDiskList.Item(i + 1).AgentProperty & "'>Free Space</a></td><td style='text-align:center'>" & LocalDiskList.Item(i).AgentValue & "% | " & LocalDiskList.Item(i + 1).AgentValue & "%</td></tr>"
-        Next
+        Try
+            LayoutPanelRight = LayoutPanelRight & "<tr><td><div class='DivBullet'/></td><td>Pagefile</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & PageFileQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & PageFileQ.AgentValue & "%</td></tr>"
+        Catch
+            LayoutPanelRight = LayoutPanelRight & "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Pagefile</td><td colspan=2>No Data</td></tr>"
+        End Try
+
+        Try
+            For i = 0 To LocalDiskList.Count - 1 Step 2
+                LayoutPanelRight = LayoutPanelRight & "<tr><td><div class='DivBullet'/></td><td>" & LocalDiskList.Item(i).AgentClass & "</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & LocalDiskList.Item(i).AgentClass & ";" & LocalDiskList.Item(i).AgentProperty & "'>Active Time</a> | <a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & LocalDiskList.Item(i).AgentClass & ";" & LocalDiskList.Item(i + 1).AgentProperty & "'>Free Space</a></td><td style='text-align:center'>" & LocalDiskList.Item(i).AgentValue & "% | " & LocalDiskList.Item(i + 1).AgentValue & "%</td></tr>"
+            Next
+        Catch
+        End Try
 
         Dim Severity As String = Nothing
 
