@@ -31,7 +31,7 @@ Partial Class Reports_Reports
 
         If ReportType = "web" Then
 
-            Dim TableStart As String = "<table class='HoverTable'><thead><tr><th>Hostname</th><th>Domain</th><th>IP Address</th><th>Operating System</th><th>Architechture</th><th>Processors</th><th>Memory (MB)</th><th>Last Updated</th></tr></thead>"
+            Dim TableStart As String = "<table class='HoverTable'><thead><tr><th>Hostname</th><th>Domain</th><th>IP Address</th><th>Operating System</th><th>Architecture</th><th>Processors</th><th>Memory (MB)</th><th>Last Updated</th></tr></thead>"
             Dim Rows As String = Nothing
             For Each i In Q
                 Dim FormattedDate As Date = i.AgentDate
@@ -49,7 +49,7 @@ Partial Class Reports_Reports
 
         ElseIf ReportType = "csv" Then
 
-            Dim CSVString As String = """Hostname"",""Domain"",""IP Address"",""Operating System"",""Architechture"",""Processors"",""Memory (MB)"",""Last Updated"""
+            Dim CSVString As String = """Hostname"",""Domain"",""IP Address"",""Operating System"",""Architecture"",""Processors"",""Memory (MB)"",""Last Updated"""
 
             For Each i In Q
                 Dim FormattedDate As Date = i.AgentDate

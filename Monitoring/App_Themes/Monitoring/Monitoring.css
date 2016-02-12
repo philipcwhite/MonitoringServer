@@ -9,6 +9,9 @@ a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 .Button:hover {background:#cccccc;text-decoration: none; border-style:none}
 .ReportButton {border-radius: 1px;font-family: Arial;color: #ffffff;font-size: 8px;background:#A9DC8E;padding: 3px;text-decoration: none;font-weight:bold;border-style:none }
 .ReportButton:hover {background:#cccccc;text-decoration: none; border-style:none}
+.EventButton {border-radius: 1px;font-family: Arial;color: #ffffff;font-size: 8px;background:#ED848F;padding: 3px;text-decoration: none;font-weight:bold;border-style:none }
+.EventButton:hover {background:#cccccc;text-decoration: none; border-style:none}
+
 
 .TextBox {border:solid;border-width:1px;border-spacing:0px;border-radius:2px;border-color:#eeeeee;color:#7992BF;font:10px Verdana, Arial, Helvetica, sans-serif;}
 .DropDownList {border:solid;border-width:1px;border-spacing:0px;border-color:#eeeeee;color:#7992BF;font:10px Verdana, Arial, Helvetica, sans-serif;}
@@ -59,7 +62,9 @@ a.NavLinkOptions:hover{width:28px;height:28px;display:block;background-size:28px
 .FooterLeft{position:fixed;left:40px; bottom:0px; width:150px; height:28px; font:9px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#bbbbbb;}
 .FooterRight{position:fixed;right:28px; bottom:0px; width:150px; height:28px; font:9px Verdana, Arial, Helvetica, sans-serif;font-weight:bold;color:#bbbbbb;text-align:right}
 
-
+.LeftLegendDiv {border-radius: 3px; background-color:#ffffff;border-style:solid;border-color:#eeeeee;border-width:1px;position:absolute; Left:20px; width:80px;padding: 3px 8px 3px 8px; text-align:center}  
+.LegendText {font-weight:bold;}
+.RightLegendDiv {border-radius: 3px; background-color:#ffffff;border-style:solid;border-color:#eeeeee;border-width:1px;position:absolute; right:20px; width:220px;padding: 3px 8px 3px 8px;}  
 
 
 
