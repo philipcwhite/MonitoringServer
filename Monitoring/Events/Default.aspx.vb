@@ -6,7 +6,7 @@ Partial Class Events_Default
 
     Private Property EventSeverity As Integer
     Private Property EventStatus As Boolean
-
+    Private Property EventTotal As Integer
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -43,36 +43,40 @@ Partial Class Events_Default
         End Try
 
         If EventStatus = True Then
-            OpenLinkButton.CssClass = "LegendText"
+            OpenLinkButton.CssClass = "EventsLegendText"
         ElseIf EventStatus = False Then
-            ClosedLinkButton.CssClass = "LegendText"
+            ClosedLinkButton.CssClass = "EventsLegendText"
         End If
 
         If EventSeverity = 0 Then
-            InfoLinkButton.CssClass = "LegendText"
+            InfoLinkButton.CssClass = "EventsLegendText"
         ElseIf EventSeverity = 1 Then
-            WarningLinkButton.CssClass = "LegendText"
+            WarningLinkButton.CssClass = "EventsLegendText"
         ElseIf EventSeverity = 2 Then
-            CriticalLinkButton.CssClass = "LegendText"
+            CriticalLinkButton.CssClass = "EventsLegendText"
         ElseIf EventSeverity = 3 Then
-            AllLinkButton.CssClass = "LegendText"
+            AllLinkButton.CssClass = "EventsLegendText"
         End If
 
         'Add Paging for past 2500 Events
-        Dim Q = Nothing
+        Dim Q As IQueryable(Of AgentEvents) = Nothing
         If EventSeverity = 3 Then
             Q = (From T In db.AgentEvents
                  Where T.EventStatus = EventStatus
                  Order By T.EventDate Descending
                  Select T).Take(2500)
+            EventTotal = Q.Count
         Else
             Q = (From T In db.AgentEvents
                  Where T.EventStatus = EventStatus And T.EventSeverity = EventSeverity
                  Order By T.EventDate Descending
                  Select T).Take(2500)
+            EventTotal = Q.Count
         End If
 
-        Dim Table As New LiteralControl("<table class='HoverTable'><thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message</th><th style='width:35px'></th></tr></thead>")
+        TotalLabel.Text = "Total: " & EventTotal
+
+        Dim Table As New LiteralControl("<table class='HoverTable'><thead><tr><th style='width:25px'></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message</th><th style='width:35px'></th></tr></thead>")
         Dim Severity As String = Nothing
         EventPlaceHolder.Controls.Clear()
         EventPlaceHolder.Controls.Add(Table)
@@ -84,13 +88,13 @@ Partial Class Events_Default
                 Dim FormattedDate As Date = i.EventDate
                 If i.EventSeverity = 2 Then
                     Severity = "Critical"
-                    EventRows = "<tr><td><div class='EventStatusCritical'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostname & "'>" & i.EventHostname & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td><td>"
+                    EventRows = "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-red.png' style='height:8px;width:8px;' /></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostname & "'>" & i.EventHostname & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td><td>"
                 ElseIf i.EventSeverity = 1 Then
                     Severity = "Warning"
-                    EventRows = "<tr><td><div class='EventStatusWarning'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostname & "'>" & i.EventHostname & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td><td>"
+                    EventRows = "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-yellow.png' style='height:8px;width:8px;' /></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostname & "'>" & i.EventHostname & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td><td>"
                 ElseIf i.EventSeverity = 0 Then
-                    Severity = "Informational"
-                    EventRows = "<tr><td><div class='EventStatusInfo'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostname & "'>" & i.EventHostname & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td><td>"
+                    Severity = "Info"
+                    EventRows = "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-aqua.png' style='height:8px;width:8px;' /></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td><a href='../Devices/Device.aspx?hostname=" & i.EventHostname & "'>" & i.EventHostname & "</a></td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", "&lt;") & "</td><td>"
                 End If
 
                 Dim Row As New LiteralControl(EventRows)

@@ -18,7 +18,7 @@ Partial Class Devices_Default
 
 
 
-        Dim Table As New LiteralControl("<table class='HoverTable'><thead><tr><th></th><th>Hostname</th><th>Domain</th><th>IP Address</th><th>Operating System</th></tr></thead>")
+        Dim Table As New LiteralControl("<table class='HoverTable'><thead><tr><th style='width:25px'></th><th>Hostname</th><th>Domain</th><th>IP Address</th><th>Operating System</th></tr></thead>")
         DevicesPlaceHolder.Controls.Clear()
         DevicesPlaceHolder.Controls.Add(Table)
 
@@ -28,9 +28,9 @@ Partial Class Devices_Default
         For Each i In Q
 
             If i.AgentDate < StatusDate Then
-                DeviceRows = DeviceRows & "<tr><td><div class='EventStatusCritical'></div></td><td><a href='Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>"
+                DeviceRows = DeviceRows & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-red.png' style='height:8px;width:8px;' /></td><td><a href='Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>"
             Else
-                DeviceRows = DeviceRows & "<tr><td><div class='EventStatusOK'></div></td><td><a href='Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>"
+                DeviceRows = DeviceRows & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-green.png' style='height:8px;width:8px;' /></td><td><a href='Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>"
             End If
         Next
         If DeviceRows = "" Then

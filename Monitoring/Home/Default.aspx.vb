@@ -27,9 +27,9 @@ Partial Class Main_Default
         For Each i In Q
 
             If i.AgentDate < StatusDate Then
-                Rows = Rows & "<tr><td><div class='EventStatusCritical'></div></td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>"
+                Rows = Rows & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-red.png' style='height:8px;width:8px;' /></td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>"
             Else
-                Rows = Rows & "<tr><td><div class='EventStatusOK'></div></td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>"
+                Rows = Rows & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-green.png' style='height:8px;width:8px;' /></td><td><a href='../Devices/Device.aspx?hostname=" & i.AgentName & "'>" & i.AgentName & "</a></td><td>" & i.AgentDomain & "</td><td>" & i.AgentIP & "</td><td>" & i.AgentOSName & "</td></tr>"
             End If
 
         Next
@@ -45,7 +45,7 @@ Partial Class Main_Default
         Dim LayoutStart As New LiteralControl("<table style='width:100%'><tr><td style='padding-right:7px;width:50%'>")
         Dim Layout1 As New LiteralControl("</td><td style='padding-left:7px;width:50%'>")
         Dim Layout2 As New LiteralControl("</td></tr></table> <br />")
-        Dim TableStart As New LiteralControl("<table class='HoverTable'><thead><tr><th></th><th>Hostname</th><th>Domain</th><th>IP Address</th><th>Operating System</th></tr></thead>")
+        Dim TableStart As New LiteralControl("<table class='HoverTable'><thead><tr><th style='width:25px'></th><th>Hostname</th><th>Domain</th><th>IP Address</th><th>Operating System</th></tr></thead>")
         Dim TableRows As New LiteralControl(Rows)
         Dim TableEnd As New LiteralControl("</Table>")
 
@@ -181,9 +181,9 @@ Partial Class Main_Default
 
 
 
-        Dim ContentInfoBox As String = "</td><td><table><tr><td style='width:15px'><div class='EventStatusCritical' /></td><td>" & CritAlert & " Critical Events</td></tr>" &
-            "<tr><td><div class='EventStatusWarning' /></td><td>" & WarnAlert & " Warning Events</td></tr>" &
-            "<tr><td><div class='EventStatusInfo' /></td><td>" & InfoAlert & " Info Events</td></tr></table></td></tr></table>"
+        Dim ContentInfoBox As String = "</td><td><table><tr><td style='width:15px'><img src='../App_Themes/Monitoring/box-red.png' style='height:8px;width:8px;' /></td><td>" & CritAlert & " Critical Events</td></tr>" &
+            "<tr><td><img src='../App_Themes/Monitoring/box-yellow.png' style='height:8px;width:8px;' /></td><td>" & WarnAlert & " Warning Events</td></tr>" &
+            "<tr><td><img src='../App_Themes/Monitoring/box-aqua.png' style='height:8px;width:8px;' /></td><td>" & InfoAlert & " Info Events</td></tr></table></td></tr></table>"
         Dim InfoBoxControl As New LiteralControl(ContentInfoBox)
 
         Dim TableEnd As New LiteralControl("</td></tr></table>")
@@ -306,8 +306,8 @@ Partial Class Main_Default
         Dim TableStart As New LiteralControl("<table class='StaticTable'><thead><tr><th style='text-align:left'>Device Summary</th></tr></thead><tr><td><table><tr><td>")
 
 
-        Dim ContentInfoBox As String = "</td><td><table><tr><td style='width:15px'><div class='EventStatusOK' /></td><td>" & Ok & " Devices Ok</td></tr>" &
-            "<tr><td><div class='EventStatusCritical' /></td><td>" & Down & " Devices Down</td></tr>" &
+        Dim ContentInfoBox As String = "</td><td><table><tr><td style='width:15px'><img src='../App_Themes/Monitoring/box-green.png' style='height:8px;width:8px;' /></td><td>" & Ok & " Devices Ok</td></tr>" &
+            "<tr><td><img src='../App_Themes/Monitoring/box-red.png' style='height:8px;width:8px;' /></td><td>" & Down & " Devices Down</td></tr>" &
             "<tr><td></td><td></td></tr></table></td></tr></table>"
         Dim InfoBoxControl As New LiteralControl(ContentInfoBox)
 

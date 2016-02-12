@@ -33,7 +33,7 @@ Partial Class Devices_Services
                      Order By T.AgentValue Descending, T.AgentProperty Ascending
                      Select T
 
-            Dim Table As New LiteralControl("<table class='HoverTable' style='width:100%'><thead><tr><th style='width:30px'></th><th>Service Name</th><th>Status</th><th>Collect Date</th></tr></thead>")
+            Dim Table As New LiteralControl("<table class='HoverTable' style='width:100%'><thead><tr><th style='width:25px'></th><th>Service Name</th><th>Status</th><th>Collect Date</th></tr></thead>")
 
 
 
@@ -41,9 +41,9 @@ Partial Class Devices_Services
 
             For Each i In Q2
                 If i.AgentValue = 1 Then
-                    ServiceRows = ServiceRows & "<tr><td><div class='EventStatusOK'></div></td><td>" & i.AgentProperty & "</td><td>Running</td><td>" & i.AgentCollectDate & "</td></tr>"
+                    ServiceRows = ServiceRows & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-green.png' style='height:8px;width:8px;' /></td><td>" & i.AgentProperty & "</td><td>Running</td><td>" & i.AgentCollectDate & "</td></tr>"
                 ElseIf i.AgentValue = 0 Then
-                    ServiceRows = ServiceRows & "<tr><td><div class='EventStatusCritical'></div></td><td>" & i.AgentProperty & "</td><td>Stopped</td><td>" & i.AgentCollectDate & "</td></tr>"
+                    ServiceRows = ServiceRows & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-red.png' style='height:8px;width:8px;' /></td><td>" & i.AgentProperty & "</td><td>Stopped</td><td>" & i.AgentCollectDate & "</td></tr>"
                 End If
             Next
 

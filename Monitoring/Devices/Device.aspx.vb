@@ -84,40 +84,40 @@ Partial Class Devices_Device
         Dim Layout3 As String = "</table><br/></td></tr></table></td></tr>" &
                                 "<tr><td style='padding:0px' colspan='2'>" &
                                 "<table class='HoverTable'>" &
-                                "<thead><tr><th></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message</th></tr></thead>"
+                                "<thead><tr><th style='width:25px'></th><th>Date</th><th>Severity</th><th>Hostname</th><th>Class</th><th>Message</th></tr></thead>"
         Dim LayoutPanelBottom As String = Nothing
         Dim Layout4 As String = "</table></td><td></td></tr></table>"
 
 
-        LayoutPanelLeft = "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Hostname:</td><td>" & AgentQ.AgentName & "</td></tr>" &
-                          "<tr><td><div class='DivBullet'/></td><td>Domain:</td><td>" & AgentQ.AgentDomain & "</td></tr>" &
-                          "<tr><td><div class='DivBullet'/></td><td>IP Address:</td><td>" & AgentQ.AgentIP & "</td></tr>" &
-                          "<tr><td><div class='DivBullet'/></td><td>Operating System:</td><td>" & AgentQ.AgentOSName & " (" & AgentQ.AgentOSArchitecture & ")</td></tr>" &
-                          "<tr><td><div class='DivBullet'/></td><td>Processors:</td><td>" & AgentQ.AgentProcessors & "</td></tr>" &
-                          "<tr><td><div class='DivBullet'/></td><td>Memory:</td><td>" & AgentQ.AgentMemory & " MB </td></tr>" &
-                          "<tr><td><div class='DivBullet'/></td><td>Last Updated:</td><td>" & CurrentDate.ToString("M/dd/yyyy h:mm tt") & "</td></tr></table>"
+        LayoutPanelLeft = "<tr><td style='width:10px'><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Hostname:</td><td>" & AgentQ.AgentName & "</td></tr>" &
+                          "<tr><td><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Domain:</td><td>" & AgentQ.AgentDomain & "</td></tr>" &
+                          "<tr><td><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>IP Address:</td><td>" & AgentQ.AgentIP & "</td></tr>" &
+                          "<tr><td><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Operating System:</td><td>" & AgentQ.AgentOSName & " (" & AgentQ.AgentOSArchitecture & ")</td></tr>" &
+                          "<tr><td><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Processors:</td><td>" & AgentQ.AgentProcessors & "</td></tr>" &
+                          "<tr><td><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Memory:</td><td>" & AgentQ.AgentMemory & " MB </td></tr>" &
+                          "<tr><td><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Last Updated:</td><td>" & CurrentDate.ToString("M/dd/yyyy h:mm tt") & "</td></tr></table>"
 
         Try
-            LayoutPanelRight = "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Processor</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & ProcessorQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & ProcessorQ.AgentValue & "%</td></tr>"
+            LayoutPanelRight = "<tr><td style='width:10px'><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Processor</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & ProcessorQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & ProcessorQ.AgentValue & "%</td></tr>"
         Catch
-            LayoutPanelRight = "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Processor</td><td colspan=2>No Data</td></tr>"
+            LayoutPanelRight = "<tr><td style='width:10px'><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Processor</td><td colspan=2>No Data</td></tr>"
         End Try
 
         Try
-            LayoutPanelRight = LayoutPanelRight & "<tr><td><div class='DivBullet'/></td><td>Memory</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & MemoryQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & MemoryQ.AgentValue & "%</td></tr>"
+            LayoutPanelRight = LayoutPanelRight & "<tr><td><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Memory</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & MemoryQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & MemoryQ.AgentValue & "%</td></tr>"
         Catch
-            LayoutPanelRight = LayoutPanelRight & "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Memory</td><td colspan=2>No Data</td></tr>"
+            LayoutPanelRight = LayoutPanelRight & "<tr><td style='width:10px'><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Memory</td><td colspan=2>No Data</td></tr>"
         End Try
 
         Try
-            LayoutPanelRight = LayoutPanelRight & "<tr><td><div class='DivBullet'/></td><td>Pagefile</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & PageFileQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & PageFileQ.AgentValue & "%</td></tr>"
+            LayoutPanelRight = LayoutPanelRight & "<tr><td><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Pagefile</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & PageFileQ.AgentClass & "'>Total Utilization</a></td><td style='text-align:center'>" & PageFileQ.AgentValue & "%</td></tr>"
         Catch
-            LayoutPanelRight = LayoutPanelRight & "<tr><td style='width:10px'><div class='DivBullet'/></td><td>Pagefile</td><td colspan=2>No Data</td></tr>"
+            LayoutPanelRight = LayoutPanelRight & "<tr><td style='width:10px'><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>Pagefile</td><td colspan=2>No Data</td></tr>"
         End Try
 
         Try
             For i = 0 To LocalDiskList.Count - 1 Step 2
-                LayoutPanelRight = LayoutPanelRight & "<tr><td><div class='DivBullet'/></td><td>" & LocalDiskList.Item(i).AgentClass & "</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & LocalDiskList.Item(i).AgentClass & ";" & LocalDiskList.Item(i).AgentProperty & "'>Active Time</a> | <a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & LocalDiskList.Item(i).AgentClass & ";" & LocalDiskList.Item(i + 1).AgentProperty & "'>Free Space</a></td><td style='text-align:center'>" & LocalDiskList.Item(i).AgentValue & "% | " & LocalDiskList.Item(i + 1).AgentValue & "%</td></tr>"
+                LayoutPanelRight = LayoutPanelRight & "<tr><td><img src='../App_Themes/Monitoring/box-gray.png' style='height:8px;width:8px;' /></td><td>" & LocalDiskList.Item(i).AgentClass & "</td><td><a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & LocalDiskList.Item(i).AgentClass & ";" & LocalDiskList.Item(i).AgentProperty & "'>Active Time</a> | <a href='Graph.aspx?hostname=" & AgentQ.AgentName & "&class=" & LocalDiskList.Item(i).AgentClass & ";" & LocalDiskList.Item(i + 1).AgentProperty & "'>Free Space</a></td><td style='text-align:center'>" & LocalDiskList.Item(i).AgentValue & "% | " & LocalDiskList.Item(i + 1).AgentValue & "%</td></tr>"
             Next
         Catch
         End Try
@@ -129,13 +129,13 @@ Partial Class Devices_Device
                 Dim FormattedDate As Date = i.EventDate
                 If i.EventSeverity = 2 Then
                     Severity = "Critical"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusCritical'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-red.png' style='height:8px;width:8px;' /></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
                 ElseIf i.EventSeverity = 1 Then
                     Severity = "Warning"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusWarning'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-yellow.png' style='height:8px;width:8px;' /></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
                 ElseIf i.EventSeverity = 0 Then
-                    Severity = "Informational"
-                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td><div class='EventStatusInfo'></div></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
+                    Severity = "Info"
+                    LayoutPanelBottom = LayoutPanelBottom & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-aqua.png' style='height:8px;width:8px;' /></td><td>" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & "</td><td>" & Severity & "</td><td>" & i.EventHostname & "</td><td>" & i.EventClass & "</td><td>" & i.EventMessage.Replace(">", "&gt; ").Replace("<", " &lt;") & "</td></tr>"
 
                 ElseIf EventQ Is Nothing Then
                     LayoutPanelBottom = "<tr><td colspan='6' style='text-align:center'>No Events</td></tr>"

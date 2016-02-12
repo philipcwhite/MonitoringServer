@@ -1,10 +1,10 @@
-# Monitoring Server 0.6.1b 
+# Monitoring Server 0.6.2b 
 
 ##About
 
 This repository contains the code for the Monitoring Server Application.  The Monitoring Server contains 4 parts.  MonitoringCollector is a Windows service that collects data from the Monitoring Agent and inserts it into the database.  MonitoringDataEngine processes the data and moves it to the correct tables.  MonitoringEventEngine creates events when thresholds have been crossed.  Monitoring is the Website component that is used to view and Administer the Monitoring solution.  It also creates the database when the site is loaded for the first time.  
 
-I am nearing the end of the Version 1 development cycle.  If you are beta testing, the database should not change farther leading up to the 1.0.0 release.  I may not need an additional 39 releases before version 1.0.0 but I do plan on releasing a very stable product so I plan on doing a lot of testing.  If there is enough interest in the product I will open up discussion for a version 2 of the Monitoring Server and take community feedback.
+I am nearing the end of the Version 1 development cycle.  If you are beta testing, the database should not change farther leading up to the 1.0.0 release.  I may not need an additional 38 releases before version 1.0.0 but I do plan on releasing a very stable product so I plan on doing a lot of testing.  If there is enough interest in the product I will open up discussion for a version 2 of the Monitoring Server and take community feedback.
 
 
 For setup and configuration please see the new Wiki
@@ -33,7 +33,16 @@ For setup and configuration please see the new Wiki
 ##Change Log
 
 
-###Changes for Version 0.6.1b (2016/02/09):
+###Changes for Version 0.6.2b (2016/02/12):
+
+1.  Changed bullets to use small images for better alignment.
+
+2.  Added an event count to the events page.
+
+3.  Updated the Wiki.
+
+
+###Changes for Version 0.6.1b (2016/02/12):
 
 1.  Updated the Event view to allow filtering by status and severity.
 
