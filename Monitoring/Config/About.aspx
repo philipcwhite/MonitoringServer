@@ -12,7 +12,7 @@
         </tr>
         <tr>
             <td>
-                Monitoring Server 0.6.2B<br />
+                Monitoring Server 0.6.3B<br />
                 GitHub Project Page: <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="https://github.com/philipcwhite">https://github.com/philipcwhite</asp:HyperLink><br />
                 Copyright 2016 Phil White, PCW Soft<br />
             </td>

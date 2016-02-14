@@ -3,6 +3,7 @@ Partial Class Devices_Graph
     Inherits System.Web.UI.Page
 
     Private Property db As New DBModel
+    Private Shared Property DataList As New List(Of AgentData)
 
     Private Sub Devices_Graph_Load(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -17,7 +18,7 @@ Partial Class Devices_Graph
             HostNameLabel.Text = QString1
             DeviceHyperLink.NavigateUrl = "~/Devices/Device.aspx?hostname=" & QString1
 
-            ClassLabel.Text = QString1
+            AgentLabel.Text = QString1
             PropertyLabel.Text = QString2
 
             If QString2.Contains("Local Disk") Then
@@ -34,15 +35,14 @@ Partial Class Devices_Graph
 
 
     Protected Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
-
         If TimeRangeDropDownList.SelectedValue = 1 Then
-            LoadGraph(ClassLabel.Text, PropertyLabel.Text, Date.Now, 60)
+            LoadGraph(AgentLabel.Text, PropertyLabel.Text, Date.Now, 60)
         ElseIf TimeRangeDropDownList.SelectedValue = 6 Then
-            LoadGraph(ClassLabel.Text, PropertyLabel.Text, Date.Now, 360)
+            LoadGraph(AgentLabel.Text, PropertyLabel.Text, Date.Now, 360)
         ElseIf TimeRangeDropDownList.SelectedValue = 12 Then
-            LoadGraph(ClassLabel.Text, PropertyLabel.Text, Date.Now, 720)
+            LoadGraph(AgentLabel.Text, PropertyLabel.Text, Date.Now, 720)
         ElseIf TimeRangeDropDownList.SelectedValue = 24 Then
-            LoadGraph(ClassLabel.Text, PropertyLabel.Text, Date.Now, 1440)
+            LoadGraph(AgentLabel.Text, PropertyLabel.Text, Date.Now, 1440)
         End If
     End Sub
 
@@ -65,7 +65,9 @@ Partial Class Devices_Graph
         Dim xTimeText As String = Nothing
         Dim xValue1 As Integer = 50
         Dim xValue2 As Integer = 100
-        Dim DataList As New List(Of AgentData)
+
+        'Initialize DataList
+        DataList.Clear()
 
         If Duration = 60 Then
             xTimeStart = RoundTime5Min(StartTime.AddMinutes(-Duration))
@@ -225,10 +227,6 @@ Partial Class Devices_Graph
 
     End Sub
 
-
-
-
-
     Private Function RoundTime5Min(ByVal StartTime As Date) As Date
         Dim MyDateTime = StartTime
         Dim DatePart = MyDateTime.Date
@@ -265,6 +263,27 @@ Partial Class Devices_Graph
         Dim NewTime = DatePart.Add(TimePart)
         Return NewTime
     End Function
+
+    Protected Sub csvButton_Click(sender As Object, e As EventArgs) Handles csvButton.Click
+
+        Dim CSVString As String = """Agent Name"",""Time"",""Value"""
+
+        For Each i In DataList
+
+            Dim FormattedDate As Date = i.AgentTime
+            CSVString = CSVString & vbCrLf & """" & i.AgentName & """,""" & FormattedDate.ToString("M/dd/yyyy h:mm tt") & """,""" & i.AgentValue1 & """"
+        Next
+        Response.Clear()
+        Response.ContentType = "text/csv"
+        Response.AddHeader("content-disposition", "attachment;filename=AgentGraph.csv")
+        Response.Write(CSVString)
+        Response.End()
+
+
+
+    End Sub
+
+
 
 End Class
 
