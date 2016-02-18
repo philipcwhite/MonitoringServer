@@ -1,4 +1,4 @@
-# Monitoring Server 0.6.3b 
+# Monitoring Server 0.6.4b 
 
 ##About
 
@@ -24,11 +24,21 @@ For setup and configuration please see the new Wiki
  
 ###Graphing View
 
-![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Graph.png)
+![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Graphing.png)
  
+###Reporting View
+
+![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Reports.png)
 
 
 ##Change Log
+
+
+###Changes for Version 0.6.4b (2016/02/17):
+
+1.  Added 3 performance reports.
+
+2.  Updated Screenshots.
 
 
 ###Changes for Version 0.6.3b (2016/02/14):

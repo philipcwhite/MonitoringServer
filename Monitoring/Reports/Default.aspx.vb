@@ -26,4 +26,22 @@ Partial Class Reports_Default
         Response.Redirect("~/Reports/Reports.aspx?ReportID=3&Type=csv")
     End Sub
 
+    Protected Sub web4Button_Click(sender As Object, e As EventArgs) Handles web4Button.Click
+        Response.Redirect("~/Reports/Reports.aspx?ReportID=4&Type=web")
+    End Sub
+    Protected Sub csv4Button_Click(sender As Object, e As EventArgs) Handles csv4Button.Click
+        Response.Redirect("~/Reports/Reports.aspx?ReportID=4&Type=csv")
+    End Sub
+    Protected Sub web5Button_Click(sender As Object, e As EventArgs) Handles web5Button.Click
+        Response.Redirect("~/Reports/Reports.aspx?ReportID=5&Type=web")
+    End Sub
+    Protected Sub csv5Button_Click(sender As Object, e As EventArgs) Handles csv5Button.Click
+        Response.Redirect("~/Reports/Reports.aspx?ReportID=5&Type=csv")
+    End Sub
+    Protected Sub web6Button_Click(sender As Object, e As EventArgs) Handles web6Button.Click
+        Response.Redirect("~/Reports/Reports.aspx?ReportID=6&Type=web")
+    End Sub
+    Protected Sub csv6Button_Click(sender As Object, e As EventArgs) Handles csv6Button.Click
+        Response.Redirect("~/Reports/Reports.aspx?ReportID=6&Type=csv")
+    End Sub
 End Class
