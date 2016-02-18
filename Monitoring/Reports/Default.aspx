@@ -10,7 +10,7 @@
             <tr>
             <th>Report Name</th>
             <th>Report Description</th>
-            <th style="width:50px;"></th>
+            <th style="width:60px;"></th>
             </tr>
                     </thead>
               <tr>

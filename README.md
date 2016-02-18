@@ -1,4 +1,4 @@
-# Monitoring Server 0.6.4b 
+# Monitoring Server 0.6.5b 
 
 ##About
 
@@ -32,6 +32,11 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.6.5b (2016/02/17):
+
+1.  Updated Spacing issue in Mozilla Firefox.
 
 
 ###Changes for Version 0.6.4b (2016/02/17):
