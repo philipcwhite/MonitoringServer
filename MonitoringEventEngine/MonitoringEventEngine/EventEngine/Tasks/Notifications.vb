@@ -100,9 +100,6 @@ Public Class Notifications
 
         ARecipients = ARecipients.Substring(0, ARecipients.Length - 1)
 
-        AMessage = filterXML(AMessage)
-        AComparison = filterXML(AComparison)
-
 
         If Not File.Exists(Path & NGUID & ".xml") Then
             Dim Settings As XmlWriterSettings = New XmlWriterSettings()
@@ -140,14 +137,5 @@ Public Class Notifications
     End Sub
 
 
-    Public Function filterXML(ByVal input As String)
-        Dim output As String = Nothing
-
-        input = input.Replace(">", "&gt;")
-        input = input.Replace("<", "&lt;")
-        output = input
-
-        Return output
-    End Function
 
 End Class

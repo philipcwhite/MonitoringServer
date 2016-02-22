@@ -1,4 +1,4 @@
-# Monitoring Server 0.6.6b 
+# Monitoring Server 0.6.7b 
 
 ##About
 
@@ -32,6 +32,10 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+###Changes for Version 0.6.7b (2016/02/22):
+
+1.  Small fix to xml export on event engine.
 
 
 ###Changes for Version 0.6.6b (2016/02/22):
