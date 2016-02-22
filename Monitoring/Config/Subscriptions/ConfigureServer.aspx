@@ -10,7 +10,7 @@
             <tr>
             <td>Route Notification:</td>
             <td>
-                <asp:DropDownList ID="RouteDropDownList" runat="server" CssClass="DropDownList" Width="100px">
+                <asp:DropDownList ID="RouteDropDownList" runat="server" CssClass="DropDownList" Width="124px">
                     <asp:ListItem Value="None"></asp:ListItem>
                     <asp:ListItem Value="Email"></asp:ListItem>
                     <asp:ListItem Value="Text"></asp:ListItem>
@@ -19,12 +19,12 @@
        <tr>
             <td>Hostname of Relay Server:</td>
             <td>
-                <asp:TextBox ID="HostNameTextBox" runat="server" CssClass="TextBox"></asp:TextBox></td>
+                <asp:TextBox ID="HostNameTextBox" runat="server" CssClass="TextBox" Width="120px"></asp:TextBox></td>
         </tr>
          <tr>
             <td>From Email Address:</td>
             <td>
-                <asp:TextBox ID="AdminTextBox" runat="server" CssClass="TextBox"></asp:TextBox></td>
+                <asp:TextBox ID="AdminTextBox" runat="server" CssClass="TextBox" Width="120px"></asp:TextBox></td>
         </tr>  
          <tr>
             <td></td>

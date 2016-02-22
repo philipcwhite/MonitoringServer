@@ -1,4 +1,4 @@
-# Monitoring Server 0.6.7b 
+# Monitoring Server 0.6.8b 
 
 ##About
 
@@ -32,6 +32,12 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.6.8b (2016/02/22):
+
+1.  Small fix to notification config saving.
+
 
 ###Changes for Version 0.6.7b (2016/02/22):
 

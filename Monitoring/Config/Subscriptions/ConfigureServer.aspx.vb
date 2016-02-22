@@ -5,31 +5,47 @@ Partial Class Config_Subscriptions_ConfigureServer
 
     Protected Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
 
-        Dim QRoute = (From T In db.ServerConfiguration
+        Dim Q = From T In db.ServerConfiguration
+                Select T.Name, T.Value
+
+        Dim Exist As Integer = 0
+
+        For Each i In Q
+            If i.Name = "Event_Route" Then
+                Exist = Exist + 1
+            ElseIf i.Name = "Mail_Server" Then
+                Exist = Exist + 1
+            ElseIf i.Name = "Mail_Admin" Then
+                Exist = Exist + 1
+            End If
+        Next
+
+
+
+        If Exist = 3 Then
+            Dim Q1 = (From T In db.ServerConfiguration
                       Where T.Name = "Event_Route"
-                      Select T.Value).FirstOrDefault
+                      Select T).FirstOrDefault
 
-        Dim QServer = (From T In db.ServerConfiguration
-                       Where T.Name = "Mail_Server"
-                       Select T.Value).FirstOrDefault
-        Dim QAdmin = (From T In db.ServerConfiguration
-                      Where T.Name = "Mail_Admin"
-                      Select T.Value).FirstOrDefault
-
-
-        If QRoute IsNot Nothing Then
-            QRoute = RouteDropDownList.SelectedValue
+            Q1.Value = RouteDropDownList.SelectedValue
             db.SaveChanges()
+
+            Dim Q2 = (From T In db.ServerConfiguration
+                      Where T.Name = "Mail_Server"
+                      Select T).FirstOrDefault
+
+            Q2.Value = HostNameTextBox.Text
+            db.SaveChanges()
+
+            Dim Q3 = (From T In db.ServerConfiguration
+                      Where T.Name = "Mail_Admin"
+                      Select T).FirstOrDefault
+
+            Q3.Value = AdminTextBox.Text
+            db.SaveChanges()
+
         Else
             db.ServerConfiguration.Add(New ServerConfiguration With {.Name = "Event_Route", .Value = RouteDropDownList.SelectedValue})
-            db.SaveChanges()
-        End If
-
-        If QAdmin IsNot Nothing And QServer IsNot Nothing Then
-            QServer = HostNameTextBox.Text
-            QAdmin = AdminTextBox.Text
-            db.SaveChanges()
-        Else
             db.ServerConfiguration.Add(New ServerConfiguration With {.Name = "Mail_Server", .Value = HostNameTextBox.Text})
             db.ServerConfiguration.Add(New ServerConfiguration With {.Name = "Mail_Admin", .Value = AdminTextBox.Text})
             db.SaveChanges()
