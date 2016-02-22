@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-<h2>Configuration</h2>
+    <h2>Configuration</h2>
     <br />
     <table style='width: 100%'><tr><td style='vertical-align:top;padding-right:10px'>
    
@@ -55,7 +55,7 @@
                 <table>
                     <tr><td style="width:10px"><img src="../App_Themes/Monitoring/box-gray.png" style="height:8px;width:8px;" /></td><td><asp:HyperLink ID="ThresholdsHyperLink" runat="server" NavigateUrl="~/Config/Thresholds/GlobalThresholds.aspx">Global Thresholds</asp:HyperLink>
                         </td></tr>
-<tr><td><img src="../App_Themes/Monitoring/box-gray.png" style="height:8px;width:8px;" /></td><td><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Config/Subscriptions/MailServer.aspx">Mail Server</asp:HyperLink>
+<tr><td><img src="../App_Themes/Monitoring/box-gray.png" style="height:8px;width:8px;" /></td><td><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Config/Subscriptions/ConfigureServer.aspx">Event Routing</asp:HyperLink>
     </td></tr>
 
                 </table>

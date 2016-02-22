@@ -1,6 +1,7 @@
 ﻿Namespace MonitoringDatabase
     Public Class AgentEvents
         Public Property EventID As Int64
+        Public Property EventDate As Date? = Nothing
         Public Property EventHostname As String
         Public Property EventMessage As String
         Public Property EventStatus As Boolean
@@ -10,6 +11,5 @@
         Public Property EventThreshold As Int32
         Public Property EventComparison As String
         Public Property EventTimeRange As Int32
-        Public Property EventDate As Date? = Nothing
     End Class
 End Namespace

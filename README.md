@@ -1,4 +1,4 @@
-# Monitoring Server 0.6.5b 
+# Monitoring Server 0.6.6b 
 
 ##About
 
@@ -32,6 +32,19 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.6.6b (2016/02/22):
+
+This update brings a lot of changes.  
+
+1.  The three server services are now configured to run as local system by default.  You will need to grant database permissions to this account in addition to network service.  This eliminates the issue of having to deal with folder permissions in the Program Files directory.
+
+2.  I have changed how files are stored in the install directory.  I have seperated the config, log, and executables, and I have created a new folder called export.
+
+3.  I have made a lot of changes to processing notifications.  I now added the option to export notifications to a file  in the export directory.  Exported notifications are stored as xml files and use a GUID for the filename ensuring uniqueness.
+
+4.  I fixed a bug that stoped new notifications from being send on escallation.  Now if an event escallates another notification is sent.  All notifications are based off thresholds.  So for example if you do not want a notification to send for an info alert then disable the threshold.
 
 
 ###Changes for Version 0.6.5b (2016/02/17):

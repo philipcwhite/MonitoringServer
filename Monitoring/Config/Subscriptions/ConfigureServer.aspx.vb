@@ -1,9 +1,13 @@
 ﻿Imports MonitoringDatabase
-Partial Class Config_Subscriptions_MailServer
+Partial Class Config_Subscriptions_ConfigureServer
     Inherits System.Web.UI.Page
     Private Property db As New DBModel
 
     Protected Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
+
+        Dim QRoute = (From T In db.ServerConfiguration
+                      Where T.Name = "Event_Route"
+                      Select T.Value).FirstOrDefault
 
         Dim QServer = (From T In db.ServerConfiguration
                        Where T.Name = "Mail_Server"
@@ -11,6 +15,15 @@ Partial Class Config_Subscriptions_MailServer
         Dim QAdmin = (From T In db.ServerConfiguration
                       Where T.Name = "Mail_Admin"
                       Select T.Value).FirstOrDefault
+
+
+        If QRoute IsNot Nothing Then
+            QRoute = RouteDropDownList.SelectedValue
+            db.SaveChanges()
+        Else
+            db.ServerConfiguration.Add(New ServerConfiguration With {.Name = "Event_Route", .Value = RouteDropDownList.SelectedValue})
+            db.SaveChanges()
+        End If
 
         If QAdmin IsNot Nothing And QServer IsNot Nothing Then
             QServer = HostNameTextBox.Text
@@ -22,6 +35,8 @@ Partial Class Config_Subscriptions_MailServer
             db.SaveChanges()
         End If
 
+
+
         Response.Redirect("~/Config")
     End Sub
 
@@ -31,7 +46,9 @@ Partial Class Config_Subscriptions_MailServer
                     Select T
 
             For Each i In Q
-                If i.Name = "Mail_Server" Then
+                If i.Name = "Event_Route" Then
+                    RouteDropDownList.SelectedValue = i.Value
+                ElseIf i.Name = "Mail_Server" Then
                     HostNameTextBox.Text = i.Value
                 ElseIf i.Name = "Mail_Admin" Then
                     AdminTextBox.Text = i.Value

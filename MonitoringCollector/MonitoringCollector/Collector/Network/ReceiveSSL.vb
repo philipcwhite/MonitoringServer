@@ -15,7 +15,7 @@ Public Class ReceiveSSL
     Public ListenPort As Integer = TCPListenPort
     Public ListenAddress As IPAddress = IPAddress.Any
     Public tcpListener As TcpListener = New TcpListener(ListenAddress, ListenPort)
-    Public Shared serverCertificate As New X509Certificate2(ServerPath & "certificate.pfx", CertificatePassword)
+    Public Shared serverCertificate As New X509Certificate2(ServerPath & "config\certificate.pfx", CertificatePassword)
 
     Public Sub StartListener()
         tcpListener.Start()

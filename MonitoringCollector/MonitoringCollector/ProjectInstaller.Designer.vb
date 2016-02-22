@@ -22,27 +22,27 @@
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MonitoringServiceProcessInstaller = New System.ServiceProcess.ServiceProcessInstaller()
-        Me.MonitoringCollectorServiceInstaller = New System.ServiceProcess.ServiceInstaller()
+        Me.MCollectorServiceInstaller = New System.ServiceProcess.ServiceInstaller()
         '
         'MonitoringServiceProcessInstaller
         '
-        Me.MonitoringServiceProcessInstaller.Account = System.ServiceProcess.ServiceAccount.NetworkService
+        Me.MonitoringServiceProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem
         Me.MonitoringServiceProcessInstaller.Password = Nothing
         Me.MonitoringServiceProcessInstaller.Username = Nothing
         '
-        'MonitoringCollectorServiceInstaller
+        'MCollectorServiceInstaller
         '
-        Me.MonitoringCollectorServiceInstaller.Description = "Monitoring Collector"
-        Me.MonitoringCollectorServiceInstaller.DisplayName = "Monitoring Collector"
-        Me.MonitoringCollectorServiceInstaller.ServiceName = "MonitoringCollector"
-        Me.MonitoringCollectorServiceInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic
+        Me.MCollectorServiceInstaller.Description = "Monitoring Collector"
+        Me.MCollectorServiceInstaller.DisplayName = "Monitoring Collector"
+        Me.MCollectorServiceInstaller.ServiceName = "MCollector"
+        Me.MCollectorServiceInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic
         '
         'ProjectInstaller
         '
-        Me.Installers.AddRange(New System.Configuration.Install.Installer() {Me.MonitoringServiceProcessInstaller, Me.MonitoringCollectorServiceInstaller})
+        Me.Installers.AddRange(New System.Configuration.Install.Installer() {Me.MonitoringServiceProcessInstaller, Me.MCollectorServiceInstaller})
 
     End Sub
 
     Friend WithEvents MonitoringServiceProcessInstaller As ServiceProcess.ServiceProcessInstaller
-    Friend WithEvents MonitoringCollectorServiceInstaller As ServiceProcess.ServiceInstaller
+    Friend WithEvents MCollectorServiceInstaller As ServiceProcess.ServiceInstaller
 End Class

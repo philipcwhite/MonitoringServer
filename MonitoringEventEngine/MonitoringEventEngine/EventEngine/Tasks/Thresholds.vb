@@ -251,17 +251,26 @@ Public Class Thresholds
                         Q.EventProperty = AProperty
                         Q.EventThreshold = AThreshold
                         Q.EventTimeRange = AThresholdTime
+
+                        Try
+                            Dim Notify As New Notifications
+                            Notify.RouteNotification(AName, AEventDate, AMessage, ASeverity, AClass, AProperty, AComparison)
+                        Catch
+                        End Try
+
                     End If
                     db.SaveChanges()
 
                 Else
                     db.AgentEvents.Add(New AgentEvents With {.EventHostname = AName, .EventClass = AClass, .EventProperty = AProperty, .EventStatus = AStatus, .EventSeverity = ASeverity, .EventMessage = AMessage, .EventComparison = AComparison, .EventThreshold = AThreshold, .EventTimeRange = AThresholdTime, .EventDate = AEventDate})
                     db.SaveChanges()
+
                     Try
                         Dim Notify As New Notifications
-                        Notify.Send(AName, AMessage, ASeverity, AClass, AProperty, AComparison)
+                        Notify.RouteNotification(AName, AEventDate, AMessage, ASeverity, AClass, AProperty, AComparison)
                     Catch
                     End Try
+
                 End If
 
             End If

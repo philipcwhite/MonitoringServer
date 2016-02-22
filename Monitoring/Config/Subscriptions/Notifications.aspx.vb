@@ -39,7 +39,7 @@ Partial Class Config_Subscriptions_Default
                 Order By T.AgentName Ascending
                 Select T
 
-        Dim Table As New LiteralControl("<table class='HoverTable' style='width:250px'><thead><tr><th style='width:125px;'>My Devices</th><th style='width:125px;text-align:center'>Email Notifications</th></tr></thead>")
+        Dim Table As New LiteralControl("<table class='HoverTable' style='width:250px'><thead><tr><th style='width:125px;'>My Devices</th><th style='width:125px;text-align:center'>Enable Notifications</th></tr></thead>")
         PlaceHolder1.Controls.Clear()
         PlaceHolder1.Controls.Add(Table)
 

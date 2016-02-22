@@ -19,7 +19,7 @@ Public Class ServerLoad
     End Sub
 
     Public Sub CreateXML()
-        If Not File.Exists(ServerPath & "\MonitoringCollector.xml") Then
+        If Not File.Exists(ServerPath & "config\collector.xml") Then
             Dim Settings As XmlWriterSettings = New XmlWriterSettings()
             Settings.Indent = True
             Settings.NewLineOnAttributes = False
@@ -61,7 +61,7 @@ Public Class ServerLoad
                 End Using
             End Using
 
-            File.WriteAllText(ServerPath & "\MonitoringCollector.xml", SB.ToString)
+            File.WriteAllText(ServerPath & "config\collector.xml", SB.ToString)
 
         End If
 
@@ -71,7 +71,7 @@ Public Class ServerLoad
 
         Try
 
-            Dim xelement As XElement = XElement.Load(ServerPath & "\MonitoringCollector.xml")
+            Dim xelement As XElement = XElement.Load(ServerPath & "config\collector.xml")
             Dim xmlobjects As IEnumerable(Of XElement) = xelement.Elements("object")
 
             For Each i In xmlobjects
