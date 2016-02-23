@@ -9,6 +9,9 @@
     <asp:UpdatePanel ID="HomeUpdatePanel" runat="server">
         <ContentTemplate>
             <asp:PlaceHolder ID="HomePlaceHolder" runat="server"></asp:PlaceHolder>
+            <br />
+            <br />
+            <br />
             <asp:Timer ID="HomeTimer" runat="server"></asp:Timer>
         </ContentTemplate>
     </asp:UpdatePanel>

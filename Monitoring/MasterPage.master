@@ -19,7 +19,7 @@
             <asp:HyperLink ID="HyperLink5" runat="server" CssClass="NavLinkOptions" NavigateUrl="~/Config/Default.aspx"></asp:HyperLink>
         </div>
         <div class="Search">
-            <asp:TextBox ID="SearchTextBox" runat="server" CssClass="SearchTextBox"></asp:TextBox>
+            <asp:TextBox ID="SearchTextBox" runat="server" CssClass="SearchTextBox" Height="14px"></asp:TextBox>
             <asp:ImageButton ID="SearchImageButton" runat="server" ImageUrl="~/App_Themes/Monitoring/Search.png" CssClass="SearchIcon"/>
         </div>
         <div class="Main">
@@ -28,7 +28,7 @@
         </div>
         <div class="Footer">
         <div class="FooterLeft">Welcome  <asp:LoginName ID="LoginName1" runat="server" /> (<asp:LoginStatus ID="LoginStatus1" runat="server" />)</div>
-        <div class="FooterRight">© 2016 Phil White &nbsp;</div>
+        <div class="FooterRight">© 2016 pcwSoft &nbsp;</div>
     </div></div>
     </form>
 </body>

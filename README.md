@@ -1,4 +1,4 @@
-# Monitoring Server 0.6.8b 
+# Monitoring Server 0.7.0B 
 
 ##About
 
@@ -32,6 +32,11 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+
+###Changes for Version 0.7.0b (2016/02/23):
+
+1.  This update is mostly css and html fixes.  Add rounded corners and fixed some spacing issues.
 
 
 ###Changes for Version 0.6.8b (2016/02/22):
