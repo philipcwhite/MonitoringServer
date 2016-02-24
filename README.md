@@ -1,4 +1,4 @@
-# Monitoring Server 0.7.0B 
+# Monitoring Server 0.7.1B 
 
 ##About
 
@@ -33,6 +33,10 @@ For setup and configuration please see the new Wiki
 
 ##Change Log
 
+
+###Changes for Version 0.7.1b (2016/02/24):
+
+1.  Minor changes.  Changed availability donut to 10 minutes instead of 15 to correspond to the default thresholds.
 
 ###Changes for Version 0.7.0b (2016/02/23):
 
