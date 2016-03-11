@@ -169,6 +169,9 @@ Partial Class Main_Default
 
         Dim SVGStart As String = "<svg style = 'overflow: hidden;'  width='100' height='100'>"
         Dim SVGItems As String = SVGPath
+        If SVGItems Is Nothing Then
+            SVGItems = "<circle fill = '#cccccc' stroke='none' stroke-width='0' cx='50' cy='50' r='50' />"
+        End If
         Dim SVGEnd As String = "<circle fill = '#ffffff' stroke='none' stroke-width='0' cx='50' cy='50' r='35' /></svg>"
 
 
@@ -295,6 +298,9 @@ Partial Class Main_Default
 
         Dim SVGStart As String = "<svg style = 'overflow: hidden;'  width='100' height='100'>"
         Dim SVGItems As String = SVGPath
+        If SVGItems Is Nothing Then
+
+        End If
         Dim SVGEnd As String = "<circle fill = '#ffffff' stroke='none' stroke-width='0' cx='50' cy='50' r='35' /></svg>"
 
 
