@@ -34,6 +34,19 @@ For setup and configuration please see the new Wiki
 ##Change Log
 
 
+###Changes for Version 0.7.2 (2017/01/21):
+
+I feel like this is the yes we are still alive update...  And yes we are.  Life just got a little busy in 2016 and it probably is going to get even crazier this year.  That being said I migrated to Windows 10, fired up Visual Studio, and started coding this week.
+
+Updates have been made to the agent to correct a bug with how IPv4 was calculated.  The agent will now work on Windows 10 machines.  Please download the agent from the Monitoring Agent Github page.
+
+I have also discovered a few outstanding issues with how events are currently being processed on the server.  I hope to resolve these in a future release.  Data processing will also be refined.  The current data model is still database heavy and needs some refinement.  Retained data will most likely be scaled back initially.  I hope to broaden what is monitored in the long run. 
+
+There will be more changes as time permits including updates to the web interface.  I plan on making some changes to give users a better snapshot of the health of a server.
+
+About 8 months ago I also tested sending data from MacOS to Windows successfully.  It was unencrypted but it did work.  If there is interest in this or adding other OS support please let me know.
+
+
 ###Changes for Version 0.7.2 (2016/03/10):
 
 1.  Updated the alert donut code.  Now if there are no alerts, the donut will be gray.  
