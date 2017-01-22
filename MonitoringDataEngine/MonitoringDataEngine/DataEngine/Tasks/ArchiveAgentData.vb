@@ -76,22 +76,22 @@ Public Class ArchiveAgentData
         Catch
         End Try
 
-        Try
-            Dim Q5 = From T In db.AgentService
-                     Where T.AgentCollectDate < ArchiveTime
-                     Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
-                     Into G = Group
-                     Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
+        'Try
+        '    Dim Q5 = From T In db.AgentService
+        '             Where T.AgentCollectDate < ArchiveTime
+        '             Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
+        '             Into G = Group
+        '             Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
 
 
-            For Each i In Q5
-                db.AgentServiceArchive.Add(New AgentServiceArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 2)})
-            Next
+        '    For Each i In Q5
+        '        db.AgentServiceArchive.Add(New AgentServiceArchive With {.AgentClass = i.AgentClass, .AgentCollectDate = ArchiveTime, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 2)})
+        '    Next
 
-            db.SaveChanges()
+        '    db.SaveChanges()
 
-        Catch
-        End Try
+        'Catch
+        'End Try
 
     End Sub
 

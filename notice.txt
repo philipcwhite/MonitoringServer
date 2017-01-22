@@ -1,0 +1,5 @@
+Monitoring Server
+Copyright [2015-2017] Philip C White, pcwSoft
+
+This product includes software developed at
+pcwSoft (https://github.com/philipcwhite)

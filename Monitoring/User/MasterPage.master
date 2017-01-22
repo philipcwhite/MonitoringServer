@@ -17,7 +17,7 @@
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
         </div>
-        <div class="Footer">© 2016 pcwSoft</div>
+        <div class="Footer">© 2017 pcwSoft</div>
     </div>
     </form>
 </body>

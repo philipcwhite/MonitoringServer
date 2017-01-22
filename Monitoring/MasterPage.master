@@ -28,7 +28,7 @@
         </div>
         <div class="Footer">
         <div class="FooterLeft">Welcome  <asp:LoginName ID="LoginName1" runat="server" /> (<asp:LoginStatus ID="LoginStatus1" runat="server" />)</div>
-        <div class="FooterRight">© 2016 pcwSoft &nbsp;</div>
+        <div class="FooterRight">© 2017 pcwSoft &nbsp;</div>
     </div></div>
     </form>
 </body>

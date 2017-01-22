@@ -86,12 +86,6 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentLocalDiskArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
             modelBuilder.Entity(Of AgentLocalDiskArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
-            'AgentServices Table
-            modelBuilder.Entity(Of AgentServiceArchive).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentServiceArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentServiceArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentServiceArchive).Property(Function(t) t.AgentProperty).HasMaxLength(100)
-
             'AgentEvents Table
             modelBuilder.Entity(Of AgentEvents).HasKey(Function(t) t.EventID)
             modelBuilder.Entity(Of AgentEvents).Property(Function(t) t.EventHostname).HasMaxLength(50)
@@ -152,7 +146,6 @@ Namespace MonitoringDatabase
         Public Overridable Property AgentProcessorArchive As DbSet(Of AgentProcessorArchive)
         Public Overridable Property AgentSystem As DbSet(Of AgentSystem)
         Public Overridable Property AgentService As DbSet(Of AgentService)
-        Public Overridable Property AgentServiceArchive As DbSet(Of AgentServiceArchive)
         Public Overridable Property AgentThresholds As DbSet(Of AgentThresholds)
         Public Overridable Property ServerConfiguration As DbSet(Of ServerConfiguration)
         Public Overridable Property GlobalThresholds As DbSet(Of GlobalThresholds)

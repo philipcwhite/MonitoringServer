@@ -1,4 +1,4 @@
-# Monitoring Server 0.7.2 
+# Monitoring Server 1.0.1
 
 ##About
 
@@ -33,6 +33,9 @@ For setup and configuration please see the new Wiki
 
 ##Change Log
 
+###Changes for Version 1.0.1 (2017/01/22):
+
+1. Changed service data to only keep one record (up/down) to save space and reduce overhead.
 
 ###Changes for Version 0.7.2 (2017/01/21):
 
