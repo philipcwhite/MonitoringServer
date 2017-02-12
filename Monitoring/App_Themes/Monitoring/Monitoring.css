@@ -18,7 +18,7 @@ a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 .HoverTable {border-radius: 4px; background-color:#ffffff;border-style:solid;border-color:#eeeeee;border-width:1px;}
 .HoverTable tr:hover {background: #eeeeee;transition: all 0.1s ease-in-out;}    
 .HoverTable td, .HoverTable th {padding: 5px;text-align: left;color:#7992BF;}
-.HoverTable th {background:#7992BF;font:10px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;font-weight:bold;}
+.HoverTable th {background:#eeeeee;font:10px Verdana, Arial, Helvetica, sans-serif;color:#7992BF;font-weight:bold;}
 .HoverTable th:first-child {border-radius: 3px 0 0 0;}
 .HoverTable th:last-child {border-radius: 0 3px 0 0;}
 .HoverTable tr:last-child td:first-child {border-radius: 0 0 0 3px;}
@@ -26,8 +26,8 @@ a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 .HoverTable a:link, a:active, a:hover, a:visited {color:#7992BF;text-decoration:none}
 
 .StaticTable {border-radius: 4px; background-color:#ffffff;border-style:solid;border-color:#eeeeee;border-width:1px;}  
-.StaticTable td, .StaticTable th {padding: 5px;text-align: left;color:#7992BF;}
-.StaticTable th {background:#7992BF;border-top: none;font:10px Verdana, Arial, Helvetica, sans-serif;color:#ffffff;font-weight:bold;}
+.StaticTable td, .StaticTable th {padding: 5px;text-align: left;color:#95A8CC;font:10px Verdana, Arial, Helvetica, sans-serif;}
+.StaticTable th {background:#eeeeee;border-top: none;font:10px Verdana, Arial, Helvetica, sans-serif;color:#7992BF;font-weight:bold;}
 .StaticTable th:first-child {border-radius: 0 0 0 0;}
 .StaticTable th:last-child {border-radius: 3px 3px 0 0;}
 .StaticTable tr:last-child td:first-child {border-radius: 0 0 0 3px;}

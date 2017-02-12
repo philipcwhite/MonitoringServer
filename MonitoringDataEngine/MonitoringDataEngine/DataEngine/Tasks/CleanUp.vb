@@ -9,7 +9,8 @@ Public Class CleanUp
 
         Try
 
-            Dim PurgeDate = ServerTime.AddDays(-1)
+            'Dim PurgeDate = ServerTime.AddDays(-1)
+            Dim PurgeDate = ServerTime.AddHours(-1)
 
             db.AgentProcessor.RemoveRange(db.AgentProcessor.Where(Function(o) o.AgentCollectDate < PurgeDate))
             db.SaveChanges()
@@ -29,7 +30,7 @@ Public Class CleanUp
 
 
             'Cleanup Archive
-            PurgeDate = Date.Now.AddDays(-30)
+            PurgeDate = Date.Now.AddDays(-14)
 
             db.AgentProcessorArchive.RemoveRange(db.AgentProcessorArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
             db.SaveChanges()

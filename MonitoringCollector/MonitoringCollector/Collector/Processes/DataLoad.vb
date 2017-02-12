@@ -21,7 +21,11 @@ Public Class DataLoad
         Dim AgentOSArchitecture As String = Nothing
         Dim AgentProcessors As String = Nothing
         Dim AgentMemory As String = Nothing
+        Dim AgentUptime As String = Nothing
         Dim AgentDate As String = Nothing
+
+
+
 
         For Each node As XmlNode In AgentSystemNode
             AgentName = node.SelectSingleNode("AgentName").InnerText
@@ -32,7 +36,13 @@ Public Class DataLoad
             AgentOSArchitecture = node.SelectSingleNode("AgentOSArchitecture").InnerText
             AgentProcessors = node.SelectSingleNode("AgentProcessor").InnerText
             AgentMemory = node.SelectSingleNode("AgentMemory").InnerText
+            AgentUptime = node.SelectSingleNode("AgentUptime").InnerText
             AgentDate = node.SelectSingleNode("AgentDate").InnerText
+
+
+            Dim NLog As New NetworkLog
+            NLog.WriteToLog("Uptime=" & AgentUptime)
+
 
             Dim Q = (From T In db.AgentSystem
                      Where T.AgentName = AgentName
@@ -47,10 +57,11 @@ Public Class DataLoad
                 Q.AgentOSArchitecture = AgentOSArchitecture
                 Q.AgentProcessors = AgentProcessors
                 Q.AgentMemory = AgentMemory
+                Q.AgentUptime = AgentUptime
                 Q.AgentDate = AgentDate
                 db.SaveChanges()
             Else
-                db.AgentSystem.Add(New AgentSystem With {.AgentName = AgentName, .AgentDomain = AgentDomain, .AgentIP = AgentIP, .AgentOSName = AgentOSName, .AgentOSBuild = AgentOSBuild, .AgentOSArchitecture = AgentOSArchitecture, .AgentProcessors = .AgentProcessors, .AgentMemory = .AgentMemory, .AgentDate = AgentDate})
+                db.AgentSystem.Add(New AgentSystem With {.AgentName = AgentName, .AgentDomain = AgentDomain, .AgentIP = AgentIP, .AgentOSName = AgentOSName, .AgentOSBuild = AgentOSBuild, .AgentOSArchitecture = AgentOSArchitecture, .AgentProcessors = .AgentProcessors, .AgentMemory = .AgentMemory, .AgentUptime = AgentUptime, .AgentDate = AgentDate})
             End If
 
         Next

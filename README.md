@@ -1,4 +1,4 @@
-# Monitoring Server 1.0.1
+# Monitoring Server 1.0.2
 
 ##About
 
@@ -22,16 +22,23 @@ For setup and configuration please see the new Wiki
 
 ![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Device.png)
  
-###Graphing View
-
-![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Graphing.png)
- 
 ###Reporting View
 
 ![WebSite](https://raw.githubusercontent.com/philipcwhite/MonitoringServer/master/Screenshots/Reports.png)
 
 
 ##Change Log
+
+###Changes for Version 1.0.2 (2017/02/12):
+
+If you are doing an update please update all components (agent, server, and database).  The database has changed slightly with the addition of the AgentUptime field in AgentSystem table.  You need to either add this column or reinstall. 
+
+1. Changed Agent poll period from 5 minutes to 1 minute.  
+2. Data storage has now been reduced to 1 hour of fast data and 14 days of long data.
+3. Device views have been updated significantly.  New graphs and statistics.
+4. Colors have been slightly modified.
+5. I will be updating the event engine next.  You may notice that some features are disabled temporarily.  This is do to an error that is occuring with the Active Disk Time monitor.
+
 
 ###Changes for Version 1.0.1 (2017/01/22):
 

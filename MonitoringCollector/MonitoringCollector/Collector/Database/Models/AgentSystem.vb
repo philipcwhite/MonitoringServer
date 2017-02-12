@@ -9,6 +9,7 @@
         Public Property AgentOSArchitecture As String
         Public Property AgentProcessors As Int16
         Public Property AgentMemory As Int32
+        Public Property AgentUptime As Int32
         Public Property AgentDate As Date? = Nothing
     End Class
 End Namespace
