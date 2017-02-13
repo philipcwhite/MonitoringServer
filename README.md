@@ -31,6 +31,10 @@ For setup and configuration please see the new Wiki
 
 ###Changes for Version 1.0.2 (2017/02/12):
 
+I fixed the event engine and added back custom thresholds for agents and linked Windows Service Status.
+
+###Changes for Version 1.0.2 (2017/02/12):
+
 If you are doing an update please update all components (agent, server, and database).  The database has changed slightly with the addition of the AgentUptime field in AgentSystem table.  You need to either add this column or reinstall. 
 
 1. Changed Agent poll period from 5 minutes to 1 minute.  

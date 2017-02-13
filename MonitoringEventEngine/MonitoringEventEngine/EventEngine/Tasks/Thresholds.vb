@@ -99,7 +99,7 @@ Public Class Thresholds
                     Q = From T1 In AThresholdsLocal
                         Join T2 In db.AgentLocalDisk
                        On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
-                        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass
+                        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass And T2.AgentProperty = i.AgentProperty
                         Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
                 ElseIf AClass.Contains("Services") Then
                     Q = From T1 In AThresholdsLocal

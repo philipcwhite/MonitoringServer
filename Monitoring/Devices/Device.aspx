@@ -27,10 +27,10 @@
                </Triggers>
            </asp:UpdatePanel>
 
-<%--    <table class="StaticTable" style="width: 100%">
-           <thead><tr><th><asp:Label ID="Label1" runat="server"></asp:Label></th></tr></thead>
-           <tr><td style="width:100%;padding-right:40px;padding-left:40px;text-align:center">
-
-               </td></tr></table>--%>
+    <br />
+    <div style="text-align:right">
+    <asp:button runat="server" text="Windows Services" ID="ServicesButton" CssClass="Button" />&nbsp;
+    <asp:button runat="server" text="Agent Thresholds" ID="ThresholdButton" CssClass="Button" Visible="False" />
+    </div>
 </asp:Content>
 

@@ -3,7 +3,7 @@ Public Class CleanUp
     Private db As New DBModel
 
     Public Sub PurgeRecords()
-        Dim PurgeDate = Date.Now.AddDays(-7)
+        Dim PurgeDate = Date.Now.AddHours(-12)
         Try
             db.AgentEvents.RemoveRange(db.AgentEvents.Where(Function(o) o.EventStatus = False And o.EventDate < PurgeDate))
             db.SaveChanges()

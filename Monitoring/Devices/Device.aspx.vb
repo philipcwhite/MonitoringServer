@@ -245,6 +245,19 @@ Partial Class Device
 
     End Sub
 
+    Protected Sub ServicesButton_Click(sender As Object, e As EventArgs) Handles ServicesButton.Click
+        Response.Redirect("Services.aspx?hostname=" & HostNameLabel.Text)
+    End Sub
+    Protected Sub ThresholdButton_Click(sender As Object, e As EventArgs) Handles ThresholdButton.Click
+        Response.Redirect("~/Config/Thresholds/AgentThreshold.aspx?hostname=" & HostNameLabel.Text)
+    End Sub
+
+    Private Sub Device_PreLoad(sender As Object, e As EventArgs) Handles Me.PreLoad
+        If User.IsInRole("Administrator") Then
+            ThresholdButton.Visible = True
+        End If
+    End Sub
+
 End Class
 
 
