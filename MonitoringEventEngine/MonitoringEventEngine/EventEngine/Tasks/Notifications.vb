@@ -59,7 +59,7 @@ Public Class Notifications
                     Dim SmtpServer As New SmtpClient()
                     Dim Mail As New MailMessage()
                     'SmtpServer.Credentials = New Net.NetworkCredential("username@domain.com", "password")
-                    SmtpServer.Port = 587
+                    SmtpServer.Port = 25
                     SmtpServer.Host = MailServer
                     Mail = New MailMessage()
                     Mail.From = New MailAddress(MailAdmin)
