@@ -13,11 +13,13 @@
                <ContentTemplate>
                
                   <asp:PlaceHolder ID="PerformancePlaceHolder" runat="server"></asp:PlaceHolder>
-                       <br />
+                   <br />
                    <asp:PlaceHolder ID="SystemPlaceHolder" runat="server"></asp:PlaceHolder>
-                    <br />
+                   <br />
                    <asp:PlaceHolder ID="DiskPlaceHolder" runat="server"></asp:PlaceHolder>
-                      <asp:Timer ID="Timer1" runat="server">
+                   <br />
+                   <asp:PlaceHolder ID="NetworkPlaceHolder" runat="server"></asp:PlaceHolder>
+                   <asp:Timer ID="Timer1" runat="server">
                    </asp:Timer>
                       
 

@@ -15,19 +15,19 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_2256492A9A14C0B1C00B83B1D4574ADA"
+        "MsmKey" = "8:_1A2676680F7F142ABECB62E33820BD6C"
         "OwnerKey" = "8:_4B4B38A881ED4403ADE7313EB29FCDEE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2256492A9A14C0B1C00B83B1D4574ADA"
+        "MsmKey" = "8:_1A2676680F7F142ABECB62E33820BD6C"
         "OwnerKey" = "8:_FF5D78D831544D519C1929F744C00A32"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_2256492A9A14C0B1C00B83B1D4574ADA"
+        "MsmKey" = "8:_1A2676680F7F142ABECB62E33820BD6C"
         "OwnerKey" = "8:_51CE34EC3A814D9189F9D95C0860A7C5"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,26 +51,26 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6398459137A0D751B754186393480F9B"
+        "MsmKey" = "8:_6B636AD132B6574CDDE5E8A280E723BE"
         "OwnerKey" = "8:_4B4B38A881ED4403ADE7313EB29FCDEE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6398459137A0D751B754186393480F9B"
+        "MsmKey" = "8:_6B636AD132B6574CDDE5E8A280E723BE"
         "OwnerKey" = "8:_FF5D78D831544D519C1929F744C00A32"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6398459137A0D751B754186393480F9B"
+        "MsmKey" = "8:_6B636AD132B6574CDDE5E8A280E723BE"
         "OwnerKey" = "8:_51CE34EC3A814D9189F9D95C0860A7C5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6398459137A0D751B754186393480F9B"
-        "OwnerKey" = "8:_2256492A9A14C0B1C00B83B1D4574ADA"
+        "MsmKey" = "8:_6B636AD132B6574CDDE5E8A280E723BE"
+        "OwnerKey" = "8:_1A2676680F7F142ABECB62E33820BD6C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -136,13 +136,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2256492A9A14C0B1C00B83B1D4574ADA"
+        "OwnerKey" = "8:_1A2676680F7F142ABECB62E33820BD6C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6398459137A0D751B754186393480F9B"
+        "OwnerKey" = "8:_6B636AD132B6574CDDE5E8A280E723BE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -414,14 +414,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2256492A9A14C0B1C00B83B1D4574ADA"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1A2676680F7F142ABECB62E33820BD6C"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2256492A9A14C0B1C00B83B1D4574ADA"
+                    "_1A2676680F7F142ABECB62E33820BD6C"
                     {
                     "Name" = "8:EntityFramework.SqlServer.dll"
                     "Attributes" = "3:512"
@@ -465,14 +465,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6398459137A0D751B754186393480F9B"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6B636AD132B6574CDDE5E8A280E723BE"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6398459137A0D751B754186393480F9B"
+                    "_6B636AD132B6574CDDE5E8A280E723BE"
                     {
                     "Name" = "8:EntityFramework.dll"
                     "Attributes" = "3:512"
@@ -687,15 +687,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MonitoringServer"
-        "ProductCode" = "8:{36BE994D-3AE1-467E-B7F3-7AEAB0D380ED}"
-        "PackageCode" = "8:{BF307A9C-6E1D-4514-9B3A-AA3ACD5092D8}"
+        "ProductCode" = "8:{79C59FF5-2FBF-422B-B1C7-33A4DB2C39BC}"
+        "PackageCode" = "8:{593C7B38-E3DA-4475-A360-2281FC3B185B}"
         "UpgradeCode" = "8:{AF0E133F-8FCC-45AE-BFD2-AD3F3E81429B}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.3"
         "Manufacturer" = "8:pcwSoft"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/philipcwhite"

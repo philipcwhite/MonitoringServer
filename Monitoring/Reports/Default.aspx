@@ -40,8 +40,8 @@
                 <td><asp:Button ID="web5Button" runat="server" Text="web" CssClass="ReportButton" />&nbsp;<asp:Button ID="csv5Button" runat="server" Text="csv" CssClass="ReportButton" /></td>
             </tr>
                 <tr>
-                <td>Agent Performance Report (Previous 30 days)</td>
-                <td>Average performace summary for all hosts (Previous 30 days)</td>
+                <td>Agent Performance Report (Previous 14 days)</td>
+                <td>Average performace summary for all hosts (Previous 14 days)</td>
                 <td><asp:Button ID="web6Button" runat="server" Text="web" CssClass="ReportButton" />&nbsp;<asp:Button ID="csv6Button" runat="server" Text="csv" CssClass="ReportButton" /></td>
             </tr>
         </table>

@@ -13,9 +13,9 @@
     <div>
         <div class="NavMenu">
             <asp:HyperLink ID="HyperLink1" runat="server" CssClass="NavLinkHome" NavigateUrl="~/Home/Default.aspx"></asp:HyperLink>
+            <asp:HyperLink ID="HyperLink4" runat="server" CssClass="NavLinkEvents" NavigateUrl="~/Events/Default.aspx"></asp:HyperLink>
             <asp:HyperLink ID="HyperLink2" runat="server" CssClass="NavLinkDevices" NavigateUrl="~/Devices/Default.aspx"></asp:HyperLink>
             <asp:HyperLink ID="HyperLink3" runat="server" CssClass="NavLinkReports" NavigateUrl="~/Reports/Default.aspx"></asp:HyperLink>
-            <asp:HyperLink ID="HyperLink4" runat="server" CssClass="NavLinkEvents" NavigateUrl="~/Events/Default.aspx"></asp:HyperLink>
             <asp:HyperLink ID="HyperLink5" runat="server" CssClass="NavLinkOptions" NavigateUrl="~/Config/Default.aspx"></asp:HyperLink>
         </div>
         <div class="Search">

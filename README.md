@@ -1,4 +1,4 @@
-# Monitoring Server 1.0.2
+# Monitoring Server 1.0.3
 
 ##About
 
@@ -28,6 +28,10 @@ For setup and configuration please see the new Wiki
 
 
 ##Change Log
+
+###Changes for Version 1.0.3 (2018/02/23):
+
+Updated database model.  Added Network traffic monitoring for Windows.  Please use the latest Monitoring Agent.
 
 ###Changes for Version 1.0.2 (2017/02/12):
 

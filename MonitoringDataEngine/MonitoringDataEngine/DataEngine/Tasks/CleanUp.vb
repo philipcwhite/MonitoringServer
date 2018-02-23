@@ -9,41 +9,17 @@ Public Class CleanUp
 
         Try
 
-            'Dim PurgeDate = ServerTime.AddDays(-1)
-            Dim PurgeDate = ServerTime.AddHours(-1)
+            Dim PurgeDate = ServerTime.AddDays(-1)
+            'Dim PurgeDate = ServerTime.AddHours(-24)
 
-            db.AgentProcessor.RemoveRange(db.AgentProcessor.Where(Function(o) o.AgentCollectDate < PurgeDate))
+            db.AgentData.RemoveRange(db.AgentData.Where(Function(o) o.AgentCollectDate < PurgeDate))
             db.SaveChanges()
-
-            db.AgentMemory.RemoveRange(db.AgentMemory.Where(Function(o) o.AgentCollectDate < PurgeDate))
-            db.SaveChanges()
-
-            db.AgentPageFile.RemoveRange(db.AgentPageFile.Where(Function(o) o.AgentCollectDate < PurgeDate))
-            db.SaveChanges()
-
-            db.AgentLocalDisk.RemoveRange(db.AgentLocalDisk.Where(Function(o) o.AgentCollectDate < PurgeDate))
-            db.SaveChanges()
-
-
-            'db.AgentService.RemoveRange(db.AgentService.Where(Function(o) o.AgentCollectDate < PurgeDate))
-            'db.SaveChanges()
-
 
             'Cleanup Archive
             PurgeDate = Date.Now.AddDays(-14)
 
-            db.AgentProcessorArchive.RemoveRange(db.AgentProcessorArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
+            db.AgentDataArchive.RemoveRange(db.AgentDataArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
             db.SaveChanges()
-
-            db.AgentMemoryArchive.RemoveRange(db.AgentMemoryArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
-            db.SaveChanges()
-
-            db.AgentPageFile.RemoveRange(db.AgentPageFile.Where(Function(o) o.AgentCollectDate < PurgeDate))
-            db.SaveChanges()
-
-            db.AgentLocalDiskArchive.RemoveRange(db.AgentLocalDiskArchive.Where(Function(o) o.AgentCollectDate < PurgeDate))
-            db.SaveChanges()
-
 
             'Cleanup Broken links
 
@@ -54,8 +30,6 @@ Public Class CleanUp
                 db.Subscriptions.Remove(i)
             Next
             db.SaveChanges()
-
-
 
         Catch ex As Exception
 

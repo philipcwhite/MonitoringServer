@@ -81,39 +81,45 @@ Public Class Thresholds
             For Each i In AThresholdsLocal
                 Dim ttime = Date.Now.AddMinutes(-i.ThresholdTime)
                 Dim AClass = i.AgentClass
-                Dim Q = Nothing
+                Dim Q = From T1 In AThresholdsLocal
+                        Join T2 In db.AgentData
+                       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
+                        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass
+                        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
 
-                If AClass.Contains("Processor") Then
-                    Q = From T1 In AThresholdsLocal
-                        Join T2 In db.AgentProcessor
-                       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
-                        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass
-                        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
-                ElseIf AClass.Contains("Memory") Then
-                    Q = From T1 In AThresholdsLocal
-                        Join T2 In db.AgentMemory
-                       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
-                        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass
-                        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
-                ElseIf AClass.Contains("Local Disk") Then
-                    Q = From T1 In AThresholdsLocal
-                        Join T2 In db.AgentLocalDisk
-                       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
-                        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass And T2.AgentProperty = i.AgentProperty
-                        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
-                ElseIf AClass.Contains("Services") Then
-                    Q = From T1 In AThresholdsLocal
-                        Join T2 In db.AgentService
-                       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
-                        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass
-                        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
-                ElseIf AClass.Contains("PageFile") Then
-                    Q = From T1 In AThresholdsLocal
-                        Join T2 In db.AgentPageFile
-                       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
-                        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass
-                        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
-                End If
+                'If AClass.Contains("Processor") Then
+                '    Q = From T1 In AThresholdsLocal
+                '        Join T2 In db.AgentProcessor
+                '       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
+                '        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass
+                '        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
+                'ElseIf AClass.Contains("Memory") Then
+                '    Q = From T1 In AThresholdsLocal
+                '        Join T2 In db.AgentMemory
+                '       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
+                '        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass
+                '        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
+                'ElseIf AClass.Contains("Local Disk") Then
+                '    Q = From T1 In AThresholdsLocal
+                '        Join T2 In db.AgentLocalDisk
+                '       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
+                '        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass And T2.AgentProperty = i.AgentProperty
+                '        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
+                'ElseIf AClass.Contains("Services") Then
+                '    Q = From T1 In AThresholdsLocal
+                '        Join T2 In db.AgentService
+                '       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
+                '        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass
+                '        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
+                'ElseIf AClass.Contains("PageFile") Then
+                '    Q = From T1 In AThresholdsLocal
+                '        Join T2 In db.AgentPageFile
+                '       On T1.AgentName Equals T2.AgentName And T1.AgentClass Equals T2.AgentClass And T1.AgentProperty Equals T2.AgentProperty
+                '        Where T2.AgentCollectDate >= ttime And T1.AgentName = i.AgentName And T2.AgentClass = AClass
+                '        Select T2.AgentName, T2.AgentClass, T2.AgentProperty, T2.AgentValue, T2.AgentCollectDate Distinct
+                'End If
+
+
 
                 Dim Atotal = Nothing
                 Dim Btotal = Nothing

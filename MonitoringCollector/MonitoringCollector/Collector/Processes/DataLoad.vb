@@ -12,6 +12,7 @@ Public Class DataLoad
 
         Dim AgentSystemNode As XmlNodeList = doc.DocumentElement.SelectNodes("/Agent/AgentSystem")
         Dim AgentDataNode As XmlNodeList = doc.DocumentElement.SelectNodes("/Agent/AgentData")
+        Dim AgentStateNode As XmlNodeList = doc.DocumentElement.SelectNodes("/Agent/AgentState")
 
         Dim AgentName As String = Nothing
         Dim AgentDomain As String = Nothing
@@ -40,8 +41,8 @@ Public Class DataLoad
             AgentDate = node.SelectSingleNode("AgentDate").InnerText
 
 
-            Dim NLog As New NetworkLog
-            NLog.WriteToLog("Uptime=" & AgentUptime)
+            'Dim NLog As New NetworkLog
+            'NLog.WriteToLog("Uptime=" & AgentUptime)
 
 
             Dim Q = (From T In db.AgentSystem
@@ -62,48 +63,45 @@ Public Class DataLoad
                 db.SaveChanges()
             Else
                 db.AgentSystem.Add(New AgentSystem With {.AgentName = AgentName, .AgentDomain = AgentDomain, .AgentIP = AgentIP, .AgentOSName = AgentOSName, .AgentOSBuild = AgentOSBuild, .AgentOSArchitecture = AgentOSArchitecture, .AgentProcessors = .AgentProcessors, .AgentMemory = .AgentMemory, .AgentUptime = AgentUptime, .AgentDate = AgentDate})
+                db.SaveChanges()
             End If
 
         Next
 
 
-        'Clean up Services
-
-        db.AgentService.RemoveRange(db.AgentService.Where(Function(o) o.AgentName = AgentName))
-        db.SaveChanges()
-
         'Load Data
+
 
         Dim AgentClass As String = Nothing
         Dim AgentProperty As String = Nothing
         Dim AgentValue As String = Nothing
 
         For Each node As XmlNode In AgentDataNode
+
             AgentClass = node.SelectSingleNode("AgentClass").InnerText
             AgentProperty = node.SelectSingleNode("AgentProperty").InnerText
             AgentValue = node.SelectSingleNode("AgentValue").InnerText
 
-            Select Case True
-                Case AgentClass.Contains("Processor")
-                    db.AgentProcessor.Add(New AgentProcessor With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
-                    db.SaveChanges()
-                Case AgentClass.Contains("Memory")
-                    db.AgentMemory.Add(New AgentMemory With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
-                    db.SaveChanges()
-                Case AgentClass.Contains("PageFile")
-                    db.AgentPageFile.Add(New AgentPageFile With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
-                    db.SaveChanges()
-                Case AgentClass.Contains("Local Disk")
-                    db.AgentLocalDisk.Add(New AgentLocalDisk With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
-                    db.SaveChanges()
-                Case AgentClass.Contains("Services")
-                    db.AgentService.Add(New AgentService With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
-                    db.SaveChanges()
-            End Select
-
+            db.AgentData.Add(New AgentData With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
+            db.SaveChanges()
 
         Next
 
+
+        'Load State
+
+        db.AgentState.RemoveRange(db.AgentState.Where(Function(o) o.AgentName = AgentName))
+        db.SaveChanges()
+
+        For Each node As XmlNode In AgentStateNode
+
+            AgentClass = node.SelectSingleNode("AgentClass").InnerText
+            AgentProperty = node.SelectSingleNode("AgentProperty").InnerText
+            AgentValue = node.SelectSingleNode("AgentValue").InnerText
+
+            db.AgentState.Add(New AgentState With {.AgentName = AgentName, .AgentClass = AgentClass, .AgentProperty = AgentProperty, .AgentValue = AgentValue, .AgentCollectDate = AgentDate})
+            db.SaveChanges()
+        Next
 
 
     End Sub

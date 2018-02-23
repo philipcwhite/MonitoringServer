@@ -22,7 +22,7 @@ Partial Class Reports_Reports
             ElseIf ReportID = 5 Then
                 ReportAgentPerformanceArchive(ReportType, -8)
             ElseIf ReportID = 6 Then
-                ReportAgentPerformanceArchive(ReportType, -31)
+                ReportAgentPerformanceArchive(ReportType, -15)
             End If
 
         End If
@@ -135,57 +135,68 @@ Partial Class Reports_Reports
     Private Sub ReportAgentPerformance(ByVal ReportType As String, ByVal ReportDuration As Integer)
         ReportLabel.Text = "Agent Performance Report"
 
-        Dim PerformanceList As New List(Of AgentProcessor)
+        Dim PerformanceList As New List(Of AgentData)
 
         Dim LastHour As Date = Date.Now.AddHours(ReportDuration)
 
 
-        Dim Q1 = From T In db.AgentProcessor
-                 Where T.AgentCollectDate > LastHour
+        Dim Q1 = From T In db.AgentData
+                 Where T.AgentClass = "Processor" And T.AgentCollectDate > LastHour
                  Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
                      Into G = Group
                  Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
 
 
         For Each i In Q1
-            PerformanceList.Add(New AgentProcessor With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
+            PerformanceList.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
 
 
-        Dim Q2 = From T In db.AgentMemory
-                 Where T.AgentCollectDate > LastHour
+        Dim Q2 = From T In db.AgentData
+                 Where T.AgentClass = "Memory" And T.AgentCollectDate > LastHour
                  Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
                      Into G = Group
                  Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
 
 
         For Each i In Q2
-            PerformanceList.Add(New AgentProcessor With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
+            PerformanceList.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
 
-        Dim Q3 = From T In db.AgentPageFile
-                 Where T.AgentCollectDate > LastHour
+        Dim Q3 = From T In db.AgentData
+                 Where T.AgentClass = "PageFile" And T.AgentCollectDate > LastHour
                  Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
                      Into G = Group
                  Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
 
 
         For Each i In Q3
-            PerformanceList.Add(New AgentProcessor With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
+            PerformanceList.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
 
-        Dim Q4 = From T In db.AgentLocalDisk
-                 Where T.AgentCollectDate > LastHour
+        Dim Q4 = From T In db.AgentData
+                 Where T.AgentClass.Contains("Local Disk") And T.AgentCollectDate > LastHour
                  Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
                      Into G = Group
                  Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
 
 
         For Each i In Q4
-            PerformanceList.Add(New AgentProcessor With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
+            PerformanceList.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
+        Next
+
+        Dim Q5 = From T In db.AgentData
+                 Where T.AgentClass.Contains("Network") And T.AgentCollectDate > LastHour
+                 Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
+                     Into G = Group
+                 Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
+
+
+        For Each i In Q5
+            PerformanceList.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
         Dim Q = From T In PerformanceList
@@ -231,57 +242,68 @@ Partial Class Reports_Reports
     Private Sub ReportAgentPerformanceArchive(ByVal ReportType As String, ByVal ReportDuration As Integer)
         ReportLabel.Text = "Agent Performance Report"
 
-        Dim PerformanceList As New List(Of AgentProcessor)
+        Dim PerformanceList As New List(Of AgentData)
 
         Dim LastDay As Date = Date.Now.AddDays(ReportDuration)
 
 
-        Dim Q1 = From T In db.AgentProcessorArchive
-                 Where T.AgentCollectDate > LastDay
+        Dim Q1 = From T In db.AgentDataArchive
+                 Where T.AgentClass = "Processor" And T.AgentCollectDate > LastDay
                  Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
                      Into G = Group
                  Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
 
 
         For Each i In Q1
-            PerformanceList.Add(New AgentProcessor With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
+            PerformanceList.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
 
 
-        Dim Q2 = From T In db.AgentMemoryArchive
-                 Where T.AgentCollectDate > LastDay
+        Dim Q2 = From T In db.AgentDataArchive
+                 Where T.AgentClass = "Memory" And T.AgentCollectDate > LastDay
                  Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
                      Into G = Group
                  Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
 
 
         For Each i In Q2
-            PerformanceList.Add(New AgentProcessor With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
+            PerformanceList.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
 
-        Dim Q3 = From T In db.AgentPageFileArchive
-                 Where T.AgentCollectDate > LastDay
+        Dim Q3 = From T In db.AgentDataArchive
+                 Where T.AgentClass = "PageFile" And T.AgentCollectDate > LastDay
                  Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
                      Into G = Group
                  Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
 
 
         For Each i In Q3
-            PerformanceList.Add(New AgentProcessor With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
+            PerformanceList.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
 
-        Dim Q4 = From T In db.AgentLocalDiskArchive
-                 Where T.AgentCollectDate > LastDay
+        Dim Q4 = From T In db.AgentDataArchive
+                 Where T.AgentClass.Contains("Local Disk") And T.AgentCollectDate > LastDay
                  Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
                      Into G = Group
                  Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
 
 
         For Each i In Q4
-            PerformanceList.Add(New AgentProcessor With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
+            PerformanceList.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
+        Next
+
+        Dim Q5 = From T In db.AgentDataArchive
+                 Where T.AgentClass.Contains("Network") And T.AgentCollectDate > LastDay
+                 Group By T = New With {Key .AgentName = T.AgentName, Key .AgentClass = T.AgentClass, Key .AgentProperty = T.AgentProperty}
+                     Into G = Group
+                 Select New With {.AgentName = T.AgentName, .AgentClass = T.AgentClass, .AgentProperty = T.AgentProperty, .AgentValue = G.Average(Function(i) i.AgentValue)}
+
+
+        For Each i In Q5
+            PerformanceList.Add(New AgentData With {.AgentClass = i.AgentClass, .AgentName = i.AgentName, .AgentProperty = i.AgentProperty, .AgentValue = Math.Round(i.AgentValue, 0)})
         Next
 
         Dim Q = From T In PerformanceList

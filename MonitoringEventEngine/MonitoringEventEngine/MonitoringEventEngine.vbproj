@@ -105,16 +105,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventEngine\Database\DAL\DBModel.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentData.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentDataArchive.vb" />
     <Compile Include="EventEngine\Database\Models\AgentEvents.vb" />
-    <Compile Include="EventEngine\Database\Models\AgentLocalDisk.vb" />
-    <Compile Include="EventEngine\Database\Models\AgentLocalDiskArchive.vb" />
-    <Compile Include="EventEngine\Database\Models\AgentMemory.vb" />
-    <Compile Include="EventEngine\Database\Models\AgentMemoryArchive.vb" />
-    <Compile Include="EventEngine\Database\Models\AgentPageFile.vb" />
-    <Compile Include="EventEngine\Database\Models\AgentPageFileArchive.vb" />
-    <Compile Include="EventEngine\Database\Models\AgentProcessor.vb" />
-    <Compile Include="EventEngine\Database\Models\AgentProcessorArchive.vb" />
-    <Compile Include="EventEngine\Database\Models\AgentService.vb" />
+    <Compile Include="EventEngine\Database\Models\AgentState.vb" />
     <Compile Include="EventEngine\Database\Models\AgentSystem.vb" />
     <Compile Include="EventEngine\Database\Models\AgentThresholds.vb" />
     <Compile Include="EventEngine\Database\Models\GlobalThresholds.vb" />

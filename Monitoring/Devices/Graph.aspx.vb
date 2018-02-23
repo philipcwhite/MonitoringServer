@@ -91,67 +91,67 @@ Partial Class Devices_Graph
             xTime = xTime + 50
         Next
 
-        If AgentClass = "Processor" Then
-            For Each i In DataList
-                Dim Q = (From T In db.AgentProcessor
-                         Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName
-                         Select T).FirstOrDefault
-                If Q IsNot Nothing Then
-                    i.AgentValue1 = Q.AgentValue
-                End If
-            Next
-            For i = 0 To DataList.Count - 2
-                DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
-            Next
-            GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Processor Total Utilization (%)</text>"
-        End If
+        'If AgentClass = "Processor" Then
+        '    For Each i In DataList
+        '        Dim Q = (From T In db.AgentProcessor
+        '                 Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName
+        '                 Select T).FirstOrDefault
+        '        If Q IsNot Nothing Then
+        '            i.AgentValue1 = Q.AgentValue
+        '        End If
+        '    Next
+        '    For i = 0 To DataList.Count - 2
+        '        DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
+        '    Next
+        '    GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Processor Total Utilization (%)</text>"
+        'End If
 
-        If AgentClass = "Memory" Then
-            For Each i In DataList
-                Dim Q = (From T In db.AgentMemory
-                         Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName
-                         Select T).FirstOrDefault
-                If Q IsNot Nothing Then
-                    i.AgentValue1 = Q.AgentValue
-                End If
-            Next
-            For i = 0 To DataList.Count - 2
-                DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
-            Next
-            GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Memory Total Utilization (%)</text>"
-        End If
+        'If AgentClass = "Memory" Then
+        '    For Each i In DataList
+        '        Dim Q = (From T In db.AgentMemory
+        '                 Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName
+        '                 Select T).FirstOrDefault
+        '        If Q IsNot Nothing Then
+        '            i.AgentValue1 = Q.AgentValue
+        '        End If
+        '    Next
+        '    For i = 0 To DataList.Count - 2
+        '        DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
+        '    Next
+        '    GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Memory Total Utilization (%)</text>"
+        'End If
 
-        If AgentClass = "PageFile" Then
-            For Each i In DataList
-                Dim Q = (From T In db.AgentPageFile
-                         Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName
-                         Select T).FirstOrDefault
-                If Q IsNot Nothing Then
-                    i.AgentValue1 = Q.AgentValue
-                End If
-            Next
-            For i = 0 To DataList.Count - 2
-                DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
-            Next
-            GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Pagefile Total Utilization (%)</text>"
-        End If
+        'If AgentClass = "PageFile" Then
+        '    For Each i In DataList
+        '        Dim Q = (From T In db.AgentPageFile
+        '                 Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName
+        '                 Select T).FirstOrDefault
+        '        If Q IsNot Nothing Then
+        '            i.AgentValue1 = Q.AgentValue
+        '        End If
+        '    Next
+        '    For i = 0 To DataList.Count - 2
+        '        DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
+        '    Next
+        '    GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>Pagefile Total Utilization (%)</text>"
+        'End If
 
-        If AgentClass.Contains("Local Disk") Then
-            Dim LDClass As String = AgentClass.Split(";")(0)
-            Dim LDProperty = AgentClass.Split(";")(1)
-            For Each i In DataList
-                Dim Q = (From T In db.AgentLocalDisk
-                         Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName And T.AgentClass = LDClass And T.AgentProperty = LDProperty
-                         Select T).FirstOrDefault
-                If Q IsNot Nothing Then
-                    i.AgentValue1 = Q.AgentValue
-                End If
-            Next
-            For i = 0 To DataList.Count - 2
-                DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
-            Next
-            GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>" & AgentClass.Replace(";", " ") & "</text>"
-        End If
+        'If AgentClass.Contains("Local Disk") Then
+        '    Dim LDClass As String = AgentClass.Split(";")(0)
+        '    Dim LDProperty = AgentClass.Split(";")(1)
+        '    For Each i In DataList
+        '        Dim Q = (From T In db.AgentLocalDisk
+        '                 Where T.AgentCollectDate = i.AgentTime And T.AgentName = i.AgentName And T.AgentClass = LDClass And T.AgentProperty = LDProperty
+        '                 Select T).FirstOrDefault
+        '        If Q IsNot Nothing Then
+        '            i.AgentValue1 = Q.AgentValue
+        '        End If
+        '    Next
+        '    For i = 0 To DataList.Count - 2
+        '        DataList.Item(i).AgentValue2 = DataList.Item(i + 1).AgentValue1
+        '    Next
+        '    GraphTitle = "<text x = '200' y='30' fill='#7992BF' font-size='16' font-family='arial' font-weight='bold'>" & AgentClass.Replace(";", " ") & "</text>"
+        'End If
 
         For i = 0 To DataList.Count - 2
             yValue1 = 250 - DataList.Item(i).AgentValue1 * 2

@@ -28,7 +28,7 @@ Partial Class Devices_Services
                       Select T.AgentDate).FirstOrDefault
             QT = Q1
 
-            Dim Q2 = From T In db.AgentService
+            Dim Q2 = From T In db.AgentState
                      Where T.AgentName = QS And T.AgentCollectDate = QT
                      Order By T.AgentValue Descending, T.AgentProperty Ascending
                      Select T
@@ -40,9 +40,9 @@ Partial Class Devices_Services
             Dim ServiceRows As String = Nothing
 
             For Each i In Q2
-                If i.AgentValue = 1 Then
+                If i.AgentValue = True Then
                     ServiceRows = ServiceRows & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-green.png' style='height:8px;width:8px;' /></td><td>" & i.AgentProperty & "</td><td>Running</td><td>" & i.AgentCollectDate & "</td></tr>"
-                ElseIf i.AgentValue = 0 Then
+                ElseIf i.AgentValue = False Then
                     ServiceRows = ServiceRows & "<tr><td style='text-align:center'><img src='../App_Themes/Monitoring/box-red.png' style='height:8px;width:8px;' /></td><td>" & i.AgentProperty & "</td><td>Stopped</td><td>" & i.AgentCollectDate & "</td></tr>"
                 End If
             Next

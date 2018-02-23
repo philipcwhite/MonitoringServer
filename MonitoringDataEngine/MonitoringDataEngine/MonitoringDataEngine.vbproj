@@ -89,16 +89,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataEngine\Database\DAL\DBModel.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentData.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentDataArchive.vb" />
     <Compile Include="DataEngine\Database\Models\AgentEvents.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentLocalDisk.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentLocalDiskArchive.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentMemory.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentMemoryArchive.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentPageFile.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentPageFileArchive.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentProcessor.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentProcessorArchive.vb" />
-    <Compile Include="DataEngine\Database\Models\AgentService.vb" />
+    <Compile Include="DataEngine\Database\Models\AgentState.vb" />
     <Compile Include="DataEngine\Database\Models\AgentSystem.vb" />
     <Compile Include="DataEngine\Database\Models\AgentThresholds.vb" />
     <Compile Include="DataEngine\Database\Models\GlobalThresholds.vb" />

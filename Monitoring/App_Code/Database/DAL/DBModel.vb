@@ -30,61 +30,79 @@ Namespace MonitoringDatabase
             modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentOSBuild).HasMaxLength(25)
             modelBuilder.Entity(Of AgentSystem).Property(Function(t) t.AgentOSArchitecture).HasMaxLength(25)
 
+            'AgentData Table
+            modelBuilder.Entity(Of AgentData).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentData).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentData).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentData).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+
+            'AgentState Table
+            modelBuilder.Entity(Of AgentState).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentState).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentState).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentState).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+
             'AgentProcessor Table
-            modelBuilder.Entity(Of AgentProcessor).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentProcessor).HasKey(Function(t) t.AgentID)
+            'modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentName).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            'modelBuilder.Entity(Of AgentProcessor).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentMemory Table
-            modelBuilder.Entity(Of AgentMemory).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentMemory).HasKey(Function(t) t.AgentID)
+            'modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentName).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            'modelBuilder.Entity(Of AgentMemory).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentPageFile Table
-            modelBuilder.Entity(Of AgentPageFile).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentPageFile).HasKey(Function(t) t.AgentID)
+            'modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentName).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            'modelBuilder.Entity(Of AgentPageFile).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentLocalDisk Table
-            modelBuilder.Entity(Of AgentLocalDisk).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentLocalDisk).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentLocalDisk).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentLocalDisk).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentLocalDisk).HasKey(Function(t) t.AgentID)
+            'modelBuilder.Entity(Of AgentLocalDisk).Property(Function(t) t.AgentName).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentLocalDisk).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            'modelBuilder.Entity(Of AgentLocalDisk).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentServices Table
-            modelBuilder.Entity(Of AgentService).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentProperty).HasMaxLength(100)
+            'modelBuilder.Entity(Of AgentService).HasKey(Function(t) t.AgentID)
+            'modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentName).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            'modelBuilder.Entity(Of AgentService).Property(Function(t) t.AgentProperty).HasMaxLength(100)
 
             'Archive Tables
 
+            'AgentDataArchive Table
+            modelBuilder.Entity(Of AgentDataArchive).HasKey(Function(t) t.AgentID)
+            modelBuilder.Entity(Of AgentDataArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            modelBuilder.Entity(Of AgentDataArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            modelBuilder.Entity(Of AgentDataArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+
             'AgentProcessor Table
-            modelBuilder.Entity(Of AgentProcessorArchive).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentProcessorArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentProcessorArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentProcessorArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentProcessorArchive).HasKey(Function(t) t.AgentID)
+            'modelBuilder.Entity(Of AgentProcessorArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentProcessorArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            'modelBuilder.Entity(Of AgentProcessorArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentMemory Table
-            modelBuilder.Entity(Of AgentMemoryArchive).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentMemoryArchive).HasKey(Function(t) t.AgentID)
+            'modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            'modelBuilder.Entity(Of AgentMemoryArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentPageFile Table
-            modelBuilder.Entity(Of AgentPageFileArchive).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentPageFileArchive).HasKey(Function(t) t.AgentID)
+            'modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            'modelBuilder.Entity(Of AgentPageFileArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentLocalDisk Table
-            modelBuilder.Entity(Of AgentLocalDiskArchive).HasKey(Function(t) t.AgentID)
-            modelBuilder.Entity(Of AgentLocalDiskArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
-            modelBuilder.Entity(Of AgentLocalDiskArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
-            modelBuilder.Entity(Of AgentLocalDiskArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentLocalDiskArchive).HasKey(Function(t) t.AgentID)
+            'modelBuilder.Entity(Of AgentLocalDiskArchive).Property(Function(t) t.AgentName).HasMaxLength(50)
+            'modelBuilder.Entity(Of AgentLocalDiskArchive).Property(Function(t) t.AgentClass).HasMaxLength(25)
+            'modelBuilder.Entity(Of AgentLocalDiskArchive).Property(Function(t) t.AgentProperty).HasMaxLength(50)
 
             'AgentEvents Table
             modelBuilder.Entity(Of AgentEvents).HasKey(Function(t) t.EventID)
@@ -135,17 +153,20 @@ Namespace MonitoringDatabase
         ' Add a DbSet for each entity type that you want to include in your model. For more information 
         ' on configuring and using a Code First model, see http:'go.microsoft.com/fwlink/?LinkId=390109.
 
+        Public Overridable Property AgentData As DbSet(Of AgentData)
+        Public Overridable Property AgentDataArchive As DbSet(Of AgentDataArchive)
+        Public Overridable Property AgentState As DbSet(Of AgentState)
         Public Overridable Property AgentEvents As DbSet(Of AgentEvents)
-        Public Overridable Property AgentLocalDisk As DbSet(Of AgentLocalDisk)
-        Public Overridable Property AgentLocalDiskArchive As DbSet(Of AgentLocalDiskArchive)
-        Public Overridable Property AgentMemory As DbSet(Of AgentMemory)
-        Public Overridable Property AgentMemoryArchive As DbSet(Of AgentMemoryArchive)
-        Public Overridable Property AgentPageFile As DbSet(Of AgentPageFile)
-        Public Overridable Property AgentPageFileArchive As DbSet(Of AgentPageFileArchive)
-        Public Overridable Property AgentProcessor As DbSet(Of AgentProcessor)
-        Public Overridable Property AgentProcessorArchive As DbSet(Of AgentProcessorArchive)
+        'Public Overridable Property AgentLocalDisk As DbSet(Of AgentLocalDisk)
+        'Public Overridable Property AgentLocalDiskArchive As DbSet(Of AgentLocalDiskArchive)
+        'Public Overridable Property AgentMemory As DbSet(Of AgentMemory)
+        'Public Overridable Property AgentMemoryArchive As DbSet(Of AgentMemoryArchive)
+        'Public Overridable Property AgentPageFile As DbSet(Of AgentPageFile)
+        'Public Overridable Property AgentPageFileArchive As DbSet(Of AgentPageFileArchive)
+        'Public Overridable Property AgentProcessor As DbSet(Of AgentProcessor)
+        'Public Overridable Property AgentProcessorArchive As DbSet(Of AgentProcessorArchive)
         Public Overridable Property AgentSystem As DbSet(Of AgentSystem)
-        Public Overridable Property AgentService As DbSet(Of AgentService)
+        'Public Overridable Property AgentService As DbSet(Of AgentService)
         Public Overridable Property AgentThresholds As DbSet(Of AgentThresholds)
         Public Overridable Property ServerConfiguration As DbSet(Of ServerConfiguration)
         Public Overridable Property GlobalThresholds As DbSet(Of GlobalThresholds)
