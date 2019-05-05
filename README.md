@@ -2,6 +2,8 @@
 
 ## About
 
+This project is no longer supported.  I have shifted all efforts to the new Monitoring server written in Python.  Thanks to everyone who took the time to check out this project.  
+
 This repository contains the code for the Monitoring Server Application.  The Monitoring Server contains 4 parts.  MonitoringCollector is a Windows service that collects data from the Monitoring Agent and inserts it into the database.  MonitoringDataEngine processes the data and moves it to the correct tables.  MonitoringEventEngine creates events when thresholds have been crossed.  Monitoring is the Website component that is used to view and Administer the Monitoring solution.  It also creates the database when the site is loaded for the first time.  
 
 
